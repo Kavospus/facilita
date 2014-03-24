@@ -1,0 +1,36 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tests;
+
+import modelo.Determinar;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Andre
+ */
+public class DeterminarTest {
+    
+    public DeterminarTest() {
+    }
+    Determinar determinar;
+    @Before
+    public void setUp() {
+    }
+    @After
+    public void tearDown() {
+    }
+    @Test
+    public void testDeterminar() {
+        determinar = new Determinar(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2);
+        determinar.calcular();
+        double saida = -0.25;
+        assertEquals(saida,determinar.getResultado(), 0.000001);
+        assertEquals(saida,determinar.getResultado(), 0.000001);
+    }
+}

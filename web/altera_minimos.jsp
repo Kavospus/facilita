@@ -1,0 +1,41 @@
+<%-- 
+    Document   : altera_minimos
+    Author     : Andre
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/querySets.js"></script>
+        <script type="text/javascript" src="js/canvasManager.js"></script>
+        <title>JSP Page</title>
+    </head>
+    <%
+    int opcao=0,quantidade=0;
+        if(session.getAttribute("dados_minimos_opcao") != null){
+                opcao = (Integer) session.getAttribute("dados_minimos_opcao");
+            }
+        if(session.getAttribute("dados_minimos_quantidade") != null){
+                quantidade = (Integer) session.getAttribute("dados_minimos_quantidade");
+            }
+
+%>
+<body class="centertable" onload="refreshPage('minimos','altera_minimos_dinamicos.jsp?qnt=<%=quantidade%>');">
+        <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
+            Quantidade <input type="text" value="<%=quantidade%>" name="quantidade" id="quantidade" onkeyup="refreshPage('minimos','altera_minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
+        Ajuste <input type="radio" <%if(opcao == 1){out.print("checked");}%> name="opcao" value="1">Linear 
+              <input type="radio" <%if(opcao == 2){out.print("checked");}%> name="opcao" value="2">Gaussiano
+              <input type="radio" <%if(opcao == 3){out.print("checked");}%> name="opcao" value="3">Parabólico
+              <input type="radio" <%if(opcao == 4){out.print("checked");}%> name="opcao" value="4">Exponencial
+        <div id="minimos"></div>
+        <input class="button"type="submit" name="OK"/>
+        </form>
+    </body>
+</html>

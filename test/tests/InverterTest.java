@@ -1,0 +1,39 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tests;
+
+import modelo.Inverter;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Andre
+ */
+public class InverterTest {
+    
+    public InverterTest() {
+    }
+    Inverter inverter;
+    @Before
+    public void setUp() {
+    }
+    @After
+    public void tearDown() {
+    }
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    @Test
+    public void testInverter() {
+        inverter = new Inverter(new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
+        inverter.calcular();
+        double[][] saida = new double[][]{{-0.5,0.5},{0.75,-0.25}};
+        assertArrayEquals(saida[0],inverter.getResultado()[0], 0.000001);
+        assertArrayEquals(saida[1],inverter.getResultado()[1], 0.000001);
+    }
+}

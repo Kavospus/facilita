@@ -1,0 +1,159 @@
+/* 
+    Document   : main
+    Created on : 16/06/2013, 02:02:16
+    Author     : Andre
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body{
+    padding-top: 0px;
+    min-height: 1000px;
+    background-repeat: no-repeat;
+    background: #c9dbe9;
+    background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    
+}
+
+div.clear{
+    clear: both;
+}
+
+.fill{
+    width: 100%;
+    min-width: 800px;
+    min-height: 1000px;
+    height: auto;
+    background: #c9dbe9;
+    background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
+
+a{
+    text-decoration: none;
+    text-decoration-color: black;
+}
+.selfcontainer{
+    position:relative; /* needed for footer positioning*/
+    margin:0 auto; /* center, not in IE5 */
+    height:auto !important; /* real browsers */
+    height:100%; /* IE6: treaded as min-height*/
+    min-height:800px; /* real browsers */
+    max-width: 1280px;
+    min-width: 1024px;
+}
+.box{
+
+   border: 6px 6px 6px 6px;
+   border-color: #cccccc;
+   border-style: double;
+}
+
+.content{ /* bottom padding for footer */
+    padding-bottom:2em;
+    min-height: 400px;
+}
+
+.container{
+    width: 800px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: -100px;
+    background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    text-align: center;
+    border-radius: 25%;
+    transition: all 2s;
+    text-align: center;
+    min-width: 800px;
+}
+.tableDist{
+    width: 45%;
+}
+.loginBox{
+    padding-top: 200px;
+}
+
+.filled{
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+}
+.header{
+
+}
+
+.minStdHeight{
+    min-height: 250px;
+}
+
+.min200height{
+     min-height: 200px;
+}
+
+.minButtonWidth{
+   min-width: 30px;
+}
+.maxButtonWidth{
+    max-width: 50px;
+    
+}
+
+.fillall{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 200px;
+    max-height: 100%;
+}
+
+.container:hover{
+    width: 800px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: -webkit-linear-gradient(top, #c5d9e5 0%, #fff 100%);
+    background: -linear-gradient(top, #c5d9e5 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c5d9e5 0%, #fff 100%);
+    text-align: center;
+    border-radius: 50%;
+}
+.centro{
+    width: 700px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -25px;
+}
+.centertable{
+    width: auto;
+    height:auto;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.centerimage{
+    width: 720px;
+    height: 480px;
+    top:27%;
+    left:50%;
+    position: absolute;
+    margin-top: -240px;
+    margin-left: -360px;
+    text-align: center;
+}
+
