@@ -1,7 +1,7 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template file, choose Tools | Templates and open the template
+ * in the editor.
  */
 
 package controle;
@@ -18,7 +18,7 @@ import modelo.CalculoDAO;
 import modelo.Inverter;
 
 /**
- *
+ * 
  * @author andrebsguedes
  */
 public class ExcluirCalculo extends HttpServlet {
@@ -26,94 +26,99 @@ public class ExcluirCalculo extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        try {
-        if(session.getAttribute("calculo") == null){
-        response.sendRedirect("index.jsp?erro=1");
-        }else{
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ExcluirCalculo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            try {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Calculo c = new Inverter();
-                c.setId(id);
+    protected void processRequest(HttpServletRequest request,
+				  HttpServletResponse response)
+	    throws ServletException, IOException {
+	response.setContentType("text/html;charset=UTF-8");
+	PrintWriter out = response.getWriter();
+	HttpSession session = request.getSession();
+	try {
+	    if (session.getAttribute("calculo") == null) {
+		response.sendRedirect("index.jsp?erro=1");
+	    } else {
+		/*
+		 * TODO output your page here. You may use following sample
+		 * code.
+		 */
+		out.println("<!DOCTYPE html>");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Servlet ExcluirCalculo</title>");
+		out.println("</head>");
+		out.println("<body>");
+		try {
+		    int id = Integer.parseInt(request.getParameter("id"));
+		    Calculo c = new Inverter();
+		    c.setId(id);
 
-                CalculoDAO cDB = new CalculoDAO();
+		    CalculoDAO cDB = new CalculoDAO();
 
-                cDB.conectar();
-                cDB.excluir(c);
-                cDB.desconectar();
+		    cDB.conectar();
+		    cDB.excluir(c);
+		    cDB.desconectar();
 
+		    out.print("<script language='JavaScript'>");
+		    out.print(" alert('Registros deletados com sucesso!');");
+		    out.print(" window.open('listar_calculo.jsp','_parent');");
+		    out.print("</script>");
 
-                out.print("<script language='JavaScript'>");
-                out.print(" alert('Registros deletados com sucesso!');");
-                out.print(" window.open('listar_calculo.jsp','_parent');");
-                out.print("</script>");
-
-
-            } catch (Exception e) {
-                out.print(e);
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }
-        } finally {
-            out.close();
-        }
+		} catch (Exception e) {
+		    out.print(e);
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed"
+// desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
-     *
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doGet(HttpServletRequest request,
+			 HttpServletResponse response) throws ServletException,
+	    IOException {
+	processRequest(request, response);
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     *
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request,
+			  HttpServletResponse response)
+	    throws ServletException, IOException {
+	processRequest(request, response);
     }
 
     /**
      * Returns a short description of the servlet.
-     *
+     * 
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+	return "Short description";
     }// </editor-fold>
 
 }
