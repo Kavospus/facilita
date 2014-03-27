@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 
 package controle;
@@ -16,104 +16,109 @@ import modelo.Menu;
 import modelo.MenuDAO;
 
 /**
- *
+ * 
  * @author André
  */
 public class InserirMenu extends HttpServlet {
-   
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     * 
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        try {
-    if(session.getAttribute("menu") == null){
-       response.sendRedirect("index.jsp?erro=1");
-    }else{
-            // TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet InserirMenu</title>");
-            out.println("</head>");
-            out.println("<body>");
-            try {
+    protected void processRequest(HttpServletRequest request,
+				  HttpServletResponse response)
+	    throws ServletException, IOException {
+	response.setContentType("text/html;charset=UTF-8");
+	PrintWriter out = response.getWriter();
+	HttpSession session = request.getSession();
+	try {
+	    if (session.getAttribute("menu") == null) {
+		response.sendRedirect("index.jsp?erro=1");
+	    } else {
+		// TODO output your page here
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Servlet InserirMenu</title>");
+		out.println("</head>");
+		out.println("<body>");
+		try {
 
-                String menu = request.getParameter("menu");
-                String link = request.getParameter("link");
-                String icone = request.getParameter("icone");
+		    String menu = request.getParameter("menu");
+		    String link = request.getParameter("link");
+		    String icone = request.getParameter("icone");
 
-                Menu m = new Menu();
-                m.setMenu(menu);
-                m.setLink(link);
-                m.setIcone(icone);
+		    Menu m = new Menu();
+		    m.setMenu(menu);
+		    m.setLink(link);
+		    m.setIcone(icone);
 
+		    MenuDAO mDB = new MenuDAO();
 
+		    mDB.conectar();
+		    mDB.inserir(m);
+		    mDB.desconectar();
 
-                MenuDAO mDB = new MenuDAO();
+		    out.print("<script language='JavaScript'>");
+		    out.print(" alert('Registros inseridos com sucesso!');");
+		    out.print(" window.open('listar_menu.jsp','_parent');");
+		    out.print("</script>");
 
-                mDB.conectar();
-                mDB.inserir(m);
-                mDB.desconectar();
-
-
-                out.print("<script language='JavaScript'>");
-                out.print(" alert('Registros inseridos com sucesso!');");
-                out.print(" window.open('listar_menu.jsp','_parent');");
-                out.print("</script>");
-
-
-            } catch (Exception e) {
-                out.print(e);
-            }
-            out.println("</body>");
-            out.println("</html>");
-            }
-        } finally { 
-            out.close();
-        }
-    } 
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
-    } 
-
-    /** 
-     * Handles the HTTP <code>POST</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
+		} catch (Exception e) {
+		    out.print(e);
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
     }
 
-    /** 
+    // <editor-fold defaultstate="collapsed"
+// desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     * 
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request,
+			 HttpServletResponse response) throws ServletException,
+	    IOException {
+	processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     * 
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request,
+			  HttpServletResponse response)
+	    throws ServletException, IOException {
+	processRequest(request, response);
+    }
+
+    /**
      * Returns a short description of the servlet.
+     * 
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+	return "Short description";
     }// </editor-fold>
 
 }
