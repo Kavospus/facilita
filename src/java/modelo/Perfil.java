@@ -7,44 +7,42 @@ public class Perfil {
     private String perfil;
     private ArrayList<Menu> menus;
 
-
     public Perfil() {
     }
 
     public Perfil(int id, String perfil) {
-        this.id = id;
-        this.perfil = perfil;
+	this.id = id;
+	this.perfil = perfil;
     }
-    
 
     public Perfil(int id, String perfil, ArrayList<Menu> menus) {
-        this.id = id;
-        this.perfil = perfil;
-        this.menus = menus;
+	this.id = id;
+	this.perfil = perfil;
+	this.menus = menus;
     }
 
     public int getId() {
-        return id;
+	return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+	this.id = id;
     }
 
     public String getPerfil() {
-        return perfil;
+	return perfil;
     }
 
     public void setPerfil(String perfil) {
-        this.perfil = perfil;
+	this.perfil = perfil;
     }
 
     public ArrayList<Menu> getMenus() {
-        return menus;
+	return menus;
     }
 
     public void setMenus(ArrayList<Menu> menus) {
-        this.menus = menus;
+	this.menus = menus;
     }
-    
+
 }

@@ -1,124 +1,124 @@
-
 package modelo;
 
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Multiplicar extends Calculo{
-        private double[][] entradaA;
+public class Multiplicar extends Calculo {
+    private double[][] entradaA;
     private double[][] entradaB;
     private double[][] resultado;
     private int dimensaoA;
     private int dimensaoB;
     private int dimensaoC;
-    
-    public Multiplicar(){
-        
-    }
-    public Multiplicar(double[][] entradaA, double[][] entradaB, int dimensaoA, int dimensaoB, int dimensaoC) {
-        ArrayList<String> entradas = new ArrayList<String>();
-        this.entradaA = entradaA;
-        this.entradaB = entradaB;
-        this.dimensaoA = dimensaoA;
-        this.dimensaoB = dimensaoB;
-        this.dimensaoC = dimensaoC;
-        entradas.add(MatrixParser.parseString(entradaA));
-        entradas.add(MatrixParser.parseString(entradaB));
-        this.setStringEntrada(MatrixParser.concat(entradas));
-        this.setOperacao("Multiplicar");
-    }
-    
-    
-    public double[][] multiplicaMatrizes(double ma[][], double mb[][], int dima, int dimb, int dimc) {
-        double result[][] = new double[dima][dimc];
-        int i, j;
-        SimpleMatrix A = new SimpleMatrix(ma);
-        SimpleMatrix b = new SimpleMatrix(mb);
-        SimpleMatrix x;
-        x = A.mult(b);
 
-        for (i = 0; i < dima; i++) {
-            for (j = 0; j < dimc; j++) {
-                result[i][j] = x.get(i, j);
-            }
-        }
-        return result;
-    }
-    
-    @Override
-    public void setDadosString(){
-        ArrayList<String> entradas = MatrixParser.unconcat(this.getStringEntrada());
-        this.setEntradaA(MatrixParser.parseMatrix(entradas.get(0)));
-        this.setEntradaB(MatrixParser.parseMatrix(entradas.get(1)));
-        this.setDimensaoA(this.getEntradaA().length);
-        this.setDimensaoB(this.getEntradaA()[0].length);
-        this.setDimensaoC(this.getEntradaB()[0].length);
-        this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
-    }
-    
-    @Override
-    public void setStringDados(){
-        ArrayList<String> entradas = new ArrayList<String>();
-        entradas.add(MatrixParser.parseString(getEntradaA()));
-        entradas.add(MatrixParser.parseString(getEntradaB()));
-        this.setStringEntrada(MatrixParser.concat(entradas));
-        this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    public Multiplicar() {
+
     }
 
+    public Multiplicar(double[][] entradaA, double[][] entradaB, int dimensaoA,
+	    int dimensaoB, int dimensaoC) {
+	ArrayList<String> entradas = new ArrayList<String>();
+	this.entradaA = entradaA;
+	this.entradaB = entradaB;
+	this.dimensaoA = dimensaoA;
+	this.dimensaoB = dimensaoB;
+	this.dimensaoC = dimensaoC;
+	entradas.add(MatrixParser.parseString(entradaA));
+	entradas.add(MatrixParser.parseString(entradaB));
+	this.setStringEntrada(MatrixParser.concat(entradas));
+	this.setOperacao("Multiplicar");
+    }
+
+    public double[][] multiplicaMatrizes(double ma[][], double mb[][],
+					 int dima, int dimb, int dimc) {
+	double result[][] = new double[dima][dimc];
+	int i, j;
+	SimpleMatrix A = new SimpleMatrix(ma);
+	SimpleMatrix b = new SimpleMatrix(mb);
+	SimpleMatrix x;
+	x = A.mult(b);
+
+	for (i = 0; i < dima; i++) {
+	    for (j = 0; j < dimc; j++) {
+		result[i][j] = x.get(i, j);
+	    }
+	}
+	return result;
+    }
+
+    @Override
+    public void setDadosString() {
+	ArrayList<String> entradas = MatrixParser.unconcat(this
+		.getStringEntrada());
+	this.setEntradaA(MatrixParser.parseMatrix(entradas.get(0)));
+	this.setEntradaB(MatrixParser.parseMatrix(entradas.get(1)));
+	this.setDimensaoA(this.getEntradaA().length);
+	this.setDimensaoB(this.getEntradaA()[0].length);
+	this.setDimensaoC(this.getEntradaB()[0].length);
+	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
+    }
+
+    @Override
+    public void setStringDados() {
+	ArrayList<String> entradas = new ArrayList<String>();
+	entradas.add(MatrixParser.parseString(getEntradaA()));
+	entradas.add(MatrixParser.parseString(getEntradaB()));
+	this.setStringEntrada(MatrixParser.concat(entradas));
+	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    }
 
     public double[][] getResultado() {
-        return resultado;
+	return resultado;
     }
-    
-    
 
     public int getDimensaoA() {
-        return dimensaoA;
+	return dimensaoA;
     }
 
     public void setDimensaoA(int dimensaoA) {
-        this.dimensaoA = dimensaoA;
+	this.dimensaoA = dimensaoA;
     }
 
     public int getDimensaoB() {
-        return dimensaoB;
+	return dimensaoB;
     }
 
     public void setDimensaoB(int dimensaoB) {
-        this.dimensaoB = dimensaoB;
+	this.dimensaoB = dimensaoB;
     }
 
     @Override
     public void calcular() {
-        this.setResultado(multiplicaMatrizes(getEntradaA(), getEntradaB(), getDimensaoA(), getDimensaoB(),getDimensaoC()));
-        this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+	this.setResultado(multiplicaMatrizes(getEntradaA(), getEntradaB(),
+		getDimensaoA(), getDimensaoB(), getDimensaoC()));
+	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
     }
 
     public double[][] getEntradaA() {
-        return entradaA;
+	return entradaA;
     }
 
     public double[][] getEntradaB() {
-        return entradaB;
+	return entradaB;
     }
 
     public void setEntradaA(double[][] entradaA) {
-        this.entradaA = entradaA;
+	this.entradaA = entradaA;
     }
 
     public void setEntradaB(double[][] entradaB) {
-        this.entradaB = entradaB;
+	this.entradaB = entradaB;
     }
 
     public void setResultado(double[][] resultado) {
-        this.resultado = resultado;
+	this.resultado = resultado;
     }
 
     public int getDimensaoC() {
-        return dimensaoC;
+	return dimensaoC;
     }
 
     public void setDimensaoC(int dimensaoC) {
-        this.dimensaoC = dimensaoC;
+	this.dimensaoC = dimensaoC;
     }
 }
