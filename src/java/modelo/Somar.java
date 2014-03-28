@@ -36,7 +36,7 @@ public class Somar extends Calculo {
 	this.setOperacao("Somar");
     }
     
-    /*Function to Sum two matrixes*/
+    /*Function to sum two matrices*/
     public double[][] somaMatrizes(double ma[][], double mb[][], int dima,
 				   int dimb) {
 
@@ -98,7 +98,7 @@ public class Somar extends Calculo {
 	this.dimensaoB = dimensaoB;
     }
     
-    /*Abstract method implementation to calculate the operation*/
+    /*Abstract method implementation to calculate the operation of sum of two matrices*/
     @Override
     public void calcular() {
 	this.setResultado(somaMatrizes(getEntradaA(), getEntradaB(),
