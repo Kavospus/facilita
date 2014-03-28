@@ -1,6 +1,6 @@
 /*
  *Licensed under ..., see LICENSE.md
- *Authors: André Bernardes.
+ *Authors: AndrÃ© Bernardes.
  *Created on: 28/03/2014, 11:23:34
  *Description: Database persistence class for Menu. That includes operations
  *list,update,remove,insert into database.
