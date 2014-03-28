@@ -13,7 +13,8 @@ import org.ejml.simple.SimpleMatrix;
  */
 public class Minimos {
     String erro = null;
-
+    
+    /*Function to calculate Least-Squares*/
     public double[] calculaMinimos(double vx[], double vy[], int qnt, int opcao)
 	    throws SingularMatrixException {
 
@@ -136,7 +137,8 @@ public class Minimos {
 
 	return result;
     }
-
+    
+    /*Static method to solve a LU decomposition*/
     public static SimpleMatrix solveMatrix(SimpleMatrix A, SimpleMatrix b,
 					   int dimension)
 	    throws SingularMatrixException {

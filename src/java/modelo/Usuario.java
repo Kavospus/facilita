@@ -50,7 +50,8 @@ public class Usuario {
     public void setSenha(String senha) {
 	this.senha = senha;
     }
-
+    
+    /*Verify the permission of the User on the given context*/
     public boolean temPermissao(String uri, String context, Usuario user) {
 	boolean result = false;
 	String path = null;
