@@ -28,7 +28,7 @@ public class Subtrair extends Calculo {
 	this.setOperacao("Subtrair");
     }
     
-    /*Function to Subtract two matrixes*/
+    /*Function to Subtract two matrices*/
     public double[][] subtraiMatrizes(double ma[][], double mb[][], int dima,
 				      int dimb) {
 
