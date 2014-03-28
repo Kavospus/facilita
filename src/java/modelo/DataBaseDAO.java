@@ -13,20 +13,20 @@ public class DataBaseDAO {
     protected Connection conn;
 
     public DataBaseDAO() throws Exception {
-        Class.forName(DRIVER);
-        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+	Class.forName(DRIVER);
+	DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
     }
 
     public void conectar() throws SQLException {
-        conn = DriverManager.getConnection(URL, USER, SENHA);
+	conn = DriverManager.getConnection(URL, USER, SENHA);
     }
 
     public void desconectar() throws SQLException {
-        if(conn!=null){
-            conn.close();
-            DriverManager.deregisterDriver(new com.mysql.jdbc.Driver());
-        }
-        
+	if (conn != null) {
+	    conn.close();
+	    DriverManager.deregisterDriver(new com.mysql.jdbc.Driver());
+	}
+
     }
 }

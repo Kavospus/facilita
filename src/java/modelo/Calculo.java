@@ -1,8 +1,7 @@
 package modelo;
 
-
 /**
- *
+ * 
  * @author andrebsguedes
  */
 public abstract class Calculo {
@@ -13,46 +12,48 @@ public abstract class Calculo {
     private Usuario usuario;
 
     public String getOperacao() {
-        return operacao;
+	return operacao;
     }
 
     public void setOperacao(String operacao) {
-        this.operacao = operacao;
+	this.operacao = operacao;
     }
-    
+
     public abstract void calcular();
+
     public abstract void setDadosString();
+
     public abstract void setStringDados();
 
     public String getStringEntrada() {
-        return stringEntrada;
+	return stringEntrada;
     }
 
     public void setStringEntrada(String stringEntrada) {
-        this.stringEntrada = stringEntrada;
+	this.stringEntrada = stringEntrada;
     }
 
     public String getStringResultado() {
-        return stringResultado;
+	return stringResultado;
     }
 
     public void setStringResultado(String stringResultado) {
-        this.stringResultado = stringResultado;
+	this.stringResultado = stringResultado;
     }
 
     public Usuario getUsuario() {
-        return usuario;
+	return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+	this.usuario = usuario;
     }
 
     public int getId() {
-        return id;
+	return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+	this.id = id;
     }
 }
