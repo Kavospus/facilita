@@ -1,3 +1,10 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Database connection manager class.
+ */
+
 package modelo;
 
 import java.sql.Connection;

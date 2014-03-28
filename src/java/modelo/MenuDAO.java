@@ -1,3 +1,12 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Database persistence class for Menu. That includes operations
+ *list,update,remove,insert into database.
+ */
+
+
 package modelo;
 
 import java.sql.PreparedStatement;
@@ -84,7 +93,7 @@ public class MenuDAO extends DataBaseDAO {
         pst.execute();
 
     }
-    
+
     public Menu carregaPorId(int id) throws SQLException{
         Menu m = new Menu();
         PreparedStatement pst;
