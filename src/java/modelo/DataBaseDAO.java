@@ -18,17 +18,20 @@ public class DataBaseDAO {
     public static final String SENHA = "root";
     public static final String USER = "root";
     protected Connection conn;
-
+    
+    /*Constructor*/
     public DataBaseDAO() throws Exception {
 	Class.forName(DRIVER);
 	DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
     }
-
+    
+    /*Connects to the database*/
     public void conectar() throws SQLException {
 	conn = DriverManager.getConnection(URL, USER, SENHA);
     }
-
+    
+    /*Disconnects to the database*/
     public void desconectar() throws SQLException {
 	if (conn != null) {
 	    conn.close();

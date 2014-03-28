@@ -17,7 +17,7 @@ public class CalculoDAO extends DataBaseDAO {
 
     public CalculoDAO() throws Exception {
     }
-    
+    /*Initialize Calculos object acording to the operator*/
     public Calculo init(String operador) {
 	Calculo calculo = null;
 	if (operador.equals("Inverter")) {
@@ -37,8 +37,9 @@ public class CalculoDAO extends DataBaseDAO {
 	}
 
 	return calculo;
-    }
+    }   
     
+    /*Insert a Calculus object to the database*/
     public void inserir(Calculo c) throws SQLException {
 
 	PreparedStatement pst;
@@ -51,7 +52,8 @@ public class CalculoDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    
+    /*Consult a list of all Calculus objects on the database*/
     public ArrayList<Calculo> listar() throws SQLException, Exception {
 
 	UsuarioDAO uDB = new UsuarioDAO();
@@ -74,7 +76,8 @@ public class CalculoDAO extends DataBaseDAO {
 	return lista;
 
     }
-
+    
+    /*Consult a list of Calculus objects owned by the User argument on the database*/
     public ArrayList<Calculo> listar(Usuario u) throws SQLException, Exception {
         UsuarioDAO uDB = new UsuarioDAO();
 	ArrayList<Calculo> lista = new ArrayList<Calculo>();
@@ -97,7 +100,8 @@ public class CalculoDAO extends DataBaseDAO {
 	return lista;
 
     }
-
+    
+    /*Edit a Calculus object on the database*/
     public void alterar(Calculo c) throws SQLException {
 	PreparedStatement pst;
 	String sql = "UPDATE calculo SET operacao=?, entrada=?, resultado=?, id_usuario=?  WHERE id=?";
@@ -110,7 +114,7 @@ public class CalculoDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    /*Load a Calculus object with the id argument on the database*/
     public Calculo carregaPorId(int id) throws SQLException, Exception {
 	UsuarioDAO uDB = new UsuarioDAO();
 	PreparedStatement pst;
@@ -132,7 +136,8 @@ public class CalculoDAO extends DataBaseDAO {
 	return null;
 
     }
-
+    
+    /*Delete a Calculus object on the database*/
     public void excluir(Calculo c) throws SQLException {
 	PreparedStatement pst;
 	String sql = "DELETE FROM calculo WHERE id=?";
