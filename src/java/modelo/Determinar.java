@@ -12,6 +12,7 @@ public class Determinar extends Calculo {
 
     }
 
+    /*Constructor*/
     public Determinar(double[][] entrada, int dimensaoA, int dimensaoB) {
 	this.entrada = entrada;
 	this.dimensaoA = dimensaoA;
@@ -21,6 +22,7 @@ public class Determinar extends Calculo {
 
     }
 
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	this.setEntrada(MatrixParser.parseMatrix(this.getStringEntrada()));
@@ -29,12 +31,14 @@ public class Determinar extends Calculo {
 	this.setResultado(MatrixParser.parseNumber(this.getStringResultado()));
     }
 
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	this.setStringEntrada(MatrixParser.parseString(getEntrada()));
 	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
     }
 
+    /*Function to calculate the determinant of a matrix*/
     public double determinanteMatriz(double ma[][]) {
 	double result = 0;
 	SimpleMatrix A = new SimpleMatrix(ma);
@@ -42,6 +46,7 @@ public class Determinar extends Calculo {
 	return result;
     }
 
+    /*Abstract method implementation to calculate the operation of determinant of a matrix*/
     @Override
     public void calcular() {
 	this.setResultado(determinanteMatriz(getEntrada()));
