@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Licensed under ..., see LICENSE.md
+${licensePrefix}Authors:
+${licensePrefix}Created on: ${date}, ${time}
+${licensePrefix}Description:
+<#if licenseLast??>
+${licenseLast}
+</#if>
