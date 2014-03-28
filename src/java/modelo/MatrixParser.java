@@ -3,7 +3,8 @@ package modelo;
 import java.util.ArrayList;
 
 public class MatrixParser {
-
+    
+    /*Static method to parse a matrix into a string*/
     public static String parseString(double[][] matrix) {
 	int i, j;
 	String result = "{";
@@ -23,13 +24,15 @@ public class MatrixParser {
 	result += "}";
 	return result;
     }
-
+    
+    /*Static method to parse a double into a string*/
     public static String parseString(double num) {
 	String result = "";
 	result = "{" + num + "}";
 	return result;
     }
-
+    
+    /*Static method to parse a string into a double*/
     public static double parseNumber(String num) {
 	double result = 0;
 	String aux = "";
@@ -45,7 +48,8 @@ public class MatrixParser {
 	}
 	return result;
     }
-
+    
+    /*Static method to parse a string into a matrix*/
     public static double[][] parseMatrix(String matrix) {
 	String num = "";
 	int i = 0, j = 0, a = 0, b = 0, k;
@@ -82,7 +86,8 @@ public class MatrixParser {
 
 	return result;
     }
-
+    
+    /*Static method to concatenate parsed strings*/
     public static String concat(ArrayList<String> data) {
 	String result = "";
 	for (String s : data) {
@@ -90,7 +95,8 @@ public class MatrixParser {
 	}
 	return result;
     }
-
+    
+    /*Static method to unconcatenate concatenated strings*/
     public static ArrayList<String> unconcat(String data) {
 	ArrayList<String> results = new ArrayList<String>();
 	String aux = "";

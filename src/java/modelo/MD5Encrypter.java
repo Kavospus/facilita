@@ -10,7 +10,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MD5Encrypter {
-
+    
+    /*Static method to encrypt a password into a md5 hash string*/
     public static String encryptMD5(String pass) {
 	String senha = "";
 	try {
