@@ -18,7 +18,8 @@ public class PerfilDAO extends DataBaseDAO {
 
     public PerfilDAO() throws Exception {
     }
-
+    
+    /*Insert a Profile object to the database*/
     public void inserir(Perfil p) throws SQLException {
 
 	PreparedStatement pst;
@@ -28,7 +29,8 @@ public class PerfilDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    
+    /*Consult a list of all Profile objects on the database*/
     public ArrayList<Perfil> listar() throws SQLException, Exception {
 	MenuDAO mDB = new MenuDAO();
 	ArrayList<Perfil> lista = new ArrayList<Perfil>();
@@ -46,7 +48,8 @@ public class PerfilDAO extends DataBaseDAO {
 	return lista;
 
     }
-
+    
+    /*Delete a Profile object on the database*/
     public void excluir(Perfil p) throws SQLException {
 
 	PreparedStatement pst;
@@ -56,7 +59,8 @@ public class PerfilDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    
+    /*Load a Profile object with the id argument on the database*/
     public Perfil carregaPorId(int id) throws SQLException, Exception {
 	Perfil p = new Perfil();
 	MenuDAO mDB = new MenuDAO();
@@ -75,7 +79,8 @@ public class PerfilDAO extends DataBaseDAO {
 	return p;
 
     }
-
+    
+    /*Edit a Profile object on the database*/
     public void alterar(Perfil p) throws SQLException {
 
 	PreparedStatement pst;

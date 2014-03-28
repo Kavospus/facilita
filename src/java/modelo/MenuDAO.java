@@ -18,7 +18,8 @@ public class MenuDAO extends DataBaseDAO {
 
     public MenuDAO() throws Exception {
     }
-
+    
+    /*Insert a Menu object to the database*/
     public void inserir(Menu m) throws SQLException{
 
         PreparedStatement pst;
@@ -30,7 +31,8 @@ public class MenuDAO extends DataBaseDAO {
         pst.execute();
 
     }
-
+    
+    /*Consult a list of all Menu objects on the database*/
     public ArrayList<Menu> listar() throws SQLException{
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
@@ -45,7 +47,11 @@ public class MenuDAO extends DataBaseDAO {
         return lista;
 
     }
-
+    
+    /*
+     *Consult a list of Menu objects associated by id_perfil argument
+     *on the database
+     */
     public ArrayList<Menu> menusPerfil(int id_perfil) throws SQLException {
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
@@ -64,7 +70,11 @@ public class MenuDAO extends DataBaseDAO {
         return lista;
 
     }
-
+    
+    /*
+     *Consult a list of Menu objects not associated by id_perfil argument
+     *on the database
+     */
     public ArrayList<Menu> menusNaoPerfil(int id_perfil) throws SQLException {
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
@@ -80,7 +90,8 @@ public class MenuDAO extends DataBaseDAO {
         return lista;
 
     }
-
+    
+    /*Edit a Menu object on the database*/
     public void alterar(Menu m) throws SQLException{
 
         PreparedStatement pst;
@@ -93,7 +104,8 @@ public class MenuDAO extends DataBaseDAO {
         pst.execute();
 
     }
-
+    
+    /*Load a Menu object with the id argument on the database*/
     public Menu carregaPorId(int id) throws SQLException{
         Menu m = new Menu();
         PreparedStatement pst;
@@ -110,7 +122,8 @@ public class MenuDAO extends DataBaseDAO {
         return m;
 
     }
-
+    
+    /*Delete a Menu object on the database*/
     public void excluir(Menu m) throws SQLException{
 
         PreparedStatement pst;
@@ -120,7 +133,11 @@ public class MenuDAO extends DataBaseDAO {
         pst.execute();
 
     }
-
+    
+    /*
+     *Associate a Menu object with a Profile object 
+     *throught id_menu and id_profile arguments on the database
+     */
     public void vincularMenu(int id_menu, int id_perfil) throws SQLException{
 
         PreparedStatement pst;
@@ -131,7 +148,11 @@ public class MenuDAO extends DataBaseDAO {
         pst.execute();
 
     }
-
+    
+    /*
+     *Disassociate a Menu object with a Profile object 
+     *throught id_menu and id_profile arguments on the database
+     */
     public void desvincularMenu(int id_menu, int id_perfil) throws SQLException{
 
         PreparedStatement pst;

@@ -17,7 +17,8 @@ public class UsuarioDAO extends DataBaseDAO {
 
     public UsuarioDAO() throws Exception {
     }
-
+    
+    /*Insert a User object to the database*/
     public void inserir(Usuario u) throws SQLException {
 
 	PreparedStatement pst;
@@ -31,7 +32,8 @@ public class UsuarioDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    
+    /*Consult a list of all User objects on the database*/
     public ArrayList<Usuario> listar() throws SQLException, Exception {
 
 	PerfilDAO pDB = new PerfilDAO();
@@ -54,7 +56,8 @@ public class UsuarioDAO extends DataBaseDAO {
 	return lista;
 
     }
-
+    
+    /*Login a User object throught the user and password arguments*/
     public Usuario logar(String user, String senha) throws SQLException,
 	    Exception {
 	PerfilDAO pDB = new PerfilDAO();
@@ -77,7 +80,8 @@ public class UsuarioDAO extends DataBaseDAO {
 
 	return u;
     }
-
+    
+    /*Edit a User object on the database*/
     public void alterar(Usuario u) throws SQLException {
 
 	PreparedStatement pst;
@@ -91,7 +95,8 @@ public class UsuarioDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-
+    
+    /*Load a User object with the id argument on the database*/
     public Usuario carregaPorId(int id) throws SQLException, Exception {
 	Usuario u = new Usuario();
 	PerfilDAO pDB = new PerfilDAO();
@@ -112,7 +117,8 @@ public class UsuarioDAO extends DataBaseDAO {
 	return u;
 
     }
-
+    
+    /*Delete a User object on the database*/
     public void excluir(Usuario u) throws SQLException {
 
 	PreparedStatement pst;
