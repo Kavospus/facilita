@@ -9,7 +9,7 @@ public class CalculoDAO extends DataBaseDAO {
 
     public CalculoDAO() throws Exception {
     }
-
+    
     public Calculo init(String operador) {
 	Calculo calculo = null;
 	if (operador.equals("Inverter")) {
@@ -30,7 +30,7 @@ public class CalculoDAO extends DataBaseDAO {
 
 	return calculo;
     }
-
+    
     public void inserir(Calculo c) throws SQLException {
 
 	PreparedStatement pst;

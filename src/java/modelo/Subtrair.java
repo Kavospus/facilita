@@ -13,7 +13,8 @@ public class Subtrair extends Calculo {
     public Subtrair() {
 
     }
-
+    
+    /*Constructor*/
     public Subtrair(double[][] entradaA, double[][] entradaB, int dimensaoA,
 	    int dimensaoB) {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -26,7 +27,8 @@ public class Subtrair extends Calculo {
 	this.setStringEntrada(MatrixParser.concat(entradas));
 	this.setOperacao("Subtrair");
     }
-
+    
+    /*Function to Subtract two matrixes*/
     public double[][] subtraiMatrizes(double ma[][], double mb[][], int dima,
 				      int dimb) {
 
@@ -44,7 +46,8 @@ public class Subtrair extends Calculo {
 
 	return result;
     }
-
+    
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	ArrayList<String> entradas = MatrixParser.unconcat(this
@@ -55,7 +58,8 @@ public class Subtrair extends Calculo {
 	this.setDimensaoB(this.getEntradaA()[0].length);
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
-
+    
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -84,7 +88,8 @@ public class Subtrair extends Calculo {
     public void setDimensaoB(int dimensaoB) {
 	this.dimensaoB = dimensaoB;
     }
-
+    
+    /*Abstract method implementation to calculate the operation*/
     @Override
     public void calcular() {
 	this.setResultado(subtraiMatrizes(getEntradaA(), getEntradaB(),

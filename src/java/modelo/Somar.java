@@ -21,7 +21,8 @@ public class Somar extends Calculo {
     public Somar() {
 
     }
-
+    
+    /*Constructor*/
     public Somar(double[][] entradaA, double[][] entradaB, int dimensaoA,
 	    int dimensaoB) {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -34,7 +35,8 @@ public class Somar extends Calculo {
 	this.setStringEntrada(MatrixParser.concat(entradas));
 	this.setOperacao("Somar");
     }
-
+    
+    /*Function to Sum two matrixes*/
     public double[][] somaMatrizes(double ma[][], double mb[][], int dima,
 				   int dimb) {
 
@@ -53,7 +55,8 @@ public class Somar extends Calculo {
 
 	return result;
     }
-
+    
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	ArrayList<String> entradas = MatrixParser.unconcat(this
@@ -64,7 +67,8 @@ public class Somar extends Calculo {
 	this.setDimensaoB(this.getEntradaA()[0].length);
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
-
+    
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -93,7 +97,8 @@ public class Somar extends Calculo {
     public void setDimensaoB(int dimensaoB) {
 	this.dimensaoB = dimensaoB;
     }
-
+    
+    /*Abstract method implementation to calculate the operation*/
     @Override
     public void calcular() {
 	this.setResultado(somaMatrizes(getEntradaA(), getEntradaB(),
