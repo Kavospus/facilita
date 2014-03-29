@@ -1,8 +1,9 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class to remove menus. 
  */
-
 package controle;
 
 import java.io.IOException;
@@ -15,10 +16,6 @@ import javax.servlet.http.HttpSession;
 import modelo.Menu;
 import modelo.MenuDAO;
 
-/**
- * 
- * @author André
- */
 public class ExcluirMenu extends HttpServlet {
 
     /**
