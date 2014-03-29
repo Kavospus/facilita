@@ -17,6 +17,7 @@ public class Usuario {
     public Usuario() {
     }
 
+    /*Constructor*/
     public Usuario(int id, String nome, Perfil perfil, String login,
 	    String senha) {
 	this.id = id;
