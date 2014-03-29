@@ -1,8 +1,9 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class to insert a new profile.
  */
-
 package controle;
 
 import java.io.IOException;
@@ -15,10 +16,6 @@ import javax.servlet.http.HttpSession;
 import modelo.Perfil;
 import modelo.PerfilDAO;
 
-/**
- * 
- * @author André
- */
 public class InserirPerfil extends HttpServlet {
 
     /**
