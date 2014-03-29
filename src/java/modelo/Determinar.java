@@ -1,3 +1,11 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that calculates the determinant.
+ */
+
+
 package modelo;
 
 import org.ejml.simple.SimpleMatrix;

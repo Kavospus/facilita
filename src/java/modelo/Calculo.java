@@ -1,9 +1,14 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Abstract class Calculus. This class contains common
+ *methods and variables of the operation classes.
+ */
+
 package modelo;
 
-/**
- * 
- * @author andrebsguedes
- */
+
 public abstract class Calculo {
     private int id;
     private String operacao;
