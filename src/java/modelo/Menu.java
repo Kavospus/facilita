@@ -16,6 +16,7 @@ public class Menu {
     public Menu() {
     }
 
+    /*Constructor*/
     public Menu(int id, String menu, String link, String icone) {
 	this.id = id;
 	this.menu = menu;

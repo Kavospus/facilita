@@ -17,11 +17,13 @@ public class Perfil {
     public Perfil() {
     }
 
+    /*Constructor*/
     public Perfil(int id, String perfil) {
 	this.id = id;
 	this.perfil = perfil;
     }
 
+    /*Constructor*/
     public Perfil(int id, String perfil, ArrayList<Menu> menus) {
 	this.id = id;
 	this.perfil = perfil;
