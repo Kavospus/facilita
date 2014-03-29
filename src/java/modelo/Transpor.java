@@ -1,17 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that transpose matrices.
  */
 
 package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-/**
- * 
- * @author andrebsguedes
- */
 public class Transpor extends Calculo {
     private double[][] entrada;
     private double[][] resultado;
