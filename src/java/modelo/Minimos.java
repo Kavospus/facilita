@@ -1,16 +1,17 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that calculates least-squares to a linear,gauss, 
+ *parabolico or exponential functions.
  */
+
 package modelo;
 
 import org.ejml.factory.SingularMatrixException;
 import org.ejml.simple.SimpleMatrix;
 
-/**
- * 
- * @author Andre
- */
+
 public class Minimos {
     String erro = null;
     

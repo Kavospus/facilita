@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Classe that multiply a matrix by a scalar.
+ *Description: Class that multiply a matrix by a scalar.
  */
 
 package modelo;

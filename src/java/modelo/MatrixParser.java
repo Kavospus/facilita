@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Classe that parser data types into matrix and matrix into
+ *Description: Class that parser data types into matrix and matrix into
  *data types.
  */
 

@@ -1,16 +1,15 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that sum two matrices.
  */
+
 package modelo;
 
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-/**
- * 
- * @author Andre
- */
 public class Somar extends Calculo {
     private double[][] entradaA;
     private double[][] entradaB;
