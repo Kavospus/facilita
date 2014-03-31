@@ -1,7 +1,7 @@
 Members
 ========
 
-André Bernardes 
-Gabriel de Araújo
-Guilherme da Luz
-Luís Resende
+André Bernardes <br />
+Gabriel de Araújo <br />
+Guilherme da Luz <br />
+Luís Resende <br />
