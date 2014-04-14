@@ -1,3 +1,10 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class to insert data to multiply matrices. 
+ */
+
 package controle;
 
 import java.io.IOException;

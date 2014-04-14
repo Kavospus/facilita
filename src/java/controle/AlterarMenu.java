@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that change the menu.
  */
 
 package controle;
@@ -15,10 +17,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Menu;
 import modelo.MenuDAO;
 
-/**
- *
- * @author André
- */
+
 public class AlterarMenu extends HttpServlet {
    
     /** 

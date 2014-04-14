@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class to load data to do the calculus. 
  */
 package controle;
 
@@ -21,10 +23,7 @@ import modelo.Somar;
 import modelo.Subtrair;
 import modelo.Transpor;
 
-/**
- * 
- * @author Andre
- */
+
 public class CarregarCalculo extends HttpServlet {
 
     /**

@@ -1,3 +1,11 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that multiply two matrices. 
+ */
+
+
 package modelo;
 
 import java.util.ArrayList;
@@ -15,6 +23,7 @@ public class Multiplicar extends Calculo {
 
     }
 
+    /*Constructor*/
     public Multiplicar(double[][] entradaA, double[][] entradaB, int dimensaoA,
 	    int dimensaoB, int dimensaoC) {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -29,6 +38,7 @@ public class Multiplicar extends Calculo {
 	this.setOperacao("Multiplicar");
     }
 
+    /*Function to multiply two matrices*/
     public double[][] multiplicaMatrizes(double ma[][], double mb[][],
 					 int dima, int dimb, int dimc) {
 	double result[][] = new double[dima][dimc];
@@ -46,6 +56,7 @@ public class Multiplicar extends Calculo {
 	return result;
     }
 
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	ArrayList<String> entradas = MatrixParser.unconcat(this
@@ -58,6 +69,7 @@ public class Multiplicar extends Calculo {
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
 
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -87,6 +99,7 @@ public class Multiplicar extends Calculo {
 	this.dimensaoB = dimensaoB;
     }
 
+    /*Abstract method implementation to calculate the operation of multiplication of two matrices*/
     @Override
     public void calcular() {
 	this.setResultado(multiplicaMatrizes(getEntradaA(), getEntradaB(),

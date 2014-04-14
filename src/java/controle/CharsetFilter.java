@@ -1,6 +1,9 @@
 /*
- * To change this template, choose Tools | Templates and open the template in
- * the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Set character encoding filter with the default encoding set 
+ *to UTF-8 
  */
 
 package controle;

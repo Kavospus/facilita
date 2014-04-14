@@ -1,17 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that transpose matrices.
  */
 
 package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-/**
- * 
- * @author andrebsguedes
- */
 public class Transpor extends Calculo {
     private double[][] entrada;
     private double[][] resultado;
@@ -22,6 +19,7 @@ public class Transpor extends Calculo {
 
     }
 
+    /*Constructor*/
     public Transpor(double[][] entrada, int dimensaoA, int dimensaoB) {
 	this.entrada = entrada;
 	this.dimensaoA = dimensaoA;
@@ -29,7 +27,8 @@ public class Transpor extends Calculo {
 	this.setStringEntrada(MatrixParser.parseString(entrada));
 	this.setOperacao("Transpor");
     }
-
+    
+    /*Function to transpose the matrix*/
     public double[][] transporMatriz(double ma[][], int dima, int dimb) {
 	double result[][] = new double[dimb][dima];
 	int i, j;
@@ -44,6 +43,7 @@ public class Transpor extends Calculo {
 	return result;
     }
 
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	this.setEntrada(MatrixParser.parseMatrix(this.getStringEntrada()));
@@ -52,6 +52,7 @@ public class Transpor extends Calculo {
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
 
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	this.setStringEntrada(MatrixParser.parseString(entrada));
@@ -90,6 +91,7 @@ public class Transpor extends Calculo {
 	this.dimensaoB = dimensaoB;
     }
 
+    /*Abstract method implementation to calculate the operation of matrix transposition*/
     @Override
     public void calcular() {
 	this.resultado = transporMatriz(entrada, dimensaoA, dimensaoB);

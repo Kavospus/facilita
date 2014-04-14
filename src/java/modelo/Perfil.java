@@ -1,3 +1,10 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Profile class, contains the profile attributes.
+ */
+
 package modelo;
 
 import java.util.ArrayList;
@@ -10,11 +17,13 @@ public class Perfil {
     public Perfil() {
     }
 
+    /*Constructor*/
     public Perfil(int id, String perfil) {
 	this.id = id;
 	this.perfil = perfil;
     }
 
+    /*Constructor*/
     public Perfil(int id, String perfil, ArrayList<Menu> menus) {
 	this.id = id;
 	this.perfil = perfil;

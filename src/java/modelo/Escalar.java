@@ -1,3 +1,10 @@
+/*
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that multiply a matrix by a scalar.
+ */
+
 package modelo;
 
 import java.util.ArrayList;
@@ -14,6 +21,7 @@ public class Escalar extends Calculo {
 
     }
 
+    /*Constructor*/
     public Escalar(double[][] entradaA, double entradaB, int dimensaoA,
 	    int dimensaoB) {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -27,6 +35,7 @@ public class Escalar extends Calculo {
 	this.setOperacao("Escalar");
     }
 
+    /*Function to multiply a matrix by a scalar*/
     public double[][] escalarMatriz(double ma[][], double n, int dima, int dimb) {
 	double result[][] = new double[dima][dimb];
 	int i, j;
@@ -42,6 +51,7 @@ public class Escalar extends Calculo {
 	return result;
     }
 
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	ArrayList<String> entradas = MatrixParser.unconcat(this
@@ -53,6 +63,7 @@ public class Escalar extends Calculo {
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
 
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	ArrayList<String> entradas = new ArrayList<String>();
@@ -86,6 +97,7 @@ public class Escalar extends Calculo {
 	this.dimensaoB = dimensaoB;
     }
 
+    /*Abstract method implementation to calculate the operation of multiplication of a matrix by a scalar*/
     @Override
     public void calcular() {
 	this.resultado = escalarMatriz(getEntradaA(), getEntradaB(), dimensaoA,

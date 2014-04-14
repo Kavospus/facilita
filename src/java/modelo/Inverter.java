@@ -1,17 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that calculates the inverse matrix.
  */
 
 package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-/**
- * 
- * @author andrebsguedes
- */
 public class Inverter extends Calculo {
     private double[][] entrada;
     private double[][] resultado;
@@ -22,6 +19,7 @@ public class Inverter extends Calculo {
 
     }
 
+    /*Constructor*/
     public Inverter(double[][] entrada, int dimensaoA, int dimensaoB) {
 	this.entrada = entrada;
 	this.dimensaoA = dimensaoA;
@@ -30,6 +28,7 @@ public class Inverter extends Calculo {
 	this.setOperacao("Inverter");
     }
 
+    /*Function to invert a matrix*/
     public double[][] inverterMatriz(double ma[][], int dima, int dimb) {
 	double result[][] = new double[dima][dimb];
 	int i, j;
@@ -44,6 +43,7 @@ public class Inverter extends Calculo {
 	return result;
     }
 
+    /*Abstract method implementation to feed data to variables*/
     @Override
     public void setDadosString() {
 	this.setEntrada(MatrixParser.parseMatrix(this.getStringEntrada()));
@@ -52,6 +52,7 @@ public class Inverter extends Calculo {
 	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
     }
 
+    /*Abstract method implementation to feed data to string*/
     @Override
     public void setStringDados() {
 	this.setStringEntrada(MatrixParser.parseString(entrada));
@@ -90,6 +91,7 @@ public class Inverter extends Calculo {
 	this.dimensaoB = dimensaoB;
     }
 
+    /*Abstract method implementation to calculate the matrix inversion operation*/
     @Override
     public void calcular() {
 	this.resultado = inverterMatriz(entrada, dimensaoA, dimensaoB);

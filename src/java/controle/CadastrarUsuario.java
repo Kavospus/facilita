@@ -1,6 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class that insert a new user.
  */
 package controle;
 
@@ -16,10 +18,7 @@ import modelo.PerfilDAO;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 
-/**
- *
- * @author Andre
- */
+
 public class CadastrarUsuario extends HttpServlet {
 
     /**

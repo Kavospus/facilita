@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates and open the template
- * in the editor.
+ *Licensed under ..., see LICENSE.md
+ *Authors: André Bernardes.
+ *Created on: 28/03/2014, 11:23:34
+ *Description: Class to remove data calculus. 
  */
 
 package controle;
@@ -17,10 +18,6 @@ import modelo.Calculo;
 import modelo.CalculoDAO;
 import modelo.Inverter;
 
-/**
- * 
- * @author andrebsguedes
- */
 public class ExcluirCalculo extends HttpServlet {
 
     /**
