@@ -2,9 +2,8 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert a new user.
+ *Description: Class to insert a new profile.
  */
-
 package controle;
 
 import java.io.IOException;
@@ -14,13 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.MD5Encrypter;
 import modelo.Perfil;
 import modelo.PerfilDAO;
-import modelo.Usuario;
-import modelo.UsuarioDAO;
 
-public class InserirUsuario extends HttpServlet {
+public class InsertProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,50 +34,34 @@ public class InserirUsuario extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("user") == null) {
+	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Servlet InserirPerfil</title>");
+		out.println("</head>");
+		out.println("<body>");
 		try {
-		    int id_profile = 0;
-		    if (request.getParameter("id_profile") != null) {
-			try {
-			    id_profile = Integer.parseInt(request
-				    .getParameter("id_profile"));
-			} catch (Exception e) {
-			    e.printStackTrace();
-			}
-		    }
-		    String name = request.getParameter("name");
-		    String password = MD5Encrypter.encryptMD5(request
-			    .getParameter("password"));
-		    String login = request.getParameter("login");
+		    String profileName = request.getParameter("profile");
 
-		    Usuario user = new Usuario();
+		    Perfil profile = new Perfil();
+		    profile.setPerfil(profileName);
+
 		    PerfilDAO profileDB = new PerfilDAO();
-		    user.setSenha(password);
-		    user.setLogin(login);
+
 		    profileDB.conectar();
-		    user.setPerfil(profileDB.carregaPorId(id_profile));
+		    profileDB.inserir(profile);
 		    profileDB.desconectar();
-		    user.setNome(name);
-
-		    UsuarioDAO userDB = new UsuarioDAO();
-
-		    userDB.conectar();
-		    userDB.inserir(user);
-		    userDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros inseridos com sucesso!');");
-		    out.print(" window.open('listar_usuario.jsp','_parent');");
+		    out.print(" window.open('listar_perfil.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('O usuário já existe!');");
-		    out.print(" window.open('form_inserir_usuario.jsp','_parent');");
-		    out.print("</script>");
+		    out.print(e);
 		}
 		out.println("</body>");
 		out.println("</html>");

@@ -2,9 +2,8 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to multiply matrices. 
+ *Description: Class to insert data to multiply a matrix by a scalar. 
  */
-
 package controle;
 
 import java.io.IOException;
@@ -15,10 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Multiplicar;
+import modelo.Escalar;
 import modelo.Usuario;
 
-public class MultiplicarMatrizes extends HttpServlet {
+
+public class ScalarMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,12 +39,11 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet MultiplicaMatrizes</title>");
+	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-
-	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, error = 0;
-
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	    double number = 0;
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -52,7 +51,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -63,26 +62,24 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("linesB") != null) {
+	    if (request.getParameter("n") != null) {
 		try {
-		    linesB = Integer.parseInt(request.getParameter("linesB"));
+		    number = Double.parseDouble(request.getParameter("number"));
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    columnsB = linesB;
-	    linesB = columnsA;
+
 	    double matrixA[][] = new double[linesA][columnsA];
-	    double matrixB[][] = new double[linesB][columnsB];
-	    double result[][] = new double[linesA][columnsB];
+	    double result[][];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -95,7 +92,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_multiplica.jsp','_parent');");
+			    out.print(" window.open('altera_escalar.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -103,59 +100,36 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    }
 		}
 	    }
-	    for (i = 0; i < linesB; i++) {
-		for (j = 0; j < columnsB; j++) {
-		    if (request.getParameter("matrixB" + i + j) != null
-			    && request.getParameter("matrixB" + i + j) != "") {
-			try {
-			    matrixB[i][j] = Double.parseDouble(request
-				    .getParameter("matrixB" + i + j));
-			} catch (Exception e) {
-			    error = 1;
-			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_multiplica.jsp','_parent');");
-			    out.print("</script>");
-			}
-		    } else {
-			matrixB[i][j] = 0;
-		    }
-		}
-	    }
-
-	    session.setAttribute("data_multiply_matrixA", matrixA);
-	    session.setAttribute("data_multiply_b", matrixB);
-	    session.setAttribute("data_multiply_linesA", linesA);
-	    session.setAttribute("data_multiply_columnsA", columnsA);
-	    session.setAttribute("data_multiply_linesB", linesB);
-	    session.setAttribute("data_multiply_columnsB", columnsB);
+	    session.setAttribute("data_scalar_matrixA", matrixA);
+	    session.setAttribute("data_scalar_linesA", linesA);
+	    session.setAttribute("data_scalar_columnsA", columnsA);
+	    session.setAttribute("data_scalar_number", number);
 	    if (error == 0) {
-		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
-		menu.calcular();
-		result = menu.getResultado();
-		session.setAttribute("result_multiply", result);
-		session.setAttribute("result_multiply_linesA", linesA);
-		session.setAttribute("result_multiply_columnsA", columnsB);
+		Escalar scalar = new Escalar(matrixA, number, linesA, columnsA);
+		scalar.calcular();
+		result = scalar.getResultado();
+		session.setAttribute("result_escalar", result);
+		session.setAttribute("result_escalar_linesA", linesA);
+		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
-		    menu.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = menu.getUsuario();
+		    scalar.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = scalar.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    menu.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(menu);
+			    scalar.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(scalar);
 			} else {
-			    calculusDB.inserir(menu);
+			    calculusDB.inserir(scalar);
 			}
 			calculusDB.desconectar();
 		    }
-		} catch (Exception e) {
+		} catch (Exception x) {
 		}
-
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_multiplica.jsp','_parent');");
+		out.print(" window.open('resultado_escalar.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

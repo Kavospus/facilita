@@ -2,8 +2,10 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove users.
+ *Description: Class to insert data to login into the system. 
  */
+
+
 package controle;
 
 import java.io.IOException;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 
-public class ExcluirUsuario extends HttpServlet {
+public class DoLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,37 +36,37 @@ public class ExcluirUsuario extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("user") == null) {
-		response.sendRedirect("index.jsp?error=1");
-	    } else {
-		// TODO output your page here
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Servlet DeletarUsuario</title>");
-		out.println("</head>");
-		out.println("<body>");
-		try {
-		    int id = Integer.parseInt(request.getParameter("id"));
-		    Usuario user = new Usuario();
-		    user.setId(id);
 
-		    UsuarioDAO userDB = new UsuarioDAO();
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("<title>Servlet EfetuarLogin</title>");
+	    out.println("</head>");
+	    out.println("<body>");
 
-		    userDB.conectar();
-		    userDB.excluir(user);
-		    userDB.desconectar();
+	    try {
+		String login = request.getParameter("user");
+		String pass = request.getParameter("pass");
 
+		UsuarioDAO userDB = new UsuarioDAO();
+		userDB.conectar();
+		Usuario user = userDB.logar(login, pass);
+
+		if (user.getId() > 0) {
+		    session.setAttribute("userLogged", user);
+		    response.sendRedirect("index.jsp");
+		} else {
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_usuario.jsp','_parent');");
+		    out.print(" alert('Usuário ou Senha Incorretos!');");
+		    out.print(" window.open('login.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print(e);
 		}
-		out.println("</body>");
-		out.println("</html>");
+	    } catch (Exception e) {
+		out.print(e);
 	    }
+
+	    out.println("</body>");
+	    out.println("</html>");
+
 	} finally {
 	    out.close();
 	}

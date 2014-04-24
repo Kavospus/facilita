@@ -18,7 +18,7 @@ import modelo.MenuDAO;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 
-public class GerenciarMenuPerfil extends HttpServlet {
+public class ManageProfileMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

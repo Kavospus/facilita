@@ -2,8 +2,9 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to login into the system for guests. 
+ *Description: Class to insert data to calculates inverse matrices. 
  */
+
 package controle;
 
 import java.io.IOException;
@@ -13,11 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
+import modelo.CalculoDAO;
+import modelo.Inverter;
 import modelo.Usuario;
-import modelo.UsuarioDAO;
 
-public class EfetuarLoginConvidado extends HttpServlet {
+public class InvertMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,27 +39,79 @@ public class EfetuarLoginConvidado extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet EfetuarLoginConvidado</title>");
+	    out.println("<title>Servlet InverteMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		String login = "guest";
-		String pass = "guest";
+		int i, j, linesA = 0, columnsA = 0, error = 0;
 
-		UsuarioDAO userDB = new UsuarioDAO();
-		userDB.conectar();
-		Usuario user = userDB.logar(login, pass);
-		userDB.desconectar();
-		session.setAttribute("userLogged", user);
-		if (user != null) {
-		    response.sendRedirect("index.jsp");
+		if (request.getParameter("linesA") != null) {
+		    try {
+			linesA = Integer.parseInt(request.getParameter("linesA"));
+		    } catch (Exception e) {
+			error = 1;
+			out.print("<script language='JavaScript'>");
+			out.print(" alert('Caracteres proibidos detectados!');");
+			out.print(" window.open('altera_inversa.jsp','_parent');");
+			out.print("</script>");
+		    }
 		}
+		columnsA = linesA;
 
+		double matrixA[][] = new double[linesA][columnsA];
+		double result[][];
+
+		for (i = 0; i < linesA; i++) {
+		    for (j = 0; j < columnsA; j++) {
+			if (request.getParameter("matrixA" + i + j) != null
+				&& request.getParameter("matrixA" + i + j) != "") {
+			    try {
+				matrixA[i][j] = Double.parseDouble(request
+					.getParameter("matrixA" + i + j));
+			    } catch (Exception e) {
+				error = 1;
+				out.print("<script language='JavaScript'>");
+				out.print(" alert('Caracteres proibidos detectados!');");
+				out.print(" window.open('altera_inversa.jsp','_parent');");
+				out.print("</script>");
+			    }
+			} else {
+			    matrixA[i][j] = 0;
+			}
+		    }
+		}
+		session.setAttribute("data_inverse_matrixA", matrixA);
+		session.setAttribute("data_inverse_linesA", linesA);
+		session.setAttribute("data_inverse_columnsA", columnsA);
+		if (error == 0) {
+		    Inverter invert = new Inverter(matrixA, linesA, columnsA);
+		    invert.calcular();
+		    result = invert.getResultado();
+		    session.setAttribute("result_inversa", result);
+		    session.setAttribute("result_inversa_linesA", linesA);
+		    session.setAttribute("result_inversa_columnsA", columnsA);
+
+		    invert.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = invert.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
+			if (request.getParameter("id") != null) {
+			    invert.setId(Integer.parseInt(request
+				    .getParameter("id")));
+			    calculusDB.alterar(invert);
+			} else {
+			    calculusDB.inserir(invert);
+			}
+			calculusDB.desconectar();
+		    }
+		    out.print("<script language='JavaScript'>");
+		    out.print(" window.open('resultado_inversa.jsp','_parent');");
+		    out.print("</script>");
+		}
 	    } catch (Exception e) {
-		out.print("<script language='JavaScript'>");
-		out.print(" alert('Erro ao Logar!');");
-		out.print(" window.open('login.jsp','_parent');");
-		out.print("</script>");
+		System.out.println(e.getMessage());
 	    }
 	    out.println("</body>");
 	    out.println("</html>");
@@ -108,4 +161,5 @@ public class EfetuarLoginConvidado extends HttpServlet {
     public String getServletInfo() {
 	return "Short description";
     }// </editor-fold>
+
 }

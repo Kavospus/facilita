@@ -2,8 +2,9 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove menus. 
+ *Description: Class to insert a new menu.
  */
+
 package controle;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Menu;
 import modelo.MenuDAO;
 
-public class ExcluirMenu extends HttpServlet {
+public class InsertMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,18 +45,24 @@ public class ExcluirMenu extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    int id = Integer.parseInt(request.getParameter("id"));
+
+		    String menuName = request.getParameter("menu");
+		    String link = request.getParameter("link");
+		    String icon = request.getParameter("icon");
+
 		    Menu menu = new Menu();
-		    menu.setId(id);
+		    menu.setMenu(menuName);
+		    menu.setLink(link);
+		    menu.setIcone(icon);
 
 		    MenuDAO menuDB = new MenuDAO();
 
 		    menuDB.conectar();
-		    menuDB.excluir(menu);
+		    menuDB.inserir(menu);
 		    menuDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Registros deletados com sucesso!');");
+		    out.print(" alert('Registros inseridos com sucesso!');");
 		    out.print(" window.open('listar_menu.jsp','_parent');");
 		    out.print("</script>");
 

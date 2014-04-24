@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove profile.
+ *Description: Class to remove data calculus. 
  */
 
 package controle;
@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
-import modelo.PerfilDAO;
+import modelo.Calculo;
+import modelo.CalculoDAO;
+import modelo.Inverter;
 
-public class ExcluirPerfil extends HttpServlet {
+public class RemoveCalculus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +36,33 @@ public class ExcluirPerfil extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("profile") == null) {
+	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?error=1");
 	    } else {
-		// TODO output your page here
+		/*
+		 * TODO output your page here. You may use following sample
+		 * code.
+		 */
+		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet InserirPerfil</title>");
+		out.println("<title>Servlet ExcluirCalculo</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Perfil profile = new Perfil();
-		    profile.setId(id);
+		    Calculo calculus = new Inverter();
+		    calculus.setId(id);
 
-		    PerfilDAO profileDB = new PerfilDAO();
+		    CalculoDAO calculusDB = new CalculoDAO();
 
-		    profileDB.conectar();
-		    profileDB.excluir(profile);
-		    profileDB.desconectar();
+		    calculusDB.conectar();
+		    calculusDB.excluir(calculus);
+		    calculusDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_perfil.jsp','_parent');");
+		    out.print(" window.open('listar_calculo.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

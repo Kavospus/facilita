@@ -19,7 +19,7 @@ import modelo.Usuario;
 import modelo.UsuarioDAO;
 
 
-public class CadastrarUsuario extends HttpServlet {
+public class RegisterUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP

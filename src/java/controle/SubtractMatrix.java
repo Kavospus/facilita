@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to transpose matrices
+ *Description: Class to insert data to subtract matrices. 
  */
 package controle;
 
@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Transpor;
+import modelo.Subtrair;
 import modelo.Usuario;
 
-public class TransporMatriz extends HttpServlet {
+
+public class SubtractMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,11 +39,10 @@ public class TransporMatriz extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet EscalarMatriz</title>");
+	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
 	    int i, j, linesA = 0, columnsA = 0, error = 0;
-
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -50,7 +50,7 @@ public class TransporMatriz extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('altera_subtrai.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -61,13 +61,14 @@ public class TransporMatriz extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('altera_subtrai.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
 
 	    double matrixA[][] = new double[linesA][columnsA];
-	    double result[][];
+	    double matrixB[][] = new double[linesA][columnsA];
+	    double result[][] = new double[linesA][columnsA];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -80,7 +81,7 @@ public class TransporMatriz extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_transposta.jsp','_parent');");
+			    out.print(" window.open('altera_subtrai.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -88,36 +89,60 @@ public class TransporMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_transposed_matrixA", matrixA);
-	    session.setAttribute("data_transposed_linesA", linesA);
-	    session.setAttribute("data_transposed_columnsA", columnsA);
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixB" + i + j) != null
+			    && request.getParameter("matrixB" + i + j) != "") {
+			try {
+			    matrixB[i][j] = Double.parseDouble(request
+				    .getParameter("matrixB" + i + j));
+			} catch (Exception e) {
+			    error = 1;
+			    out.print("<script language='JavaScript'>");
+			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" window.open('altera_subtrai.jsp','_parent');");
+			    out.print("</script>");
+			}
+		    } else {
+			matrixB[i][j] = 0;
+		    }
+		}
+	    }
+
+	    session.setAttribute("data_subtract_matrixA", matrixA);
+	    session.setAttribute("data_subtract_b", matrixB);
+	    session.setAttribute("data_subtract_linesA", linesA);
+	    session.setAttribute("data_subtract_columnsA", columnsA);
+	    session.setAttribute("data_subtract_linesB", linesA);
+	    session.setAttribute("data_subtract_columnsB", columnsA);
 	    if (error == 0) {
-		Transpor transpor = new Transpor(matrixA, linesA, columnsA);
-		transpor.calcular();
-		result = transpor.getResultado();
-		session.setAttribute("result_transposed", result);
-		session.setAttribute("result_transposed_linesA", columnsA);
-		session.setAttribute("result_transposed_columnsA", linesA);
+		Subtrair s = new Subtrair(matrixA, matrixB, linesA, columnsA);
+		s.calcular();
+		result = s.getResultado();
+		session.setAttribute("result_subtract", result);
+		session.setAttribute("result_subtract_linesA", linesA);
+		session.setAttribute("result_subtract_columnsA", columnsA);
+		session.setAttribute("result_subtract_linesB", linesA);
+		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    transpor.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = transpor.getUsuario();
+		    s.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = s.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    transpor.setId(Integer.parseInt(request
-				    .getParameter("id")));
-			    calculusDB.alterar(transpor);
+			    s.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(s);
 			} else {
-			    calculusDB.inserir(transpor);
+			    calculusDB.inserir(s);
 			}
 			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_transposta.jsp','_parent');");
+		out.print(" window.open('resultado_subtrai.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

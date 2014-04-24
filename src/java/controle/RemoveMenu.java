@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert a new profile.
+ *Description: Class to remove menus. 
  */
 package controle;
 
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
-import modelo.PerfilDAO;
+import modelo.Menu;
+import modelo.MenuDAO;
 
-public class InserirPerfil extends HttpServlet {
+public class RemoveMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,30 +34,29 @@ public class InserirPerfil extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("profile") == null) {
+	    if (session.getAttribute("menu") == null) {
 		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet InserirPerfil</title>");
+		out.println("<title>Servlet InserirMenu</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    String profileName = request.getParameter("profile");
+		    int id = Integer.parseInt(request.getParameter("id"));
+		    Menu menu = new Menu();
+		    menu.setId(id);
 
-		    Perfil profile = new Perfil();
-		    profile.setPerfil(profileName);
+		    MenuDAO menuDB = new MenuDAO();
 
-		    PerfilDAO profileDB = new PerfilDAO();
-
-		    profileDB.conectar();
-		    profileDB.inserir(profile);
-		    profileDB.desconectar();
+		    menuDB.conectar();
+		    menuDB.excluir(menu);
+		    menuDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Registros inseridos com sucesso!');");
-		    out.print(" window.open('listar_perfil.jsp','_parent');");
+		    out.print(" alert('Registros deletados com sucesso!');");
+		    out.print(" window.open('listar_menu.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

@@ -18,7 +18,7 @@ import modelo.Perfil;
 import modelo.PerfilDAO;
 
 
-public class AlterarPerfil extends HttpServlet {
+public class UpdateProfile extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.

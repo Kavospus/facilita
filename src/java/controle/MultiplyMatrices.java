@@ -2,8 +2,9 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to sum matrices. 
+ *Description: Class to insert data to multiply matrices. 
  */
+
 package controle;
 
 import java.io.IOException;
@@ -14,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Somar;
+import modelo.Multiplicar;
 import modelo.Usuario;
 
-public class SomarMatrizes extends HttpServlet {
+public class MultiplyMatrices extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,7 +42,9 @@ public class SomarMatrizes extends HttpServlet {
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
+
+	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, error = 0;
+
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -49,7 +52,7 @@ public class SomarMatrizes extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_multiplica.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -60,14 +63,26 @@ public class SomarMatrizes extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_multiplica.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-
+	    if (request.getParameter("linesB") != null) {
+		try {
+		    linesB = Integer.parseInt(request.getParameter("linesB"));
+		} catch (Exception e) {
+		    error = 1;
+		    out.print("<script language='JavaScript'>");
+		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print("</script>");
+		}
+	    }
+	    columnsB = linesB;
+	    linesB = columnsA;
 	    double matrixA[][] = new double[linesA][columnsA];
-	    double matrixB[][] = new double[linesA][columnsA];
-	    double result[][] = new double[linesA][columnsA];
+	    double matrixB[][] = new double[linesB][columnsB];
+	    double result[][] = new double[linesA][columnsB];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -80,7 +95,7 @@ public class SomarMatrizes extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('altera_multiplica.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -88,8 +103,8 @@ public class SomarMatrizes extends HttpServlet {
 		    }
 		}
 	    }
-	    for (i = 0; i < linesA; i++) {
-		for (j = 0; j < columnsA; j++) {
+	    for (i = 0; i < linesB; i++) {
+		for (j = 0; j < columnsB; j++) {
 		    if (request.getParameter("matrixB" + i + j) != null
 			    && request.getParameter("matrixB" + i + j) != "") {
 			try {
@@ -99,7 +114,7 @@ public class SomarMatrizes extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('altera_multiplica.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -108,34 +123,31 @@ public class SomarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_sum_matrixA", matrixA);
-	    session.setAttribute("data_sum_b", matrixB);
-	    session.setAttribute("data_sum_linesA", linesA);
-	    session.setAttribute("data_sum_columnsA", columnsA);
-	    session.setAttribute("data_sum_linesB", linesA);
-	    session.setAttribute("data_sum_columnsB", columnsA);
+	    session.setAttribute("data_multiply_matrixA", matrixA);
+	    session.setAttribute("data_multiply_b", matrixB);
+	    session.setAttribute("data_multiply_linesA", linesA);
+	    session.setAttribute("data_multiply_columnsA", columnsA);
+	    session.setAttribute("data_multiply_linesB", linesB);
+	    session.setAttribute("data_multiply_columnsB", columnsB);
 	    if (error == 0) {
-		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
-		sum.calcular();
-		result = sum.getResultado();
-		session.setAttribute("result_sum", result);
-		session.setAttribute("result_sum_linesA", linesA);
-		session.setAttribute("result_sum_columnsA", columnsA);
-		session.setAttribute("result_sum_linesB", linesA);
-		session.setAttribute("result_sum_columnsB", columnsA);
-
+		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
+		menu.calcular();
+		result = menu.getResultado();
+		session.setAttribute("result_multiply", result);
+		session.setAttribute("result_multiply_linesA", linesA);
+		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    sum.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = sum.getUsuario();
+		    menu.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = menu.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    sum.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(sum);
+			    menu.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(menu);
 			} else {
-			    calculusDB.inserir(sum);
+			    calculusDB.inserir(menu);
 			}
 			calculusDB.desconectar();
 		    }
@@ -143,7 +155,7 @@ public class SomarMatrizes extends HttpServlet {
 		}
 
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_soma.jsp','_parent');");
+		out.print(" window.open('resultado_multiplica.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

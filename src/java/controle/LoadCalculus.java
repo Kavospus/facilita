@@ -24,7 +24,7 @@ import modelo.Subtrair;
 import modelo.Transpor;
 
 
-public class CarregarCalculo extends HttpServlet {
+public class LoadCalculus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
