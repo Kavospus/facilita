@@ -29,7 +29,7 @@
         double aux,vectorX[] = {0,0};
         double vectorY[] = {0,0};
         String erro;
-        int dimens=2,ticks,i,j,option =0, auxiliarQuantity =0;
+        int dimension=2,ticks,i,j,option =0, auxiliarQuantity =0;
         if(session.getAttribute("result_least_squares") != null){
                 resultado = (double[])session.getAttribute("result_least_squares");
             }
@@ -46,27 +46,27 @@
         if(session.getAttribute("data_least_squares_option") != null){
                 option = (Integer) session.getAttribute("data_least_squares_option");
             }
-        if(request.getParameter("dimens") != null){
-                dimens = Integer.parseInt(request.getParameter("dimens"));
+        if(request.getParameter("dimension") != null){
+                dimension = Integer.parseInt(request.getParameter("dimension"));
             }
         auxiliarQuantity = vectorX.length;
-        ArrayList<Double> lx = new ArrayList();
-        ArrayList<Double> ly = new ArrayList();
+        ArrayList<Double> auxiliarVectorX = new ArrayList();
+        ArrayList<Double> auxiliarVectorY = new ArrayList();
         for(i=0; i<auxiliarQuantity; i++){  
-            lx.add(Math.abs(vectorX[i]));
-            ly.add(Math.abs(vectorY[i]));
+            auxiliarVectorX.add(Math.abs(vectorX[i]));
+            auxiliarVectorY.add(Math.abs(vectorY[i]));
         }
         
-        Collections.sort(lx);
-        Collections.sort(ly);
+        Collections.sort(auxiliarVectorX);
+        Collections.sort(auxiliarVectorY);
         
-        if(lx.get(auxiliarQuantity-1)<20||ly.get(auxiliarQuantity-1)<20){
+        if(auxiliarVectorX.get(auxiliarQuantity-1)<20||auxiliarVectorY.get(auxiliarQuantity-1)<20){
         ticks = 1;
-        }else if(lx.get(auxiliarQuantity-1)>=20 && lx.get(auxiliarQuantity-1)<120 || ly.get(auxiliarQuantity-1)>=20 && ly.get(auxiliarQuantity-1)<120){
+        }else if(auxiliarVectorX.get(auxiliarQuantity-1)>=20 && auxiliarVectorX.get(auxiliarQuantity-1)<120 || auxiliarVectorY.get(auxiliarQuantity-1)>=20 && auxiliarVectorY.get(auxiliarQuantity-1)<120){
         ticks = 10;
         }else ticks = 100;
         
-        for(i=0;i<dimens;i++){
+        for(i=0;i<dimension;i++){
         %>
                 <td><%if(i == 0){
                     out.print("A = "+resultado[i]);
@@ -272,10 +272,10 @@
       
       var myGraph = new Graph({
         canvasId: 'myCanvas',
-        minX: <%=-lx.get(auxiliarQuantity-1)-ticks%>,
-        minY: <%=-ly.get(auxiliarQuantity-1)-ticks%>,
-        maxX: <%=lx.get(auxiliarQuantity-1)+ticks%>,
-        maxY: <%=ly.get(auxiliarQuantity-1)+ticks%>,
+        minX: <%=-auxiliarVectorX.get(auxiliarQuantity-1)-ticks%>,
+        minY: <%=-auxiliarVectorY.get(auxiliarQuantity-1)-ticks%>,
+        maxX: <%=auxiliarVectorX.get(auxiliarQuantity-1)+ticks%>,
+        maxY: <%=auxiliarVectorY.get(auxiliarQuantity-1)+ticks%>,
         unitsPerTick: <%=ticks%>
       });
 

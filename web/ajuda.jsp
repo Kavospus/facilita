@@ -20,7 +20,7 @@ Informe a ordem da matriz e insira os valores da mesma.
           break;
           case 2:
               %>
-Informe o scalar e em seguida informe as dimensões da matriz assim como seus valores.
+Informe o scalar e em seguida informe as dimensionões da matriz assim como seus valores.
               <%
           break;
           case 3:
@@ -35,22 +35,22 @@ Informe a quantity de pontos experimentais na 1ª lacuna e selecione o tipo de f
           break;
           case 5:
               %>
-Informe as dimensões das matrizes obedecendo as restrições e seus valores.
+Informe as dimensionões das matrizes obedecendo as restrições e seus valores.
               <%
           break;
           case 6:
               %>
-Informe as dimensões das matrizes e insira os valores das mesmas.
+Informe as dimensionões das matrizes e insira os valores das mesmas.
               <%
           break;
           case 7:
               %>
-Informe as dimensões das matrizes e insira os valores das mesmas.
+Informe as dimensionões das matrizes e insira os valores das mesmas.
               <%
           break;
           case 8:
               %>
-Informe as dimensões da matriz assim como seus valores.
+Informe as dimensionões da matriz assim como seus valores.
               <%
           break;
 }
