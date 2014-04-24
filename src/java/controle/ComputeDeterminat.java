@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Determinar;
+import modelo.Determine;
 import modelo.Usuario;
 
 public class ComputeDeterminat extends HttpServlet {
@@ -80,7 +80,7 @@ public class ComputeDeterminat extends HttpServlet {
 	    session.setAttribute("data_determinant_linesA", linesA);
 	    session.setAttribute("data_determinant_columnsA", columnsA);
 	    if (error == 0) {
-		Determinar determine = new Determinar(matrixA, linesA, columnsA);
+		Determine determine = new Determine(matrixA, linesA, columnsA);
 		determine.calculate();
 		result = determine.getResult();
 		session.setAttribute("result_determinante", result);

@@ -4,7 +4,7 @@
  */
 package tests;
 
-import modelo.Determinar;
+import modelo.Determine;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class DeterminarTest {
     
     public DeterminarTest() {
     }
-    Determinar determinar;
+    Determine determinar;
     @Before
     public void setUp() {
     }
@@ -27,7 +27,7 @@ public class DeterminarTest {
     }
     @Test
     public void testDeterminar() {
-        determinar = new Determinar(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2);
+        determinar = new Determine(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2);
         determinar.calcular();
         double saida = -0.25;
         assertEquals(saida,determinar.getResultado(), 0.000001);

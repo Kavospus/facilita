@@ -10,23 +10,23 @@ package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-public class Determinar extends Calculus {
+public class Determine extends Calculus {
     private double[][] input;
     private double result;
     private int linesA;
     private int columnsA;
 
-    public Determinar() {
+    public Determine() {
 
     }
 
     /*Constructor*/
-    public Determinar(double[][] input, int linesA, int columnsA) {
+    public Determine(double[][] input, int linesA, int columnsA) {
 	this.input = input;
 	this.linesA = linesA;
 	this.columnsA = columnsA;
 	this.setInputString(MatrixParser.parseString(input));
-	this.setOperation("Determinar");
+	this.setOperation("Determine");
 
     }
 

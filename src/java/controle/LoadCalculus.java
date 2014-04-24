@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Calculus;
 import modelo.CalculoDAO;
-import modelo.Determinar;
+import modelo.Determine;
 import modelo.Escalar;
 import modelo.Inverter;
 import modelo.Multiplicar;
@@ -86,8 +86,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_transposed.jsp?id="
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Determinar")) {
-			Determinar determine = (Determinar) calculus;
+		    } else if (operacao.equals("Determine")) {
+			Determine determine = (Determine) calculus;
 			determine.setDataString();
 			session.setAttribute("data_determinant_matrixA",
 				determine.getInput());
