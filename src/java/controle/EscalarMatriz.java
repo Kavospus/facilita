@@ -43,7 +43,7 @@ public class EscalarMatriz extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    int i, j, linesA = 0, columnsA = 0, error = 0;
-	    double n = 0;
+	    double number = 0;
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -68,7 +68,7 @@ public class EscalarMatriz extends HttpServlet {
 	    }
 	    if (request.getParameter("n") != null) {
 		try {
-		    n = Double.parseDouble(request.getParameter("n"));
+		    number = Double.parseDouble(request.getParameter("number"));
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
@@ -103,26 +103,26 @@ public class EscalarMatriz extends HttpServlet {
 	    session.setAttribute("data_scalar_a", a);
 	    session.setAttribute("data_scalar_linesA", linesA);
 	    session.setAttribute("data_scalar_columnsA", columnsA);
-	    session.setAttribute("data_scalar_n", n);
+	    session.setAttribute("data_scalar_n", number);
 	    if (error == 0) {
-		Escalar e = new Escalar(a, n, linesA, columnsA);
-		e.calcular();
-		result = e.getResultado();
+		Escalar scalar = new Escalar(a, number, linesA, columnsA);
+		scalar.calcular();
+		result = scalar.getResultado();
 		session.setAttribute("result_escalar", result);
 		session.setAttribute("result_escalar_linesA", linesA);
 		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
-		    e.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = e.getUsuario();
+		    scalar.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = scalar.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    e.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(e);
+			    scalar.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(scalar);
 			} else {
-			    calculusDB.inserir(e);
+			    calculusDB.inserir(scalar);
 			}
 			calculusDB.desconectar();
 		    }
