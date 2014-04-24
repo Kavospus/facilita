@@ -119,15 +119,15 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Subtrair")) {
 			Subtrair s = (Subtrair) calculus;
 			s.setDadosString();
-			session.setAttribute("data_subtrai_a", s.getEntradaA());
-			session.setAttribute("data_subtrai_b", s.getEntradaB());
-			session.setAttribute("data_subtrai_linesA",
+			session.setAttribute("data_subtract_a", s.getEntradaA());
+			session.setAttribute("data_subtract_b", s.getEntradaB());
+			session.setAttribute("data_subtract_linesA",
 				s.getDimensaoA());
-			session.setAttribute("data_subtrai_columnsA",
+			session.setAttribute("data_subtract_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("data_subtrai_linesB",
+			session.setAttribute("data_subtract_linesB",
 				s.getDimensaoA());
-			session.setAttribute("data_subtrai_columnsB",
+			session.setAttribute("data_subtract_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_subtrai.jsp?id="
