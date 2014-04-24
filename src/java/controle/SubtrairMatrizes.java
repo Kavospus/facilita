@@ -109,14 +109,14 @@ public class SubtrairMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_subtract_matrixA", a);
-	    session.setAttribute("data_subtract_b", b);
+	    session.setAttribute("data_subtract_matrixA", matrixA);
+	    session.setAttribute("data_subtract_b", matrixB);
 	    session.setAttribute("data_subtract_linesA", linesA);
 	    session.setAttribute("data_subtract_columnsA", columnsA);
 	    session.setAttribute("data_subtract_linesB", linesA);
 	    session.setAttribute("data_subtract_columnsB", columnsA);
 	    if (error == 0) {
-		Subtrair s = new Subtrair(a, b, linesA, columnsA);
+		Subtrair s = new Subtrair(matrixA, matrixB, linesA, columnsA);
 		s.calcular();
 		result = s.getResultado();
 		session.setAttribute("result_subtract", result);

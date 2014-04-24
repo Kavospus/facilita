@@ -88,11 +88,11 @@ public class TransporMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_transposed_matrixA", a);
+	    session.setAttribute("data_transposed_matrixA", matrixA);
 	    session.setAttribute("data_transposed_linesA", linesA);
 	    session.setAttribute("data_transposed_columnsA", columnsA);
 	    if (error == 0) {
-		Transpor transpor = new Transpor(a, linesA, columnsA);
+		Transpor transpor = new Transpor(matrixA, linesA, columnsA);
 		transpor.calcular();
 		result = transpor.getResultado();
 		session.setAttribute("result_transposed", result);

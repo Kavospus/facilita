@@ -100,12 +100,12 @@ public class EscalarMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_scalar_matrixA", a);
+	    session.setAttribute("data_scalar_matrixA", matrixA);
 	    session.setAttribute("data_scalar_linesA", linesA);
 	    session.setAttribute("data_scalar_columnsA", columnsA);
 	    session.setAttribute("data_scalar_number", number);
 	    if (error == 0) {
-		Escalar scalar = new Escalar(a, number, linesA, columnsA);
+		Escalar scalar = new Escalar(matrixA, number, linesA, columnsA);
 		scalar.calcular();
 		result = scalar.getResultado();
 		session.setAttribute("result_escalar", result);

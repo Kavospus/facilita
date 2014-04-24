@@ -76,11 +76,11 @@ public class CalcularDeterminante extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_determinant_matrixA", a);
+	    session.setAttribute("data_determinant_matrixA", matrixA);
 	    session.setAttribute("data_determinant_linesA", linesA);
 	    session.setAttribute("data_determinant_columnsA", columnsA);
 	    if (error == 0) {
-		Determinar determine = new Determinar(a, linesA, columnsA);
+		Determinar determine = new Determinar(matrixA, linesA, columnsA);
 		determine.calcular();
 		result = determine.getResultado();
 		session.setAttribute("result_determinante", result);

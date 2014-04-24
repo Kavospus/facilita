@@ -123,14 +123,14 @@ public class MultiplicarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_multiply_matrixA", a);
-	    session.setAttribute("data_multiply_b", b);
+	    session.setAttribute("data_multiply_matrixA", matrixA);
+	    session.setAttribute("data_multiply_b", matrixB);
 	    session.setAttribute("data_multiply_linesA", linesA);
 	    session.setAttribute("data_multiply_columnsA", columnsA);
 	    session.setAttribute("data_multiply_linesB", linesB);
 	    session.setAttribute("data_multiply_columnsB", columnsB);
 	    if (error == 0) {
-		Multiplicar menu = new Multiplicar(a, b, linesA, columnsA, columnsB);
+		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
 		menu.calcular();
 		result = menu.getResultado();
 		session.setAttribute("result_multiply", result);

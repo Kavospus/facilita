@@ -108,14 +108,14 @@ public class SomarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_sum_matrixA", a);
-	    session.setAttribute("data_sum_b", b);
+	    session.setAttribute("data_sum_matrixA", matrixA);
+	    session.setAttribute("data_sum_b", matrixB);
 	    session.setAttribute("data_sum_linesA", linesA);
 	    session.setAttribute("data_sum_columnsA", columnsA);
 	    session.setAttribute("data_sum_linesB", linesA);
 	    session.setAttribute("data_sum_columnsB", columnsA);
 	    if (error == 0) {
-		Somar sum = new Somar(a, b, linesA, columnsA);
+		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
 		sum.calcular();
 		result = sum.getResultado();
 		session.setAttribute("result_sum", result);
