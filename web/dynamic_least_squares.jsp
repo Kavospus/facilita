@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_minimos
+    Document   : recieve_least_squares
     Author     : Andre
 --%>
 

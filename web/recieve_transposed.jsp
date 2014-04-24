@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_transposta
+    Document   : recieve_transposed
     Author     : Andre
 --%>
 
@@ -20,8 +20,8 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
-        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
-        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
+        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
+        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
         
         
         <div id="matrixes" ></div>

@@ -127,7 +127,7 @@ public class SumMatrices extends HttpServlet {
 		try {
 		    sum.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario userPermission = sum.getUsuario();
-		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();

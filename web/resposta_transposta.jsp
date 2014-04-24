@@ -34,7 +34,7 @@
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrixes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_answer_matrix.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
         Linhas<input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />

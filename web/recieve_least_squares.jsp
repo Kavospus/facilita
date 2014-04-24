@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_determinante
+    Document   : recebe_minimos_a
     Author     : Andre
 --%>
 
@@ -17,16 +17,19 @@
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <title>JSP Page</title>
     </head>
-    <body class="centertable">
-        <%@include file="menu.jsp" %>
-        <form action="compute_determinant.do" method="POST" name="compute_determinant">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
-        <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=1');"/>
+<body class="centertable">
+    <%@include file="menu.jsp" %>    
+    <form action="compute_least_squares.do" method="POST" name="compute_least_squares">
+            Quantidade <input type="text" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','dynamic_least_squares.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
+        Ajuste <input type="radio" name="option" value="1">Linear 
+              <input type="radio" name="option" value="2">Gaussiano
+              <input type="radio" name="option" value="3">Parabólico
+              <input type="radio" name="option" value="4">Exponencial
+        <div id="least_squares"></div>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=4');"/>
         </form>
         
         <br>
         <div id="help" ></div>
     </body>
 </html>
-

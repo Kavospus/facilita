@@ -64,7 +64,7 @@ public class UpdateMenu extends HttpServlet {
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
-                out.print(" window.open('listar_menu.jsp','_parent');");
+                out.print(" window.open('list_menu.jsp','_parent');");
                 out.print("</script>");
 
             } catch (Exception e) {

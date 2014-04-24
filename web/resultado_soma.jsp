@@ -63,13 +63,13 @@
         <a href="index.jsp">Voltar</a>
         <a href="resposta_subtrai.jsp?operation=sum">Subtração</a>
         <a href="resposta_soma.jsp?operation=sum">Adição</a>
-        <a href="resposta_multiplica.jsp?operation=sum">Multiplicação</a>
+        <a href="answer_multiply.jsp?operation=sum">Multiplicação</a>
         <a href="resposta_transposta.jsp?operation=sum">Transposta</a>
-        <a href="resposta_escalar.jsp?operation=sum">Escalar</a>
+        <a href="answer_scalar.jsp?operation=sum">Escalar</a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='resposta_inversa.jsp?operation=sum'>Inversa</a>");
-        out.print("<a href='resposta_determinante.jsp?operation=sum'>Determinante</a>");
+        out.print("<a href='answer_inverse.jsp?operation=sum'>Inversa</a>");
+        out.print("<a href='answer_determinant.jsp?operation=sum'>Determinante</a>");
         }
         
         %>

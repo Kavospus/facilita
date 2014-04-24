@@ -56,7 +56,7 @@ public class DeleteUser extends HttpServlet {
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_usuario.jsp','_parent');");
+		    out.print(" window.open('list_user.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

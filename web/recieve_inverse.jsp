@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_inversa
+    Document   : recieve_inverse
     Author     : Andre
 --%>
 
@@ -20,7 +20,7 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="invert_matrix.do" method="POST" name="invert_matrix">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         
         
         <div id="matrixes" ></div>

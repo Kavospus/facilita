@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listar_perfil
+    Document   : list_profile
     Author     : André
 --%>
 
@@ -46,7 +46,7 @@
                         <table class="tableDist" align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Perfis</h1></td>
-                                <td align="right" ><a class="button" href="form_inserir_perfil.jsp">Inserir Perfil</a></td>
+                                <td align="right" ><a class="button" href="insert_profile_form.jsp">Inserir Perfil</a></td>
                             </tr>
                         </table>
                         <table class="" align="center" >
@@ -76,8 +76,8 @@
                                     <%out.print(profile.getPerfil());%>
                                 </td>
                                 <td>
-                                    <a class="button" href="form_gerenciar_menu_perfil.jsp?id=<%out.print(profile.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
-                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(profile.getId());%>&profile=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="manage_profile_menu_form.jsp?id=<%out.print(profile.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
+                                    <a class="button" href="update_profile_form.jsp?id=<%out.print(profile.getId());%>&profile=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
                                     <a class="button" href="#" onclick="verify(<%out.print(profile.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>

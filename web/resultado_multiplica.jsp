@@ -71,13 +71,13 @@
         <a href="index.jsp">Voltar</a>
         <a href="resposta_subtrai.jsp?operation=multiply">Subtração</a>
         <a href="resposta_soma.jsp?operation=multiply">Adição</a>
-        <a href="resposta_multiplica.jsp?operation=multiply">Multiplicação</a>
+        <a href="answer_multiply.jsp?operation=multiply">Multiplicação</a>
         <a href="resposta_transposta.jsp?operation=multiply">Transposta</a>
-        <a href="resposta_escalar.jsp?operation=multiply">Escalar</a>
+        <a href="answer_scalar.jsp?operation=multiply">Escalar</a>
         <%
         if(linesA==columnsB){
-        out.print("<a href='resposta_inversa.jsp?operation=multiply'>Inversa</a>");
-        out.print("<a href='resposta_determinante.jsp?operation=multiply'>Determinante</a>");
+        out.print("<a href='answer_inverse.jsp?operation=multiply'>Inversa</a>");
+        out.print("<a href='answer_determinant.jsp?operation=multiply'>Determinante</a>");
         }
         
         %>

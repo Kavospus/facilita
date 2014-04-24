@@ -84,7 +84,7 @@ public class ManageProfileMenu extends HttpServlet {
 		    session.setAttribute("produto", null);
 		    session.setAttribute("produto", null);
 		    session.setAttribute("user", null);
-		    response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="
+		    response.sendRedirect("manage_profile_menu_form.jsp?id="
 			    + id_profile);
 
 		} catch (Exception e) {

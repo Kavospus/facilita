@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_escalar
+    Document   : recieve_scalar
     Author     : Andre
 --%>
 
@@ -27,8 +27,8 @@
         <%@include file="menu.jsp" %>
         <form action="scale_matrix.do" method="POST" name="scale_matrix">
             Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
-        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrixes" ></div>
         <input class="button" type="submit" name="OK"/>

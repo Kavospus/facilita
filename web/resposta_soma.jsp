@@ -34,7 +34,7 @@
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrixes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_answer_matrices.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="sum_matrices.do" method="POST" name="sum_matrices">
             Linhas de A e B <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />

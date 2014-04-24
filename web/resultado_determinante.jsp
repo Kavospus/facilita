@@ -40,7 +40,7 @@
         out.print("Resultado do Determinante: "+resultado);
         %>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_determinant_escalar.jsp">Escalar</a>
+        <a href="answer_determinant_scalar.jsp">Escalar</a>
 
     </body>
 </html>

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_soma
+    Document   : recieve_subtract
     Author     : Andre
 --%>
 
@@ -19,11 +19,11 @@
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
-        <form action="sum_matrices.do" method="POST" name="sum_matrices">
-        Linhas de A e B <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
-        Colunas de A e B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        <form action="subtract_matrices.do" method="POST" name="subtract_matrices">
+        Linhas de A e B <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        Colunas de A e B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=6');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=7');"/>
         </form>
         
         <br>

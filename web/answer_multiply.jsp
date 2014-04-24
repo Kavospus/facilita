@@ -15,6 +15,7 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
         <title>JSP Page</title>
     </head>
     <%
@@ -30,15 +31,15 @@
         if(session.getAttribute("result_"+operation+"_columnsA") != null){
                 columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
-        
+
 
     %>
-    <body class="centertable" onload="refreshPage('matrixes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_answer_matrices.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="scale_matrix.do" method="POST" name="scale_matrix">
-        Escalar <input type="text" name="n" id="n"/>
-        Linhas <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
-        Colunas <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
+        <form action="multiply_matrices.do" method="POST" name="multiply_matrices">
+        Linhas de A <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
+        Colunas de A e Linhas de B <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
+        Colunas de B <input type="text" name="linesB" value="2" id="linesB" onkeyup="refreshPage('matrixes', 'dynamic_answer_matrices.jsp?operation=<%=operation%>&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrixes" ></div>
         <input class="button"type="submit" name="OK"/>
         </form>

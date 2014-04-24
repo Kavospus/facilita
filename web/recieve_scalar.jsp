@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_minimos_a
+    Document   : recieve_scalar
     Author     : Andre
 --%>
 
@@ -17,16 +17,15 @@
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <title>JSP Page</title>
     </head>
-<body class="centertable">
-    <%@include file="menu.jsp" %>    
-    <form action="compute_least_squares.do" method="POST" name="compute_least_squares">
-            Quantidade <input type="text" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','minimos_dinamicos.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
-        Ajuste <input type="radio" name="option" value="1">Linear 
-              <input type="radio" name="option" value="2">Gaussiano
-              <input type="radio" name="option" value="3">Parabólico
-              <input type="radio" name="option" value="4">Exponencial
-        <div id="least_squares"></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=4');"/>
+    <body class="centertable">
+        <%@include file="menu.jsp" %>
+        <form action="scale_matrix.do" method="POST" name="scale_matrix">
+        Escalar <input type="text" name="n" id="n"/>
+        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        
+        <div id="matrixes" ></div>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=2');"/>
         </form>
         
         <br>

@@ -42,7 +42,7 @@
             </form>
             <div class="footer filled">
                 
-                <a href="form_cadastrar_usuario.jsp">Cadastre-se</a>  <a href="do_guest_login.do">Entrar como Convidado</a>
+                <a href="register_user_form.jsp">Cadastre-se</a>  <a href="do_guest_login.do">Entrar como Convidado</a>
             </div>
         </div>
     </body>

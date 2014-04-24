@@ -1,16 +1,17 @@
 <%-- 
-    Document   : form_inserir_menu
-    Author     : André
+    Document   : cadastar_usuario
+    Author     : Andre
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Insersão - Menus</title>
+        <title>Formulátio de Cadastro - Usuário</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -18,38 +19,37 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
-        <script language="javascript" >
+        <script type="text/javascript">
             function validateForm(){
 
-                var form_inserir_menu=document.form_inserir_menu;
-                var field_menu=form_inserir_menu.menu;
-                var field_icon=form_inserir_menu.icon;
-                var field_link=form_inserir_menu.link;
+            var insert_user_form=document.insert_user_form;
+                var field_name=insert_user_form.name;
+                var field_login=insert_user_form.login;
+                var field_password=insert_user_form.password;
 
+                if(field_name.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    field_name.focus();
+                    return false;
+                }
+                if(field_login.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    field_login.focus();
+                    return false;
+                }
+                if(field_password.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    field_password.focus();
+                    return false;
+                }
 
-                if(field_menu.value==""){
-                    alert("Todos os campos devem ser preenchidos!");
-                    field_menu.focus();
-                    return false;
-                }
-                if(field_icon.value==""){
-                    alert("Todos os campos devem ser preenchidos!");
-                    field_icon.focus();
-                    return false;
-                }
-                if(field_link.value==""){
-                    alert("Todos os campos devem ser preenchidos!");
-                    field_link.focus();
-                    return false;
-                }
                 return true;
-            }
+        }     
         </script>
     </head>
     <body>
         <div class="selfcontainer" align="center">
         <div class="header">
-            <%@include file="menu.jsp" %>
         </div>
                     <div class="content">
                     <table class="filled tableMin">
@@ -57,31 +57,32 @@
                     <td class="" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Novo Menu</h1></td>
+                                <td align="center" ><h1>Inserir Usuário</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_menu" action="insert_menu.do" method="POST" onsubmit="return validateForm()">
-                        <table align="center" >
+                        <form name="insert_user_form" action="register_user.do" method="POST" onsubmit="return validateForm()" >
+                        <table align="center" width="300">
+                            
+
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="menu"/> </td>
+                                    <td><input type="text" size="45" name="name"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Icone URL:</td>
-                                    <td><input type="text" size="45" name="icon" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)"/> </td>
-                                    <td><div align="center" id="thumb"></div></td>
+                                    <td>Login:</td>
+                                    <td><input type="text" size="45" name="login"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Link:</td>
-                                    <td><input type="text" size="45" name="link"/> </td>
+                                    <td>Senha:</td>
+                                    <td><input type="password" size="45" name="password"/> </td>
                                 </tr>
-                                
-                                <tr>
-                                    <td></td>
-                                    <td><input class="button" type="submit" value="inserir"/> </td>
-                                </tr>
-                            </table>
 
+                                <tr>
+                                    <td><a href="login.jsp">Voltar</a></td>
+                                    <td><input class="button" type="submit" value="Cadastrar"/> </td>
+                                </tr>
+                            
+                        </table>
                         </form>
                     </td>
                 </tr>
@@ -89,15 +90,6 @@
         </div>
                     <div class="footer">
             </div>
-         </div>               
-<%
-    if(logged){
-    if(session.getAttribute("menu") == null){
-       response.sendRedirect("index.jsp?erro=1");
-    }
-    }
-
-%>
-        
+                        </div>
     </body>
 </html>

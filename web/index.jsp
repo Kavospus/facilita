@@ -26,14 +26,14 @@
         
         <div id="container" class="container centralize">
             <div id="operacoes" class="centro">
-            <a class="button" href="recebe_minimos.jsp">Minimos</a>
-            <a class="button"  href="recebe_multiplica.jsp">Multiplicação</a>
-            <a class="button"  href="recebe_determinante.jsp">Determinante</a>
-            <a class="button"  href="recebe_escalar.jsp">Escalar</a>
-            <a class="button"  href="recebe_inversa.jsp">Inversa</a>
-            <a class="button"  href="recebe_soma.jsp">Adição</a>
-            <a class="button"  href="recebe_subtrai.jsp">Subtração</a>
-            <a class="button"  href="recebe_transposta.jsp">Transposta</a>
+            <a class="button" href="recieve_least_squares.jsp">Minimos</a>
+            <a class="button"  href="recieve_multiply.jsp">Multiplicação</a>
+            <a class="button"  href="recieve_determinant.jsp">Determinante</a>
+            <a class="button"  href="recieve_scalar.jsp">Escalar</a>
+            <a class="button"  href="recieve_inverse.jsp">Inversa</a>
+            <a class="button"  href="recieve_sum.jsp">Adição</a>
+            <a class="button"  href="recieve_subtract.jsp">Subtração</a>
+            <a class="button"  href="recieve_transposed.jsp">Transposta</a>
             </div>
         </div>
         </div>

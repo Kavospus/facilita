@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_inserir_perfil
+    Document   : insert_profile_form
     Author     : André
 --%>
 
@@ -21,8 +21,8 @@
         <script language="javascript" >
             function validateForm(){
 
-                var form_inserir_perfil=document.form_inserir_perfil;
-                var field_profile=form_inserir_perfil.profile;
+                var insert_profile_form=document.insert_profile_form;
+                var field_profile=insert_profile_form.profile;
 
                 if(field_profile.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -47,7 +47,7 @@
                                 <td align="left" ><h1>Novo Perfil</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_perfil" action="insert_profile.do" method="GET" onsubmit="return validateForm()">
+                        <form name="insert_profile_form" action="insert_profile.do" method="GET" onsubmit="return validateForm()">
                             <table align="center">
                                 <tr>
                                     <td>Perfil:</td>

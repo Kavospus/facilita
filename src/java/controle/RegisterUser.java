@@ -62,14 +62,14 @@ public class RegisterUser extends HttpServlet {
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros inseridos com sucesso!');");
-                out.print(" window.open('listar_usuario.jsp','_parent');");
+                out.print(" window.open('list_user.jsp','_parent');");
                 out.print("</script>");
 
 
             } catch (Exception e) {
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('O usuário já existe!');");
-                out.print(" window.open('form_cadastrar_usuario.jsp','_parent');");
+                out.print(" window.open('register_user_form.jsp','_parent');");
                 out.print("</script>");
             }
             out.println("</body>");

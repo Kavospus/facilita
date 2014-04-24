@@ -1,5 +1,5 @@
 <%-- 
-    Document   : matriz_dinamica
+    Document   : dynamic_matrix
     Author     : Andre
 --%>
 

@@ -62,7 +62,7 @@ public class DeleteCalculus extends HttpServlet {
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_calculo.jsp','_parent');");
+		    out.print(" window.open('list_calculus.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

@@ -139,7 +139,7 @@ public class MultiplyMatrices extends HttpServlet {
 		try {
 		    menu.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario userPermission = menu.getUsuario();
-		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();

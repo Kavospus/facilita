@@ -1,5 +1,5 @@
 <%-- 
-    Document   : recebe_escalar
+    Document   : recieve_sum
     Author     : Andre
 --%>
 
@@ -19,13 +19,11 @@
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
-        <form action="scale_matrix.do" method="POST" name="scale_matrix">
-        Escalar <input type="text" name="n" id="n"/>
-        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        
+        <form action="sum_matrices.do" method="POST" name="sum_matrices">
+        Linhas de A e B <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        Colunas de A e B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=2');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=6');"/>
         </form>
         
         <br>

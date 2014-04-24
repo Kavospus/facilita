@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_alterar_perfil
+    Document   : update_profile_form
     Author     : André
 --%>
 
@@ -29,8 +29,8 @@
         <script type="text/javascript" language="JavaScript">
             function validateForm(){
 
-                var form_alterar_perfil=document.form_alterar_perfil;
-                var field_profile=form_alterar_perfil.profile;
+                var update_profile_form=document.update_profile_form;
+                var field_profile=update_profile_form.profile;
 
                 if(field_profile.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -71,7 +71,7 @@
 
                         if(profile.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_perfil" action="update_profile.do" method="POST" onsubmit="return validateForm()">
+                            <form name="update_profile_form" action="update_profile.do" method="POST" onsubmit="return validateForm()">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>

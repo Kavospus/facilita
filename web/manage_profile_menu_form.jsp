@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_gerenciar_menu_perfil
+    Document   : manage_profile_menu_form
     Author     : André
 --%>
 
