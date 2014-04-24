@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Transpor;
+import modelo.Transpose;
 import modelo.Usuario;
 
 public class TransposeMatrix extends HttpServlet {
@@ -92,7 +92,7 @@ public class TransposeMatrix extends HttpServlet {
 	    session.setAttribute("data_transposed_linesA", linesA);
 	    session.setAttribute("data_transposed_columnsA", columnsA);
 	    if (error == 0) {
-		Transpor transpor = new Transpor(matrixA, linesA, columnsA);
+		Transpose transpor = new Transpose(matrixA, linesA, columnsA);
 		transpor.calculate();
 		result = transpor.getResult();
 		session.setAttribute("result_transposed", result);

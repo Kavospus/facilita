@@ -4,7 +4,7 @@
  */
 package tests;
 
-import modelo.Transpor;
+import modelo.Transpose;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class TransporTest {
     
     public TransporTest() {
     }
-    Transpor transpor;
+    Transpose transpor;
     @Before
     public void setUp() {
     }
@@ -30,7 +30,7 @@ public class TransporTest {
     //
     @Test
     public void testTranspor() {
-        transpor = new Transpor(new double[][]{{-0.5,0.5},{0.75,-0.25}}, 2, 2);
+        transpor = new Transpose(new double[][]{{-0.5,0.5},{0.75,-0.25}}, 2, 2);
         transpor.calcular();
         double[][] saida = new double[][]{{-0.5,0.75},{0.5,-0.25}};
         assertArrayEquals(saida[0],transpor.getResultado()[0], 0.000001);

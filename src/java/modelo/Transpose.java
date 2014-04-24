@@ -9,23 +9,23 @@ package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-public class Transpor extends Calculus {
+public class Transpose extends Calculus {
     private double[][] input;
     private double[][] result;
     private int linesA;
     private int columnsA;
 
-    public Transpor() {
+    public Transpose() {
 
     }
 
     /*Constructor*/
-    public Transpor(double[][] input, int linesA, int columnsA) {
+    public Transpose(double[][] input, int linesA, int columnsA) {
 	this.input = input;
 	this.linesA = linesA;
 	this.columnsA = columnsA;
 	this.setInputString(MatrixParser.parseString(input));
-	this.setOperation("Transpor");
+	this.setOperation("Transpose");
     }
     
     /*Function to transpose the matrix*/

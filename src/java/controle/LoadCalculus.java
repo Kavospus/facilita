@@ -21,7 +21,7 @@ import modelo.Invert;
 import modelo.Multiplicar;
 import modelo.Sum;
 import modelo.Subtrair;
-import modelo.Transpor;
+import modelo.Transpose;
 
 
 public class LoadCalculus extends HttpServlet {
@@ -73,8 +73,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_inverse.jsp?id="
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Transpor")) {
-			Transpor t = (Transpor) calculus;
+		    } else if (operacao.equals("Transpose")) {
+			Transpose t = (Transpose) calculus;
 			t.setDataString();
 			session.setAttribute("data_transposed_matrixA",
 				t.getInput());

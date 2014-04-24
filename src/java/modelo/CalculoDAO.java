@@ -22,8 +22,8 @@ public class CalculoDAO extends DataBaseDAO {
 	Calculus calculo = null;
 	if (operador.equals("Invert")) {
 	    calculo = new Invert();
-	} else if (operador.equals("Transpor")) {
-	    calculo = new Transpor();
+	} else if (operador.equals("Transpose")) {
+	    calculo = new Transpose();
 	} else if (operador.equals("Determine")) {
 	    calculo = new Determine();
 	} else if (operador.equals("Sum")) {
