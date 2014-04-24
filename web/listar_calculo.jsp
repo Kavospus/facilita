@@ -110,7 +110,7 @@
     if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
-    session.setAttribute("calculo",true);
+    session.setAttribute("calculus",true);
     }
     }
 %>

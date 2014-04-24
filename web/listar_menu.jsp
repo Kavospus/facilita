@@ -64,27 +64,27 @@
 
                             <%
                             try{
-                                MenuDAO mDB = new MenuDAO();
-                                mDB.conectar();    
-                                ArrayList<Menu> lista = mDB.listar();
-                            for(Menu m:lista){%>
+                                MenuDAO menuDB = new MenuDAO();
+                                menuDB.conectar();    
+                                ArrayList<Menu> lista = menuDB.listar();
+                            for(Menu menu:lista){%>
 
                             <tr>
                                 <td>
-                                    <%out.print(m.getId());%>
+                                    <%out.print(menu.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(m.getMenu());%>
+                                    <%out.print(menu.getMenu());%>
                                 </td>
                                 <td>
-                                    <%out.print(m.getLink());%>
+                                    <%out.print(menu.getLink());%>
                                 </td>
                                 <td>
-                                    <img width="16" height="16" src="<%out.print(m.getIcone());%>">
+                                    <img width="16" height="16" src="<%out.print(menu.getIcone());%>">
                                 </td>
                                 <td>
-                                    <a class="button" href="form_alterar_menu.jsp?id=<%out.print(m.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
-                                    <a class="button" href="#" onclick="confirma(<%out.print(m.getId());%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
+                                    <a class="button" href="form_alterar_menu.jsp?id=<%out.print(menu.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="#" onclick="confirma(<%out.print(menu.getId());%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
@@ -105,8 +105,8 @@
 <%
 
     if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    Usuario userPermission = new Usuario();
+    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
     session.setAttribute("menu",true);
