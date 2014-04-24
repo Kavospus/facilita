@@ -94,10 +94,10 @@
                                                 Selecione um perfil
                                             </option>
 
-                                            <%for (Perfil p : lista) {%>
+                                            <%for (Perfil profile : lista) {%>
 
-                                            <option value="<%=p.getId()%>">
-                                                <%=p.getPerfil()%>
+                                            <option value="<%=profile.getId()%>">
+                                                <%=profile.getPerfil()%>
                                             </option>
                                             <%}%>
                                         </select>

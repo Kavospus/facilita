@@ -6,12 +6,12 @@
     <tr>
 <%
 boolean logged = false;
-Usuario user = null;
+Usuario userLogged = null;
 try{
 
-    user = (Usuario) session.getAttribute("user");
-    out.print("<td>Bem Vindo "+user.getNome()+"</td>");
-    for(Menu mp:user.getPerfil().getMenus()){
+    userLogged = (Usuario) session.getAttribute("user");
+    out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
+    for(Menu mp:userLogged.getPerfil().getMenus()){
 
     out.print("<td >"
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"

@@ -108,12 +108,12 @@
                                     </td>
                                     <td><select name="id_perfil" size="1">
                                             
-                                            <%for (Perfil p : lista) {%>
-                                            <%if(u.getPerfil().getId() == p.getId()) {%>
-                                            <option value="<%=p.getId()%>">
-                                                <%=p.getPerfil()%>
+                                            <%for (Perfil profile : lista) {%>
+                                            <%if(u.getPerfil().getId() == profile.getId()) {%>
+                                            <option value="<%=profile.getId()%>">
+                                                <%=profile.getPerfil()%>
                                             </option>
-                                            <%}else {lista1.add(p);}
+                                            <%}else {lista1.add(profile);}
                                             }
                                             for (Perfil p1 : lista1) {%>
                                             <option value="<%=p1.getId()%>">

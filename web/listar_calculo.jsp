@@ -61,7 +61,7 @@
 
                                             calculusDB.conectar();
 
-                                            ArrayList<Calculo> lista = calculusDB.listar(user);
+                                            ArrayList<Calculo> lista = calculusDB.listar(userLogged);
 
                                             for(Calculo calculus:lista){%>
 
@@ -107,7 +107,7 @@
 
     if(logged){
     Usuario userPermission = new Usuario();
-    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
     session.setAttribute("calculus",true);

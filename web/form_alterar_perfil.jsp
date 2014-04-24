@@ -65,20 +65,20 @@
 
                                             profileDB.conectar();
 
-                                            Perfil p = profileDB.carregaPorId(id);
+                                            Perfil profile = profileDB.carregaPorId(id);
 
                                             profileDB.desconectar();
 
-                        if(p.getId()>0){%>
+                        if(profile.getId()>0){%>
                         <table align="center">
                             <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validaForm()">
                                 <tr>
                                     <td>Id</td>
-                                    <td><input type="text" name="id" readonly value="<%out.print(p.getId());%>"/> </td>
+                                    <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Perfil</td>
-                                    <td><input type="text" name="perfil" value="<%out.print(p.getPerfil());%>"/> </td>
+                                    <td><input type="text" name="perfil" value="<%out.print(profile.getPerfil());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td><input class="button" type="reset" value="Limpar"/> </td>
