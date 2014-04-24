@@ -100,10 +100,10 @@ public class EscalarMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_escalar_a", a);
-	    session.setAttribute("data_escalar_linesA", linesA);
-	    session.setAttribute("data_escalar_columnsA", columnsA);
-	    session.setAttribute("data_escalar_n", n);
+	    session.setAttribute("data_scalar_a", a);
+	    session.setAttribute("data_scalar_linesA", linesA);
+	    session.setAttribute("data_scalar_columnsA", columnsA);
+	    session.setAttribute("data_scalar_n", n);
 	    if (error == 0) {
 		Escalar e = new Escalar(a, n, linesA, columnsA);
 		e.calcular();

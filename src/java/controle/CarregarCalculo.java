@@ -155,11 +155,11 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Escalar")) {
 			Escalar e = (Escalar) calculus;
 			e.setDadosString();
-			session.setAttribute("data_escalar_a", e.getEntradaA());
-			session.setAttribute("data_escalar_n", e.getEntradaB());
-			session.setAttribute("data_escalar_linesA",
+			session.setAttribute("data_scalar_a", e.getEntradaA());
+			session.setAttribute("data_scalar_n", e.getEntradaB());
+			session.setAttribute("data_scalar_linesA",
 				e.getDimensaoA());
-			session.setAttribute("data_escalar_columnsA",
+			session.setAttribute("data_scalar_columnsA",
 				e.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_escalar.jsp?id="
