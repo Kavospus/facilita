@@ -67,12 +67,12 @@ public class CalcularMinimos extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    double vx[] = new double[quantity];
-	    double vy[] = new double[quantity];
+	    double vectorX[] = new double[quantity];
+	    double vectorY[] = new double[quantity];
 	    for (i = 0; i < quantity; i++) {
-		if (request.getParameter("vx" + i) != null) {
+		if (request.getParameter("vectorX" + i) != null) {
 		    try {
-			vx[i] = Double.parseDouble(request.getParameter("vx"
+			vectorX[i] = Double.parseDouble(request.getParameter("vectorX"
 				+ i));
 		    } catch (Exception e) {
 			errom = 1;
@@ -82,9 +82,9 @@ public class CalcularMinimos extends HttpServlet {
 			out.print("</script>");
 		    }
 		}
-		if (request.getParameter("vy" + i) != null) {
+		if (request.getParameter("vectorY" + i) != null) {
 		    try {
-			vy[i] = Double.parseDouble(request.getParameter("vy"
+			vectorY[i] = Double.parseDouble(request.getParameter("vectorY"
 				+ i));
 		    } catch (Exception e) {
 			errom = 1;
@@ -97,12 +97,12 @@ public class CalcularMinimos extends HttpServlet {
 	    }
 	    session.setAttribute("data_least_squares_quantity", quantity);
 	    session.setAttribute("data_least_squares_option", option);
-	    session.setAttribute("data_least_squares_vx", vx);
-	    session.setAttribute("data_least_squares_vy", vy);
+	    session.setAttribute("data_least_squares_vectorX", vectorX);
+	    session.setAttribute("data_least_squares_vectorY", vectorY);
 	    if (errom == 0) {
 		Minimos menu = new Minimos();
 		try {
-		    result = menu.calculaMinimos(vx, vy, quantity, option);
+		    result = menu.calculaMinimos(vectorX, vectorY, quantity, option);
 		} catch (SingularMatrixException e) {
 		    error = "Matriz Singular";
 
