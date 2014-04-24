@@ -12,17 +12,17 @@
         if (request.getParameter("qnt") != null) {
             qnt = Integer.parseInt(request.getParameter("qnt"));
         }
-        if(session.getAttribute("data_minimos_vx") != null){
-                vx = (double[])session.getAttribute("data_minimos_vx");
+        if(session.getAttribute("data_least_squares_vx") != null){
+                vx = (double[])session.getAttribute("data_least_squares_vx");
         }
-        if(session.getAttribute("data_minimos_vy") != null){
-                vy = (double[])session.getAttribute("data_minimos_vy");
+        if(session.getAttribute("data_least_squares_vy") != null){
+                vy = (double[])session.getAttribute("data_least_squares_vy");
             }
-        if(session.getAttribute("data_minimos_opcao") != null){
-                opcao = (Integer) session.getAttribute("data_minimos_opcao");
+        if(session.getAttribute("data_least_squares_opcao") != null){
+                opcao = (Integer) session.getAttribute("data_least_squares_opcao");
             }
-        if(session.getAttribute("data_minimos_quantidade") != null){
-                quantidade = (Integer) session.getAttribute("data_minimos_quantidade");
+        if(session.getAttribute("data_least_squares_quantidade") != null){
+                quantidade = (Integer) session.getAttribute("data_least_squares_quantidade");
             }
         for (i = 0; i < qnt; i++) {
     %>
