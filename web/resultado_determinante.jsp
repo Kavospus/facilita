@@ -29,13 +29,13 @@
                 columnsA = (Integer)session.getAttribute("data_determinant_columnsA");
         }
 
-        double a[][] = new double[linesA][columnsA];
+        double matrixA[][] = new double[linesA][columnsA];
         double resultado = 0;
         if(session.getAttribute("result_determinant") != null){
                 resultado = (Double)session.getAttribute("result_determinant");
             }
-        if(session.getAttribute("data_determinant_a") != null){
-                a = (double[][])session.getAttribute("data_determinant_a");
+        if(session.getAttribute("data_determinant_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_determinant_matrixA");
             }
         out.print("Resultado do Determinante: "+resultado);
         %>

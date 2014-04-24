@@ -29,10 +29,10 @@
                 scolumnsA = (Integer)session.getAttribute("data_"+operation+"_columnsA");
         }
         
-        double a[][] = new double[slinesA][scolumnsA];
+        double matrixA[][] = new double[slinesA][scolumnsA];
         
-        if(session.getAttribute("data_"+operation+"_a") != null){
-                a = (double[][])session.getAttribute("data_"+operation+"_a");
+        if(session.getAttribute("data_"+operation+"_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_"+operation+"_matrixA");
         }
         
         for(i=0;i<columnsA;i++){
@@ -47,7 +47,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td><input type="text" size="10" value="<%if(i<slinesA && j<scolumnsA){out.print(a[i][j]);}else{out.print(0.0);}%>" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
+        <td><input type="text" size="10" value="<%if(i<slinesA && j<scolumnsA){out.print(matrixA[i][j]);}else{out.print(0.0);}%>" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

@@ -37,17 +37,17 @@
         if(session.getAttribute("data_multiply_columnsB") != null){
                 columnsB = (Integer)session.getAttribute("data_multiply_columnsB");
         }
-        double a[][] = new double[linesA][columnsA];
-        double b[][] = new double[linesB][columnsB];
+        double matrixA[][] = new double[linesA][columnsA];
+        double matrixB[][] = new double[linesB][columnsB];
         double resultado[][] = new double[linesA][linesB];
         if(session.getAttribute("result_multiply") != null){
                 resultado = (double[][])session.getAttribute("result_multiply");
             }
-        if(session.getAttribute("data_mmultiplica_a") != null){
-                a = (double[][])session.getAttribute("data_mmultiplica_a");
+        if(session.getAttribute("data_mmultiplica_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_mmultiplica_matrixA");
             }
-        if(session.getAttribute("data_mmultiplica_b") != null){
-                b = (double[][])session.getAttribute("data_mmultiplica_b");
+        if(session.getAttribute("data_mmultiplica_matrixB") != null){
+                matrixB = (double[][])session.getAttribute("data_mmultiplica_matrixB");
             }
         
         

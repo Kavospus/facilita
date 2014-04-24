@@ -32,13 +32,13 @@
                 columnsA = (Integer)session.getAttribute("data_subtract_columnsA");
         }
 
-        double a[][] = new double[linesA][columnsA];
+        double matrixA[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
         if(session.getAttribute("result_subtract") != null){
                 resultado = (double[][])session.getAttribute("result_subtract");
             }
-        if(session.getAttribute("data_subtract_a") != null){
-                a = (double[][])session.getAttribute("data_subtract_a");
+        if(session.getAttribute("data_subtract_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_subtract_matrixA");
             }
 
         

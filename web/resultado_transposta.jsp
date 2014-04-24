@@ -32,13 +32,13 @@
                 columnsA = (Integer)session.getAttribute("result_transposed_columnsA");
         }
 
-        double a[][] = new double[columnsA][linesA];
+        double matrixA[][] = new double[columnsA][linesA];
         double resultado[][] = new double[linesA][columnsA];
         if(session.getAttribute("result_transposed") != null){
                 resultado = (double[][])session.getAttribute("result_transposed");
             }
-        if(session.getAttribute("data_transposed_a") != null){
-                a = (double[][])session.getAttribute("data_transposed_a");
+        if(session.getAttribute("data_transposed_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_transposed_matrixA");
             }
 
         

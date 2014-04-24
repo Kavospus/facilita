@@ -42,13 +42,13 @@
         if(session.getAttribute("data_"+operation+"_columnsB") != null){
                 scolumnsB = (Integer)session.getAttribute("data_"+operation+"_columnsB");
         }
-        double a[][] = new double[slinesA][scolumnsA];
-        double b[][] = new double[slinesB][scolumnsB];
-        if(session.getAttribute("data_"+operation+"_a") != null){
-                a = (double[][])session.getAttribute("data_"+operation+"_a");
+        double matrixA[][] = new double[slinesA][scolumnsA];
+        double matrixB[][] = new double[slinesB][scolumnsB];
+        if(session.getAttribute("data_"+operation+"_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_"+operation+"_matrixA");
             }
-        if(session.getAttribute("data_"+operation+"_b") != null){
-                b = (double[][])session.getAttribute("data_"+operation+"_b");
+        if(session.getAttribute("data_"+operation+"_matrixB") != null){
+                matrixB = (double[][])session.getAttribute("data_"+operation+"_matrixB");
             }
         for(i=0;i<columnsA;i++){
             %>
@@ -62,7 +62,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-            <td><input size="10" type="text" value="<%if(i<slinesA && j<scolumnsA){out.print(a[i][j]);}else{out.print(0.0);}%>" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
+            <td><input size="10" type="text" value="<%if(i<slinesA && j<scolumnsA){out.print(matrixA[i][j]);}else{out.print(0.0);}%>" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>
@@ -85,7 +85,7 @@
             <%
             for(j=0;j<columnsB;j++){
         %>
-        <td><input size="10" type="text" value="<%if(i<slinesB && j<scolumnsB){out.print(b[i][j]);}else{out.print(0.0);}%>" name="b<%=i%><%=j%>" id="b<%=i%><%=j%>" /></td>
+        <td><input size="10" type="text" value="<%if(i<slinesB && j<scolumnsB){out.print(matrixB[i][j]);}else{out.print(0.0);}%>" name="matrixB<%=i%><%=j%>" id="matrixB<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

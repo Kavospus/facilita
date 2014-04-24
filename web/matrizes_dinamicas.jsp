@@ -38,7 +38,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td><input size="10" type="text" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
+        <td><input size="10" type="text" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>
@@ -61,7 +61,7 @@
             <%
             for(j=0;j<columnsB;j++){
         %>
-        <td><input size="10" type="text" name="b<%=i%><%=j%>" id="b<%=i%><%=j%>" /></td>
+        <td><input size="10" type="text" name="matrixB<%=i%><%=j%>" id="matrixB<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

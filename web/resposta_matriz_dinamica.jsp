@@ -41,7 +41,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td> <input type="text" size="10" value="<%=resultado[i][j]%>" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
+        <td> <input type="text" size="10" value="<%=resultado[i][j]%>" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

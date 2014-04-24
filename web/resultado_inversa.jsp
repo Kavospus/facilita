@@ -33,13 +33,13 @@
                 columnsA = (Integer)session.getAttribute("data_inverse_columnsA");
         }
 
-        double a[][] = new double[linesA][columnsA];
+        double matrixA[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
         if(session.getAttribute("result_inverse") != null){
                 resultado = (double[][])session.getAttribute("result_inverse");
             }
-        if(session.getAttribute("data_inverse_a") != null){
-                a = (double[][])session.getAttribute("data_inverse_a");
+        if(session.getAttribute("data_inverse_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_inverse_matrixA");
             }
 
         
