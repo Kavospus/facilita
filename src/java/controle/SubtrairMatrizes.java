@@ -67,7 +67,7 @@ public class SubtrairMatrizes extends HttpServlet {
 	    }
 
 	    double matrixA[][] = new double[linesA][columnsA];
-	    double b[][] = new double[linesA][columnsA];
+	    double matrixB[][] = new double[linesA][columnsA];
 	    double result[][] = new double[linesA][columnsA];
 
 	    for (i = 0; i < linesA; i++) {
@@ -91,11 +91,11 @@ public class SubtrairMatrizes extends HttpServlet {
 	    }
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
-		    if (request.getParameter("b" + i + j) != null
-			    && request.getParameter("b" + i + j) != "") {
+		    if (request.getParameter("matrixB" + i + j) != null
+			    && request.getParameter("matrixB" + i + j) != "") {
 			try {
-			    b[i][j] = Double.parseDouble(request
-				    .getParameter("b" + i + j));
+			    matrixB[i][j] = Double.parseDouble(request
+				    .getParameter("matrixB" + i + j));
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
@@ -104,7 +104,7 @@ public class SubtrairMatrizes extends HttpServlet {
 			    out.print("</script>");
 			}
 		    } else {
-			b[i][j] = 0;
+			matrixB[i][j] = 0;
 		    }
 		}
 	    }
