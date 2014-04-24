@@ -56,12 +56,12 @@
                             <%
 
                                         try {
-                                            user = (Usuario)session.getAttribute("userLogged");
+                                            Usuario user = (Usuario)session.getAttribute("userLogged");
                                             CalculoDAO calculusDB = new CalculoDAO();
 
                                             calculusDB.conectar();
 
-                                            ArrayList<Calculo> calculusList = calculusDB.listar(userLogged);
+                                            ArrayList<Calculo> calculusList = calculusDB.listar(user);
 
                                             for(Calculo calculus:calculusList){%>
 
