@@ -20,16 +20,16 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <%
-        int i, j,dima=0,dimb=0;
+        int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_determinante_dima") != null){
-                dima = (Integer)session.getAttribute("dados_determinante_dima");
+        if(session.getAttribute("dados_determinante_linesA") != null){
+                linesA = (Integer)session.getAttribute("dados_determinante_linesA");
         }
-        if(session.getAttribute("dados_determinante_dimb") != null){
-                dimb = (Integer)session.getAttribute("dados_determinante_dimb");
+        if(session.getAttribute("dados_determinante_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("dados_determinante_columnsA");
         }
 
-        double a[][] = new double[dima][dimb];
+        double a[][] = new double[linesA][columnsA];
         double resultado = 0;
         if(session.getAttribute("resultado_determinante") != null){
                 resultado = (Double)session.getAttribute("resultado_determinante");

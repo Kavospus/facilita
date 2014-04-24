@@ -12,31 +12,31 @@
               <tr>
                 <td></td>
         <%
-        int i,j,dima=0,dimb=0,dimc=0,dimd=0;
-            if(request.getParameter("dima") != null){
-                dima = Integer.parseInt(request.getParameter("dima"));
+        int i,j,linesA=0,columnsA=0,linesB=0,columnsB=0;
+            if(request.getParameter("linesA") != null){
+                linesA = Integer.parseInt(request.getParameter("linesA"));
             }
-            if(request.getParameter("dimb") != null){
-                dimb = Integer.parseInt(request.getParameter("dimb"));
+            if(request.getParameter("columnsA") != null){
+                columnsA = Integer.parseInt(request.getParameter("columnsA"));
             }
-            if(request.getParameter("dimc") != null){
-                dimc = Integer.parseInt(request.getParameter("dimc"));
+            if(request.getParameter("linesB") != null){
+                linesB = Integer.parseInt(request.getParameter("linesB"));
             }
-            if(request.getParameter("dimd") != null){
-                dimd = Integer.parseInt(request.getParameter("dimd"));
+            if(request.getParameter("columnsB") != null){
+                columnsB = Integer.parseInt(request.getParameter("columnsB"));
             }
         
-        for(i=0;i<dimb;i++){
+        for(i=0;i<columnsA;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dima;i++){
+        <%for(i=0;i<linesA;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimb;j++){
+            for(j=0;j<columnsA;j++){
         %>
         <td><input size="10" type="text" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
         <%}%>
@@ -49,17 +49,17 @@
                 <td></td>
         <%
         
-        for(i=0;i<dimd;i++){
+        for(i=0;i<columnsB;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dimc;i++){
+        <%for(i=0;i<linesB;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimd;j++){
+            for(j=0;j<columnsB;j++){
         %>
         <td><input size="10" type="text" name="b<%=i%><%=j%>" id="b<%=i%><%=j%>" /></td>
         <%}%>

@@ -23,23 +23,23 @@
             <tr>
                 <td></td>
         <%
-        int i, j,dima=0,dimb=0,dimc=0,dimd=0;
+        int i, j,linesA=0,columnsA=0,linesB=0,columnsB=0;
         
-        if(session.getAttribute("dados_multiplica_dima") != null){
-                dima = (Integer)session.getAttribute("dados_multiplica_dima");
+        if(session.getAttribute("dados_multiplica_linesA") != null){
+                linesA = (Integer)session.getAttribute("dados_multiplica_linesA");
         }
-        if(session.getAttribute("dados_multiplica_dimb") != null){
-                dimb = (Integer)session.getAttribute("dados_multiplica_dimb");
+        if(session.getAttribute("dados_multiplica_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("dados_multiplica_columnsA");
         }
-        if(session.getAttribute("dados_multiplica_dimc") != null){
-                dimc = (Integer)session.getAttribute("dados_multiplica_dimc");
+        if(session.getAttribute("dados_multiplica_linesB") != null){
+                linesB = (Integer)session.getAttribute("dados_multiplica_linesB");
         }
-        if(session.getAttribute("dados_multiplica_dimd") != null){
-                dimd = (Integer)session.getAttribute("dados_multiplica_dimd");
+        if(session.getAttribute("dados_multiplica_columnsB") != null){
+                columnsB = (Integer)session.getAttribute("dados_multiplica_columnsB");
         }
-        double a[][] = new double[dima][dimb];
-        double b[][] = new double[dimc][dimd];
-        double resultado[][] = new double[dima][dimc];
+        double a[][] = new double[linesA][columnsA];
+        double b[][] = new double[linesB][columnsB];
+        double resultado[][] = new double[linesA][linesB];
         if(session.getAttribute("resultado_multiplica") != null){
                 resultado = (double[][])session.getAttribute("resultado_multiplica");
             }
@@ -51,17 +51,17 @@
             }
         
         
-        for(i=0;i<dimd;i++){
+        for(i=0;i<columnsB;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dima;i++){
+        <%for(i=0;i<linesA;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimd;j++){
+            for(j=0;j<columnsB;j++){
         %>
         <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=resultado[i][j]%>" id="r<%=i%><%=j%>" /></td>
         <%}%>
@@ -75,7 +75,7 @@
         <a href="resposta_transposta.jsp?op=multiplica">Transposta</a>
         <a href="resposta_escalar.jsp?op=multiplica">Escalar</a>
         <%
-        if(dima==dimd){
+        if(linesA==columnsB){
         out.print("<a href='resposta_inversa.jsp?op=multiplica'>Inversa</a>");
         out.print("<a href='resposta_determinante.jsp?op=multiplica'>Determinante</a>");
         }

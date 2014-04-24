@@ -82,15 +82,15 @@
                                             int id = Integer.parseInt(request.getParameter("id"));
                                             ArrayList<Perfil> lista1 = new ArrayList<Perfil>();
 
-                                            UsuarioDAO uDB = new UsuarioDAO();
-                                            uDB.conectar();
-                                            Usuario u = uDB.carregaPorId(id);
-                                            uDB.desconectar();
+                                            UsuarioDAO userDB = new UsuarioDAO();
+                                            userDB.conectar();
+                                            Usuario u = userDB.carregaPorId(id);
+                                            userDB.desconectar();
 
  
-                                                PerfilDAO pDB = new PerfilDAO();
-                                                pDB.conectar();
-                                                ArrayList<Perfil> lista = pDB.listar();
+                                                PerfilDAO profileDB = new PerfilDAO();
+                                                profileDB.conectar();
+                                                ArrayList<Perfil> lista = profileDB.listar();
 
                                 %>
                                 <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validaForm()">
@@ -108,12 +108,12 @@
                                     </td>
                                     <td><select name="id_perfil" size="1">
                                             
-                                            <%for (Perfil p : lista) {%>
-                                            <%if(u.getPerfil().getId() == p.getId()) {%>
-                                            <option value="<%=p.getId()%>">
-                                                <%=p.getPerfil()%>
+                                            <%for (Perfil profile : lista) {%>
+                                            <%if(u.getPerfil().getId() == profile.getId()) {%>
+                                            <option value="<%=profile.getId()%>">
+                                                <%=profile.getPerfil()%>
                                             </option>
-                                            <%}else {lista1.add(p);}
+                                            <%}else {lista1.add(profile);}
                                             }
                                             for (Perfil p1 : lista1) {%>
                                             <option value="<%=p1.getId()%>">
@@ -139,7 +139,7 @@
                             </form>
                         </table>
                         <%
-                                        pDB.desconectar();
+                                        profileDB.desconectar();
                                     } catch (Exception e) {
                                         out.println(e);
 

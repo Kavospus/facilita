@@ -20,25 +20,25 @@
     </head>
     <%
     
-       int dima=0,dimb=0;
+       int linesA=0,columnsA=0;
         String op = "";
         if(request.getParameter("op") != null){
                 op = request.getParameter("op");
             }
-        if(session.getAttribute("resultado_"+op+"_dima") != null){
-                dima = (Integer)session.getAttribute("resultado_"+op+"_dima");
+        if(session.getAttribute("resultado_"+op+"_linesA") != null){
+                linesA = (Integer)session.getAttribute("resultado_"+op+"_linesA");
         }
-        if(session.getAttribute("resultado_"+op+"_dimb") != null){
-                dimb = (Integer)session.getAttribute("resultado_"+op+"_dimb");
+        if(session.getAttribute("resultado_"+op+"_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("resultado_"+op+"_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?op=<%=op%>&dima=<%=dima%>&dimb=<%=dimb%>&dimc=<%=dima%>&dimd=<%=dimb%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?op=<%=op%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="somar_matrizes.do" method="POST" name="soma_matrizes">
-            Linhas de A e B <input type="text" name="dima" readonly="true" value="<%=dima%>" id="dima"  />
-        Colunas de A e B <input type="text" value="<%=dimb%>" readonly="true"   name="dimb" id="dimb" />
+            Linhas de A e B <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
+        Colunas de A e B <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
         </form>

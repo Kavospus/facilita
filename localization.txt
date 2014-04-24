@@ -1,0 +1,17 @@
+Where you find this replace for:
+calculo = calculus
+usuario = user
+dima = linesA
+dimb = columnsA
+dimc = linesB
+dimd = columnsB
+uP = userPermission
+uDB = userDB
+cDB = calculusDB
+pDB = profileDB
+mDB = menuDB
+c = calculus
+u = user
+p = profile
+m = menu
+

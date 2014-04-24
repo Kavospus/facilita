@@ -106,7 +106,7 @@
 
     <script>
       function Graph(config) {
-        // user defined properties
+        // userLogged defined properties
         this.canvas = document.getElementById(config.canvasId);
         this.minX = config.minX;
         this.minY = config.minY;

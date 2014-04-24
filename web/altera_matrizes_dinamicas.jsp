@@ -12,57 +12,57 @@
                         <tr>
                             <td></td>
         <%
-        int i,j,dima=0,dimb=0,dimc=0,dimd=0,sdima=0,sdimb=0,sdimc=0,sdimd=0;
+        int i,j,linesA=0,columnsA=0,linesB=0,columnsB=0,slinesA=0,scolumnsA=0,slinesB=0,scolumnsB=0;
         String op ="";
-            if(request.getParameter("dima") != null){
-                dima = Integer.parseInt(request.getParameter("dima"));
+            if(request.getParameter("linesA") != null){
+                linesA = Integer.parseInt(request.getParameter("linesA"));
             }
-            if(request.getParameter("dimb") != null){
-                dimb = Integer.parseInt(request.getParameter("dimb"));
+            if(request.getParameter("columnsA") != null){
+                columnsA = Integer.parseInt(request.getParameter("columnsA"));
             }
-            if(request.getParameter("dimc") != null){
-                dimc = Integer.parseInt(request.getParameter("dimc"));
+            if(request.getParameter("linesB") != null){
+                linesB = Integer.parseInt(request.getParameter("linesB"));
             }
-            if(request.getParameter("dimd") != null){
-                dimd = Integer.parseInt(request.getParameter("dimd"));
+            if(request.getParameter("columnsB") != null){
+                columnsB = Integer.parseInt(request.getParameter("columnsB"));
             }
             if(request.getParameter("op") != null){
                 op = request.getParameter("op");
             }
         
-        if(session.getAttribute("dados_"+op+"_dima") != null){
-                sdima = (Integer)session.getAttribute("dados_"+op+"_dima");
+        if(session.getAttribute("dados_"+op+"_linesA") != null){
+                slinesA = (Integer)session.getAttribute("dados_"+op+"_linesA");
         }
-        if(session.getAttribute("dados_"+op+"_dimb") != null){
-                sdimb = (Integer)session.getAttribute("dados_"+op+"_dimb");
+        if(session.getAttribute("dados_"+op+"_columnsA") != null){
+                scolumnsA = (Integer)session.getAttribute("dados_"+op+"_columnsA");
         }
-        if(session.getAttribute("dados_"+op+"_dimc") != null){
-                sdimc = (Integer)session.getAttribute("dados_"+op+"_dimc");
+        if(session.getAttribute("dados_"+op+"_linesB") != null){
+                slinesB = (Integer)session.getAttribute("dados_"+op+"_linesB");
         }
-        if(session.getAttribute("dados_"+op+"_dimd") != null){
-                sdimd = (Integer)session.getAttribute("dados_"+op+"_dimd");
+        if(session.getAttribute("dados_"+op+"_columnsB") != null){
+                scolumnsB = (Integer)session.getAttribute("dados_"+op+"_columnsB");
         }
-        double a[][] = new double[sdima][sdimb];
-        double b[][] = new double[sdimc][sdimd];
+        double a[][] = new double[slinesA][scolumnsA];
+        double b[][] = new double[slinesB][scolumnsB];
         if(session.getAttribute("dados_"+op+"_a") != null){
                 a = (double[][])session.getAttribute("dados_"+op+"_a");
             }
         if(session.getAttribute("dados_"+op+"_b") != null){
                 b = (double[][])session.getAttribute("dados_"+op+"_b");
             }
-        for(i=0;i<dimb;i++){
+        for(i=0;i<columnsA;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dima;i++){
+        <%for(i=0;i<linesA;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimb;j++){
+            for(j=0;j<columnsA;j++){
         %>
-            <td><input size="10" type="text" value="<%if(i<sdima && j<sdimb){out.print(a[i][j]);}else{out.print(0.0);}%>" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
+            <td><input size="10" type="text" value="<%if(i<slinesA && j<scolumnsA){out.print(a[i][j]);}else{out.print(0.0);}%>" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>
@@ -73,19 +73,19 @@
                 <td></td>
         <%
         
-        for(i=0;i<dimd;i++){
+        for(i=0;i<columnsB;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dimc;i++){
+        <%for(i=0;i<linesB;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimd;j++){
+            for(j=0;j<columnsB;j++){
         %>
-        <td><input size="10" type="text" value="<%if(i<sdimc && j<sdimd){out.print(b[i][j]);}else{out.print(0.0);}%>" name="b<%=i%><%=j%>" id="b<%=i%><%=j%>" /></td>
+        <td><input size="10" type="text" value="<%if(i<slinesB && j<scolumnsB){out.print(b[i][j]);}else{out.print(0.0);}%>" name="b<%=i%><%=j%>" id="b<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

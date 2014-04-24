@@ -27,8 +27,8 @@
         <%@include file="menu.jsp" %>
         <form action="escalar_matriz.do" method="POST" name="escalar_matriz">
             Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
-        Linhas <input type="text" name="dima" id="dima" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value)" />
-        Colunas <input type="text" name="dimb" id="dimb" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value)" />
+        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrizes" ></div>
         <input class="button" type="submit" name="OK"/>

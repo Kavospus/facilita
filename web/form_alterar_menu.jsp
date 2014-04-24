@@ -78,11 +78,11 @@
                                         id = Integer.parseInt(request.getParameter("id"));
                                         }
 
-                                        MenuDAO mDB = new MenuDAO();
+                                        MenuDAO menuDB = new MenuDAO();
 
-                                        mDB.conectar();
-                                        m = mDB.carregaPorId(id);
-                                        mDB.desconectar();
+                                        menuDB.conectar();
+                                        m = menuDB.carregaPorId(id);
+                                        menuDB.desconectar();
                                             
                                         } catch(SQLException e){
 

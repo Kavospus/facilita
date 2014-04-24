@@ -19,22 +19,22 @@
     </head>
     <%
     
-       int dima=0,dimb=0;
+       int linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_soma_dima") != null){
-                dima = (Integer)session.getAttribute("dados_soma_dima");
+        if(session.getAttribute("dados_soma_linesA") != null){
+                linesA = (Integer)session.getAttribute("dados_soma_linesA");
         }
-        if(session.getAttribute("dados_soma_dimb") != null){
-                dimb = (Integer)session.getAttribute("dados_soma_dimb");
+        if(session.getAttribute("dados_soma_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("dados_soma_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&dima=<%=dima%>&dimb=<%=dimb%>&dimc=<%=dima%>&dimd=<%=dimb%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="somar_matrizes.do" method="POST" name="soma_matrizes">
-        Linhas de A e B <input type="text" name="dima" value="<%=dima%>" id="dima" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value+'&dimc='+getElementById('dima').value+'&dimd='+getElementById('dimb').value)" />
-        Colunas de A e B <input type="text" value="<%=dimb%>"  name="dimb" id="dimb" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value+'&dimc='+getElementById('dima').value+'&dimd='+getElementById('dimb').value)" />
+        Linhas de A e B <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        Colunas de A e B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=soma&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

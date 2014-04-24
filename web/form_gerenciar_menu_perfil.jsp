@@ -53,24 +53,24 @@
                             
                                         try {
                                             int id_perfil = Integer.parseInt(request.getParameter("id"));
-                                            MenuDAO mDB = new MenuDAO();
-                                            mDB.conectar();
-                                            ArrayList<Menu> listaN = mDB.menusNaoPerfil(id_perfil);
-                                            ArrayList<Menu> lista = mDB.menusPerfil(id_perfil);
-                                            PerfilDAO pDB = new PerfilDAO();
+                                            MenuDAO menuDB = new MenuDAO();
+                                            menuDB.conectar();
+                                            ArrayList<Menu> listaN = menuDB.menusNaoPerfil(id_perfil);
+                                            ArrayList<Menu> lista = menuDB.menusPerfil(id_perfil);
+                                            PerfilDAO profileDB = new PerfilDAO();
 
-                                            pDB.conectar();
+                                            profileDB.conectar();
 
-                                            Perfil p = pDB.carregaPorId(id_perfil);
+                                            Perfil profile = profileDB.carregaPorId(id_perfil);
 
                                             %>
                                             <table align="center">
                                                 <tr>
                                                     <td>
-                                                        ID: <%=p.getId()%>
+                                                        ID: <%=profile.getId()%>
                                                     </td>
                                                     <td>
-                                                        Perfil: <%=p.getPerfil()%>
+                                                        Perfil: <%=profile.getPerfil()%>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -91,7 +91,7 @@
                                                 </select>
                                                     </td>
                                                     <td>
-                                                        <input type="text" hidden="true" value="<%=p.getId()%>" name="id_perfil">
+                                                        <input type="text" hidden="true" value="<%=profile.getId()%>" name="id_perfil">
                                                         <input type="text" hidden="true" value="1" name="op">
                                                         <input class="button" type="submit" value="Vincular">
                                                     </td>
@@ -122,7 +122,7 @@
                                     <%out.print(m.getMenu());%>
                                 </td>
                                 <td align="center">
-                                    <a href="#" class="button" onclick="confirma(<%out.print(m.getId());%>,<%out.print(p.getId());%>,2)"><img src="imagens/delete.png"></a>
+                                    <a href="#" class="button" onclick="confirma(<%out.print(m.getId());%>,<%out.print(profile.getId());%>,2)"><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

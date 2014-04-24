@@ -19,22 +19,22 @@
     </head>
     <%
     
-       int dima=0,dimb=0;
+       int linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_subtrai_dima") != null){
-                dima = (Integer)session.getAttribute("dados_subtrai_dima");
+        if(session.getAttribute("dados_subtrai_linesA") != null){
+                linesA = (Integer)session.getAttribute("dados_subtrai_linesA");
         }
-        if(session.getAttribute("dados_subtrai_dimb") != null){
-                dimb = (Integer)session.getAttribute("dados_subtrai_dimb");
+        if(session.getAttribute("dados_subtrai_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("dados_subtrai_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&dima=<%=dima%>&dimb=<%=dimb%>&dimc=<%=dima%>&dimd=<%=dimb%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="subtrair_matrizes.do" method="POST" name="subtrai_matrizes">
-        Linhas de A e B <input type="text" name="dima" value="<%=dima%>" id="dima" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value+'&dimc='+getElementById('dima').value+'&dimd='+getElementById('dimb').value)" />
-        Colunas de A e B <input type="text" value="<%=dimb%>"  name="dimb" id="dimb" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&dima='+getElementById('dima').value+'&dimb='+getElementById('dimb').value+'&dimc='+getElementById('dima').value+'&dimd='+getElementById('dimb').value)" />
+        Linhas de A e B <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        Colunas de A e B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=subtrai&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

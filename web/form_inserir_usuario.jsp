@@ -75,9 +75,9 @@
                                 <%
 
                                             try {
-                                                PerfilDAO pDB = new PerfilDAO();
-                                                pDB.conectar();
-                                                ArrayList<Perfil> lista = pDB.listar();
+                                                PerfilDAO profileDB = new PerfilDAO();
+                                                profileDB.conectar();
+                                                ArrayList<Perfil> lista = profileDB.listar();
 
                                 %>
 
@@ -94,10 +94,10 @@
                                                 Selecione um perfil
                                             </option>
 
-                                            <%for (Perfil p : lista) {%>
+                                            <%for (Perfil profile : lista) {%>
 
-                                            <option value="<%=p.getId()%>">
-                                                <%=p.getPerfil()%>
+                                            <option value="<%=profile.getId()%>">
+                                                <%=profile.getPerfil()%>
                                             </option>
                                             <%}%>
                                         </select>
@@ -120,7 +120,7 @@
                         </table>
                         </form>
                         <%
-                                        pDB.desconectar();
+                                        profileDB.desconectar();
                                     } catch (Exception e) {
                                         out.println(e);
 
