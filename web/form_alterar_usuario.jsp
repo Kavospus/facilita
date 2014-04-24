@@ -82,15 +82,15 @@
                                             int id = Integer.parseInt(request.getParameter("id"));
                                             ArrayList<Perfil> lista1 = new ArrayList<Perfil>();
 
-                                            UsuarioDAO uDB = new UsuarioDAO();
-                                            uDB.conectar();
-                                            Usuario u = uDB.carregaPorId(id);
-                                            uDB.desconectar();
+                                            UsuarioDAO userDB = new UsuarioDAO();
+                                            userDB.conectar();
+                                            Usuario u = userDB.carregaPorId(id);
+                                            userDB.desconectar();
 
  
-                                                PerfilDAO pDB = new PerfilDAO();
-                                                pDB.conectar();
-                                                ArrayList<Perfil> lista = pDB.listar();
+                                                PerfilDAO profileDB = new PerfilDAO();
+                                                profileDB.conectar();
+                                                ArrayList<Perfil> lista = profileDB.listar();
 
                                 %>
                                 <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validaForm()">
@@ -139,7 +139,7 @@
                             </form>
                         </table>
                         <%
-                                        pDB.desconectar();
+                                        profileDB.desconectar();
                                     } catch (Exception e) {
                                         out.println(e);
 

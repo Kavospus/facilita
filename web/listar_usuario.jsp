@@ -63,9 +63,9 @@
 
                             <%
                             try{
-                                UsuarioDAO uDB = new UsuarioDAO();
-                                uDB.conectar();
-                                ArrayList<Usuario> lista = uDB.listar();
+                                UsuarioDAO userDB = new UsuarioDAO();
+                                userDB.conectar();
+                                ArrayList<Usuario> lista = userDB.listar();
                             for(Usuario u:lista){%>
 
                             <tr>
@@ -88,7 +88,7 @@
                             </tr>
 
                             <% }
-                            uDB.desconectar();
+                            userDB.desconectar();
          }catch (Exception e) {
                out.println(e);
 }

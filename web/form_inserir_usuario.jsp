@@ -75,9 +75,9 @@
                                 <%
 
                                             try {
-                                                PerfilDAO pDB = new PerfilDAO();
-                                                pDB.conectar();
-                                                ArrayList<Perfil> lista = pDB.listar();
+                                                PerfilDAO profileDB = new PerfilDAO();
+                                                profileDB.conectar();
+                                                ArrayList<Perfil> lista = profileDB.listar();
 
                                 %>
 
@@ -120,7 +120,7 @@
                         </table>
                         </form>
                         <%
-                                        pDB.desconectar();
+                                        profileDB.desconectar();
                                     } catch (Exception e) {
                                         out.println(e);
 

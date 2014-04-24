@@ -61,13 +61,13 @@
 
                                             int id = Integer.parseInt(request.getParameter("id"));
 
-                                            PerfilDAO pDB = new PerfilDAO();
+                                            PerfilDAO profileDB = new PerfilDAO();
 
-                                            pDB.conectar();
+                                            profileDB.conectar();
 
-                                            Perfil p = pDB.carregaPorId(id);
+                                            Perfil p = profileDB.carregaPorId(id);
 
-                                            pDB.desconectar();
+                                            profileDB.desconectar();
 
                         if(p.getId()>0){%>
                         <table align="center">

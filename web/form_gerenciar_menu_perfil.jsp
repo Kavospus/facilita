@@ -53,15 +53,15 @@
                             
                                         try {
                                             int id_perfil = Integer.parseInt(request.getParameter("id"));
-                                            MenuDAO mDB = new MenuDAO();
-                                            mDB.conectar();
-                                            ArrayList<Menu> listaN = mDB.menusNaoPerfil(id_perfil);
-                                            ArrayList<Menu> lista = mDB.menusPerfil(id_perfil);
-                                            PerfilDAO pDB = new PerfilDAO();
+                                            MenuDAO menuDB = new MenuDAO();
+                                            menuDB.conectar();
+                                            ArrayList<Menu> listaN = menuDB.menusNaoPerfil(id_perfil);
+                                            ArrayList<Menu> lista = menuDB.menusPerfil(id_perfil);
+                                            PerfilDAO profileDB = new PerfilDAO();
 
-                                            pDB.conectar();
+                                            profileDB.conectar();
 
-                                            Perfil p = pDB.carregaPorId(id_perfil);
+                                            Perfil p = profileDB.carregaPorId(id_perfil);
 
                                             %>
                                             <table align="center">
