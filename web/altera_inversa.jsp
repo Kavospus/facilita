@@ -27,7 +27,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=inverse&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
         <%@include file="menu.jsp" %>
-        <form action="inverter_matriz.do" method="POST" name="inverte_matriz">
+        <form action="invert_matrix.do" method="POST" name="invert_matrix">
         Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=inverse&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         
         

@@ -35,7 +35,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="calcular_determinante.do" method="POST" name="calcula_determinante">
+        <form action="compute_determinant.do" method="POST" name="compute_determinant">
         Linhas de A e B <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
         Colunas de A e B <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
         <div id="matrixes" ></div>

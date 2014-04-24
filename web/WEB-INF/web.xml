@@ -19,7 +19,7 @@
         <servlet-class>controle.InvertMatrix</servlet-class>
     </servlet>
     <servlet>
-        <description>transpor_matriz</description>
+        <description>transpose_matrix</description>
         <servlet-name>TransporMatriz</servlet-name>
         <servlet-class>controle.TransposeMatrix</servlet-class>
     </servlet>
@@ -115,23 +115,23 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
-        <url-pattern>/efetuar_login.do</url-pattern>
+        <url-pattern>/do_login.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CalcularDeterminante</servlet-name>
-        <url-pattern>/calcular_determinante.do</url-pattern>
+        <url-pattern>/compute_determinant.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransporMatriz</servlet-name>
-        <url-pattern>/transpor_matriz.do</url-pattern>
+        <url-pattern>/transpose_matrix.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InverterMatriz</servlet-name>
-        <url-pattern>/inverter_matriz.do</url-pattern>
+        <url-pattern>/invert_matrix.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SomarMatrizes</servlet-name>
-        <url-pattern>/somar_matrizes.do</url-pattern>
+        <url-pattern>/sum_matrices.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SubtrairMatrizes</servlet-name>

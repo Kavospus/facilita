@@ -30,7 +30,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="transpor_matriz.do" method="POST" name="transpoe_matriz">
+        <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
         Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         

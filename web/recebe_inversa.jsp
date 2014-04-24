@@ -19,7 +19,7 @@
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
-        <form action="inverter_matriz.do" method="POST" name="inverte_matriz">
+        <form action="invert_matrix.do" method="POST" name="invert_matrix">
         Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         
         

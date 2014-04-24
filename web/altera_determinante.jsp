@@ -27,7 +27,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=determinant&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
         <%@include file="menu.jsp" %>
-        <form  action="calcular_determinante.do" method="POST" name="calcula_determinante">
+        <form  action="compute_determinant.do" method="POST" name="compute_determinant">
         Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=determinant&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
 
         

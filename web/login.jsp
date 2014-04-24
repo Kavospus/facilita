@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class="selfcontainer loginBox" align="center" >
-            <form action="efetuar_login.do" method="POST">
+            <form action="do_login.do" method="POST">
                 <div class="content">
                     <table align="center" class="box ui-corner-all" >
                         <tr >

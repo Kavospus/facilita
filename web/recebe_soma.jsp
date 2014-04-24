@@ -19,7 +19,7 @@
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
-        <form action="somar_matrizes.do" method="POST" name="soma_matrizes">
+        <form action="sum_matrices.do" method="POST" name="sum_matrices">
         Linhas de A e B <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         Colunas de A e B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>
