@@ -55,7 +55,7 @@ public class CalcularDeterminante extends HttpServlet {
 	    }
 	    columnsA = linesA;
 	    double a[][] = new double[linesA][columnsA];
-	    double resultado = 0;
+	    double result = 0;
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -82,8 +82,8 @@ public class CalcularDeterminante extends HttpServlet {
 	    if (error == 0) {
 		Determinar d = new Determinar(a, linesA, columnsA);
 		d.calcular();
-		resultado = d.getResultado();
-		session.setAttribute("result_determinante", resultado);
+		result = d.getResultado();
+		session.setAttribute("result_determinante", result);
 		try {
 		    d.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = d.getUsuario();

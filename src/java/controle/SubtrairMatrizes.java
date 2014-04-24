@@ -68,7 +68,7 @@ public class SubtrairMatrizes extends HttpServlet {
 
 	    double a[][] = new double[linesA][columnsA];
 	    double b[][] = new double[linesA][columnsA];
-	    double resultado[][] = new double[linesA][columnsA];
+	    double result[][] = new double[linesA][columnsA];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -118,8 +118,8 @@ public class SubtrairMatrizes extends HttpServlet {
 	    if (error == 0) {
 		Subtrair s = new Subtrair(a, b, linesA, columnsA);
 		s.calcular();
-		resultado = s.getResultado();
-		session.setAttribute("result_subtrai", resultado);
+		result = s.getResultado();
+		session.setAttribute("result_subtrai", result);
 		session.setAttribute("result_subtrai_linesA", linesA);
 		session.setAttribute("result_subtrai_columnsA", columnsA);
 		session.setAttribute("result_subtrai_linesB", linesA);

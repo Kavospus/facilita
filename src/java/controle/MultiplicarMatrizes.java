@@ -82,7 +82,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    linesB = columnsA;
 	    double a[][] = new double[linesA][columnsA];
 	    double b[][] = new double[linesB][columnsB];
-	    double resultado[][] = new double[linesA][columnsB];
+	    double result[][] = new double[linesA][columnsB];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -132,8 +132,8 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    if (error == 0) {
 		Multiplicar menu = new Multiplicar(a, b, linesA, columnsA, columnsB);
 		menu.calcular();
-		resultado = menu.getResultado();
-		session.setAttribute("result_multiplica", resultado);
+		result = menu.getResultado();
+		session.setAttribute("result_multiplica", result);
 		session.setAttribute("result_multiplica_linesA", linesA);
 		session.setAttribute("result_multiplica_columnsA", columnsB);
 		try {

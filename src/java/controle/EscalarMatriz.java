@@ -79,7 +79,7 @@ public class EscalarMatriz extends HttpServlet {
 	    }
 
 	    double a[][] = new double[linesA][columnsA];
-	    double resultado[][];
+	    double result[][];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -107,8 +107,8 @@ public class EscalarMatriz extends HttpServlet {
 	    if (error == 0) {
 		Escalar e = new Escalar(a, n, linesA, columnsA);
 		e.calcular();
-		resultado = e.getResultado();
-		session.setAttribute("result_escalar", resultado);
+		result = e.getResultado();
+		session.setAttribute("result_escalar", result);
 		session.setAttribute("result_escalar_linesA", linesA);
 		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {

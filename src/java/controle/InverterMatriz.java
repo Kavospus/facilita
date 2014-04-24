@@ -59,7 +59,7 @@ public class InverterMatriz extends HttpServlet {
 		columnsA = linesA;
 
 		double a[][] = new double[linesA][columnsA];
-		double resultado[][];
+		double result[][];
 
 		for (i = 0; i < linesA; i++) {
 		    for (j = 0; j < columnsA; j++) {
@@ -86,8 +86,8 @@ public class InverterMatriz extends HttpServlet {
 		if (error == 0) {
 		    Inverter inverter = new Inverter(a, linesA, columnsA);
 		    inverter.calcular();
-		    resultado = inverter.getResultado();
-		    session.setAttribute("result_inversa", resultado);
+		    result = inverter.getResultado();
+		    session.setAttribute("result_inversa", result);
 		    session.setAttribute("result_inversa_linesA", linesA);
 		    session.setAttribute("result_inversa_columnsA", columnsA);
 

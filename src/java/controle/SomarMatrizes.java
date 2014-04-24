@@ -67,7 +67,7 @@ public class SomarMatrizes extends HttpServlet {
 
 	    double a[][] = new double[linesA][columnsA];
 	    double b[][] = new double[linesA][columnsA];
-	    double resultado[][] = new double[linesA][columnsA];
+	    double result[][] = new double[linesA][columnsA];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -117,8 +117,8 @@ public class SomarMatrizes extends HttpServlet {
 	    if (error == 0) {
 		Somar s = new Somar(a, b, linesA, columnsA);
 		s.calcular();
-		resultado = s.getResultado();
-		session.setAttribute("result_soma", resultado);
+		result = s.getResultado();
+		session.setAttribute("result_soma", result);
 		session.setAttribute("result_soma_linesA", linesA);
 		session.setAttribute("result_soma_columnsA", columnsA);
 		session.setAttribute("result_soma_linesB", linesA);

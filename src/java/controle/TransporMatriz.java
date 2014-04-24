@@ -67,7 +67,7 @@ public class TransporMatriz extends HttpServlet {
 	    }
 
 	    double a[][] = new double[linesA][columnsA];
-	    double resultado[][];
+	    double result[][];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
@@ -94,8 +94,8 @@ public class TransporMatriz extends HttpServlet {
 	    if (error == 0) {
 		Transpor transpor = new Transpor(a, linesA, columnsA);
 		transpor.calcular();
-		resultado = transpor.getResultado();
-		session.setAttribute("result_transposed", resultado);
+		result = transpor.getResultado();
+		session.setAttribute("result_transposed", result);
 		session.setAttribute("result_transposed_linesA", columnsA);
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
