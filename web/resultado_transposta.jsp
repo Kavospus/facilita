@@ -25,20 +25,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("result_transposta_linesA") != null){
-                linesA = (Integer)session.getAttribute("result_transposta_linesA");
+        if(session.getAttribute("result_transposed_linesA") != null){
+                linesA = (Integer)session.getAttribute("result_transposed_linesA");
         }
-        if(session.getAttribute("result_transposta_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("result_transposta_columnsA");
+        if(session.getAttribute("result_transposed_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("result_transposed_columnsA");
         }
 
         double a[][] = new double[columnsA][linesA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("result_transposta") != null){
-                resultado = (double[][])session.getAttribute("result_transposta");
+        if(session.getAttribute("result_transposed") != null){
+                resultado = (double[][])session.getAttribute("result_transposed");
             }
-        if(session.getAttribute("data_transposta_a") != null){
-                a = (double[][])session.getAttribute("data_transposta_a");
+        if(session.getAttribute("data_transposed_a") != null){
+                a = (double[][])session.getAttribute("data_transposed_a");
             }
 
         

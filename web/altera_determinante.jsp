@@ -21,8 +21,8 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_determinante_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_determinante_linesA");
+        if(session.getAttribute("data_determinant_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_determinant_linesA");
         }
     %>
     <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=determinante&linesA=<%=linesA%>&columnsA=<%=linesA%>');">

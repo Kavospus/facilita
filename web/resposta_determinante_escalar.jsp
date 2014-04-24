@@ -19,8 +19,8 @@
     </head>
     <%
     double n = 0;
-    if(session.getAttribute("result_determinante") != null){
-                n = (Double)session.getAttribute("result_determinante");
+    if(session.getAttribute("result_determinant") != null){
+                n = (Double)session.getAttribute("result_determinant");
     }
     %>
     <body class="centertable">

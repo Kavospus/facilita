@@ -22,25 +22,25 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_determinante_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_determinante_linesA");
+        if(session.getAttribute("data_determinant_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_determinant_linesA");
         }
-        if(session.getAttribute("data_determinante_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_determinante_columnsA");
+        if(session.getAttribute("data_determinant_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_determinant_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado = 0;
-        if(session.getAttribute("result_determinante") != null){
-                resultado = (Double)session.getAttribute("result_determinante");
+        if(session.getAttribute("result_determinant") != null){
+                resultado = (Double)session.getAttribute("result_determinant");
             }
-        if(session.getAttribute("data_determinante_a") != null){
-                a = (double[][])session.getAttribute("data_determinante_a");
+        if(session.getAttribute("data_determinant_a") != null){
+                a = (double[][])session.getAttribute("data_determinant_a");
             }
         out.print("Resultado do Determinante: "+resultado);
         %>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_determinante_escalar.jsp">Escalar</a>
+        <a href="resposta_determinant_escalar.jsp">Escalar</a>
 
     </body>
 </html>

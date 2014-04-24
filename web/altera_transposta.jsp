@@ -21,11 +21,11 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_transposta_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_transposta_linesA");
+        if(session.getAttribute("data_transposed_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_transposed_linesA");
         }
-        if(session.getAttribute("data_transposta_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_transposta_columnsA");
+        if(session.getAttribute("data_transposed_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_transposed_columnsA");
         }
     %>
     <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
