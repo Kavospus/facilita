@@ -49,7 +49,7 @@ public class SumMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('update_sum.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -60,7 +60,7 @@ public class SumMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('update_sum.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -80,7 +80,7 @@ public class SumMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -99,7 +99,7 @@ public class SumMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {

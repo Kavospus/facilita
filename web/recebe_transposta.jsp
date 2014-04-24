@@ -25,10 +25,10 @@
         
         
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=8');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=8');"/>
         </form>
         
         <br>
-        <div id="ajuda" ></div>
+        <div id="help" ></div>
     </body>
 </html>

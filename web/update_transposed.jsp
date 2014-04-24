@@ -1,5 +1,5 @@
 <%-- 
-    Document   : altera_soma
+    Document   : update_transposed
     Author     : Andre
 --%>
 
@@ -19,22 +19,21 @@
     </head>
     <%
     
-       int linesA=0,columnsA=0;
+        int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_subtract_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_subtract_linesA");
+        if(session.getAttribute("data_transposed_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_transposed_linesA");
         }
-        if(session.getAttribute("data_subtract_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_subtract_columnsA");
+        if(session.getAttribute("data_transposed_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_transposed_columnsA");
         }
-
-
     %>
-    <body class="centertable" onload="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="subtract_matrices.do" method="POST" name="subtract_matrices">
-        Linhas de A e B <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
-        Colunas de A e B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
+        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        
         <div id="matrixes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

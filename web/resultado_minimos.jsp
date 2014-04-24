@@ -97,7 +97,7 @@
         %>
         <br>
         <a href="index.jsp">Voltar</a>
-        <a href="altera_minimos.jsp">Refazer Operação</a>
+        <a href="update_least_squares.jsp">Refazer Operação</a>
         <br>
         
         <canvas id="myCanvas" width="600" height="600" >

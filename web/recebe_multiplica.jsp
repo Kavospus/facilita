@@ -24,10 +24,10 @@
         Colunas de A e linhas de B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         Colunas de B <input type="text" name="linesB" id="linesB" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=5');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=5');"/>
         </form>
         
         <br>
-        <div id="ajuda" ></div>
+        <div id="help" ></div>
     </body>
 </html>

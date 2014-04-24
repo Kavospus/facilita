@@ -49,7 +49,7 @@ public class ComputeDeterminat extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_determinante.jsp','_parent');");
+		    out.print(" window.open('update_determinant.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -68,7 +68,7 @@ public class ComputeDeterminat extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_determinante.jsp','_parent');");
+			    out.print(" window.open('update_determinant.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {

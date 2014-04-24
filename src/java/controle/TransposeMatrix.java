@@ -50,7 +50,7 @@ public class TransposeMatrix extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('update_transposed.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -61,7 +61,7 @@ public class TransposeMatrix extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('update_transposed.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -80,7 +80,7 @@ public class TransposeMatrix extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_transposta.jsp','_parent');");
+			    out.print(" window.open('update_transposed.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {

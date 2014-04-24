@@ -1,5 +1,5 @@
 <%-- 
-    Document   : altera_determinante
+    Document   : update_sum
     Author     : Andre
 --%>
 
@@ -19,18 +19,22 @@
     </head>
     <%
     
-        int i, j,linesA=0,columnsA=0;
+       int linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_determinant_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_determinant_linesA");
+        if(session.getAttribute("data_sum_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_sum_linesA");
         }
-    %>
-    <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=determinant&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
-        <%@include file="menu.jsp" %>
-        <form  action="compute_determinant.do" method="POST" name="compute_determinant">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=determinant&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        if(session.getAttribute("data_sum_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_sum_columnsA");
+        }
 
-        
+
+    %>
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=sum&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
+        <%@include file="menu.jsp" %>
+        <form action="sum_matrices.do" method="POST" name="sum_matrices">
+        Linhas de A e B <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=sum&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
+        Colunas de A e B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=sum&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%
@@ -42,7 +46,7 @@
         }
         %>
         </form>
-        <%
+                <%
 
     if(logged){
     if(session.getAttribute("calculus") == null){
@@ -53,4 +57,3 @@
 %>
     </body>
 </html>
-

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : altera_transposta
+    Document   : update_determinant
     Author     : Andre
 --%>
 
@@ -19,21 +19,27 @@
     </head>
     <%
     
-        int i, j,linesA=0,columnsA=0;
+       int linesA=0,columnsA=0;
+       double n=0;
         
-        if(session.getAttribute("data_transposed_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_transposed_linesA");
-        }
-        if(session.getAttribute("data_transposed_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_transposed_columnsA");
-        }
+       if(session.getAttribute("data_scalar_number") != null){
+                n = (Double)session.getAttribute("data_scalar_number");
+       }
+       if(session.getAttribute("data_scalar_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_scalar_linesA");
+       }
+       if(session.getAttribute("data_scalar_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_scalar_columnsA");
+       }
+
+
     %>
-    <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
-        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        
+        <form action="scale_matrix.do" method="POST" name="scale_matrix">
+        Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
+        Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%
@@ -56,3 +62,4 @@
 %>
     </body>
 </html>
+

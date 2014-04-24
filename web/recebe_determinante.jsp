@@ -22,11 +22,11 @@
         <form action="compute_determinant.do" method="POST" name="compute_determinant">
         Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=1');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=1');"/>
         </form>
         
         <br>
-        <div id="ajuda" ></div>
+        <div id="help" ></div>
     </body>
 </html>
 

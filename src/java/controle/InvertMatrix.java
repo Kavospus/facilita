@@ -52,7 +52,7 @@ public class InvertMatrix extends HttpServlet {
 			error = 1;
 			out.print("<script language='JavaScript'>");
 			out.print(" alert('Caracteres proibidos detectados!');");
-			out.print(" window.open('altera_inversa.jsp','_parent');");
+			out.print(" window.open('update_inverse.jsp','_parent');");
 			out.print("</script>");
 		    }
 		}
@@ -72,7 +72,7 @@ public class InvertMatrix extends HttpServlet {
 				error = 1;
 				out.print("<script language='JavaScript'>");
 				out.print(" alert('Caracteres proibidos detectados!');");
-				out.print(" window.open('altera_inversa.jsp','_parent');");
+				out.print(" window.open('update_inverse.jsp','_parent');");
 				out.print("</script>");
 			    }
 			} else {

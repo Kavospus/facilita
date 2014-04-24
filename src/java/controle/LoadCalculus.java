@@ -70,7 +70,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_inverse_columnsA",
 				i.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_inversa.jsp?id="
+			out.print(" window.open('update_inverse.jsp?id="
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Transpor")) {
@@ -83,7 +83,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_transposed_columnsA",
 				t.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_transposta.jsp?id="
+			out.print(" window.open('update_transposed.jsp?id="
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Determinar")) {
@@ -96,7 +96,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_determinant_columnsA",
 				determine.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_determinante.jsp?id="
+			out.print(" window.open('update_determinant.jsp?id="
 				+ determine.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Somar")) {
@@ -113,7 +113,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_sum_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_soma.jsp?id="
+			out.print(" window.open('update_sum.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Subtrair")) {
@@ -130,7 +130,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_subtract_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_subtrai.jsp?id="
+			out.print(" window.open('update_subtract.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Multiplicar")) {
@@ -149,7 +149,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_multiply_columnsB",
 				menu.getDimensaoC());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_multiplica.jsp?id="
+			out.print(" window.open('update_multiply.jsp?id="
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Escalar")) {
@@ -162,7 +162,7 @@ public class LoadCalculus extends HttpServlet {
 			session.setAttribute("data_scalar_columnsA",
 				e.getDimensaoB());
 			out.print("<script language='JavaScript'>");
-			out.print(" window.open('altera_escalar.jsp?id="
+			out.print(" window.open('update_scalar.jsp?id="
 				+ e.getId() + "','_parent');");
 			out.print("</script>");
 		    }

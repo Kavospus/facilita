@@ -26,10 +26,10 @@
               <input type="radio" name="option" value="3">Parabólico
               <input type="radio" name="option" value="4">Exponencial
         <div id="least_squares"></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=4');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=4');"/>
         </form>
         
         <br>
-        <div id="ajuda" ></div>
+        <div id="help" ></div>
     </body>
 </html>

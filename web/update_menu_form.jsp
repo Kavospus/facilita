@@ -1,5 +1,5 @@
 <%-- 
-    Document   : form_alterar_menu
+    Document   : update_menu_form
     Author     : André
 --%>
 <%@page import="modelo.Perfil"%>
@@ -27,10 +27,10 @@
         <script language="javascript" >
             function validateForm(){
 
-                var form_alterar_menu=document.form_alterar_menu;
-                var field_menu=form_alterar_menu.menu;
-                var field_icon=form_alterar_menu.icon;
-                var field_link=form_alterar_menu.link;
+                var update_menu_form=document.update_menu_form;
+                var field_menu=update_menu_form.menu;
+                var field_icon=update_menu_form.icon;
+                var field_link=update_menu_form.link;
 
 
                 if(field_menu.value==""){
@@ -66,7 +66,7 @@
                                 <td align="left" ><h1>Alterar Menu</h1></td>
                             </tr>
                         </table>
-                        <form name="form_alterar_menu" action="update_menu.do" method="POST" onsubmit="return validateForm()">
+                        <form name="update_menu_form" action="update_menu.do" method="POST" onsubmit="return validateForm()">
                             <table width="500" align="center">
                                 <%
                                     int id = 0;

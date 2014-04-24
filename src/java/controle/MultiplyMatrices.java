@@ -52,7 +52,7 @@ public class MultiplyMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -63,7 +63,7 @@ public class MultiplyMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -74,7 +74,7 @@ public class MultiplyMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_multiplica.jsp','_parent');");
+		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -95,7 +95,7 @@ public class MultiplyMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_multiplica.jsp','_parent');");
+			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -114,7 +114,7 @@ public class MultiplyMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_multiplica.jsp','_parent');");
+			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {

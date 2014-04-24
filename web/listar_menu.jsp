@@ -83,7 +83,7 @@
                                     <img width="16" height="16" src="<%out.print(menu.getIcone());%>">
                                 </td>
                                 <td>
-                                    <a class="button" href="form_alterar_menu.jsp?id=<%out.print(menu.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="update_menu_form.jsp?id=<%out.print(menu.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
                                     <a class="button" href="#" onclick="verify(<%out.print(menu.getId());%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>

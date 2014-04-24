@@ -50,7 +50,7 @@ public class SubtractMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_subtrai.jsp','_parent');");
+		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -61,7 +61,7 @@ public class SubtractMatrices extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_subtrai.jsp','_parent');");
+		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -81,7 +81,7 @@ public class SubtractMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_subtrai.jsp','_parent');");
+			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -100,7 +100,7 @@ public class SubtractMatrices extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_subtrai.jsp','_parent');");
+			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
