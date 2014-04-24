@@ -25,23 +25,23 @@
         <%
         int i, j,linesA=0,columnsA=0,linesB=0,columnsB=0;
         
-        if(session.getAttribute("data_multiplica_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_multiplica_linesA");
+        if(session.getAttribute("data_multiply_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_multiply_linesA");
         }
-        if(session.getAttribute("data_multiplica_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_multiplica_columnsA");
+        if(session.getAttribute("data_multiply_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_multiply_columnsA");
         }
-        if(session.getAttribute("data_multiplica_linesB") != null){
-                linesB = (Integer)session.getAttribute("data_multiplica_linesB");
+        if(session.getAttribute("data_multiply_linesB") != null){
+                linesB = (Integer)session.getAttribute("data_multiply_linesB");
         }
-        if(session.getAttribute("data_multiplica_columnsB") != null){
-                columnsB = (Integer)session.getAttribute("data_multiplica_columnsB");
+        if(session.getAttribute("data_multiply_columnsB") != null){
+                columnsB = (Integer)session.getAttribute("data_multiply_columnsB");
         }
         double a[][] = new double[linesA][columnsA];
         double b[][] = new double[linesB][columnsB];
         double resultado[][] = new double[linesA][linesB];
-        if(session.getAttribute("result_multiplica") != null){
-                resultado = (double[][])session.getAttribute("result_multiplica");
+        if(session.getAttribute("result_multiply") != null){
+                resultado = (double[][])session.getAttribute("result_multiply");
             }
         if(session.getAttribute("data_mmultiplica_a") != null){
                 a = (double[][])session.getAttribute("data_mmultiplica_a");

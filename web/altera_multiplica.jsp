@@ -21,14 +21,14 @@
     
        int linesA=0,columnsA=0,columnsB=0;
         
-        if(session.getAttribute("data_multiplica_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_multiplica_linesA");
+        if(session.getAttribute("data_multiply_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_multiply_linesA");
         }
-        if(session.getAttribute("data_multiplica_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_multiplica_columnsA");
+        if(session.getAttribute("data_multiply_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_multiply_columnsA");
         }
-        if(session.getAttribute("data_multiplica_columnsB") != null){
-                columnsB = (Integer)session.getAttribute("data_multiplica_columnsB");
+        if(session.getAttribute("data_multiply_columnsB") != null){
+                columnsB = (Integer)session.getAttribute("data_multiply_columnsB");
         }
 
 
