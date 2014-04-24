@@ -26,18 +26,18 @@
             <tr>
         <% 
         double resultado[] = {0,0};
-        double aux,vx[] = {0,0};
-        double vy[] = {0,0};
+        double aux,vectorX[] = {0,0};
+        double vectorY[] = {0,0};
         String erro;
-        int dimens=2,ticks,i,j,option =0, qnt =0;
+        int dimens=2,ticks,i,j,option =0, auxiliarQuantity =0;
         if(session.getAttribute("result_least_squares") != null){
                 resultado = (double[])session.getAttribute("result_least_squares");
             }
-        if(session.getAttribute("data_least_squares_vx") != null){
-                vx = (double[])session.getAttribute("data_least_squares_vx");
+        if(session.getAttribute("data_least_squares_vectorX") != null){
+                vectorX = (double[])session.getAttribute("data_least_squares_vectorX");
             }
-        if(session.getAttribute("data_least_squares_vy") != null){
-                vy = (double[])session.getAttribute("data_least_squares_vy");
+        if(session.getAttribute("data_least_squares_vectorY") != null){
+                vectorY = (double[])session.getAttribute("data_least_squares_vectorY");
             }
         if(session.getAttribute("erro_minimos") != null){
                 erro = (String)session.getAttribute("erro_minimos");
@@ -49,20 +49,20 @@
         if(request.getParameter("dimens") != null){
                 dimens = Integer.parseInt(request.getParameter("dimens"));
             }
-        qnt = vx.length;
+        auxiliarQuantity = vectorX.length;
         ArrayList<Double> lx = new ArrayList();
         ArrayList<Double> ly = new ArrayList();
-        for(i=0; i<qnt; i++){  
-            lx.add(Math.abs(vx[i]));
-            ly.add(Math.abs(vy[i]));
+        for(i=0; i<auxiliarQuantity; i++){  
+            lx.add(Math.abs(vectorX[i]));
+            ly.add(Math.abs(vectorY[i]));
         }
         
         Collections.sort(lx);
         Collections.sort(ly);
         
-        if(lx.get(qnt-1)<20||ly.get(qnt-1)<20){
+        if(lx.get(auxiliarQuantity-1)<20||ly.get(auxiliarQuantity-1)<20){
         ticks = 1;
-        }else if(lx.get(qnt-1)>=20 && lx.get(qnt-1)<120 || ly.get(qnt-1)>=20 && ly.get(qnt-1)<120){
+        }else if(lx.get(auxiliarQuantity-1)>=20 && lx.get(auxiliarQuantity-1)<120 || ly.get(auxiliarQuantity-1)>=20 && ly.get(auxiliarQuantity-1)<120){
         ticks = 10;
         }else ticks = 100;
         
@@ -272,10 +272,10 @@
       
       var myGraph = new Graph({
         canvasId: 'myCanvas',
-        minX: <%=-lx.get(qnt-1)-ticks%>,
-        minY: <%=-ly.get(qnt-1)-ticks%>,
-        maxX: <%=lx.get(qnt-1)+ticks%>,
-        maxY: <%=ly.get(qnt-1)+ticks%>,
+        minX: <%=-lx.get(auxiliarQuantity-1)-ticks%>,
+        minY: <%=-ly.get(auxiliarQuantity-1)-ticks%>,
+        maxX: <%=lx.get(auxiliarQuantity-1)+ticks%>,
+        maxY: <%=ly.get(auxiliarQuantity-1)+ticks%>,
         unitsPerTick: <%=ticks%>
       });
 
@@ -299,8 +299,8 @@
         %>;
       }, 'blue', 3);
       //myGraph.drawEquation(function(x) {return -1*x},'red',3);
-      <%for(i=0;i<qnt;i++){ %>
-      myGraph.drawPoint(<%=vx[i]%>,<%=vy[i]%>);
+      <%for(i=0;i<auxiliarQuantity;i++){ %>
+      myGraph.drawPoint(<%=vectorX[i]%>,<%=vectorY[i]%>);
       <%}%>
     </script>
     </body>

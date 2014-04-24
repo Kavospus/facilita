@@ -18,18 +18,18 @@
         <title>JSP Page</title>
     </head>
     <%
-    int option=0,quantidade=0;
+    int option=0,quantity=0;
         if(session.getAttribute("data_least_squares_option") != null){
                 option = (Integer) session.getAttribute("data_least_squares_option");
             }
-        if(session.getAttribute("data_least_squares_quantidade") != null){
-                quantidade = (Integer) session.getAttribute("data_least_squares_quantidade");
+        if(session.getAttribute("data_least_squares_quantity") != null){
+                quantity = (Integer) session.getAttribute("data_least_squares_quantity");
             }
 
 %>
-<body class="centertable" onload="refreshPage('least_squares','altera_minimos_dinamicos.jsp?qnt=<%=quantidade%>');">
+<body class="centertable" onload="refreshPage('least_squares','altera_minimos_dinamicos.jsp?auxiliarQuantity=<%=quantity%>');">
         <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
-            Quantidade <input type="text" value="<%=quantidade%>" name="quantidade" id="quantidade" onkeyup="refreshPage('least_squares','altera_minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
+            Quantidade <input type="text" value="<%=quantity%>" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','altera_minimos_dinamicos.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
         Ajuste <input type="radio" <%if(option == 1){out.print("checked");}%> name="option" value="1">Linear 
               <input type="radio" <%if(option == 2){out.print("checked");}%> name="option" value="2">Gaussiano
               <input type="radio" <%if(option == 3){out.print("checked");}%> name="option" value="3">Parabólico

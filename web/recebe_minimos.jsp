@@ -20,7 +20,7 @@
 <body class="centertable">
     <%@include file="menu.jsp" %>    
     <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
-            Quantidade <input type="text" name="quantidade" id="quantidade" onkeyup="refreshPage('least_squares','minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
+            Quantidade <input type="text" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','minimos_dinamicos.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
         Ajuste <input type="radio" name="option" value="1">Linear 
               <input type="radio" name="option" value="2">Gaussiano
               <input type="radio" name="option" value="3">Parabólico

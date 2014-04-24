@@ -30,7 +30,7 @@ Informe a ordem da matriz e insira os valores da mesma.
           break;
           case 4:
               %>
-Informe a quantidade de pontos experimentais na 1ª lacuna e selecione o tipo de função a ser ajustada. Digite as coordenadas de cada ponto, abicissas e ordenadas respectivamente.
+Informe a quantity de pontos experimentais na 1ª lacuna e selecione o tipo de função a ser ajustada. Digite as coordenadas de cada ponto, abicissas e ordenadas respectivamente.
               <%
           break;
           case 5:
