@@ -51,16 +51,16 @@ public class GerenciarMenuPerfil extends HttpServlet {
 		    int op = Integer.parseInt(request.getParameter("op"));
 		    int id_menu = Integer.parseInt(request
 			    .getParameter("id_menu"));
-		    int id_perfil = Integer.parseInt(request
-			    .getParameter("id_perfil"));
+		    int id_profile = Integer.parseInt(request
+			    .getParameter("id_profile"));
 
 		    MenuDAO menuDB = new MenuDAO();
 		    menuDB.conectar();
 
 		    if (op == 1) {
-			menuDB.vincularMenu(id_menu, id_perfil);
+			menuDB.vincularMenu(id_menu, id_profile);
 		    } else if (op == 2) {
-			menuDB.desvincularMenu(id_menu, id_perfil);
+			menuDB.desvincularMenu(id_menu, id_profile);
 		    }
 
 		    menuDB.desconectar();
@@ -85,7 +85,7 @@ public class GerenciarMenuPerfil extends HttpServlet {
 		    session.setAttribute("produto", null);
 		    session.setAttribute("user", null);
 		    response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="
-			    + id_perfil);
+			    + id_profile);
 
 		} catch (Exception e) {
 		    out.print(e);

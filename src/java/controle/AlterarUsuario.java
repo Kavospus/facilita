@@ -47,26 +47,26 @@ public class AlterarUsuario extends HttpServlet {
             try {
 
                 int id = Integer.parseInt(request.getParameter("id"));
-                int id_perfil = 0;
-                if(request.getParameter("id_perfil") != null){
+                int id_profile = 0;
+                if(request.getParameter("id_profile") != null){
                     try{
-                        id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
+                        id_profile = Integer.parseInt(request.getParameter("id_profile"));
                     }catch(Exception e){
                         e.printStackTrace();
                     }
                 }
-                String nome = request.getParameter("nome");
-                String senha = MD5Encrypter.encryptMD5(request.getParameter("senha"));
+                String name = request.getParameter("name");
+                String password = MD5Encrypter.encryptMD5(request.getParameter("password"));
                 String login = request.getParameter("login");
 
                 Usuario user = new Usuario();
                 PerfilDAO profileDB = new PerfilDAO();
                 user.setId(id);
-                user.setNome(nome);
+                user.setNome(name);
                 profileDB.conectar();
-                user.setPerfil(profileDB.carregaPorId(id_perfil));
+                user.setPerfil(profileDB.carregaPorId(id_profile));
                 profileDB.desconectar();
-                user.setSenha(senha);
+                user.setSenha(password);
                 user.setLogin(login);
 
 

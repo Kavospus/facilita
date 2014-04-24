@@ -39,19 +39,19 @@ public class CadastrarUsuario extends HttpServlet {
         try {
             // TODO output your page here
             try {
-                int id_perfil = 2;
-                String nome = request.getParameter("nome");
-                String senha = MD5Encrypter.encryptMD5(request.getParameter("senha"));
+                int id_profile = 2;
+                String name = request.getParameter("name");
+                String password = MD5Encrypter.encryptMD5(request.getParameter("password"));
                 String login = request.getParameter("login");
 
                 Usuario user = new Usuario();
                 PerfilDAO profileDB = new PerfilDAO();
-                user.setSenha(senha);
+                user.setSenha(password);
                 user.setLogin(login);
                 profileDB.conectar();
-                user.setPerfil(profileDB.carregaPorId(id_perfil));
+                user.setPerfil(profileDB.carregaPorId(id_profile));
                 profileDB.desconectar();
-                user.setNome(nome);
+                user.setNome(name);
 
                 UsuarioDAO userDB = new UsuarioDAO();
 
