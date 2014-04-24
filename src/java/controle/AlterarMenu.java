@@ -44,7 +44,7 @@ public class AlterarMenu extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String menu = request.getParameter("menu");
+                String menuName = request.getParameter("menu");
                 String link = request.getParameter("link");
                 String icon = request.getParameter("icon");
 
@@ -55,7 +55,7 @@ public class AlterarMenu extends HttpServlet {
                 Menu menu = new Menu();
 
                 menu.setId(id);
-                menu.setMenu(menu);
+                menu.setMenu(menuName);
                 menu.setLink(link);
                 menu.setIcone(icon);
                 menuDB.alterar(menu);
