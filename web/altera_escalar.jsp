@@ -34,12 +34,12 @@
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="escalar_matriz.do" method="POST" name="escalar_matriz">
         Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
-        Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

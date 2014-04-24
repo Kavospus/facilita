@@ -28,11 +28,11 @@
                 columnsA = (Integer)session.getAttribute("data_transposed_columnsA");
         }
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="transpor_matriz.do" method="POST" name="transpoe_matriz">
-        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>

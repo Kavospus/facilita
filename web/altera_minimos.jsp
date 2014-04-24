@@ -27,14 +27,14 @@
             }
 
 %>
-<body class="centertable" onload="refreshPage('minimos','altera_minimos_dinamicos.jsp?qnt=<%=quantidade%>');">
+<body class="centertable" onload="refreshPage('least_squares','altera_minimos_dinamicos.jsp?qnt=<%=quantidade%>');">
         <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
-            Quantidade <input type="text" value="<%=quantidade%>" name="quantidade" id="quantidade" onkeyup="refreshPage('minimos','altera_minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
+            Quantidade <input type="text" value="<%=quantidade%>" name="quantidade" id="quantidade" onkeyup="refreshPage('least_squares','altera_minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
         Ajuste <input type="radio" <%if(option == 1){out.print("checked");}%> name="option" value="1">Linear 
               <input type="radio" <%if(option == 2){out.print("checked");}%> name="option" value="2">Gaussiano
               <input type="radio" <%if(option == 3){out.print("checked");}%> name="option" value="3">Parabólico
               <input type="radio" <%if(option == 4){out.print("checked");}%> name="option" value="4">Exponencial
-        <div id="minimos"></div>
+        <div id="least_squares"></div>
         <input class="button"type="submit" name="OK"/>
         </form>
     </body>

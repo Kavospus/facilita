@@ -20,7 +20,7 @@ Informe a ordem da matriz e insira os valores da mesma.
           break;
           case 2:
               %>
-Informe o escalar e em seguida informe as dimensões da matriz assim como seus valores.
+Informe o scalar e em seguida informe as dimensões da matriz assim como seus valores.
               <%
           break;
           case 3:

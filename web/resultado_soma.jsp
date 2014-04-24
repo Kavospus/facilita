@@ -61,15 +61,15 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?operation=soma">Subtração</a>
-        <a href="resposta_soma.jsp?operation=soma">Adição</a>
-        <a href="resposta_multiplica.jsp?operation=soma">Multiplicação</a>
-        <a href="resposta_transposta.jsp?operation=soma">Transposta</a>
-        <a href="resposta_escalar.jsp?operation=soma">Escalar</a>
+        <a href="resposta_subtrai.jsp?operation=sum">Subtração</a>
+        <a href="resposta_soma.jsp?operation=sum">Adição</a>
+        <a href="resposta_multiplica.jsp?operation=sum">Multiplicação</a>
+        <a href="resposta_transposta.jsp?operation=sum">Transposta</a>
+        <a href="resposta_escalar.jsp?operation=sum">Escalar</a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='resposta_inversa.jsp?operation=soma'>Inversa</a>");
-        out.print("<a href='resposta_determinante.jsp?operation=soma'>Determinante</a>");
+        out.print("<a href='resposta_inversa.jsp?operation=sum'>Inversa</a>");
+        out.print("<a href='resposta_determinante.jsp?operation=sum'>Determinante</a>");
         }
         
         %>
