@@ -80,17 +80,17 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    }
 	    columnsB = linesB;
 	    linesB = columnsA;
-	    double a[][] = new double[linesA][columnsA];
+	    double matrixA[][] = new double[linesA][columnsA];
 	    double b[][] = new double[linesB][columnsB];
 	    double result[][] = new double[linesA][columnsB];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
 			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
@@ -99,7 +99,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 			    out.print("</script>");
 			}
 		    } else {
-			a[i][j] = 0;
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
@@ -123,7 +123,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_multiply_a", a);
+	    session.setAttribute("data_multiply_matrixA", a);
 	    session.setAttribute("data_multiply_b", b);
 	    session.setAttribute("data_multiply_linesA", linesA);
 	    session.setAttribute("data_multiply_columnsA", columnsA);

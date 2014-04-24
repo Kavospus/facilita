@@ -78,16 +78,16 @@ public class EscalarMatriz extends HttpServlet {
 		}
 	    }
 
-	    double a[][] = new double[linesA][columnsA];
+	    double matrixA[][] = new double[linesA][columnsA];
 	    double result[][];
 
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
 			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
@@ -96,11 +96,11 @@ public class EscalarMatriz extends HttpServlet {
 			    out.print("</script>");
 			}
 		    } else {
-			a[i][j] = 0;
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
-	    session.setAttribute("data_scalar_a", a);
+	    session.setAttribute("data_scalar_matrixA", a);
 	    session.setAttribute("data_scalar_linesA", linesA);
 	    session.setAttribute("data_scalar_columnsA", columnsA);
 	    session.setAttribute("data_scalar_number", number);

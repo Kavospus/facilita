@@ -112,7 +112,7 @@ public class CalcularMinimos extends HttpServlet {
 		session.setAttribute("erro_minimos", error);
 
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_minimos.jsp?dimens="
+		out.print(" window.open('resultado_minimos.jsp?dimension="
 			+ result.length + "','_parent');");
 		out.print("</script>");
 	    }

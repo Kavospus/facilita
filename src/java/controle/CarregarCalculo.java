@@ -64,7 +64,7 @@ public class CarregarCalculo extends HttpServlet {
 		    if (operacao.equals("Inverter")) {
 			Inverter i = (Inverter) calculus;
 			i.setDadosString();
-			session.setAttribute("data_inverse_a", i.getEntrada());
+			session.setAttribute("data_inverse_matrixA", i.getEntrada());
 			session.setAttribute("data_inverse_linesA",
 				i.getDimensaoA());
 			session.setAttribute("data_inverse_columnsA",
@@ -76,7 +76,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Transpor")) {
 			Transpor t = (Transpor) calculus;
 			t.setDadosString();
-			session.setAttribute("data_transposed_a",
+			session.setAttribute("data_transposed_matrixA",
 				t.getEntrada());
 			session.setAttribute("data_transposed_linesA",
 				t.getDimensaoA());
@@ -89,7 +89,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Determinar")) {
 			Determinar determine = (Determinar) calculus;
 			determine.setDadosString();
-			session.setAttribute("data_determinant_a",
+			session.setAttribute("data_determinant_matrixA",
 				determine.getEntrada());
 			session.setAttribute("data_determinant_linesA",
 				determine.getDimensaoA());
@@ -102,7 +102,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Somar")) {
 			Somar s = (Somar) calculus;
 			s.setDadosString();
-			session.setAttribute("data_sum_a", s.getEntradaA());
+			session.setAttribute("data_sum_matrixA", s.getEntradaA());
 			session.setAttribute("data_sum_b", s.getEntradaB());
 			session.setAttribute("data_sum_linesA",
 				s.getDimensaoA());
@@ -119,7 +119,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Subtrair")) {
 			Subtrair s = (Subtrair) calculus;
 			s.setDadosString();
-			session.setAttribute("data_subtract_a", s.getEntradaA());
+			session.setAttribute("data_subtract_matrixA", s.getEntradaA());
 			session.setAttribute("data_subtract_b", s.getEntradaB());
 			session.setAttribute("data_subtract_linesA",
 				s.getDimensaoA());
@@ -136,7 +136,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Multiplicar")) {
 			Multiplicar menu = (Multiplicar) calculus;
 			menu.setDadosString();
-			session.setAttribute("data_multiply_a",
+			session.setAttribute("data_multiply_matrixA",
 				menu.getEntradaA());
 			session.setAttribute("data_multiply_b",
 				menu.getEntradaB());
@@ -155,7 +155,7 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Escalar")) {
 			Escalar e = (Escalar) calculus;
 			e.setDadosString();
-			session.setAttribute("data_scalar_a", e.getEntradaA());
+			session.setAttribute("data_scalar_matrixA", e.getEntradaA());
 			session.setAttribute("data_scalar_number", e.getEntradaB());
 			session.setAttribute("data_scalar_linesA",
 				e.getDimensaoA());
