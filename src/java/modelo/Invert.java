@@ -9,23 +9,23 @@ package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-public class Inverter extends Calculus {
+public class Invert extends Calculus {
     private double[][] input;
     private double[][] result;
     private int linesA;
     private int columnsA;
 
-    public Inverter() {
+    public Invert() {
 
     }
 
     /*Constructor*/
-    public Inverter(double[][] input, int linesA, int columnsA) {
+    public Invert(double[][] input, int linesA, int columnsA) {
 	this.input = input;
 	this.linesA = linesA;
 	this.columnsA = columnsA;
 	this.setInputString(MatrixParser.parseString(input));
-	this.setOperation("Inverter");
+	this.setOperation("Invert");
     }
 
     /*Function to invert a matrix*/

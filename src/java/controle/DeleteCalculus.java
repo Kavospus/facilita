@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Calculus;
 import modelo.CalculoDAO;
-import modelo.Inverter;
+import modelo.Invert;
 
 public class DeleteCalculus extends HttpServlet {
 
@@ -51,7 +51,7 @@ public class DeleteCalculus extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Calculus calculus = new Inverter();
+		    Calculus calculus = new Invert();
 		    calculus.setId(id);
 
 		    CalculoDAO calculusDB = new CalculoDAO();

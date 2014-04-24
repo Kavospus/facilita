@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Inverter;
+import modelo.Invert;
 import modelo.Usuario;
 
 public class InvertMatrix extends HttpServlet {
@@ -84,7 +84,7 @@ public class InvertMatrix extends HttpServlet {
 		session.setAttribute("data_inverse_linesA", linesA);
 		session.setAttribute("data_inverse_columnsA", columnsA);
 		if (error == 0) {
-		    Inverter invert = new Inverter(matrixA, linesA, columnsA);
+		    Invert invert = new Invert(matrixA, linesA, columnsA);
 		    invert.calculate();
 		    result = invert.getResult();
 		    session.setAttribute("result_inversa", result);

@@ -20,8 +20,8 @@ public class CalculoDAO extends DataBaseDAO {
     /*Initialize Calculos object acording to the operator*/
     public Calculus init(String operador) {
 	Calculus calculo = null;
-	if (operador.equals("Inverter")) {
-	    calculo = new Inverter();
+	if (operador.equals("Invert")) {
+	    calculo = new Invert();
 	} else if (operador.equals("Transpor")) {
 	    calculo = new Transpor();
 	} else if (operador.equals("Determine")) {
@@ -32,7 +32,7 @@ public class CalculoDAO extends DataBaseDAO {
 	    calculo = new Subtrair();
 	} else if (operador.equals("Multiplicar")) {
 	    calculo = new Multiplicar();
-	} else if (operador.equals("Escalar")) {
+	} else if (operador.equals("Scale")) {
 	    calculo = new Scale();
 	}
 

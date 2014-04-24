@@ -4,7 +4,7 @@
  */
 package tests;
 
-import modelo.Inverter;
+import modelo.Invert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class InverterTest {
     
     public InverterTest() {
     }
-    Inverter inverter;
+    Invert inverter;
     @Before
     public void setUp() {
     }
@@ -30,7 +30,7 @@ public class InverterTest {
     //
     @Test
     public void testInverter() {
-        inverter = new Inverter(new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
+        inverter = new Invert(new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
         inverter.calcular();
         double[][] saida = new double[][]{{-0.5,0.5},{0.75,-0.25}};
         assertArrayEquals(saida[0],inverter.getResultado()[0], 0.000001);

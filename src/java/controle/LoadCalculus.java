@@ -17,7 +17,7 @@ import modelo.Calculus;
 import modelo.CalculoDAO;
 import modelo.Determine;
 import modelo.Scale;
-import modelo.Inverter;
+import modelo.Invert;
 import modelo.Multiplicar;
 import modelo.Somar;
 import modelo.Subtrair;
@@ -61,8 +61,8 @@ public class LoadCalculus extends HttpServlet {
 		    calculusDB.conectar();
 		    Calculus calculus = calculusDB.selectById(id);
 		    operacao = calculus.getOperation();
-		    if (operacao.equals("Inverter")) {
-			Inverter i = (Inverter) calculus;
+		    if (operacao.equals("Invert")) {
+			Invert i = (Invert) calculus;
 			i.setDataString();
 			session.setAttribute("data_inverse_matrixA", i.getInput());
 			session.setAttribute("data_inverse_linesA",
@@ -152,7 +152,7 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_multiply.jsp?id="
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Escalar")) {
+		    } else if (operacao.equals("Scale")) {
 			Scale e = (Scale) calculus;
 			e.setDataString();
 			session.setAttribute("data_scalar_matrixA", e.getInputA());

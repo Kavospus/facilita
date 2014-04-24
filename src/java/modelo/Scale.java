@@ -32,7 +32,7 @@ public class Scale extends Calculus {
 	inputs.add(MatrixParser.parseString(inputA));
 	inputs.add(MatrixParser.parseString(inputB));
 	this.setInputString(MatrixParser.concat(inputs));
-	this.setOperation("Escalar");
+	this.setOperation("Scale");
     }
 
     /*Function to multiply a matrix by a scalar*/
