@@ -48,12 +48,12 @@ public class InserirMenu extends HttpServlet {
 
 		    String menuName = request.getParameter("menu");
 		    String link = request.getParameter("link");
-		    String icone = request.getParameter("icone");
+		    String icon = request.getParameter("icon");
 
 		    Menu menu = new Menu();
 		    menu.setMenu(menuName);
 		    menu.setLink(link);
-		    menu.setIcone(icone);
+		    menu.setIcone(icon);
 
 		    MenuDAO menuDB = new MenuDAO();
 

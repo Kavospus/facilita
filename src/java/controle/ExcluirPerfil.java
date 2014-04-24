@@ -35,7 +35,7 @@ public class ExcluirPerfil extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("perfil") == null) {
+	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?erro=1");
 	    } else {
 		// TODO output your page here

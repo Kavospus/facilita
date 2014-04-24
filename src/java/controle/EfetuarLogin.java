@@ -52,7 +52,7 @@ public class EfetuarLogin extends HttpServlet {
 		Usuario user = userDB.logar(login, pass);
 
 		if (user.getId() > 0) {
-		    session.setAttribute("user", user);
+		    session.setAttribute("userLogged", user);
 		    response.sendRedirect("index.jsp");
 		} else {
 		    out.print("<script language='JavaScript'>");

@@ -49,7 +49,7 @@ public class EfetuarLoginConvidado extends HttpServlet {
 		userDB.conectar();
 		Usuario user = userDB.logar(login, pass);
 		userDB.desconectar();
-		session.setAttribute("user", user);
+		session.setAttribute("userLogged", user);
 		if (user != null) {
 		    response.sendRedirect("index.jsp");
 		}

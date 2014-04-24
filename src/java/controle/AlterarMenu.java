@@ -46,7 +46,7 @@ public class AlterarMenu extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String menuName = request.getParameter("menu");
                 String link = request.getParameter("link");
-                String icone = request.getParameter("icone");
+                String icon = request.getParameter("icon");
 
                 MenuDAO menuDB = new MenuDAO();
 
@@ -57,7 +57,7 @@ public class AlterarMenu extends HttpServlet {
                 menu.setId(id);
                 menu.setMenu(menuName);
                 menu.setLink(link);
-                menu.setIcone(icone);
+                menu.setIcone(icon);
                 menuDB.alterar(menu);
 
                 menuDB.desconectar();

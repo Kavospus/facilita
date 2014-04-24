@@ -34,7 +34,7 @@ public class InserirPerfil extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("perfil") == null) {
+	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?erro=1");
 	    } else {
 		// TODO output your page here
@@ -44,10 +44,10 @@ public class InserirPerfil extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    String perfil = request.getParameter("perfil");
+		    String profileName = request.getParameter("profile");
 
 		    Perfil profile = new Perfil();
-		    profile.setPerfil(perfil);
+		    profile.setPerfil(profileName);
 
 		    PerfilDAO profileDB = new PerfilDAO();
 
