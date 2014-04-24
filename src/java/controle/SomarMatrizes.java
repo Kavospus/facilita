@@ -115,9 +115,9 @@ public class SomarMatrizes extends HttpServlet {
 	    session.setAttribute("data_sum_linesB", linesA);
 	    session.setAttribute("data_sum_columnsB", columnsA);
 	    if (error == 0) {
-		Somar s = new Somar(a, b, linesA, columnsA);
-		s.calcular();
-		result = s.getResultado();
+		Somar sum = new Somar(a, b, linesA, columnsA);
+		sum.calcular();
+		result = sum.getResultado();
 		session.setAttribute("result_sum", result);
 		session.setAttribute("result_sum_linesA", linesA);
 		session.setAttribute("result_sum_columnsA", columnsA);
@@ -125,17 +125,17 @@ public class SomarMatrizes extends HttpServlet {
 		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
-		    s.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = s.getUsuario();
+		    sum.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = sum.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    s.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(s);
+			    sum.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(sum);
 			} else {
-			    calculusDB.inserir(s);
+			    calculusDB.inserir(sum);
 			}
 			calculusDB.desconectar();
 		    }
