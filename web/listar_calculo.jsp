@@ -21,7 +21,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id){
+            function verify(id){
                 var url="excluir_calculo.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
@@ -56,28 +56,28 @@
                             <%
 
                                         try {
-                                            Usuario usuario = (Usuario)session.getAttribute("user");
-                                            CalculoDAO cDB = new CalculoDAO();
+                                            user = (Usuario)session.getAttribute("user");
+                                            CalculoDAO calculusDB = new CalculoDAO();
 
-                                            cDB.conectar();
+                                            calculusDB.conectar();
 
-                                            ArrayList<Calculo> lista = cDB.listar(usuario);
+                                            ArrayList<Calculo> lista = calculusDB.listar(user);
 
-                                            for(Calculo c:lista){%>
+                                            for(Calculo calculus:lista){%>
 
                             <tr>
                                 <td>
-                                    <%out.print(c.getId());%>
+                                    <%out.print(calculus.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(c.getOperacao());%>
+                                    <%out.print(calculus.getOperacao());%>
                                 </td>
                                 <td>
-                                    <%out.print(c.getStringEntrada());%>
+                                    <%out.print(calculus.getStringEntrada());%>
                                 </td>
                                 <td>
-                                    <a class="button" href="carregar_calculo.do?id=<%out.print(c.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
-                                    <a class="button" href="#" onclick="confirma(<%out.print(c.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
+                                    <a class="button" href="carregar_calculo.do?id=<%out.print(calculus.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="#" onclick="verify(<%out.print(calculus.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
@@ -106,8 +106,8 @@
                         <%
 
     if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    Usuario userPermission = new Usuario();
+    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
     session.setAttribute("calculo",true);
