@@ -56,7 +56,7 @@
                             <%
 
                                         try {
-                                            user = (Usuario)session.getAttribute("user");
+                                            user = (Usuario)session.getAttribute("userLogged");
                                             CalculoDAO calculusDB = new CalculoDAO();
 
                                             calculusDB.conectar();

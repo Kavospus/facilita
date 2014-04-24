@@ -77,7 +77,7 @@
                                 </td>
                                 <td>
                                     <a class="button" href="form_gerenciar_menu_perfil.jsp?id=<%out.print(profile.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
-                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(profile.getId());%>&perfil=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(profile.getId());%>&profile=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
                                     <a class="button" href="#" onclick="verify(<%out.print(profile.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>

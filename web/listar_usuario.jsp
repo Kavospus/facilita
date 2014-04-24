@@ -108,7 +108,7 @@
     if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
-    session.setAttribute("usuario",true);
+    session.setAttribute("user",true);
     }
     }
 

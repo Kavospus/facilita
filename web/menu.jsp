@@ -9,7 +9,7 @@ boolean logged = false;
 Usuario userLogged = null;
 try{
 
-    userLogged = (Usuario) session.getAttribute("user");
+    userLogged = (Usuario) session.getAttribute("userLogged");
     out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
     for(Menu mp:userLogged.getPerfil().getMenus()){
 

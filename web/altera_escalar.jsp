@@ -54,7 +54,7 @@
                 <%
 
     if(logged){
-    if(session.getAttribute("calculo") == null){
+    if(session.getAttribute("calculus") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

@@ -91,7 +91,7 @@
                                     </td>
                                     <td><select name="id_perfil" size="1">
                                             <option value="0">
-                                                Selecione um perfil
+                                                Selecione um profile
                                             </option>
 
                                             <%for (Perfil profile : lista) {%>
@@ -138,7 +138,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("usuario") == null){
+    if(session.getAttribute("user") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

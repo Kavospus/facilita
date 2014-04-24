@@ -22,7 +22,7 @@
             function validaForm(){
 
                 var form_inserir_perfil=document.form_inserir_perfil;
-                var campo_perfil=form_inserir_perfil.perfil;
+                var campo_perfil=form_inserir_perfil.profile;
 
                 if(campo_perfil.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -51,7 +51,7 @@
                             <table align="center">
                                 <tr>
                                     <td>Perfil:</td>
-                                    <td><input type="text" size="45" name="perfil"/> </td>
+                                    <td><input type="text" size="45" name="profile"/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -70,7 +70,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("perfil") == null){
+    if(session.getAttribute("profile") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

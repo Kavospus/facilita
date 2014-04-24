@@ -30,7 +30,7 @@
             function validaForm(){
 
                 var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+                var campo_perfil=form_alterar_perfil.profile;
 
                 if(campo_perfil.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -78,7 +78,7 @@
                                 </tr>
                                 <tr>
                                     <td>Perfil</td>
-                                    <td><input type="text" name="perfil" value="<%out.print(profile.getPerfil());%>"/> </td>
+                                    <td><input type="text" name="profile" value="<%out.print(profile.getPerfil());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td><input class="button" type="reset" value="Limpar"/> </td>
@@ -105,7 +105,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("perfil") == null){
+    if(session.getAttribute("profile") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }
