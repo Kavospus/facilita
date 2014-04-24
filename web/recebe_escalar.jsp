@@ -21,10 +21,10 @@
         <%@include file="menu.jsp" %>
         <form action="escalar_matriz.do" method="POST" name="escalar_matriz">
         Escalar <input type="text" name="n" id="n"/>
-        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
-        <div id="matrizes" ></div>
+        <div id="matrixes" ></div>
         <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=2');"/>
         </form>
         

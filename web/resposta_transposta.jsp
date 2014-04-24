@@ -34,12 +34,12 @@
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrixes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="transpor_matriz.do" method="POST" name="transpoe_matriz">
         Linhas<input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
         Colunas <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
-        <div id="matrizes" ></div>
+        <div id="matrixes" ></div>
         <input class="button"type="submit" name="OK"/>
         </form>
     </body>

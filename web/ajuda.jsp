@@ -35,17 +35,17 @@ Informe a quantity de pontos experimentais na 1ª lacuna e selecione o tipo de f
           break;
           case 5:
               %>
-Informe as dimensionões das matrizes obedecendo as restrições e seus valores.
+Informe as dimensionões das matrixes obedecendo as restrições e seus valores.
               <%
           break;
           case 6:
               %>
-Informe as dimensionões das matrizes e insira os valores das mesmas.
+Informe as dimensionões das matrixes e insira os valores das mesmas.
               <%
           break;
           case 7:
               %>
-Informe as dimensionões das matrizes e insira os valores das mesmas.
+Informe as dimensionões das matrixes e insira os valores das mesmas.
               <%
           break;
           case 8:
