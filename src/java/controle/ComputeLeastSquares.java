@@ -17,7 +17,7 @@ import modelo.Minimos;
 import org.ejml.factory.SingularMatrixException;
 
 
-public class ComputeLeastSquare extends HttpServlet {
+public class ComputeLeastSquares extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

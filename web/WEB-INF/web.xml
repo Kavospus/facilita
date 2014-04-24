@@ -34,11 +34,11 @@
     </servlet>
     <servlet>
         <servlet-name>SomarMatrizes</servlet-name>
-        <servlet-class>controle.SumMatrix</servlet-class>
+        <servlet-class>controle.SumMatrices</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SubtrairMatrizes</servlet-name>
-        <servlet-class>controle.SubtractMatrix</servlet-class>
+        <servlet-class>controle.SubtractMatrices</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MultiplicarMatrizes</servlet-name>
@@ -46,7 +46,7 @@
     </servlet>
     <servlet>
         <servlet-name>CalcularMinimos</servlet-name>
-        <servlet-class>controle.ComputeLeastSquare</servlet-class>
+        <servlet-class>controle.ComputeLeastSquares</servlet-class>
     </servlet>
     <servlet>
         <description>Deleta o Perfil</description>

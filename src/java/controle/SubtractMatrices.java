@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to sum matrices. 
+ *Description: Class to insert data to subtract matrices. 
  */
 package controle;
 
@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Somar;
+import modelo.Subtrair;
 import modelo.Usuario;
 
-public class SumMatrix extends HttpServlet {
+
+public class SubtractMatrices extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,7 +50,7 @@ public class SumMatrix extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_subtrai.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -60,7 +61,7 @@ public class SumMatrix extends HttpServlet {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_subtrai.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
@@ -80,7 +81,7 @@ public class SumMatrix extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('altera_subtrai.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -99,7 +100,7 @@ public class SumMatrix extends HttpServlet {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('altera_subtrai.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
@@ -108,42 +109,40 @@ public class SumMatrix extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_sum_matrixA", matrixA);
-	    session.setAttribute("data_sum_b", matrixB);
-	    session.setAttribute("data_sum_linesA", linesA);
-	    session.setAttribute("data_sum_columnsA", columnsA);
-	    session.setAttribute("data_sum_linesB", linesA);
-	    session.setAttribute("data_sum_columnsB", columnsA);
+	    session.setAttribute("data_subtract_matrixA", matrixA);
+	    session.setAttribute("data_subtract_b", matrixB);
+	    session.setAttribute("data_subtract_linesA", linesA);
+	    session.setAttribute("data_subtract_columnsA", columnsA);
+	    session.setAttribute("data_subtract_linesB", linesA);
+	    session.setAttribute("data_subtract_columnsB", columnsA);
 	    if (error == 0) {
-		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
-		sum.calcular();
-		result = sum.getResultado();
-		session.setAttribute("result_sum", result);
-		session.setAttribute("result_sum_linesA", linesA);
-		session.setAttribute("result_sum_columnsA", columnsA);
-		session.setAttribute("result_sum_linesB", linesA);
-		session.setAttribute("result_sum_columnsB", columnsA);
-
+		Subtrair s = new Subtrair(matrixA, matrixB, linesA, columnsA);
+		s.calcular();
+		result = s.getResultado();
+		session.setAttribute("result_subtract", result);
+		session.setAttribute("result_subtract_linesA", linesA);
+		session.setAttribute("result_subtract_columnsA", columnsA);
+		session.setAttribute("result_subtract_linesB", linesA);
+		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    sum.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = sum.getUsuario();
+		    s.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = s.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    sum.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(sum);
+			    s.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(s);
 			} else {
-			    calculusDB.inserir(sum);
+			    calculusDB.inserir(s);
 			}
 			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}
-
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_soma.jsp','_parent');");
+		out.print(" window.open('resultado_subtrai.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");
