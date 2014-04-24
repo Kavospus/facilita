@@ -12,7 +12,7 @@ import org.ejml.factory.SingularMatrixException;
 import org.ejml.simple.SimpleMatrix;
 
 
-public class Minimos {
+public class LeastSquares {
     String erro = null;
     
     /*Function to calculate Least-Squares*/

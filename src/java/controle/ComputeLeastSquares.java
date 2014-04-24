@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Minimos;
+import modelo.LeastSquares;
 import org.ejml.factory.SingularMatrixException;
 
 
@@ -100,7 +100,7 @@ public class ComputeLeastSquares extends HttpServlet {
 	    session.setAttribute("data_least_squares_vectorX", vectorX);
 	    session.setAttribute("data_least_squares_vectorY", vectorY);
 	    if (errom == 0) {
-		Minimos menu = new Minimos();
+		LeastSquares menu = new LeastSquares();
 		try {
 		    result = menu.calculateLeastSquares(vectorX, vectorY, quantity, option);
 		} catch (SingularMatrixException e) {
