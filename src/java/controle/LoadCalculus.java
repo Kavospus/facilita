@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Calculus;
 import modelo.CalculoDAO;
 import modelo.Determine;
-import modelo.Escalar;
+import modelo.Scale;
 import modelo.Inverter;
 import modelo.Multiplicar;
 import modelo.Somar;
@@ -153,7 +153,7 @@ public class LoadCalculus extends HttpServlet {
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Escalar")) {
-			Escalar e = (Escalar) calculus;
+			Scale e = (Scale) calculus;
 			e.setDataString();
 			session.setAttribute("data_scalar_matrixA", e.getInputA());
 			session.setAttribute("data_scalar_number", e.getInputB());

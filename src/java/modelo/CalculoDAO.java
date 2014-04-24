@@ -33,7 +33,7 @@ public class CalculoDAO extends DataBaseDAO {
 	} else if (operador.equals("Multiplicar")) {
 	    calculo = new Multiplicar();
 	} else if (operador.equals("Escalar")) {
-	    calculo = new Escalar();
+	    calculo = new Scale();
 	}
 
 	return calculo;

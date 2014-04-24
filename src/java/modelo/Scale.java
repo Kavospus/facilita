@@ -10,19 +10,19 @@ package modelo;
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Escalar extends Calculus {
+public class Scale extends Calculus {
     private double[][] inputA;
     private double inputB;
     private double[][] result;
     private int linesA;
     private int columnsA;
 
-    public Escalar() {
+    public Scale() {
 
     }
 
     /*Constructor*/
-    public Escalar(double[][] inputA, double inputB, int linesA,
+    public Scale(double[][] inputA, double inputB, int linesA,
 	    int columnsA) {
 	ArrayList<String> inputs = new ArrayList<String>();
 	this.inputA = inputA;

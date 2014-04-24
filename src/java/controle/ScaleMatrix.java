@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Escalar;
+import modelo.Scale;
 import modelo.Usuario;
 
 
@@ -105,7 +105,7 @@ public class ScaleMatrix extends HttpServlet {
 	    session.setAttribute("data_scalar_columnsA", columnsA);
 	    session.setAttribute("data_scalar_number", number);
 	    if (error == 0) {
-		Escalar scalar = new Escalar(matrixA, number, linesA, columnsA);
+		Scale scalar = new Scale(matrixA, number, linesA, columnsA);
 		scalar.calculate();
 		result = scalar.getResult();
 		session.setAttribute("result_escalar", result);
