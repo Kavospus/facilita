@@ -93,7 +93,7 @@
                                                 ArrayList<Perfil> profileListB = profileDB.listar();
 
                                 %>
-                                <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validateForm()">
+                                <form name="form_alterar_usuario" action="update_user.do" method="POST" onsubmit="return validateForm()">
                                     <tr>
                                     <td>Id:</td>
                                     <td><input type="text" readonly size="45" name="id" value="<%=u.getId()%>"/> </td>

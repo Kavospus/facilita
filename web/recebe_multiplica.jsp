@@ -19,7 +19,7 @@
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
-        <form action="multiplicar_matrizes.do" method="POST" name="multiplica_matrizes">
+        <form action="multiply_matrices.do" method="POST" name="multiply_matrices">
             Linhas de A <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         Colunas de A e linhas de B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         Colunas de B <input type="text" name="linesB" id="linesB" onkeyup="refreshPage('matrixes', 'matrizes_dinamicas.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />

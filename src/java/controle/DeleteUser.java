@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove menus. 
+ *Description: Class to remove users.
  */
 package controle;
 
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Menu;
-import modelo.MenuDAO;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
-public class RemoveMenu extends HttpServlet {
+public class DeleteUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +34,29 @@ public class RemoveMenu extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("menu") == null) {
+	    if (session.getAttribute("user") == null) {
 		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet InserirMenu</title>");
+		out.println("<title>Servlet DeletarUsuario</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Menu menu = new Menu();
-		    menu.setId(id);
+		    Usuario user = new Usuario();
+		    user.setId(id);
 
-		    MenuDAO menuDB = new MenuDAO();
+		    UsuarioDAO userDB = new UsuarioDAO();
 
-		    menuDB.conectar();
-		    menuDB.excluir(menu);
-		    menuDB.desconectar();
+		    userDB.conectar();
+		    userDB.excluir(user);
+		    userDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_menu.jsp','_parent');");
+		    out.print(" window.open('listar_usuario.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

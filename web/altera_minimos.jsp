@@ -28,7 +28,7 @@
 
 %>
 <body class="centertable" onload="refreshPage('least_squares','altera_minimos_dinamicos.jsp?auxiliarQuantity=<%=quantity%>');">
-        <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
+        <form action="compute_least_squares.do" method="POST" name="compute_least_squares">
             Quantidade <input type="text" value="<%=quantity%>" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','altera_minimos_dinamicos.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
         Ajuste <input type="radio" <%if(option == 1){out.print("checked");}%> name="option" value="1">Linear 
               <input type="radio" <%if(option == 2){out.print("checked");}%> name="option" value="2">Gaussiano

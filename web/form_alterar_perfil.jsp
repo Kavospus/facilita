@@ -71,7 +71,7 @@
 
                         if(profile.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validateForm()">
+                            <form name="form_alterar_perfil" action="update_profile.do" method="POST" onsubmit="return validateForm()">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>

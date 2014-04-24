@@ -18,7 +18,7 @@ import modelo.Escalar;
 import modelo.Usuario;
 
 
-public class ScalarMatrix extends HttpServlet {
+public class ScaleMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

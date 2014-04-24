@@ -60,7 +60,7 @@
                                 <td align="left" ><h1>Novo Menu</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validateForm()">
+                        <form name="form_inserir_menu" action="insert_menu.do" method="POST" onsubmit="return validateForm()">
                         <table align="center" >
                                 <tr>
                                     <td>Nome:</td>

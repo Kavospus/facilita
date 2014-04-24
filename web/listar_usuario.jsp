@@ -28,7 +28,7 @@
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
             function verify(id){
-                var url="excluir_usuario.do?id="+id;
+                var url="delete_user.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");

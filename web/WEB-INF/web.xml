@@ -51,7 +51,7 @@
     <servlet>
         <description>Deleta o Perfil</description>
         <servlet-name>ExcluirPerfil</servlet-name>
-        <servlet-class>controle.RemoveProfile</servlet-class>
+        <servlet-class>controle.DeleteProfile</servlet-class>
     </servlet>
     <servlet>
         <description>Altera o Perfil</description>
@@ -75,7 +75,7 @@
     </servlet>
     <servlet>
         <servlet-name>ExcluirMenu</servlet-name>
-        <servlet-class>controle.RemoveMenu</servlet-class>
+        <servlet-class>controle.DeleteMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarMenu</servlet-name>
@@ -83,7 +83,7 @@
     </servlet>
     <servlet>
         <servlet-name>ExcluirUsuario</servlet-name>
-        <servlet-class>controle.RemoveUser</servlet-class>
+        <servlet-class>controle.DeleteUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InserirUsuario</servlet-name>
@@ -99,11 +99,11 @@
     </servlet>
     <servlet>
         <servlet-name>ExcluirCalculo</servlet-name>
-        <servlet-class>controle.RemoveCalculus</servlet-class>
+        <servlet-class>controle.DeleteCalculus</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EscalarMatriz</servlet-name>
-        <servlet-class>controle.ScalarMatrix</servlet-class>
+        <servlet-class>controle.ScaleMatrix</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EfetuarLoginConvidado</servlet-name>
@@ -135,75 +135,75 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SubtrairMatrizes</servlet-name>
-        <url-pattern>/subtrair_matrizes.do</url-pattern>
+        <url-pattern>/subtract_matrices.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MultiplicarMatrizes</servlet-name>
-        <url-pattern>/multiplicar_matrizes.do</url-pattern>
+        <url-pattern>/multiply_matrices.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CalcularMinimos</servlet-name>
-        <url-pattern>/calcular_minimos.do</url-pattern>
+        <url-pattern>/compute_least_squares.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarPerfil</servlet-name>
-        <url-pattern>/alterar_perfil.do</url-pattern>
+        <url-pattern>/update_profile.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirPerfil</servlet-name>
-        <url-pattern>/inserir_perfil.do</url-pattern>
+        <url-pattern>/insert_profile.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirMenu</servlet-name>
-        <url-pattern>/inserir_menu.do</url-pattern>
+        <url-pattern>/insert_menu.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GerenciarMenuPerfil</servlet-name>
-        <url-pattern>/gerenciar_menu_perfil.do</url-pattern>
+        <url-pattern>/manage_menu_profile.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarMenu</servlet-name>
-        <url-pattern>/alterar_menu.do</url-pattern>
+        <url-pattern>/update_menu.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirUsuario</servlet-name>
-        <url-pattern>/inserir_usuario.do</url-pattern>
+        <url-pattern>/insert_user.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarUsuario</servlet-name>
-        <url-pattern>/alterar_usuario.do</url-pattern>
+        <url-pattern>/update_user.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirMenu</servlet-name>
-        <url-pattern>/excluir_menu.do</url-pattern>
+        <url-pattern>/delete_menu.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirPerfil</servlet-name>
-        <url-pattern>/excluir_perfil.do</url-pattern>
+        <url-pattern>/delete_profile.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirUsuario</servlet-name>
-        <url-pattern>/excluir_usuario.do</url-pattern>
+        <url-pattern>/delete_user.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CarregarCalculo</servlet-name>
-        <url-pattern>/carregar_calculo.do</url-pattern>
+        <url-pattern>/load_calculus.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirCalculo</servlet-name>
-        <url-pattern>/excluir_calculo.do</url-pattern>
+        <url-pattern>/delete_calculus.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EscalarMatriz</servlet-name>
-        <url-pattern>/escalar_matriz.do</url-pattern>
+        <url-pattern>/scale_matrix.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EfetuarLoginConvidado</servlet-name>
-        <url-pattern>/efetuar_login_convidado.do</url-pattern>
+        <url-pattern>/do_guest_login.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarUsuario</servlet-name>
-        <url-pattern>/cadastrar_usuario.do</url-pattern>
+        <url-pattern>/register_user.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

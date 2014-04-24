@@ -2,8 +2,9 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove users.
+ *Description: Class to remove data calculus. 
  */
+
 package controle;
 
 import java.io.IOException;
@@ -13,10 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Usuario;
-import modelo.UsuarioDAO;
+import modelo.Calculo;
+import modelo.CalculoDAO;
+import modelo.Inverter;
 
-public class RemoveUser extends HttpServlet {
+public class DeleteCalculus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +36,33 @@ public class RemoveUser extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("user") == null) {
+	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?error=1");
 	    } else {
-		// TODO output your page here
+		/*
+		 * TODO output your page here. You may use following sample
+		 * code.
+		 */
+		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet DeletarUsuario</title>");
+		out.println("<title>Servlet ExcluirCalculo</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Usuario user = new Usuario();
-		    user.setId(id);
+		    Calculo calculus = new Inverter();
+		    calculus.setId(id);
 
-		    UsuarioDAO userDB = new UsuarioDAO();
+		    CalculoDAO calculusDB = new CalculoDAO();
 
-		    userDB.conectar();
-		    userDB.excluir(user);
-		    userDB.desconectar();
+		    calculusDB.conectar();
+		    calculusDB.excluir(calculus);
+		    calculusDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_usuario.jsp','_parent');");
+		    out.print(" window.open('listar_calculo.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

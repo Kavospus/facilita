@@ -36,7 +36,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="escalar_matriz.do" method="POST" name="escalar_matriz">
+        <form action="scale_matrix.do" method="POST" name="scale_matrix">
         Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
         Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'altera_matriz_dinamica.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />

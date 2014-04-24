@@ -69,7 +69,7 @@
                                 <td align="center" ><h1>Inserir Usuário</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_usuario" action="inserir_usuario.do" method="POST" onsubmit="return validateForm()" >
+                        <form name="form_inserir_usuario" action="insert_user.do" method="POST" onsubmit="return validateForm()" >
                         <table align="center" width="300">
                             
                                 <%

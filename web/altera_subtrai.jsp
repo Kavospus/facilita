@@ -32,7 +32,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="subtrair_matrizes.do" method="POST" name="subtrai_matrizes">
+        <form action="subtract_matrices.do" method="POST" name="subtract_matrices">
         Linhas de A e B <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         Colunas de A e B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'altera_matrizes_dinamicas.jsp?operation=subtract&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('linesA').value+'&columnsB='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>

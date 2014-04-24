@@ -47,7 +47,7 @@
                                 <td align="left" ><h1>Novo Perfil</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_perfil" action="inserir_perfil.do" method="GET" onsubmit="return validateForm()">
+                        <form name="form_inserir_perfil" action="insert_profile.do" method="GET" onsubmit="return validateForm()">
                             <table align="center">
                                 <tr>
                                     <td>Perfil:</td>

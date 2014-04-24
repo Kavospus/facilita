@@ -25,7 +25,7 @@
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
             function verify(id_menu,id_profile,operation){
-                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_profile="+id_profile+"&operation="+operation;
+                var url="manage_menu_profile.do?id_menu="+id_menu+"&id_profile="+id_profile+"&operation="+operation;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
@@ -47,7 +47,7 @@
                                 <td align="left" ><h1>Vincular Menus</h1></td>
                             </tr>
                         </table>
-                        <form name="form_gerenciar_menu" action="gerenciar_menu_perfil.do">
+                        <form name="form_gerenciar_menu" action="manage_menu_profile.do">
 
                             <%
                             

@@ -36,7 +36,7 @@
     %>
     <body class="centertable" onload="refreshPage('matrixes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
-        <form action="multiplicar_matrizes.do" method="POST" name="multiplica_matrizes">
+        <form action="multiply_matrices.do" method="POST" name="multiply_matrices">
         Linhas de A <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
         Colunas de A e Linhas de B <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
         Colunas de B <input type="text" name="linesB" value="2" id="linesB" onkeyup="refreshPage('matrixes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />

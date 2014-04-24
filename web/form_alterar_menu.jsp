@@ -66,7 +66,7 @@
                                 <td align="left" ><h1>Alterar Menu</h1></td>
                             </tr>
                         </table>
-                        <form name="form_alterar_menu" action="alterar_menu.do" method="POST" onsubmit="return validateForm()">
+                        <form name="form_alterar_menu" action="update_menu.do" method="POST" onsubmit="return validateForm()">
                             <table width="500" align="center">
                                 <%
                                     int id = 0;

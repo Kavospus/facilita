@@ -28,7 +28,7 @@
         <script type="text/javascript" src="js/teste.js"></script>
         <script type="text/javascript" language="JavaScript">
             function verify(id){
-                var url="excluir_menu.do?id="+id;
+                var url="delete_menu.do?id="+id;
                 var answer=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(answer){
                     window.open(url,"_parent");

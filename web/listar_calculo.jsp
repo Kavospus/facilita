@@ -22,7 +22,7 @@
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
             function verify(id){
-                var url="excluir_calculo.do?id="+id;
+                var url="delete_calculus.do?id="+id;
                 var answer=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(answer){
                     window.open(url,"_parent");
@@ -76,7 +76,7 @@
                                     <%out.print(calculus.getStringEntrada());%>
                                 </td>
                                 <td>
-                                    <a class="button" href="carregar_calculo.do?id=<%out.print(calculus.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="load_calculus.do?id=<%out.print(calculus.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>
                                     <a class="button" href="#" onclick="verify(<%out.print(calculus.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
