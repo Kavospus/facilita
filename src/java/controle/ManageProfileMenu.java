@@ -68,7 +68,7 @@ public class ManageProfileMenu extends HttpServlet {
 		    Usuario user = (Usuario) session.getAttribute("user");
 		    UsuarioDAO userDB = new UsuarioDAO();
 		    userDB.conectar();
-		    Usuario nu = userDB.carregaPorId(user.getId());
+		    Usuario nu = userDB.selectById(user.getId());
 		    userDB.desconectar();
 		    session.removeAttribute("profile");
 		    session.removeAttribute("menu");

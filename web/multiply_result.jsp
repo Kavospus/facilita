@@ -39,9 +39,9 @@
         }
         double matrixA[][] = new double[linesA][columnsA];
         double matrixB[][] = new double[linesB][columnsB];
-        double resultado[][] = new double[linesA][linesB];
+        double result[][] = new double[linesA][linesB];
         if(session.getAttribute("result_multiply") != null){
-                resultado = (double[][])session.getAttribute("result_multiply");
+                result = (double[][])session.getAttribute("result_multiply");
             }
         if(session.getAttribute("data_mmultiplica_matrixA") != null){
                 matrixA = (double[][])session.getAttribute("data_mmultiplica_matrixA");
@@ -63,7 +63,7 @@
             <%
             for(j=0;j<columnsB;j++){
         %>
-        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=resultado[i][j]%>" id="r<%=i%><%=j%>" /></td>
+        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=result[i][j]%>" id="r<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

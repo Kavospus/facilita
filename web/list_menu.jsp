@@ -66,7 +66,7 @@
                             try{
                                 MenuDAO menuDB = new MenuDAO();
                                 menuDB.conectar();    
-                                ArrayList<Menu> menuList = menuDB.listar();
+                                ArrayList<Menu> menuList = menuDB.select();
                             for(Menu menu:menuList){%>
 
                             <tr>

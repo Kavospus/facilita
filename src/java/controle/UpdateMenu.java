@@ -58,7 +58,7 @@ public class UpdateMenu extends HttpServlet {
                 menu.setMenu(menuName);
                 menu.setLink(link);
                 menu.setIcone(icon);
-                menuDB.alterar(menu);
+                menuDB.update(menu);
 
                 menuDB.desconectar();
 

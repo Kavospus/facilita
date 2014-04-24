@@ -33,9 +33,9 @@
         }
 
         double matrixA[][] = new double[linesA][columnsA];
-        double resultado[][] = new double[linesA][columnsA];
+        double result[][] = new double[linesA][columnsA];
         if(session.getAttribute("result_subtract") != null){
-                resultado = (double[][])session.getAttribute("result_subtract");
+                result = (double[][])session.getAttribute("result_subtract");
             }
         if(session.getAttribute("data_subtract_matrixA") != null){
                 matrixA = (double[][])session.getAttribute("data_subtract_matrixA");
@@ -55,7 +55,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=resultado[i][j]%>" id="r<%=i%><%=j%>" /></td>
+        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=result[i][j]%>" id="r<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

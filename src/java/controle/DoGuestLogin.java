@@ -47,7 +47,7 @@ public class DoGuestLogin extends HttpServlet {
 
 		UsuarioDAO userDB = new UsuarioDAO();
 		userDB.conectar();
-		Usuario user = userDB.logar(login, pass);
+		Usuario user = userDB.logon(login, pass);
 		userDB.desconectar();
 		session.setAttribute("userLogged", user);
 		if (user != null) {

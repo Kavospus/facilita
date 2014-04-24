@@ -81,7 +81,7 @@
                                         MenuDAO menuDB = new MenuDAO();
 
                                         menuDB.conectar();
-                                        menu = menuDB.carregaPorId(id);
+                                        menu = menuDB.selectById(id);
                                         menuDB.desconectar();
                                             
                                         } catch(SQLException e){

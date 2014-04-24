@@ -23,10 +23,10 @@
                 columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
         
-        double resultado[][] = new double[linesA][columnsA];
+        double result[][] = new double[linesA][columnsA];
         
         if(session.getAttribute("result_"+operation) != null){
-                resultado = (double[][])session.getAttribute("result_"+operation);
+                result = (double[][])session.getAttribute("result_"+operation);
         }
         
         for(i=0;i<columnsA;i++){
@@ -41,7 +41,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td> <input type="text" size="10" value="<%=resultado[i][j]%>" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
+        <td> <input type="text" size="10" value="<%=result[i][j]%>" name="matrixA<%=i%><%=j%>" id="matrixA<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

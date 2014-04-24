@@ -106,23 +106,23 @@ public class ScaleMatrix extends HttpServlet {
 	    session.setAttribute("data_scalar_number", number);
 	    if (error == 0) {
 		Escalar scalar = new Escalar(matrixA, number, linesA, columnsA);
-		scalar.calcular();
-		result = scalar.getResultado();
+		scalar.calculate();
+		result = scalar.getResult();
 		session.setAttribute("result_escalar", result);
 		session.setAttribute("result_escalar_linesA", linesA);
 		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
-		    scalar.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = scalar.getUsuario();
+		    scalar.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = scalar.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    scalar.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(scalar);
+			    calculusDB.update(scalar);
 			} else {
-			    calculusDB.inserir(scalar);
+			    calculusDB.insert(scalar);
 			}
 			calculusDB.desconectar();
 		    }

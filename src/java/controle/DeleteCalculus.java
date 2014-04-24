@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Calculo;
+import modelo.Calculus;
 import modelo.CalculoDAO;
 import modelo.Inverter;
 
@@ -51,13 +51,13 @@ public class DeleteCalculus extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Calculo calculus = new Inverter();
+		    Calculus calculus = new Inverter();
 		    calculus.setId(id);
 
 		    CalculoDAO calculusDB = new CalculoDAO();
 
 		    calculusDB.conectar();
-		    calculusDB.excluir(calculus);
+		    calculusDB.delete(calculus);
 		    calculusDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");

@@ -20,7 +20,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Insert a Profile object to the database*/
-    public void inserir(Perfil p) throws SQLException {
+    public void insert(Perfil p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "INSERT INTO perfil(perfil) VALUES(?)";
@@ -31,7 +31,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Consult a list of all Profile objects on the database*/
-    public ArrayList<Perfil> listar() throws SQLException, Exception {
+    public ArrayList<Perfil> select() throws SQLException, Exception {
 	MenuDAO mDB = new MenuDAO();
 	ArrayList<Perfil> lista = new ArrayList<Perfil>();
 	PreparedStatement pst;
@@ -50,7 +50,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Delete a Profile object on the database*/
-    public void excluir(Perfil p) throws SQLException {
+    public void delete(Perfil p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "DELETE FROM perfil WHERE id=?";
@@ -61,7 +61,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Load a Profile object with the id argument on the database*/
-    public Perfil carregaPorId(int id) throws SQLException, Exception {
+    public Perfil selectById(int id) throws SQLException, Exception {
 	Perfil p = new Perfil();
 	MenuDAO mDB = new MenuDAO();
 	PreparedStatement pst;
@@ -81,7 +81,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Edit a Profile object on the database*/
-    public void alterar(Perfil p) throws SQLException {
+    public void update(Perfil p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "UPDATE perfil SET perfil=? WHERE id=?";

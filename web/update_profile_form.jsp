@@ -65,7 +65,7 @@
 
                                             profileDB.conectar();
 
-                                            Perfil profile = profileDB.carregaPorId(id);
+                                            Perfil profile = profileDB.selectById(id);
 
                                             profileDB.desconectar();
 

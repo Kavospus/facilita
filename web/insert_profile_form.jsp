@@ -55,7 +55,7 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input class="button" type="submit" value="inserir"/> </td>
+                                    <td><input class="button" type="submit" value="insert"/> </td>
                                 </tr>
                             </table>
 

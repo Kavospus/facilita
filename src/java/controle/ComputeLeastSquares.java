@@ -102,7 +102,7 @@ public class ComputeLeastSquares extends HttpServlet {
 	    if (errom == 0) {
 		Minimos menu = new Minimos();
 		try {
-		    result = menu.calculaMinimos(vectorX, vectorY, quantity, option);
+		    result = menu.calculateLeastSquares(vectorX, vectorY, quantity, option);
 		} catch (SingularMatrixException e) {
 		    error = "Matriz Singular";
 

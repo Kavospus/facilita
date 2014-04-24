@@ -20,7 +20,7 @@ public class MenuDAO extends DataBaseDAO {
     }
     
     /*Insert a Menu object to the database*/
-    public void inserir(Menu m) throws SQLException{
+    public void insert(Menu m) throws SQLException{
 
         PreparedStatement pst;
         String sql = "INSERT INTO menu (menu,link,icone) values(?,?,?)";
@@ -33,7 +33,7 @@ public class MenuDAO extends DataBaseDAO {
     }
     
     /*Consult a list of all Menu objects on the database*/
-    public ArrayList<Menu> listar() throws SQLException{
+    public ArrayList<Menu> select() throws SQLException{
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement pst;
@@ -92,7 +92,7 @@ public class MenuDAO extends DataBaseDAO {
     }
     
     /*Edit a Menu object on the database*/
-    public void alterar(Menu m) throws SQLException{
+    public void update(Menu m) throws SQLException{
 
         PreparedStatement pst;
         String sql ="UPDATE menu SET menu=?, link=?, icone=?  WHERE id=?";
@@ -106,7 +106,7 @@ public class MenuDAO extends DataBaseDAO {
     }
     
     /*Load a Menu object with the id argument on the database*/
-    public Menu carregaPorId(int id) throws SQLException{
+    public Menu selectById(int id) throws SQLException{
         Menu m = new Menu();
         PreparedStatement pst;
         String sql ="SELECT * FROM menu WHERE id=?";
@@ -124,7 +124,7 @@ public class MenuDAO extends DataBaseDAO {
     }
     
     /*Delete a Menu object on the database*/
-    public void excluir(Menu m) throws SQLException{
+    public void delete(Menu m) throws SQLException{
 
         PreparedStatement pst;
         String sql ="DELETE FROM menu WHERE id=?";

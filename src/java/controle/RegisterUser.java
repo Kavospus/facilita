@@ -49,14 +49,14 @@ public class RegisterUser extends HttpServlet {
                 user.setSenha(password);
                 user.setLogin(login);
                 profileDB.conectar();
-                user.setPerfil(profileDB.carregaPorId(id_profile));
+                user.setPerfil(profileDB.selectById(id_profile));
                 profileDB.desconectar();
                 user.setNome(name);
 
                 UsuarioDAO userDB = new UsuarioDAO();
 
                 userDB.conectar();
-                userDB.inserir(user);
+                userDB.insert(user);
                 userDB.desconectar();
 
 

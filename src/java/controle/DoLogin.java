@@ -49,7 +49,7 @@ public class DoLogin extends HttpServlet {
 
 		UsuarioDAO userDB = new UsuarioDAO();
 		userDB.conectar();
-		Usuario user = userDB.logar(login, pass);
+		Usuario user = userDB.logon(login, pass);
 
 		if (user.getId() > 0) {
 		    session.setAttribute("userLogged", user);

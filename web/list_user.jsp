@@ -65,7 +65,7 @@
                             try{
                                 UsuarioDAO userDB = new UsuarioDAO();
                                 userDB.conectar();
-                                ArrayList<Usuario> userList = userDB.listar();
+                                ArrayList<Usuario> userList = userDB.select();
                             for(Usuario u:userList){%>
 
                             <tr>

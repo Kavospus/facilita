@@ -16,7 +16,7 @@ public class Minimos {
     String erro = null;
     
     /*Function to calculate Least-Squares*/
-    public double[] calculaMinimos(double vx[], double vy[], int qnt, int opcao)
+    public double[] calculateLeastSquares(double vx[], double vy[], int qnt, int opcao)
 	    throws SingularMatrixException {
 
 	int i, dimens = 2;

@@ -93,14 +93,14 @@ public class TransposeMatrix extends HttpServlet {
 	    session.setAttribute("data_transposed_columnsA", columnsA);
 	    if (error == 0) {
 		Transpor transpor = new Transpor(matrixA, linesA, columnsA);
-		transpor.calcular();
-		result = transpor.getResultado();
+		transpor.calculate();
+		result = transpor.getResult();
 		session.setAttribute("result_transposed", result);
 		session.setAttribute("result_transposed_linesA", columnsA);
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
-		    transpor.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = transpor.getUsuario();
+		    transpor.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = transpor.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
@@ -108,9 +108,9 @@ public class TransposeMatrix extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    transpor.setId(Integer.parseInt(request
 				    .getParameter("id")));
-			    calculusDB.alterar(transpor);
+			    calculusDB.update(transpor);
 			} else {
-			    calculusDB.inserir(transpor);
+			    calculusDB.insert(transpor);
 			}
 			calculusDB.desconectar();
 		    }

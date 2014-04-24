@@ -30,14 +30,14 @@
         }
 
         double matrixA[][] = new double[linesA][columnsA];
-        double resultado = 0;
+        double result = 0;
         if(session.getAttribute("result_determinant") != null){
-                resultado = (Double)session.getAttribute("result_determinant");
+                result = (Double)session.getAttribute("result_determinant");
             }
         if(session.getAttribute("data_determinant_matrixA") != null){
                 matrixA = (double[][])session.getAttribute("data_determinant_matrixA");
             }
-        out.print("Resultado do Determinante: "+resultado);
+        out.print("Resultado do Determinante: "+result);
         %>
         <a href="index.jsp">Voltar</a>
         <a href="answer_determinant_scalar.jsp">Escalar</a>

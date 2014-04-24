@@ -9,27 +9,27 @@ package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-public class Transpor extends Calculo {
-    private double[][] entrada;
-    private double[][] resultado;
-    private int dimensaoA;
-    private int dimensaoB;
+public class Transpor extends Calculus {
+    private double[][] input;
+    private double[][] result;
+    private int linesA;
+    private int columnsA;
 
     public Transpor() {
 
     }
 
     /*Constructor*/
-    public Transpor(double[][] entrada, int dimensaoA, int dimensaoB) {
-	this.entrada = entrada;
-	this.dimensaoA = dimensaoA;
-	this.dimensaoB = dimensaoB;
-	this.setStringEntrada(MatrixParser.parseString(entrada));
-	this.setOperacao("Transpor");
+    public Transpor(double[][] input, int linesA, int columnsA) {
+	this.input = input;
+	this.linesA = linesA;
+	this.columnsA = columnsA;
+	this.setInputString(MatrixParser.parseString(input));
+	this.setOperation("Transpor");
     }
     
     /*Function to transpose the matrix*/
-    public double[][] transporMatriz(double ma[][], int dima, int dimb) {
+    public double[][] transposeMatrix(double ma[][], int dima, int dimb) {
 	double result[][] = new double[dimb][dima];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
@@ -45,56 +45,56 @@ public class Transpor extends Calculo {
 
     /*Abstract method implementation to feed data to variables*/
     @Override
-    public void setDadosString() {
-	this.setEntrada(MatrixParser.parseMatrix(this.getStringEntrada()));
-	this.setDimensaoA(this.getEntrada().length);
-	this.setDimensaoB(this.getEntrada()[0].length);
-	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
+    public void setDataString() {
+	this.setInput(MatrixParser.parseMatrix(this.getInputString()));
+	this.setLinesA(this.getInput().length);
+	this.setColumnsA(this.getInput()[0].length);
+	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
 
     /*Abstract method implementation to feed data to string*/
     @Override
-    public void setStringDados() {
-	this.setStringEntrada(MatrixParser.parseString(entrada));
-	this.setStringResultado(MatrixParser.parseString(this.resultado));
+    public void setStringData() {
+	this.setInputString(MatrixParser.parseString(input));
+	this.setResultString(MatrixParser.parseString(this.result));
     }
 
-    public double[][] getEntrada() {
-	return entrada;
+    public double[][] getInput() {
+	return input;
     }
 
-    public void setEntrada(double[][] entrada) {
-	this.entrada = entrada;
+    public void setInput(double[][] input) {
+	this.input = input;
     }
 
-    public double[][] getResultado() {
-	return resultado;
+    public double[][] getResult() {
+	return result;
     }
 
-    public void setResultado(double[][] resultado) {
-	this.resultado = resultado;
+    public void setResult(double[][] result) {
+	this.result = result;
     }
 
-    public int getDimensaoA() {
-	return dimensaoA;
+    public int getLinesA() {
+	return linesA;
     }
 
-    public void setDimensaoA(int dimensaoA) {
-	this.dimensaoA = dimensaoA;
+    public void setLinesA(int linesA) {
+	this.linesA = linesA;
     }
 
-    public int getDimensaoB() {
-	return dimensaoB;
+    public int getColumnsA() {
+	return columnsA;
     }
 
-    public void setDimensaoB(int dimensaoB) {
-	this.dimensaoB = dimensaoB;
+    public void setColumnsA(int columnsA) {
+	this.columnsA = columnsA;
     }
 
     /*Abstract method implementation to calculate the operation of matrix transposition*/
     @Override
-    public void calcular() {
-	this.resultado = transporMatriz(entrada, dimensaoA, dimensaoB);
-	this.setStringResultado(MatrixParser.parseString(this.resultado));
+    public void calculate() {
+	this.result = transposeMatrix(input, linesA, columnsA);
+	this.setResultString(MatrixParser.parseString(this.result));
     }
 }

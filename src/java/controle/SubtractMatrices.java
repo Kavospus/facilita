@@ -117,25 +117,25 @@ public class SubtractMatrices extends HttpServlet {
 	    session.setAttribute("data_subtract_columnsB", columnsA);
 	    if (error == 0) {
 		Subtrair s = new Subtrair(matrixA, matrixB, linesA, columnsA);
-		s.calcular();
-		result = s.getResultado();
+		s.calculate();
+		result = s.getResult();
 		session.setAttribute("result_subtract", result);
 		session.setAttribute("result_subtract_linesA", linesA);
 		session.setAttribute("result_subtract_columnsA", columnsA);
 		session.setAttribute("result_subtract_linesB", linesA);
 		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    s.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = s.getUsuario();
+		    s.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = s.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    s.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(s);
+			    calculusDB.update(s);
 			} else {
-			    calculusDB.inserir(s);
+			    calculusDB.insert(s);
 			}
 			calculusDB.desconectar();
 		    }

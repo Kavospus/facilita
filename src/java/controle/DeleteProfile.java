@@ -52,7 +52,7 @@ public class DeleteProfile extends HttpServlet {
 		    PerfilDAO profileDB = new PerfilDAO();
 
 		    profileDB.conectar();
-		    profileDB.excluir(profile);
+		    profileDB.delete(profile);
 		    profileDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");

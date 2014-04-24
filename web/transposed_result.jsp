@@ -33,9 +33,9 @@
         }
 
         double matrixA[][] = new double[columnsA][linesA];
-        double resultado[][] = new double[linesA][columnsA];
+        double result[][] = new double[linesA][columnsA];
         if(session.getAttribute("result_transposed") != null){
-                resultado = (double[][])session.getAttribute("result_transposed");
+                result = (double[][])session.getAttribute("result_transposed");
             }
         if(session.getAttribute("data_transposed_matrixA") != null){
                 matrixA = (double[][])session.getAttribute("data_transposed_matrixA");
@@ -55,7 +55,7 @@
             <%
             for(j=0;j<columnsA;j++){
         %>
-        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=resultado[i][j]%>" id="r<%=i%><%=j%>" /></td>
+        <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=result[i][j]%>" id="r<%=i%><%=j%>" /></td>
         <%}%>
         </tr>
         <%}%>

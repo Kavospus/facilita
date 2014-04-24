@@ -131,23 +131,23 @@ public class MultiplyMatrices extends HttpServlet {
 	    session.setAttribute("data_multiply_columnsB", columnsB);
 	    if (error == 0) {
 		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
-		menu.calcular();
-		result = menu.getResultado();
+		menu.calculate();
+		result = menu.getResult();
 		session.setAttribute("result_multiply", result);
 		session.setAttribute("result_multiply_linesA", linesA);
 		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    menu.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = menu.getUsuario();
+		    menu.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = menu.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    menu.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(menu);
+			    calculusDB.update(menu);
 			} else {
-			    calculusDB.inserir(menu);
+			    calculusDB.insert(menu);
 			}
 			calculusDB.desconectar();
 		    }

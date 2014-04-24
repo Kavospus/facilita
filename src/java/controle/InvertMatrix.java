@@ -85,14 +85,14 @@ public class InvertMatrix extends HttpServlet {
 		session.setAttribute("data_inverse_columnsA", columnsA);
 		if (error == 0) {
 		    Inverter invert = new Inverter(matrixA, linesA, columnsA);
-		    invert.calcular();
-		    result = invert.getResultado();
+		    invert.calculate();
+		    result = invert.getResult();
 		    session.setAttribute("result_inversa", result);
 		    session.setAttribute("result_inversa_linesA", linesA);
 		    session.setAttribute("result_inversa_columnsA", columnsA);
 
-		    invert.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = invert.getUsuario();
+		    invert.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = invert.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
@@ -100,9 +100,9 @@ public class InvertMatrix extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    invert.setId(Integer.parseInt(request
 				    .getParameter("id")));
-			    calculusDB.alterar(invert);
+			    calculusDB.update(invert);
 			} else {
-			    calculusDB.inserir(invert);
+			    calculusDB.insert(invert);
 			}
 			calculusDB.desconectar();
 		    }

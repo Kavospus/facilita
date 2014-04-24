@@ -64,7 +64,7 @@ public class UpdateUser extends HttpServlet {
                 user.setId(id);
                 user.setNome(name);
                 profileDB.conectar();
-                user.setPerfil(profileDB.carregaPorId(id_profile));
+                user.setPerfil(profileDB.selectById(id_profile));
                 profileDB.desconectar();
                 user.setSenha(password);
                 user.setLogin(login);
@@ -74,7 +74,7 @@ public class UpdateUser extends HttpServlet {
                 UsuarioDAO userDB = new UsuarioDAO();
 
                 userDB.conectar();
-                userDB.alterar(user);
+                userDB.update(user);
                 userDB.desconectar();
 
                 out.print("<script language='JavaScript'>");

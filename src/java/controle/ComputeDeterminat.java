@@ -81,21 +81,21 @@ public class ComputeDeterminat extends HttpServlet {
 	    session.setAttribute("data_determinant_columnsA", columnsA);
 	    if (error == 0) {
 		Determinar determine = new Determinar(matrixA, linesA, columnsA);
-		determine.calcular();
-		result = determine.getResultado();
+		determine.calculate();
+		result = determine.getResult();
 		session.setAttribute("result_determinante", result);
 		try {
-		    determine.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = determine.getUsuario();
+		    determine.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = determine.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    determine.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(determine);
+			    calculusDB.update(determine);
 			} else {
-			    calculusDB.inserir(determine);
+			    calculusDB.insert(determine);
 			}
 			calculusDB.desconectar();
 		    }

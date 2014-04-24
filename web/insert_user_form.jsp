@@ -77,7 +77,7 @@
                                             try {
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> profileList = profileDB.listar();
+                                                ArrayList<Perfil> profileList = profileDB.select();
 
                                 %>
 

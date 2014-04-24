@@ -52,7 +52,7 @@ public class InsertProfile extends HttpServlet {
 		    PerfilDAO profileDB = new PerfilDAO();
 
 		    profileDB.conectar();
-		    profileDB.inserir(profile);
+		    profileDB.insert(profile);
 		    profileDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");

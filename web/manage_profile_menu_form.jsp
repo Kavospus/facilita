@@ -61,7 +61,7 @@
 
                                             profileDB.conectar();
 
-                                            Perfil profile = profileDB.carregaPorId(id_profile);
+                                            Perfil profile = profileDB.selectById(id_profile);
 
                                             %>
                                             <table align="center">

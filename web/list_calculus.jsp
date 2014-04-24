@@ -3,7 +3,7 @@
     Author     : Andre
 --%>
 
-<%@page import="modelo.Calculo"%>
+<%@page import="modelo.Calculus"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.CalculoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listar Calculo</title>
+        <title>Listar Calculus</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -47,7 +47,7 @@
                         <table width="700" align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Calculo</td>
+                                <td>Calculus</td>
                                 <td>Entrada</td>
                                 <td>Opções</td>
                             </tr>
@@ -61,19 +61,19 @@
 
                                             calculusDB.conectar();
 
-                                            ArrayList<Calculo> calculusList = calculusDB.listar(user);
+                                            ArrayList<Calculus> calculusList = calculusDB.select(user);
 
-                                            for(Calculo calculus:calculusList){%>
+                                            for(Calculus calculus:calculusList){%>
 
                             <tr>
                                 <td>
                                     <%out.print(calculus.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(calculus.getOperacao());%>
+                                    <%out.print(calculus.getOperation());%>
                                 </td>
                                 <td>
-                                    <%out.print(calculus.getStringEntrada());%>
+                                    <%out.print(calculus.getInputString());%>
                                 </td>
                                 <td>
                                     <a class="button" href="load_calculus.do?id=<%out.print(calculus.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>

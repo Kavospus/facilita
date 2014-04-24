@@ -84,13 +84,13 @@
 
                                             UsuarioDAO userDB = new UsuarioDAO();
                                             userDB.conectar();
-                                            Usuario u = userDB.carregaPorId(id);
+                                            Usuario u = userDB.selectById(id);
                                             userDB.desconectar();
 
  
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> profileListB = profileDB.listar();
+                                                ArrayList<Perfil> profileListB = profileDB.select();
 
                                 %>
                                 <form name="update_user_form" action="update_user.do" method="POST" onsubmit="return validateForm()">

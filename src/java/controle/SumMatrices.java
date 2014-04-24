@@ -116,8 +116,8 @@ public class SumMatrices extends HttpServlet {
 	    session.setAttribute("data_sum_columnsB", columnsA);
 	    if (error == 0) {
 		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
-		sum.calcular();
-		result = sum.getResultado();
+		sum.calculate();
+		result = sum.getResult();
 		session.setAttribute("result_sum", result);
 		session.setAttribute("result_sum_linesA", linesA);
 		session.setAttribute("result_sum_columnsA", columnsA);
@@ -125,17 +125,17 @@ public class SumMatrices extends HttpServlet {
 		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
-		    sum.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = sum.getUsuario();
+		    sum.setUser((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = sum.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    sum.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(sum);
+			    calculusDB.update(sum);
 			} else {
-			    calculusDB.inserir(sum);
+			    calculusDB.insert(sum);
 			}
 			calculusDB.desconectar();
 		    }

@@ -10,44 +10,44 @@ package modelo;
 
 import org.ejml.simple.SimpleMatrix;
 
-public class Determinar extends Calculo {
-    private double[][] entrada;
-    private double resultado;
-    private int dimensaoA;
-    private int dimensaoB;
+public class Determinar extends Calculus {
+    private double[][] input;
+    private double result;
+    private int linesA;
+    private int columnsA;
 
     public Determinar() {
 
     }
 
     /*Constructor*/
-    public Determinar(double[][] entrada, int dimensaoA, int dimensaoB) {
-	this.entrada = entrada;
-	this.dimensaoA = dimensaoA;
-	this.dimensaoB = dimensaoB;
-	this.setStringEntrada(MatrixParser.parseString(entrada));
-	this.setOperacao("Determinar");
+    public Determinar(double[][] input, int linesA, int columnsA) {
+	this.input = input;
+	this.linesA = linesA;
+	this.columnsA = columnsA;
+	this.setInputString(MatrixParser.parseString(input));
+	this.setOperation("Determinar");
 
     }
 
     /*Abstract method implementation to feed data to variables*/
     @Override
-    public void setDadosString() {
-	this.setEntrada(MatrixParser.parseMatrix(this.getStringEntrada()));
-	this.setDimensaoA(this.getEntrada().length);
-	this.setDimensaoB(this.getEntrada()[0].length);
-	this.setResultado(MatrixParser.parseNumber(this.getStringResultado()));
+    public void setDataString() {
+	this.setInput(MatrixParser.parseMatrix(this.getInputString()));
+	this.setLinesA(this.getInput().length);
+	this.setColumnsA(this.getInput()[0].length);
+	this.setResult(MatrixParser.parseNumber(this.getResultString()));
     }
 
     /*Abstract method implementation to feed data to string*/
     @Override
-    public void setStringDados() {
-	this.setStringEntrada(MatrixParser.parseString(getEntrada()));
-	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    public void setStringData() {
+	this.setInputString(MatrixParser.parseString(getInput()));
+	this.setResultString(MatrixParser.parseString(this.getResult()));
     }
 
     /*Function to calculate the determinant of a matrix*/
-    public double determinanteMatriz(double ma[][]) {
+    public double determineMatrix(double ma[][]) {
 	double result = 0;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	result = A.determinant();
@@ -56,40 +56,40 @@ public class Determinar extends Calculo {
 
     /*Abstract method implementation to calculate the operation of determinant of a matrix*/
     @Override
-    public void calcular() {
-	this.setResultado(determinanteMatriz(getEntrada()));
-	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    public void calculate() {
+	this.setResult(determineMatrix(getInput()));
+	this.setResultString(MatrixParser.parseString(this.getResult()));
     }
 
-    public double[][] getEntrada() {
-	return entrada;
+    public double[][] getInput() {
+	return input;
     }
 
-    public void setEntrada(double[][] entrada) {
-	this.entrada = entrada;
+    public void setInput(double[][] input) {
+	this.input = input;
     }
 
-    public double getResultado() {
-	return resultado;
+    public double getResult() {
+	return result;
     }
 
-    public void setResultado(double resultado) {
-	this.resultado = resultado;
+    public void setResult(double result) {
+	this.result = result;
     }
 
-    public int getDimensaoA() {
-	return dimensaoA;
+    public int getLinesA() {
+	return linesA;
     }
 
-    public void setDimensaoA(int dimensaoA) {
-	this.dimensaoA = dimensaoA;
+    public void setLinesA(int linesA) {
+	this.linesA = linesA;
     }
 
-    public int getDimensaoB() {
-	return dimensaoB;
+    public int getColumnsA() {
+	return columnsA;
     }
 
-    public void setDimensaoB(int dimensaoB) {
-	this.dimensaoB = dimensaoB;
+    public void setColumnsA(int columnsA) {
+	this.columnsA = columnsA;
     }
 }

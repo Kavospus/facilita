@@ -55,7 +55,7 @@ public class UpdateProfile extends HttpServlet {
                 profile.setId(id);
                 profile.setPerfil(profileName);
 
-                profileDB.alterar(profile);
+                profileDB.update(profile);
 
                 profileDB.desconectar();
 

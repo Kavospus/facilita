@@ -10,33 +10,33 @@ package modelo;
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Subtrair extends Calculo {
-    private double[][] entradaA;
-    private double[][] entradaB;
-    private double[][] resultado;
-    private int dimensaoA;
-    private int dimensaoB;
+public class Subtrair extends Calculus {
+    private double[][] inputA;
+    private double[][] inputB;
+    private double[][] result;
+    private int linesA;
+    private int columnsA;
 
     public Subtrair() {
 
     }
     
     /*Constructor*/
-    public Subtrair(double[][] entradaA, double[][] entradaB, int dimensaoA,
-	    int dimensaoB) {
-	ArrayList<String> entradas = new ArrayList<String>();
-	this.entradaA = entradaA;
-	this.entradaB = entradaB;
-	this.dimensaoA = dimensaoA;
-	this.dimensaoB = dimensaoB;
-	entradas.add(MatrixParser.parseString(entradaA));
-	entradas.add(MatrixParser.parseString(entradaB));
-	this.setStringEntrada(MatrixParser.concat(entradas));
-	this.setOperacao("Subtrair");
+    public Subtrair(double[][] inputA, double[][] inputB, int linesA,
+	    int columnsA) {
+	ArrayList<String> inputs = new ArrayList<String>();
+	this.inputA = inputA;
+	this.inputB = inputB;
+	this.linesA = linesA;
+	this.columnsA = columnsA;
+	inputs.add(MatrixParser.parseString(inputA));
+	inputs.add(MatrixParser.parseString(inputB));
+	this.setInputString(MatrixParser.concat(inputs));
+	this.setOperation("Subtrair");
     }
     
     /*Function to Subtract two matrices*/
-    public double[][] subtraiMatrizes(double ma[][], double mb[][], int dima,
+    public double[][] subtractMatrices(double ma[][], double mb[][], int dima,
 				      int dimb) {
 
 	double result[][] = new double[dima][dimb];
@@ -56,71 +56,71 @@ public class Subtrair extends Calculo {
     
     /*Abstract method implementation to feed data to variables*/
     @Override
-    public void setDadosString() {
-	ArrayList<String> entradas = MatrixParser.unconcat(this
-		.getStringEntrada());
-	this.setEntradaA(MatrixParser.parseMatrix(entradas.get(0)));
-	this.setEntradaB(MatrixParser.parseMatrix(entradas.get(1)));
-	this.setDimensaoA(this.getEntradaA().length);
-	this.setDimensaoB(this.getEntradaA()[0].length);
-	this.setResultado(MatrixParser.parseMatrix(this.getStringResultado()));
+    public void setDataString() {
+	ArrayList<String> inputs = MatrixParser.unconcat(this
+		.getInputString());
+	this.setInputA(MatrixParser.parseMatrix(inputs.get(0)));
+	this.setInputB(MatrixParser.parseMatrix(inputs.get(1)));
+	this.setLinesA(this.getInputA().length);
+	this.setColumnsA(this.getInputA()[0].length);
+	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
     
     /*Abstract method implementation to feed data to string*/
     @Override
-    public void setStringDados() {
-	ArrayList<String> entradas = new ArrayList<String>();
-	entradas.add(MatrixParser.parseString(getEntradaA()));
-	entradas.add(MatrixParser.parseString(getEntradaB()));
-	this.setStringEntrada(MatrixParser.concat(entradas));
-	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    public void setStringData() {
+	ArrayList<String> inputs = new ArrayList<String>();
+	inputs.add(MatrixParser.parseString(getInputA()));
+	inputs.add(MatrixParser.parseString(getInputB()));
+	this.setInputString(MatrixParser.concat(inputs));
+	this.setResultString(MatrixParser.parseString(this.getResult()));
     }
 
-    public double[][] getResultado() {
-	return resultado;
+    public double[][] getResult() {
+	return result;
     }
 
-    public int getDimensaoA() {
-	return dimensaoA;
+    public int getLinesA() {
+	return linesA;
     }
 
-    public void setDimensaoA(int dimensaoA) {
-	this.dimensaoA = dimensaoA;
+    public void setLinesA(int linesA) {
+	this.linesA = linesA;
     }
 
-    public int getDimensaoB() {
-	return dimensaoB;
+    public int getColumnsA() {
+	return columnsA;
     }
 
-    public void setDimensaoB(int dimensaoB) {
-	this.dimensaoB = dimensaoB;
+    public void setColumnsA(int columnsA) {
+	this.columnsA = columnsA;
     }
     
     /*Abstract method implementation to calculate the operation*/
     @Override
-    public void calcular() {
-	this.setResultado(subtraiMatrizes(getEntradaA(), getEntradaB(),
-		getDimensaoA(), getDimensaoB()));
-	this.setStringResultado(MatrixParser.parseString(this.getResultado()));
+    public void calculate() {
+	this.setResult(subtractMatrices(getInputA(), getInputB(),
+		getLinesA(), getColumnsA()));
+	this.setResultString(MatrixParser.parseString(this.getResult()));
     }
 
-    public double[][] getEntradaA() {
-	return entradaA;
+    public double[][] getInputA() {
+	return inputA;
     }
 
-    public double[][] getEntradaB() {
-	return entradaB;
+    public double[][] getInputB() {
+	return inputB;
     }
 
-    public void setEntradaA(double[][] entradaA) {
-	this.entradaA = entradaA;
+    public void setInputA(double[][] inputA) {
+	this.inputA = inputA;
     }
 
-    public void setEntradaB(double[][] entradaB) {
-	this.entradaB = entradaB;
+    public void setInputB(double[][] inputB) {
+	this.inputB = inputB;
     }
 
-    public void setResultado(double[][] resultado) {
-	this.resultado = resultado;
+    public void setResult(double[][] result) {
+	this.result = result;
     }
 }

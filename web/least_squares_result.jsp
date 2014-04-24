@@ -25,13 +25,13 @@
         <table class="centertable">
             <tr>
         <% 
-        double resultado[] = {0,0};
+        double result[] = {0,0};
         double aux,vectorX[] = {0,0};
         double vectorY[] = {0,0};
         String erro;
         int dimension=2,ticks,i,j,option =0, auxiliarQuantity =0;
         if(session.getAttribute("result_least_squares") != null){
-                resultado = (double[])session.getAttribute("result_least_squares");
+                result = (double[])session.getAttribute("result_least_squares");
             }
         if(session.getAttribute("data_least_squares_vectorX") != null){
                 vectorX = (double[])session.getAttribute("data_least_squares_vectorX");
@@ -69,11 +69,11 @@
         for(i=0;i<dimension;i++){
         %>
                 <td><%if(i == 0){
-                    out.print("A = "+resultado[i]);
+                    out.print("A = "+result[i]);
                 }else if(i==1){
-                    out.print("B = "+resultado[i]);
+                    out.print("B = "+result[i]);
                 }else if(i==2){
-                    out.print("C = "+resultado[i]);
+                    out.print("C = "+result[i]);
                 }%></td>        
         <%}%>
             </tr>
@@ -81,16 +81,16 @@
             Função Ajuste f(x)=<%
         switch(option){
             case 1:
-                out.print("("+resultado[0]+")*x + ("+resultado[1]+")");
+                out.print("("+result[0]+")*x + ("+result[1]+")");
             break;
             case 2:
-                out.print("("+resultado[0]+")*exp(("+resultado[1]+")*(x+("+resultado[2]+"))^2)");
+                out.print("("+result[0]+")*exp(("+result[1]+")*(x+("+result[2]+"))^2)");
             break;
             case 3:
-                out.print("("+resultado[0]+")+("+resultado[1]+")*x+("+resultado[2]+")*x^2");
+                out.print("("+result[0]+")+("+result[1]+")*x+("+result[2]+")*x^2");
             break;
             case 4:
-                out.print("("+resultado[0]+")*exp(("+resultado[1]+")*x)");
+                out.print("("+result[0]+")*exp(("+result[1]+")*x)");
             break;
         }
         
@@ -283,16 +283,16 @@
         return <%
         switch(option){
             case 1:
-                out.print("("+resultado[0]+")*x + ("+resultado[1]+");");
+                out.print("("+result[0]+")*x + ("+result[1]+");");
             break;
             case 2:
-                out.print("("+resultado[0]+")*Math.exp(("+resultado[1]+")*Math.pow((x+("+resultado[2]+")),2))");
+                out.print("("+result[0]+")*Math.exp(("+result[1]+")*Math.pow((x+("+result[2]+")),2))");
             break;
             case 3:
-                out.print("("+resultado[2]+")*Math.pow(x,2)+("+resultado[1]+")*x+("+resultado[0]+")");
+                out.print("("+result[2]+")*Math.pow(x,2)+("+result[1]+")*x+("+result[0]+")");
             break;
             case 4:
-                out.print("("+resultado[0]+")*Math.exp(("+resultado[1]+")*x)");
+                out.print("("+result[0]+")*Math.exp(("+result[1]+")*x)");
             break;
         }
         
