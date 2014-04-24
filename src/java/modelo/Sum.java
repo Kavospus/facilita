@@ -10,19 +10,19 @@ package modelo;
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Somar extends Calculus {
+public class Sum extends Calculus {
     private double[][] inputA;
     private double[][] inputB;
     private double[][] result;
     private int linesA;
     private int columnsA;
 
-    public Somar() {
+    public Sum() {
 
     }
     
     /*Constructor*/
-    public Somar(double[][] inputA, double[][] inputB, int linesA,
+    public Sum(double[][] inputA, double[][] inputB, int linesA,
 	    int columnsA) {
 	ArrayList<String> inputs = new ArrayList<String>();
 	this.inputA = inputA;
@@ -32,7 +32,7 @@ public class Somar extends Calculus {
 	inputs.add(MatrixParser.parseString(inputA));
 	inputs.add(MatrixParser.parseString(inputB));
 	this.setInputString(MatrixParser.concat(inputs));
-	this.setOperation("Somar");
+	this.setOperation("Sum");
     }
     
     /*Function to sum two matrices*/

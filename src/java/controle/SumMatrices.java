@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Somar;
+import modelo.Sum;
 import modelo.Usuario;
 
 public class SumMatrices extends HttpServlet {
@@ -115,7 +115,7 @@ public class SumMatrices extends HttpServlet {
 	    session.setAttribute("data_sum_linesB", linesA);
 	    session.setAttribute("data_sum_columnsB", columnsA);
 	    if (error == 0) {
-		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
+		Sum sum = new Sum(matrixA, matrixB, linesA, columnsA);
 		sum.calculate();
 		result = sum.getResult();
 		session.setAttribute("result_sum", result);

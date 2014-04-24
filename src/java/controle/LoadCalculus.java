@@ -19,7 +19,7 @@ import modelo.Determine;
 import modelo.Scale;
 import modelo.Invert;
 import modelo.Multiplicar;
-import modelo.Somar;
+import modelo.Sum;
 import modelo.Subtrair;
 import modelo.Transpor;
 
@@ -99,8 +99,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_determinant.jsp?id="
 				+ determine.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Somar")) {
-			Somar s = (Somar) calculus;
+		    } else if (operacao.equals("Sum")) {
+			Sum s = (Sum) calculus;
 			s.setDataString();
 			session.setAttribute("data_sum_matrixA", s.getInputA());
 			session.setAttribute("data_sum_b", s.getInputB());
