@@ -65,8 +65,8 @@
                             try{
                                 UsuarioDAO userDB = new UsuarioDAO();
                                 userDB.conectar();
-                                ArrayList<Usuario> lista = userDB.listar();
-                            for(Usuario u:lista){%>
+                                ArrayList<Usuario> userList = userDB.listar();
+                            for(Usuario u:userList){%>
 
                             <tr>
                                 <td>

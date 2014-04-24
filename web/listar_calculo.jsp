@@ -61,9 +61,9 @@
 
                                             calculusDB.conectar();
 
-                                            ArrayList<Calculo> lista = calculusDB.listar(userLogged);
+                                            ArrayList<Calculo> calculusList = calculusDB.listar(userLogged);
 
-                                            for(Calculo calculus:lista){%>
+                                            for(Calculo calculus:calculusList){%>
 
                             <tr>
                                 <td>

@@ -80,7 +80,7 @@
 
                                         try {
                                             int id = Integer.parseInt(request.getParameter("id"));
-                                            ArrayList<Perfil> lista1 = new ArrayList<Perfil>();
+                                            ArrayList<Perfil> profileListA = new ArrayList<Perfil>();
 
                                             UsuarioDAO userDB = new UsuarioDAO();
                                             userDB.conectar();
@@ -90,7 +90,7 @@
  
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> lista = profileDB.listar();
+                                                ArrayList<Perfil> profileListB = profileDB.listar();
 
                                 %>
                                 <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validateForm()">
@@ -108,14 +108,14 @@
                                     </td>
                                     <td><select name="id_profile" size="1">
                                             
-                                            <%for (Perfil profile : lista) {%>
+                                            <%for (Perfil profile : profileListB) {%>
                                             <%if(u.getPerfil().getId() == profile.getId()) {%>
                                             <option value="<%=profile.getId()%>">
                                                 <%=profile.getPerfil()%>
                                             </option>
-                                            <%}else {lista1.add(profile);}
+                                            <%}else {profileListA.add(profile);}
                                             }
-                                            for (Perfil p1 : lista1) {%>
+                                            for (Perfil p1 : profileListA) {%>
                                             <option value="<%=p1.getId()%>">
                                                 <%=p1.getPerfil()%>
                                             </option>

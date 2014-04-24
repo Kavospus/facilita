@@ -55,8 +55,8 @@
                                             int id_profile = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO menuDB = new MenuDAO();
                                             menuDB.conectar();
-                                            ArrayList<Menu> listaN = menuDB.menusNaoPerfil(id_profile);
-                                            ArrayList<Menu> lista = menuDB.menusPerfil(id_profile);
+                                            ArrayList<Menu> menuListA = menuDB.menusNaoPerfil(id_profile);
+                                            ArrayList<Menu> menuListB = menuDB.menusPerfil(id_profile);
                                             PerfilDAO profileDB = new PerfilDAO();
 
                                             profileDB.conectar();
@@ -82,7 +82,7 @@
                                                         Selecione um menu
                                                     </option>
 
-                                                    <%for(Menu m1:listaN){%>
+                                                    <%for(Menu m1:menuListA){%>
 
                                                     <option value="<%=m1.getId()%>">
                                                         <%=m1.getMenu()%>
@@ -112,7 +112,7 @@
                                 <td>Desvincular</td>
                             </tr>
 
-                            <% for(Menu menu:lista){%>
+                            <% for(Menu menu:menuListB){%>
 
                             <tr>
                                 <td>

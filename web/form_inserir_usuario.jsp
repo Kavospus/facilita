@@ -77,7 +77,7 @@
                                             try {
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> lista = profileDB.listar();
+                                                ArrayList<Perfil> profileList = profileDB.listar();
 
                                 %>
 
@@ -94,7 +94,7 @@
                                                 Selecione um profile
                                             </option>
 
-                                            <%for (Perfil profile : lista) {%>
+                                            <%for (Perfil profile : profileList) {%>
 
                                             <option value="<%=profile.getId()%>">
                                                 <%=profile.getPerfil()%>

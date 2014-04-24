@@ -64,9 +64,9 @@
 
                                             profileDB.conectar();
 
-                                            ArrayList<Perfil> lista = profileDB.listar();
+                                            ArrayList<Perfil> profileList = profileDB.listar();
 
-                                            for(Perfil profile:lista){%>
+                                            for(Perfil profile:profileList){%>
 
                             <tr>
                                 <td>
