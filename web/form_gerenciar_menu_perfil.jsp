@@ -24,8 +24,8 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id_menu,id_perfil,operation){
-                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&operation="+operation;
+            function verify(id_menu,id_profile,operation){
+                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_profile="+id_profile+"&operation="+operation;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
@@ -52,16 +52,16 @@
                             <%
                             
                                         try {
-                                            int id_perfil = Integer.parseInt(request.getParameter("id"));
+                                            int id_profile = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO menuDB = new MenuDAO();
                                             menuDB.conectar();
-                                            ArrayList<Menu> listaN = menuDB.menusNaoPerfil(id_perfil);
-                                            ArrayList<Menu> lista = menuDB.menusPerfil(id_perfil);
+                                            ArrayList<Menu> listaN = menuDB.menusNaoPerfil(id_profile);
+                                            ArrayList<Menu> lista = menuDB.menusPerfil(id_profile);
                                             PerfilDAO profileDB = new PerfilDAO();
 
                                             profileDB.conectar();
 
-                                            Perfil profile = profileDB.carregaPorId(id_perfil);
+                                            Perfil profile = profileDB.carregaPorId(id_profile);
 
                                             %>
                                             <table align="center">
@@ -91,7 +91,7 @@
                                                 </select>
                                                     </td>
                                                     <td>
-                                                        <input type="text" hidden="true" value="<%=profile.getId()%>" name="id_perfil">
+                                                        <input type="text" hidden="true" value="<%=profile.getId()%>" name="id_profile">
                                                         <input type="text" hidden="true" value="1" name="operation">
                                                         <input class="button" type="submit" value="Vincular">
                                                     </td>
@@ -122,7 +122,7 @@
                                     <%out.print(menu.getMenu());%>
                                 </td>
                                 <td align="center">
-                                    <a href="#" class="button" onclick="confirma(<%out.print(menu.getId());%>,<%out.print(profile.getId());%>,2)"><img src="imagens/delete.png"></a>
+                                    <a href="#" class="button" onclick="verify(<%out.print(menu.getId());%>,<%out.print(profile.getId());%>,2)"><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

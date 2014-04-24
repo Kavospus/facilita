@@ -20,12 +20,12 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript">
-            function validaForm(){
+            function validateForm(){
 
             var form_inserir_usuario=document.form_inserir_usuario;
-                var campo_nome=form_inserir_usuario.nome;
+                var campo_nome=form_inserir_usuario.name;
                 var campo_login=form_inserir_usuario.login;
-                var campo_senha=form_inserir_usuario.senha;
+                var campo_senha=form_inserir_usuario.password;
 
                 if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -60,13 +60,13 @@
                                 <td align="center" ><h1>Inserir Usuário</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_usuario" action="cadastrar_usuario.do" method="POST" onsubmit="return validaForm()" >
+                        <form name="form_inserir_usuario" action="cadastrar_usuario.do" method="POST" onsubmit="return validateForm()" >
                         <table align="center" width="300">
                             
 
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="nome"/> </td>
+                                    <td><input type="text" size="45" name="name"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Login:</td>
@@ -74,7 +74,7 @@
                                 </tr>
                                 <tr>
                                     <td>Senha:</td>
-                                    <td><input type="password" size="45" name="senha"/> </td>
+                                    <td><input type="password" size="45" name="password"/> </td>
                                 </tr>
 
                                 <tr>

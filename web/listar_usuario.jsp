@@ -27,7 +27,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id){
+            function verify(id){
                 var url="excluir_usuario.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
@@ -83,7 +83,7 @@
                                 </td>
                                 <td>
                                     <a class="button" href="form_alterar_usuario.jsp?id=<%=u.getId()%>"><img width='16' height='16' src="imagens/edit.png"></a>
-                                    <a class="button" href="#" onclick="confirma(<%=u.getId()%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
+                                    <a class="button" href="#" onclick="verify(<%=u.getId()%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

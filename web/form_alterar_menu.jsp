@@ -25,7 +25,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script language="javascript" >
-            function validaForm(){
+            function validateForm(){
 
                 var form_alterar_menu=document.form_alterar_menu;
                 var campo_menu=form_alterar_menu.menu;
@@ -66,7 +66,7 @@
                                 <td align="left" ><h1>Alterar Menu</h1></td>
                             </tr>
                         </table>
-                        <form name="form_alterar_menu" action="alterar_menu.do" method="POST" onsubmit="return validaForm()">
+                        <form name="form_alterar_menu" action="alterar_menu.do" method="POST" onsubmit="return validateForm()">
                             <table width="500" align="center">
                                 <%
                                     int id = 0;

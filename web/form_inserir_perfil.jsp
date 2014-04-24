@@ -19,7 +19,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script language="javascript" >
-            function validaForm(){
+            function validateForm(){
 
                 var form_inserir_perfil=document.form_inserir_perfil;
                 var campo_perfil=form_inserir_perfil.profile;
@@ -47,7 +47,7 @@
                                 <td align="left" ><h1>Novo Perfil</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_perfil" action="inserir_perfil.do" method="GET" onsubmit="return validaForm()">
+                        <form name="form_inserir_perfil" action="inserir_perfil.do" method="GET" onsubmit="return validateForm()">
                             <table align="center">
                                 <tr>
                                     <td>Perfil:</td>

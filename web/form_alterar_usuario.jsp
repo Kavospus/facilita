@@ -28,13 +28,13 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript">
-            function validaForm(){
+            function validateForm(){
 
             var form_alterar_usuario=document.form_alterar_usuario;
-                var campo_nome=form_alterar_usuario.nome;
-                var campo_id_perfil=form_alterar_usuario.id_perfil;
+                var campo_nome=form_alterar_usuario.name;
+                var campo_id_perfil=form_alterar_usuario.id_profile;
                 var campo_login=form_alterar_usuario.login;
-                var campo_senha=form_alterar_usuario.senha;
+                var campo_senha=form_alterar_usuario.password;
 
                 if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
@@ -93,20 +93,20 @@
                                                 ArrayList<Perfil> lista = profileDB.listar();
 
                                 %>
-                                <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validaForm()">
+                                <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validateForm()">
                                     <tr>
                                     <td>Id:</td>
                                     <td><input type="text" readonly size="45" name="id" value="<%=u.getId()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="nome" value="<%=u.getNome()%>"/> </td>
+                                    <td><input type="text" size="45" name="name" value="<%=u.getNome()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         Perfil:
                                     </td>
-                                    <td><select name="id_perfil" size="1">
+                                    <td><select name="id_profile" size="1">
                                             
                                             <%for (Perfil profile : lista) {%>
                                             <%if(u.getPerfil().getId() == profile.getId()) {%>
@@ -129,7 +129,7 @@
                                 </tr>
                                 <tr>
                                     <td>Senha:</td>
-                                    <td><input type="password" size="45" name="senha" value=""/> </td>
+                                    <td><input type="password" size="45" name="password" value=""/> </td>
                                 </tr>
 
                                 <tr>

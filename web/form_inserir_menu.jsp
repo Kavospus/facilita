@@ -19,7 +19,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script language="javascript" >
-            function validaForm(){
+            function validateForm(){
 
                 var form_inserir_menu=document.form_inserir_menu;
                 var campo_menu=form_inserir_menu.menu;
@@ -60,7 +60,7 @@
                                 <td align="left" ><h1>Novo Menu</h1></td>
                             </tr>
                         </table>
-                        <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validaForm()">
+                        <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validateForm()">
                         <table align="center" >
                                 <tr>
                                     <td>Nome:</td>

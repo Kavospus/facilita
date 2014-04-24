@@ -27,7 +27,7 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function validaForm(){
+            function validateForm(){
 
                 var form_alterar_perfil=document.form_alterar_perfil;
                 var campo_perfil=form_alterar_perfil.profile;
@@ -71,7 +71,7 @@
 
                         if(profile.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validaForm()">
+                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validateForm()">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>
