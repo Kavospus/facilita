@@ -25,20 +25,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_escalar_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_escalar_linesA");
+        if(session.getAttribute("data_scalar_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_scalar_linesA");
         }
-        if(session.getAttribute("data_escalar_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_escalar_columnsA");
+        if(session.getAttribute("data_scalar_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_scalar_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("result_escalar") != null){
-                resultado = (double[][])session.getAttribute("result_escalar");
+        if(session.getAttribute("result_scalar") != null){
+                resultado = (double[][])session.getAttribute("result_scalar");
             }
-        if(session.getAttribute("data_escalar_a") != null){
-                a = (double[][])session.getAttribute("data_escalar_a");
+        if(session.getAttribute("data_scalar_a") != null){
+                a = (double[][])session.getAttribute("data_scalar_a");
             }
 
         

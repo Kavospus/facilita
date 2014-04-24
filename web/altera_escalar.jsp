@@ -22,14 +22,14 @@
        int linesA=0,columnsA=0;
        double n=0;
         
-       if(session.getAttribute("data_escalar_n") != null){
-                n = (Double)session.getAttribute("data_escalar_n");
+       if(session.getAttribute("data_scalar_n") != null){
+                n = (Double)session.getAttribute("data_scalar_n");
        }
-       if(session.getAttribute("data_escalar_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_escalar_linesA");
+       if(session.getAttribute("data_scalar_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_scalar_linesA");
        }
-       if(session.getAttribute("data_escalar_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_escalar_columnsA");
+       if(session.getAttribute("data_scalar_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_scalar_columnsA");
        }
 
 
