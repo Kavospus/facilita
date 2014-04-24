@@ -25,7 +25,7 @@
         
         
         <div id="matrizes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?opcao=8');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=8');"/>
         </form>
         
         <br>

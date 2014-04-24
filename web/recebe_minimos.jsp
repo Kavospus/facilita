@@ -21,12 +21,12 @@
     <%@include file="menu.jsp" %>    
     <form action="calcular_minimos.do" method="POST" name="recebe_minimos">
             Quantidade <input type="text" name="quantidade" id="quantidade" onkeyup="refreshPage('minimos','minimos_dinamicos.jsp?qnt='+getElementById('quantidade').value)" /><br>
-        Ajuste <input type="radio" name="opcao" value="1">Linear 
-              <input type="radio" name="opcao" value="2">Gaussiano
-              <input type="radio" name="opcao" value="3">Parabólico
-              <input type="radio" name="opcao" value="4">Exponencial
+        Ajuste <input type="radio" name="option" value="1">Linear 
+              <input type="radio" name="option" value="2">Gaussiano
+              <input type="radio" name="option" value="3">Parabólico
+              <input type="radio" name="option" value="4">Exponencial
         <div id="minimos"></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?opcao=4');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=4');"/>
         </form>
         
         <br>

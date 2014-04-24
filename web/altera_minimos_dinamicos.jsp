@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <table class="centertable">
     <%
-        int qnt = 0, i = 0, opcao=0, quantidade=0;
+        int qnt = 0, i = 0, option=0, quantidade=0;
         double vx[] = {0,0};
         double vy[] = {0,0};
         if (request.getParameter("qnt") != null) {
@@ -18,8 +18,8 @@
         if(session.getAttribute("data_least_squares_vy") != null){
                 vy = (double[])session.getAttribute("data_least_squares_vy");
             }
-        if(session.getAttribute("data_least_squares_opcao") != null){
-                opcao = (Integer) session.getAttribute("data_least_squares_opcao");
+        if(session.getAttribute("data_least_squares_option") != null){
+                option = (Integer) session.getAttribute("data_least_squares_option");
             }
         if(session.getAttribute("data_least_squares_quantidade") != null){
                 quantidade = (Integer) session.getAttribute("data_least_squares_quantidade");

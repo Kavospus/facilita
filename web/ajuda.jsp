@@ -7,11 +7,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-int opcao=0;
-if(request.getParameter("opcao") != null){
-opcao = Integer.parseInt(request.getParameter("opcao"));
+int option=0;
+if(request.getParameter("option") != null){
+option = Integer.parseInt(request.getParameter("option"));
 }
-switch(opcao){
+switch(option){
 
           case 1:
               %>       

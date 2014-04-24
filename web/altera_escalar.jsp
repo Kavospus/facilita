@@ -22,8 +22,8 @@
        int linesA=0,columnsA=0;
        double n=0;
         
-       if(session.getAttribute("data_scalar_n") != null){
-                n = (Double)session.getAttribute("data_scalar_n");
+       if(session.getAttribute("data_scalar_number") != null){
+                n = (Double)session.getAttribute("data_scalar_number");
        }
        if(session.getAttribute("data_scalar_linesA") != null){
                 linesA = (Integer)session.getAttribute("data_scalar_linesA");

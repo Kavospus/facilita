@@ -29,7 +29,7 @@
         double aux,vx[] = {0,0};
         double vy[] = {0,0};
         String erro;
-        int dimens=2,ticks,i,j,opcao =0, qnt =0;
+        int dimens=2,ticks,i,j,option =0, qnt =0;
         if(session.getAttribute("result_least_squares") != null){
                 resultado = (double[])session.getAttribute("result_least_squares");
             }
@@ -43,8 +43,8 @@
                 erro = (String)session.getAttribute("erro_minimos");
                 out.print(erro);
             }
-        if(session.getAttribute("data_least_squares_opcao") != null){
-                opcao = (Integer) session.getAttribute("data_least_squares_opcao");
+        if(session.getAttribute("data_least_squares_option") != null){
+                option = (Integer) session.getAttribute("data_least_squares_option");
             }
         if(request.getParameter("dimens") != null){
                 dimens = Integer.parseInt(request.getParameter("dimens"));
@@ -79,7 +79,7 @@
             </tr>
         </table>
             Função Ajuste f(x)=<%
-        switch(opcao){
+        switch(option){
             case 1:
                 out.print("("+resultado[0]+")*x + ("+resultado[1]+")");
             break;
@@ -281,7 +281,7 @@
 
       myGraph.drawEquation(function(x) {
         return <%
-        switch(opcao){
+        switch(option){
             case 1:
                 out.print("("+resultado[0]+")*x + ("+resultado[1]+");");
             break;

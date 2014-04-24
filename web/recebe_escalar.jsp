@@ -25,7 +25,7 @@
         Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrizes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?opcao=2');"/>
+        <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?option=2');"/>
         </form>
         
         <br>
