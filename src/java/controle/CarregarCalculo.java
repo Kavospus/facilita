@@ -42,7 +42,7 @@ public class CarregarCalculo extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("calculo") == null) {
+	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?erro=1");
 	    } else {
 		/*
@@ -59,107 +59,107 @@ public class CarregarCalculo extends HttpServlet {
 		    int id = Integer.parseInt(request.getParameter("id"));
 		    CalculoDAO calculusDB = new CalculoDAO();
 		    calculusDB.conectar();
-		    Calculo calculo = calculusDB.carregaPorId(id);
-		    operacao = calculo.getOperacao();
+		    Calculo calculus = calculusDB.carregaPorId(id);
+		    operacao = calculus.getOperacao();
 		    if (operacao.equals("Inverter")) {
-			Inverter i = (Inverter) calculo;
+			Inverter i = (Inverter) calculus;
 			i.setDadosString();
-			session.setAttribute("dados_t_a", i.getEntrada());
-			session.setAttribute("dados_inversa_linesA",
+			session.setAttribute("data_t_a", i.getEntrada());
+			session.setAttribute("data_inversa_linesA",
 				i.getDimensaoA());
-			session.setAttribute("dados_inversa_columnsA",
+			session.setAttribute("data_inversa_columnsA",
 				i.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_inversa.jsp?id="
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Transpor")) {
-			Transpor t = (Transpor) calculo;
+			Transpor t = (Transpor) calculus;
 			t.setDadosString();
-			session.setAttribute("dados_transposta_a",
+			session.setAttribute("data_transposed_a",
 				t.getEntrada());
-			session.setAttribute("dados_transposta_linesA",
+			session.setAttribute("data_transposed_linesA",
 				t.getDimensaoA());
-			session.setAttribute("dados_transposta_columnsA",
+			session.setAttribute("data_transposed_columnsA",
 				t.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_transposta.jsp?id="
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Determinar")) {
-			Determinar d = (Determinar) calculo;
+			Determinar d = (Determinar) calculus;
 			d.setDadosString();
-			session.setAttribute("dados_determinante_a",
+			session.setAttribute("data_determinant_a",
 				d.getEntrada());
-			session.setAttribute("dados_determinante_linesA",
+			session.setAttribute("data_determinant_linesA",
 				d.getDimensaoA());
-			session.setAttribute("dados_determinante_columnsA",
+			session.setAttribute("data_determinant_columnsA",
 				d.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_determinante.jsp?id="
 				+ d.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Somar")) {
-			Somar s = (Somar) calculo;
+			Somar s = (Somar) calculus;
 			s.setDadosString();
-			session.setAttribute("dados_soma_a", s.getEntradaA());
-			session.setAttribute("dados_soma_b", s.getEntradaB());
-			session.setAttribute("dados_soma_linesA",
+			session.setAttribute("data_soma_a", s.getEntradaA());
+			session.setAttribute("data_soma_b", s.getEntradaB());
+			session.setAttribute("data_soma_linesA",
 				s.getDimensaoA());
-			session.setAttribute("dados_soma_columnsA",
+			session.setAttribute("data_soma_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("dados_soma_linesB",
+			session.setAttribute("data_soma_linesB",
 				s.getDimensaoA());
-			session.setAttribute("dados_soma_columnsB",
+			session.setAttribute("data_soma_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_soma.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Subtrair")) {
-			Subtrair s = (Subtrair) calculo;
+			Subtrair s = (Subtrair) calculus;
 			s.setDadosString();
-			session.setAttribute("dados_subtrai_a", s.getEntradaA());
-			session.setAttribute("dados_subtrai_b", s.getEntradaB());
-			session.setAttribute("dados_subtrai_linesA",
+			session.setAttribute("data_subtrai_a", s.getEntradaA());
+			session.setAttribute("data_subtrai_b", s.getEntradaB());
+			session.setAttribute("data_subtrai_linesA",
 				s.getDimensaoA());
-			session.setAttribute("dados_subtrai_columnsA",
+			session.setAttribute("data_subtrai_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("dados_subtrai_linesB",
+			session.setAttribute("data_subtrai_linesB",
 				s.getDimensaoA());
-			session.setAttribute("dados_subtrai_columnsB",
+			session.setAttribute("data_subtrai_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_subtrai.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Multiplicar")) {
-			Multiplicar menu = (Multiplicar) calculo;
+			Multiplicar menu = (Multiplicar) calculus;
 			menu.setDadosString();
-			session.setAttribute("dados_multiplica_a",
+			session.setAttribute("data_multiplica_a",
 				menu.getEntradaA());
-			session.setAttribute("dados_multiplica_b",
+			session.setAttribute("data_multiplica_b",
 				menu.getEntradaB());
-			session.setAttribute("dados_multiplica_linesA",
+			session.setAttribute("data_multiplica_linesA",
 				menu.getDimensaoA());
-			session.setAttribute("dados_multiplica_columnsA",
+			session.setAttribute("data_multiplica_columnsA",
 				menu.getDimensaoB());
-			session.setAttribute("dados_multiplica_linesB",
+			session.setAttribute("data_multiplica_linesB",
 				menu.getDimensaoB());
-			session.setAttribute("dados_multiplica_columnsB",
+			session.setAttribute("data_multiplica_columnsB",
 				menu.getDimensaoC());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_multiplica.jsp?id="
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Escalar")) {
-			Escalar e = (Escalar) calculo;
+			Escalar e = (Escalar) calculus;
 			e.setDadosString();
-			session.setAttribute("dados_escalar_a", e.getEntradaA());
-			session.setAttribute("dados_escalar_n", e.getEntradaB());
-			session.setAttribute("dados_escalar_linesA",
+			session.setAttribute("data_escalar_a", e.getEntradaA());
+			session.setAttribute("data_escalar_n", e.getEntradaB());
+			session.setAttribute("data_escalar_linesA",
 				e.getDimensaoA());
-			session.setAttribute("dados_escalar_columnsA",
+			session.setAttribute("data_escalar_columnsA",
 				e.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_escalar.jsp?id="

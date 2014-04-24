@@ -109,21 +109,21 @@ public class SubtrairMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("dados_subtrai_a", a);
-	    session.setAttribute("dados_subtrai_b", b);
-	    session.setAttribute("dados_subtrai_linesA", linesA);
-	    session.setAttribute("dados_subtrai_columnsA", columnsA);
-	    session.setAttribute("dados_subtrai_linesB", linesA);
-	    session.setAttribute("dados_subtrai_columnsB", columnsA);
+	    session.setAttribute("data_subtrai_a", a);
+	    session.setAttribute("data_subtrai_b", b);
+	    session.setAttribute("data_subtrai_linesA", linesA);
+	    session.setAttribute("data_subtrai_columnsA", columnsA);
+	    session.setAttribute("data_subtrai_linesB", linesA);
+	    session.setAttribute("data_subtrai_columnsB", columnsA);
 	    if (erro == 0) {
 		Subtrair s = new Subtrair(a, b, linesA, columnsA);
 		s.calcular();
 		resultado = s.getResultado();
-		session.setAttribute("resultado_subtrai", resultado);
-		session.setAttribute("resultado_subtrai_linesA", linesA);
-		session.setAttribute("resultado_subtrai_columnsA", columnsA);
-		session.setAttribute("resultado_subtrai_linesB", linesA);
-		session.setAttribute("resultado_subtrai_columnsB", columnsA);
+		session.setAttribute("result_subtrai", resultado);
+		session.setAttribute("result_subtrai_linesA", linesA);
+		session.setAttribute("result_subtrai_columnsA", columnsA);
+		session.setAttribute("result_subtrai_linesB", linesA);
+		session.setAttribute("result_subtrai_columnsB", columnsA);
 		try {
 		    s.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = s.getUsuario();

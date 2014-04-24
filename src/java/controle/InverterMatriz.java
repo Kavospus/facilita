@@ -80,16 +80,16 @@ public class InverterMatriz extends HttpServlet {
 			}
 		    }
 		}
-		session.setAttribute("dados_inversa_a", a);
-		session.setAttribute("dados_inversa_linesA", linesA);
-		session.setAttribute("dados_inversa_columnsA", columnsA);
+		session.setAttribute("data_inversa_a", a);
+		session.setAttribute("data_inversa_linesA", linesA);
+		session.setAttribute("data_inversa_columnsA", columnsA);
 		if (erro == 0) {
 		    Inverter inverter = new Inverter(a, linesA, columnsA);
 		    inverter.calcular();
 		    resultado = inverter.getResultado();
-		    session.setAttribute("resultado_inversa", resultado);
-		    session.setAttribute("resultado_inversa_linesA", linesA);
-		    session.setAttribute("resultado_inversa_columnsA", columnsA);
+		    session.setAttribute("result_inversa", resultado);
+		    session.setAttribute("result_inversa_linesA", linesA);
+		    session.setAttribute("result_inversa_columnsA", columnsA);
 
 		    inverter.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = inverter.getUsuario();

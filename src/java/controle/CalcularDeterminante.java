@@ -76,14 +76,14 @@ public class CalcularDeterminante extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("dados_determinante_a", a);
-	    session.setAttribute("dados_determinante_linesA", linesA);
-	    session.setAttribute("dados_determinante_columnsA", columnsA);
+	    session.setAttribute("data_determinant_a", a);
+	    session.setAttribute("data_determinant_linesA", linesA);
+	    session.setAttribute("data_determinant_columnsA", columnsA);
 	    if (erro == 0) {
 		Determinar d = new Determinar(a, linesA, columnsA);
 		d.calcular();
 		resultado = d.getResultado();
-		session.setAttribute("resultado_determinante", resultado);
+		session.setAttribute("result_determinante", resultado);
 		try {
 		    d.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = d.getUsuario();

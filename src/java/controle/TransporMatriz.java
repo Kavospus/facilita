@@ -88,16 +88,16 @@ public class TransporMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("dados_transposta_a", a);
-	    session.setAttribute("dados_transposta_linesA", linesA);
-	    session.setAttribute("dados_transposta_columnsA", columnsA);
+	    session.setAttribute("data_transposed_a", a);
+	    session.setAttribute("data_transposed_linesA", linesA);
+	    session.setAttribute("data_transposed_columnsA", columnsA);
 	    if (erro == 0) {
 		Transpor transpor = new Transpor(a, linesA, columnsA);
 		transpor.calcular();
 		resultado = transpor.getResultado();
-		session.setAttribute("resultado_transposta", resultado);
-		session.setAttribute("resultado_transposta_linesA", columnsA);
-		session.setAttribute("resultado_transposta_columnsA", linesA);
+		session.setAttribute("result_transposed", resultado);
+		session.setAttribute("result_transposed_linesA", columnsA);
+		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
 		    transpor.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = transpor.getUsuario();

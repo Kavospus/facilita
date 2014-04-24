@@ -100,17 +100,17 @@ public class EscalarMatriz extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("dados_escalar_a", a);
-	    session.setAttribute("dados_escalar_linesA", linesA);
-	    session.setAttribute("dados_escalar_columnsA", columnsA);
-	    session.setAttribute("dados_escalar_n", n);
+	    session.setAttribute("data_escalar_a", a);
+	    session.setAttribute("data_escalar_linesA", linesA);
+	    session.setAttribute("data_escalar_columnsA", columnsA);
+	    session.setAttribute("data_escalar_n", n);
 	    if (erro == 0) {
 		Escalar e = new Escalar(a, n, linesA, columnsA);
 		e.calcular();
 		resultado = e.getResultado();
-		session.setAttribute("resultado_escalar", resultado);
-		session.setAttribute("resultado_escalar_linesA", linesA);
-		session.setAttribute("resultado_escalar_columnsA", columnsA);
+		session.setAttribute("result_escalar", resultado);
+		session.setAttribute("result_escalar_linesA", linesA);
+		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
 		    e.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = e.getUsuario();

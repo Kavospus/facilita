@@ -36,7 +36,7 @@ public class ExcluirCalculo extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("calculo") == null) {
+	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?erro=1");
 	    } else {
 		/*

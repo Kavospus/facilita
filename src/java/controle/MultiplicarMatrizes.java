@@ -123,19 +123,19 @@ public class MultiplicarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("dados_multiplica_a", a);
-	    session.setAttribute("dados_multiplica_b", b);
-	    session.setAttribute("dados_multiplica_linesA", linesA);
-	    session.setAttribute("dados_multiplica_columnsA", columnsA);
-	    session.setAttribute("dados_multiplica_linesB", linesB);
-	    session.setAttribute("dados_multiplica_columnsB", columnsB);
+	    session.setAttribute("data_multiplica_a", a);
+	    session.setAttribute("data_multiplica_b", b);
+	    session.setAttribute("data_multiplica_linesA", linesA);
+	    session.setAttribute("data_multiplica_columnsA", columnsA);
+	    session.setAttribute("data_multiplica_linesB", linesB);
+	    session.setAttribute("data_multiplica_columnsB", columnsB);
 	    if (erro == 0) {
 		Multiplicar menu = new Multiplicar(a, b, linesA, columnsA, columnsB);
 		menu.calcular();
 		resultado = menu.getResultado();
-		session.setAttribute("resultado_multiplica", resultado);
-		session.setAttribute("resultado_multiplica_linesA", linesA);
-		session.setAttribute("resultado_multiplica_columnsA", columnsB);
+		session.setAttribute("result_multiplica", resultado);
+		session.setAttribute("result_multiplica_linesA", linesA);
+		session.setAttribute("result_multiplica_columnsA", columnsB);
 		try {
 		    menu.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = menu.getUsuario();
