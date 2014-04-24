@@ -11,22 +11,22 @@ import java.util.ArrayList;
 
 public class Profile {
     private int id;
-    private String perfil;
+    private String profile;
     private ArrayList<Menu> menus;
 
     public Profile() {
     }
 
     /*Constructor*/
-    public Profile(int id, String perfil) {
+    public Profile(int id, String profile) {
 	this.id = id;
-	this.perfil = perfil;
+	this.profile = profile;
     }
 
     /*Constructor*/
-    public Profile(int id, String perfil, ArrayList<Menu> menus) {
+    public Profile(int id, String profile, ArrayList<Menu> menus) {
 	this.id = id;
-	this.perfil = perfil;
+	this.profile = profile;
 	this.menus = menus;
     }
 
@@ -38,12 +38,12 @@ public class Profile {
 	this.id = id;
     }
 
-    public String getPerfil() {
-	return perfil;
+    public String getProfile() {
+	return profile;
     }
 
-    public void setPerfil(String perfil) {
-	this.perfil = perfil;
+    public void setProfile(String profile) {
+	this.profile = profile;
     }
 
     public ArrayList<Menu> getMenus() {
