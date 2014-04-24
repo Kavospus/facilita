@@ -36,7 +36,7 @@ public class InserirMenu extends HttpServlet {
 	HttpSession session = request.getSession();
 	try {
 	    if (session.getAttribute("menu") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		out.println("<html>");
@@ -46,12 +46,12 @@ public class InserirMenu extends HttpServlet {
 		out.println("<body>");
 		try {
 
-		    String menuName = request.getParameter("menu");
+		    String menu = request.getParameter("menu");
 		    String link = request.getParameter("link");
 		    String icon = request.getParameter("icon");
 
 		    Menu menu = new Menu();
-		    menu.setMenu(menuName);
+		    menu.setMenu(menu);
 		    menu.setLink(link);
 		    menu.setIcone(icon);
 

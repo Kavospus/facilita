@@ -34,7 +34,7 @@ public class AlterarMenu extends HttpServlet {
         HttpSession session = request.getSession();
         try {
     if(session.getAttribute("menu") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }else{
             // TODO output your page here
             out.println("<html>");
@@ -44,7 +44,7 @@ public class AlterarMenu extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String menuName = request.getParameter("menu");
+                String menu = request.getParameter("menu");
                 String link = request.getParameter("link");
                 String icon = request.getParameter("icon");
 
@@ -55,7 +55,7 @@ public class AlterarMenu extends HttpServlet {
                 Menu menu = new Menu();
 
                 menu.setId(id);
-                menu.setMenu(menuName);
+                menu.setMenu(menu);
                 menu.setLink(link);
                 menu.setIcone(icon);
                 menuDB.alterar(menu);

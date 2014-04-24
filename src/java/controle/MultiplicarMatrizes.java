@@ -43,13 +43,13 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 
-	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, error = 0;
 
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
@@ -60,7 +60,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
@@ -71,7 +71,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 		try {
 		    linesB = Integer.parseInt(request.getParameter("linesB"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
@@ -92,7 +92,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 			    a[i][j] = Double.parseDouble(request
 				    .getParameter("a" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_multiplica.jsp','_parent');");
@@ -111,7 +111,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 			    b[i][j] = Double.parseDouble(request
 				    .getParameter("b" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_multiplica.jsp','_parent');");
@@ -129,7 +129,7 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    session.setAttribute("data_multiplica_columnsA", columnsA);
 	    session.setAttribute("data_multiplica_linesB", linesB);
 	    session.setAttribute("data_multiplica_columnsB", columnsB);
-	    if (erro == 0) {
+	    if (error == 0) {
 		Multiplicar menu = new Multiplicar(a, b, linesA, columnsA, columnsB);
 		menu.calcular();
 		resultado = menu.getResultado();

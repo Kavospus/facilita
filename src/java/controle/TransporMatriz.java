@@ -41,13 +41,13 @@ public class TransporMatriz extends HttpServlet {
 	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
 
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_transposta.jsp','_parent');");
@@ -58,7 +58,7 @@ public class TransporMatriz extends HttpServlet {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_transposta.jsp','_parent');");
@@ -77,7 +77,7 @@ public class TransporMatriz extends HttpServlet {
 			    a[i][j] = Double.parseDouble(request
 				    .getParameter("a" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_transposta.jsp','_parent');");
@@ -91,7 +91,7 @@ public class TransporMatriz extends HttpServlet {
 	    session.setAttribute("data_transposed_a", a);
 	    session.setAttribute("data_transposed_linesA", linesA);
 	    session.setAttribute("data_transposed_columnsA", columnsA);
-	    if (erro == 0) {
+	    if (error == 0) {
 		Transpor transpor = new Transpor(a, linesA, columnsA);
 		transpor.calcular();
 		resultado = transpor.getResultado();

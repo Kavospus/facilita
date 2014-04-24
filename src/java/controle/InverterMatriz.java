@@ -43,13 +43,13 @@ public class InverterMatriz extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		int i, j, linesA = 0, columnsA = 0, erro = 0;
+		int i, j, linesA = 0, columnsA = 0, error = 0;
 
 		if (request.getParameter("linesA") != null) {
 		    try {
 			linesA = Integer.parseInt(request.getParameter("linesA"));
 		    } catch (Exception e) {
-			erro = 1;
+			error = 1;
 			out.print("<script language='JavaScript'>");
 			out.print(" alert('Caracteres proibidos detectados!');");
 			out.print(" window.open('altera_inversa.jsp','_parent');");
@@ -69,7 +69,7 @@ public class InverterMatriz extends HttpServlet {
 				a[i][j] = Double.parseDouble(request
 					.getParameter("a" + i + j));
 			    } catch (Exception e) {
-				erro = 1;
+				error = 1;
 				out.print("<script language='JavaScript'>");
 				out.print(" alert('Caracteres proibidos detectados!');");
 				out.print(" window.open('altera_inversa.jsp','_parent');");
@@ -83,7 +83,7 @@ public class InverterMatriz extends HttpServlet {
 		session.setAttribute("data_inversa_a", a);
 		session.setAttribute("data_inversa_linesA", linesA);
 		session.setAttribute("data_inversa_columnsA", columnsA);
-		if (erro == 0) {
+		if (error == 0) {
 		    Inverter inverter = new Inverter(a, linesA, columnsA);
 		    inverter.calcular();
 		    resultado = inverter.getResultado();

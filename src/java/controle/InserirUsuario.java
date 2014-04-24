@@ -39,7 +39,7 @@ public class InserirUsuario extends HttpServlet {
 	HttpSession session = request.getSession();
 	try {
 	    if (session.getAttribute("user") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		try {

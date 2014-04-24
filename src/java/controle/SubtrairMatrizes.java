@@ -42,12 +42,12 @@ public class SubtrairMatrizes extends HttpServlet {
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_subtrai.jsp','_parent');");
@@ -58,7 +58,7 @@ public class SubtrairMatrizes extends HttpServlet {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_subtrai.jsp','_parent');");
@@ -78,7 +78,7 @@ public class SubtrairMatrizes extends HttpServlet {
 			    a[i][j] = Double.parseDouble(request
 				    .getParameter("a" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_subtrai.jsp','_parent');");
@@ -97,7 +97,7 @@ public class SubtrairMatrizes extends HttpServlet {
 			    b[i][j] = Double.parseDouble(request
 				    .getParameter("b" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_subtrai.jsp','_parent');");
@@ -115,7 +115,7 @@ public class SubtrairMatrizes extends HttpServlet {
 	    session.setAttribute("data_subtrai_columnsA", columnsA);
 	    session.setAttribute("data_subtrai_linesB", linesA);
 	    session.setAttribute("data_subtrai_columnsB", columnsA);
-	    if (erro == 0) {
+	    if (error == 0) {
 		Subtrair s = new Subtrair(a, b, linesA, columnsA);
 		s.calcular();
 		resultado = s.getResultado();

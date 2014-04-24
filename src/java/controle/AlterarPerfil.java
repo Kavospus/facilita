@@ -34,7 +34,7 @@ public class AlterarPerfil extends HttpServlet {
         HttpSession session = request.getSession();
         try {
     if(session.getAttribute("profile") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }else{
             //TODO output your page here
             out.println("<html>");
@@ -44,7 +44,7 @@ public class AlterarPerfil extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String profileName = request.getParameter("profile");
+                String profile = request.getParameter("profile");
 
                 PerfilDAO profileDB = new PerfilDAO();
 
@@ -53,7 +53,7 @@ public class AlterarPerfil extends HttpServlet {
                 Perfil profile = new Perfil();
 
                 profile.setId(id);
-                profile.setPerfil(profileName);
+                profile.setPerfil(profile);
 
                 profileDB.alterar(profile);
 

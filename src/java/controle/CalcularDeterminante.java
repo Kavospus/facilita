@@ -41,12 +41,12 @@ public class CalcularDeterminante extends HttpServlet {
 	    out.println("<title>Servlet CalculaDeterminante</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_determinante.jsp','_parent');");
@@ -65,7 +65,7 @@ public class CalcularDeterminante extends HttpServlet {
 			    a[i][j] = Double.parseDouble(request
 				    .getParameter("a" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_determinante.jsp','_parent');");
@@ -79,7 +79,7 @@ public class CalcularDeterminante extends HttpServlet {
 	    session.setAttribute("data_determinant_a", a);
 	    session.setAttribute("data_determinant_linesA", linesA);
 	    session.setAttribute("data_determinant_columnsA", columnsA);
-	    if (erro == 0) {
+	    if (error == 0) {
 		Determinar d = new Determinar(a, linesA, columnsA);
 		d.calcular();
 		resultado = d.getResultado();

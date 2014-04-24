@@ -35,7 +35,7 @@ public class ExcluirMenu extends HttpServlet {
 	HttpSession session = request.getSession();
 	try {
 	    if (session.getAttribute("menu") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		out.println("<html>");
