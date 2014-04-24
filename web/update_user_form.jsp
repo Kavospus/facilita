@@ -84,7 +84,7 @@
 
                                             UserDAO userDB = new UserDAO();
                                             userDB.connect();
-                                            User u = userDB.selectById(id);
+                                            User user = userDB.selectById(id);
                                             userDB.disconnect();
 
  
@@ -96,11 +96,11 @@
                                 <form name="update_user_form" action="update_user.do" method="POST" onsubmit="return validateForm()">
                                     <tr>
                                     <td>Id:</td>
-                                    <td><input type="text" readonly size="45" name="id" value="<%=u.getId()%>"/> </td>
+                                    <td><input type="text" readonly size="45" name="id" value="<%=user.getId()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="name" value="<%=u.getNome()%>"/> </td>
+                                    <td><input type="text" size="45" name="name" value="<%=user.getNome()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -109,7 +109,7 @@
                                     <td><select name="id_profile" size="1">
                                             
                                             <%for (Profile profile : profileListB) {%>
-                                            <%if(u.getPerfil().getId() == profile.getId()) {%>
+                                            <%if(user.getPerfil().getId() == profile.getId()) {%>
                                             <option value="<%=profile.getId()%>">
                                                 <%=profile.getPerfil()%>
                                             </option>
@@ -125,7 +125,7 @@
                                 </tr>
                                 <tr>
                                     <td>Login:</td>
-                                    <td><input type="text" size="45" name="login" value="<%=u.getLogin()%>"/> </td>
+                                    <td><input type="text" size="45" name="login" value="<%=user.getLogin()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Senha:</td>

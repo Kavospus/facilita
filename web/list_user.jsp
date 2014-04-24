@@ -66,24 +66,24 @@
                                 UserDAO userDB = new UserDAO();
                                 userDB.connect();
                                 ArrayList<User> userList = userDB.select();
-                            for(User u:userList){%>
+                            for(User user:userList){%>
 
                             <tr>
                                 <td>
-                                    <%=u.getId()%>
+                                    <%=user.getId()%>
                                 </td>
                                 <td>
-                                    <%=u.getNome()%>
+                                    <%=user.getNome()%>
                                 </td>
                                 <td>
-                                    <%=u.getLogin()%>
+                                    <%=user.getLogin()%>
                                 </td>
                                 <td>
-                                    <%=u.getSenha()%>
+                                    <%=user.getSenha()%>
                                 </td>
                                 <td>
-                                    <a class="button" href="update_user_form.jsp?id=<%=u.getId()%>"><img width='16' height='16' src="imagens/edit.png"></a>
-                                    <a class="button" href="#" onclick="verify(<%=u.getId()%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
+                                    <a class="button" href="update_user_form.jsp?id=<%=user.getId()%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="#" onclick="verify(<%=user.getId()%>)" ><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

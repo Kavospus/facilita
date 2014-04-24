@@ -63,8 +63,8 @@ public class User {
     public boolean temPermissao(String uri, String context, User user) {
 	boolean result = false;
 	String path = null;
-	for (Menu m : user.getPerfil().getMenus()) {
-	    path = context + "/" + m.getLink();
+	for (Menu menu : user.getPerfil().getMenus()) {
+	    path = context + "/" + menu.getLink();
 	    if (path.equals(uri)) {
 		result = true;
 	    }
