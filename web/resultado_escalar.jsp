@@ -25,20 +25,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_escalar_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_escalar_linesA");
+        if(session.getAttribute("data_escalar_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_escalar_linesA");
         }
-        if(session.getAttribute("dados_escalar_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_escalar_columnsA");
+        if(session.getAttribute("data_escalar_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_escalar_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("resultado_escalar") != null){
-                resultado = (double[][])session.getAttribute("resultado_escalar");
+        if(session.getAttribute("result_escalar") != null){
+                resultado = (double[][])session.getAttribute("result_escalar");
             }
-        if(session.getAttribute("dados_escalar_a") != null){
-                a = (double[][])session.getAttribute("dados_escalar_a");
+        if(session.getAttribute("data_escalar_a") != null){
+                a = (double[][])session.getAttribute("data_escalar_a");
             }
 
         
@@ -61,15 +61,15 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?op=escalar">Subtração</a>
-        <a href="resposta_soma.jsp?op=escalar">Adição</a>
-        <a href="resposta_multiplica.jsp?op=escalar">Multiplicação</a>
-        <a href="resposta_transposta.jsp?op=escalar">Transposta</a>
-        <a href="resposta_escalar.jsp?op=escalar">Escalar</a>
+        <a href="resposta_subtrai.jsp?operation=escalar">Subtração</a>
+        <a href="resposta_soma.jsp?operation=escalar">Adição</a>
+        <a href="resposta_multiplica.jsp?operation=escalar">Multiplicação</a>
+        <a href="resposta_transposta.jsp?operation=escalar">Transposta</a>
+        <a href="resposta_escalar.jsp?operation=escalar">Escalar</a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='resposta_inversa.jsp?op=escalar'>Inversa</a>");
-        out.print("<a href='resposta_determinante.jsp?op=escalar'>Determinante</a>");
+        out.print("<a href='resposta_inversa.jsp?operation=escalar'>Inversa</a>");
+        out.print("<a href='resposta_determinante.jsp?operation=escalar'>Determinante</a>");
         }
         
         %>

@@ -21,14 +21,14 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_determinante_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_determinante_linesA");
+        if(session.getAttribute("data_determinante_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_determinante_linesA");
         }
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=determinante&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=determinante&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
         <%@include file="menu.jsp" %>
         <form  action="calcular_determinante.do" method="POST" name="calcula_determinante">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=determinante&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=determinante&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
 
         
         <div id="matrizes" ></div>

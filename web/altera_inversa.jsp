@@ -21,14 +21,14 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_inversa_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_inversa_linesA");
+        if(session.getAttribute("data_inversa_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_inversa_linesA");
         }
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=inversa&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=inversa&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
         <%@include file="menu.jsp" %>
         <form action="inverter_matriz.do" method="POST" name="inverte_matriz">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=inversa&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=inversa&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         
         
         <div id="matrizes" ></div>

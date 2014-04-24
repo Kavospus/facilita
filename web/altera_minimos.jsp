@@ -19,11 +19,11 @@
     </head>
     <%
     int opcao=0,quantidade=0;
-        if(session.getAttribute("dados_minimos_opcao") != null){
-                opcao = (Integer) session.getAttribute("dados_minimos_opcao");
+        if(session.getAttribute("data_minimos_opcao") != null){
+                opcao = (Integer) session.getAttribute("data_minimos_opcao");
             }
-        if(session.getAttribute("dados_minimos_quantidade") != null){
-                quantidade = (Integer) session.getAttribute("dados_minimos_quantidade");
+        if(session.getAttribute("data_minimos_quantidade") != null){
+                quantidade = (Integer) session.getAttribute("data_minimos_quantidade");
             }
 
 %>

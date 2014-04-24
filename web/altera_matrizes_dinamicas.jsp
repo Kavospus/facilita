@@ -13,7 +13,7 @@
                             <td></td>
         <%
         int i,j,linesA=0,columnsA=0,linesB=0,columnsB=0,slinesA=0,scolumnsA=0,slinesB=0,scolumnsB=0;
-        String op ="";
+        String operation ="";
             if(request.getParameter("linesA") != null){
                 linesA = Integer.parseInt(request.getParameter("linesA"));
             }
@@ -26,29 +26,29 @@
             if(request.getParameter("columnsB") != null){
                 columnsB = Integer.parseInt(request.getParameter("columnsB"));
             }
-            if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+            if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
         
-        if(session.getAttribute("dados_"+op+"_linesA") != null){
-                slinesA = (Integer)session.getAttribute("dados_"+op+"_linesA");
+        if(session.getAttribute("data_"+operation+"_linesA") != null){
+                slinesA = (Integer)session.getAttribute("data_"+operation+"_linesA");
         }
-        if(session.getAttribute("dados_"+op+"_columnsA") != null){
-                scolumnsA = (Integer)session.getAttribute("dados_"+op+"_columnsA");
+        if(session.getAttribute("data_"+operation+"_columnsA") != null){
+                scolumnsA = (Integer)session.getAttribute("data_"+operation+"_columnsA");
         }
-        if(session.getAttribute("dados_"+op+"_linesB") != null){
-                slinesB = (Integer)session.getAttribute("dados_"+op+"_linesB");
+        if(session.getAttribute("data_"+operation+"_linesB") != null){
+                slinesB = (Integer)session.getAttribute("data_"+operation+"_linesB");
         }
-        if(session.getAttribute("dados_"+op+"_columnsB") != null){
-                scolumnsB = (Integer)session.getAttribute("dados_"+op+"_columnsB");
+        if(session.getAttribute("data_"+operation+"_columnsB") != null){
+                scolumnsB = (Integer)session.getAttribute("data_"+operation+"_columnsB");
         }
         double a[][] = new double[slinesA][scolumnsA];
         double b[][] = new double[slinesB][scolumnsB];
-        if(session.getAttribute("dados_"+op+"_a") != null){
-                a = (double[][])session.getAttribute("dados_"+op+"_a");
+        if(session.getAttribute("data_"+operation+"_a") != null){
+                a = (double[][])session.getAttribute("data_"+operation+"_a");
             }
-        if(session.getAttribute("dados_"+op+"_b") != null){
-                b = (double[][])session.getAttribute("dados_"+op+"_b");
+        if(session.getAttribute("data_"+operation+"_b") != null){
+                b = (double[][])session.getAttribute("data_"+operation+"_b");
             }
         for(i=0;i<columnsA;i++){
             %>

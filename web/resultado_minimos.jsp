@@ -30,21 +30,21 @@
         double vy[] = {0,0};
         String erro;
         int dimens=2,ticks,i,j,opcao =0, qnt =0;
-        if(session.getAttribute("resultado_minimos") != null){
-                resultado = (double[])session.getAttribute("resultado_minimos");
+        if(session.getAttribute("result_minimos") != null){
+                resultado = (double[])session.getAttribute("result_minimos");
             }
-        if(session.getAttribute("dados_minimos_vx") != null){
-                vx = (double[])session.getAttribute("dados_minimos_vx");
+        if(session.getAttribute("data_minimos_vx") != null){
+                vx = (double[])session.getAttribute("data_minimos_vx");
             }
-        if(session.getAttribute("dados_minimos_vy") != null){
-                vy = (double[])session.getAttribute("dados_minimos_vy");
+        if(session.getAttribute("data_minimos_vy") != null){
+                vy = (double[])session.getAttribute("data_minimos_vy");
             }
         if(session.getAttribute("erro_minimos") != null){
                 erro = (String)session.getAttribute("erro_minimos");
                 out.print(erro);
             }
-        if(session.getAttribute("dados_minimos_opcao") != null){
-                opcao = (Integer) session.getAttribute("dados_minimos_opcao");
+        if(session.getAttribute("data_minimos_opcao") != null){
+                opcao = (Integer) session.getAttribute("data_minimos_opcao");
             }
         if(request.getParameter("dimens") != null){
                 dimens = Integer.parseInt(request.getParameter("dimens"));

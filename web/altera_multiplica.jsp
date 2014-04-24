@@ -21,24 +21,24 @@
     
        int linesA=0,columnsA=0,columnsB=0;
         
-        if(session.getAttribute("dados_multiplica_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_multiplica_linesA");
+        if(session.getAttribute("data_multiplica_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_multiplica_linesA");
         }
-        if(session.getAttribute("dados_multiplica_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_multiplica_columnsA");
+        if(session.getAttribute("data_multiplica_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_multiplica_columnsA");
         }
-        if(session.getAttribute("dados_multiplica_columnsB") != null){
-                columnsB = (Integer)session.getAttribute("dados_multiplica_columnsB");
+        if(session.getAttribute("data_multiplica_columnsB") != null){
+                columnsB = (Integer)session.getAttribute("data_multiplica_columnsB");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=multiplica&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=columnsA%>&columnsB=<%=columnsB%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?operation=multiplica&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=columnsA%>&columnsB=<%=columnsB%>');">
         <%@include file="menu.jsp" %>
         <form action="multiplicar_matrizes.do" method="POST" name="multiplica_matrizes">
-        Linhas de A <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de A e linhas de B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de B <input type="text" name="linesB" value="<%=columnsB%>"  id="linesB" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?op=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        Linhas de A <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?operation=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        Colunas de A e linhas de B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?operation=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        Colunas de B <input type="text" name="linesB" value="<%=columnsB%>"  id="linesB" onkeyup="refreshPage('matrizes', 'altera_matrizes_dinamicas.jsp?operation=multiplica&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

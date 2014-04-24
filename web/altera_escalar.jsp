@@ -22,24 +22,24 @@
        int linesA=0,columnsA=0;
        double n=0;
         
-       if(session.getAttribute("dados_escalar_n") != null){
-                n = (Double)session.getAttribute("dados_escalar_n");
+       if(session.getAttribute("data_escalar_n") != null){
+                n = (Double)session.getAttribute("data_escalar_n");
        }
-       if(session.getAttribute("dados_escalar_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_escalar_linesA");
+       if(session.getAttribute("data_escalar_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_escalar_linesA");
        }
-       if(session.getAttribute("dados_escalar_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_escalar_columnsA");
+       if(session.getAttribute("data_escalar_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_escalar_columnsA");
        }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=escalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="escalar_matriz.do" method="POST" name="escalar_matriz">
         Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
-        Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=escalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
                 <%

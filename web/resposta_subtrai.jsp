@@ -21,20 +21,20 @@
     <%
     
        int linesA=0,columnsA=0;
-        String op = "";
-        if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+        String operation = "";
+        if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
-        if(session.getAttribute("resultado_"+op+"_linesA") != null){
-                linesA = (Integer)session.getAttribute("resultado_"+op+"_linesA");
+        if(session.getAttribute("result_"+operation+"_linesA") != null){
+                linesA = (Integer)session.getAttribute("result_"+operation+"_linesA");
         }
-        if(session.getAttribute("resultado_"+op+"_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("resultado_"+op+"_columnsA");
+        if(session.getAttribute("result_"+operation+"_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?op=<%=op%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="subtrair_matrizes.do" method="POST" name="subtrai_matrizes">
             Linhas de A e B <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />

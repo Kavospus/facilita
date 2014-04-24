@@ -10,10 +10,10 @@
         <td></td>
         <%
         int i,j,slinesA=0,scolumnsA=0,linesA=0,columnsA=0;
-        String op = "";
+        String operation = "";
         
-            if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+            if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
 
         if(request.getParameter("linesA") != null){
@@ -22,17 +22,17 @@
         if(request.getParameter("columnsA") != null){
                 columnsA = Integer.parseInt(request.getParameter("columnsA"));
         }
-        if(session.getAttribute("dados_"+op+"_linesA") != null){
-                slinesA = (Integer)session.getAttribute("dados_"+op+"_linesA");
+        if(session.getAttribute("data_"+operation+"_linesA") != null){
+                slinesA = (Integer)session.getAttribute("data_"+operation+"_linesA");
         }
-        if(session.getAttribute("dados_"+op+"_columnsA") != null){
-                scolumnsA = (Integer)session.getAttribute("dados_"+op+"_columnsA");
+        if(session.getAttribute("data_"+operation+"_columnsA") != null){
+                scolumnsA = (Integer)session.getAttribute("data_"+operation+"_columnsA");
         }
         
         double a[][] = new double[slinesA][scolumnsA];
         
-        if(session.getAttribute("dados_"+op+"_a") != null){
-                a = (double[][])session.getAttribute("dados_"+op+"_a");
+        if(session.getAttribute("data_"+operation+"_a") != null){
+                a = (double[][])session.getAttribute("data_"+operation+"_a");
         }
         
         for(i=0;i<columnsA;i++){

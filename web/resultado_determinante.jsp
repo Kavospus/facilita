@@ -22,20 +22,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_determinante_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_determinante_linesA");
+        if(session.getAttribute("data_determinante_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_determinante_linesA");
         }
-        if(session.getAttribute("dados_determinante_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_determinante_columnsA");
+        if(session.getAttribute("data_determinante_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_determinante_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado = 0;
-        if(session.getAttribute("resultado_determinante") != null){
-                resultado = (Double)session.getAttribute("resultado_determinante");
+        if(session.getAttribute("result_determinante") != null){
+                resultado = (Double)session.getAttribute("result_determinante");
             }
-        if(session.getAttribute("dados_determinante_a") != null){
-                a = (double[][])session.getAttribute("dados_determinante_a");
+        if(session.getAttribute("data_determinante_a") != null){
+                a = (double[][])session.getAttribute("data_determinante_a");
             }
         out.print("Resultado do Determinante: "+resultado);
         %>

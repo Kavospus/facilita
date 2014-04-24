@@ -21,18 +21,18 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_transposta_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_transposta_linesA");
+        if(session.getAttribute("data_transposta_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_transposta_linesA");
         }
-        if(session.getAttribute("dados_transposta_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_transposta_columnsA");
+        if(session.getAttribute("data_transposta_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_transposta_columnsA");
         }
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=transposta&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="transpor_matriz.do" method="POST" name="transpoe_matriz">
-        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?op=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=transposta&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>

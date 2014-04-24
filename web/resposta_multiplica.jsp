@@ -21,25 +21,25 @@
     <%
     
        int linesA=0,columnsA=0;
-        String op = "";
-        if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+        String operation = "";
+        if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
-        if(session.getAttribute("resultado_"+op+"_linesA") != null){
-                linesA = (Integer)session.getAttribute("resultado_"+op+"_linesA");
+        if(session.getAttribute("result_"+operation+"_linesA") != null){
+                linesA = (Integer)session.getAttribute("result_"+operation+"_linesA");
         }
-        if(session.getAttribute("resultado_"+op+"_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("resultado_"+op+"_columnsA");
+        if(session.getAttribute("result_"+operation+"_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?op=<%=op%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=linesA%>&columnsB=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="multiplicar_matrizes.do" method="POST" name="multiplica_matrizes">
         Linhas de A <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
         Colunas de A e Linhas de B <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
-        Colunas de B <input type="text" name="linesB" value="2" id="linesB" onkeyup="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?op=<%=op%>&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        Colunas de B <input type="text" name="linesB" value="2" id="linesB" onkeyup="refreshPage('matrizes', 'resposta_matrizes_dinamicas.jsp?operation=<%=operation%>&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrizes" ></div>
         <input class="button"type="submit" name="OK"/>
         </form>

@@ -25,20 +25,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_subtrai_linesA") != null){
-                linesA = (Integer)session.getAttribute("dados_subtrai_linesA");
+        if(session.getAttribute("data_subtrai_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_subtrai_linesA");
         }
-        if(session.getAttribute("dados_subtrai_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("dados_subtrai_columnsA");
+        if(session.getAttribute("data_subtrai_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_subtrai_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("resultado_subtrai") != null){
-                resultado = (double[][])session.getAttribute("resultado_subtrai");
+        if(session.getAttribute("result_subtrai") != null){
+                resultado = (double[][])session.getAttribute("result_subtrai");
             }
-        if(session.getAttribute("dados_subtrai_a") != null){
-                a = (double[][])session.getAttribute("dados_subtrai_a");
+        if(session.getAttribute("data_subtrai_a") != null){
+                a = (double[][])session.getAttribute("data_subtrai_a");
             }
 
         
@@ -61,15 +61,15 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?op=subtrai">Subtração</a>
-        <a href="resposta_soma.jsp?op=subtrai">Adição</a>
-        <a href="resposta_multiplica.jsp?op=subtrai">Multiplicação</a>
-        <a href="resposta_transposta.jsp?op=subtrai">Transposta</a>
-        <a href="resposta_escalar.jsp?op=subtrai">Escalar</a>
+        <a href="resposta_subtrai.jsp?operation=subtrai">Subtração</a>
+        <a href="resposta_soma.jsp?operation=subtrai">Adição</a>
+        <a href="resposta_multiplica.jsp?operation=subtrai">Multiplicação</a>
+        <a href="resposta_transposta.jsp?operation=subtrai">Transposta</a>
+        <a href="resposta_escalar.jsp?operation=subtrai">Escalar</a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='resposta_inversa.jsp?op=subtrai'>Inversa</a>");
-        out.print("<a href='resposta_determinante.jsp?op=subtrai'>Determinante</a>");
+        out.print("<a href='resposta_inversa.jsp?operation=subtrai'>Inversa</a>");
+        out.print("<a href='resposta_determinante.jsp?operation=subtrai'>Determinante</a>");
         }
         
         %>

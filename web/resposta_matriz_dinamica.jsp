@@ -10,23 +10,23 @@
         <td></td>
         <%
         int i,j,slinesA=0,scolumnsA=0,linesA=0,columnsA=0;
-        String op = "";
+        String operation = "";
         
-            if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+            if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
 
-        if(session.getAttribute("resultado_"+op+"_linesA") != null){
-                linesA = (Integer)session.getAttribute("resultado_"+op+"_linesA");
+        if(session.getAttribute("result_"+operation+"_linesA") != null){
+                linesA = (Integer)session.getAttribute("result_"+operation+"_linesA");
         }
-        if(session.getAttribute("resultado_"+op+"_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("resultado_"+op+"_columnsA");
+        if(session.getAttribute("result_"+operation+"_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
         
         double resultado[][] = new double[linesA][columnsA];
         
-        if(session.getAttribute("resultado_"+op) != null){
-                resultado = (double[][])session.getAttribute("resultado_"+op);
+        if(session.getAttribute("result_"+operation) != null){
+                resultado = (double[][])session.getAttribute("result_"+operation);
         }
         
         for(i=0;i<columnsA;i++){

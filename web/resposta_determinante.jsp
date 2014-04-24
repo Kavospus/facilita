@@ -20,20 +20,20 @@
     <%
     
        int linesA=0,columnsA=0;
-        String op = "";
-        if(request.getParameter("op") != null){
-                op = request.getParameter("op");
+        String operation = "";
+        if(request.getParameter("operation") != null){
+                operation = request.getParameter("operation");
             }
-        if(session.getAttribute("resultado_"+op+"_linesA") != null){
-                linesA = (Integer)session.getAttribute("resultado_"+op+"_linesA");
+        if(session.getAttribute("result_"+operation+"_linesA") != null){
+                linesA = (Integer)session.getAttribute("result_"+operation+"_linesA");
         }
-        if(session.getAttribute("resultado_"+op+"_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("resultado_"+op+"_columnsA");
+        if(session.getAttribute("result_"+operation+"_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("result_"+operation+"_columnsA");
         }
 
 
     %>
-    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matriz_dinamica.jsp?op=<%=op%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
+    <body class="centertable" onload="refreshPage('matrizes', 'resposta_matriz_dinamica.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="calcular_determinante.do" method="POST" name="calcula_determinante">
         Linhas de A e B <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />

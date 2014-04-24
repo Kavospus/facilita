@@ -24,8 +24,8 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id_menu,id_perfil,op){
-                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&op="+op;
+            function confirma(id_menu,id_perfil,operation){
+                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&operation="+operation;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
@@ -92,7 +92,7 @@
                                                     </td>
                                                     <td>
                                                         <input type="text" hidden="true" value="<%=profile.getId()%>" name="id_perfil">
-                                                        <input type="text" hidden="true" value="1" name="op">
+                                                        <input type="text" hidden="true" value="1" name="operation">
                                                         <input class="button" type="submit" value="Vincular">
                                                     </td>
                                                 </tr>
