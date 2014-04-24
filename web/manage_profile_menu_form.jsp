@@ -70,7 +70,7 @@
                                                         ID: <%=profile.getId()%>
                                                     </td>
                                                     <td>
-                                                        Profile: <%=profile.getPerfil()%>
+                                                        Profile: <%=profile.getProfile()%>
                                                     </td>
                                                 </tr>
                                                 <tr>

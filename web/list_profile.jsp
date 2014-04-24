@@ -73,11 +73,11 @@
                                     <%out.print(profile.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(profile.getPerfil());%>
+                                    <%out.print(profile.getProfile());%>
                                 </td>
                                 <td>
                                     <a class="button" href="manage_profile_menu_form.jsp?id=<%out.print(profile.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
-                                    <a class="button" href="update_profile_form.jsp?id=<%out.print(profile.getId());%>&profile=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="update_profile_form.jsp?id=<%out.print(profile.getId());%>&profile=<%out.print(profile.getProfile());%>"><img width='16' height='16' src="imagens/edit.png"></a>
                                     <a class="button" href="#" onclick="verify(<%out.print(profile.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>

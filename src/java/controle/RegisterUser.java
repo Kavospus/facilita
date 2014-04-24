@@ -49,7 +49,7 @@ public class RegisterUser extends HttpServlet {
                 user.setSenha(password);
                 user.setLogin(login);
                 profileDB.connect();
-                user.setPerfil(profileDB.selectById(id_profile));
+                user.setProfile(profileDB.selectById(id_profile));
                 profileDB.disconnect();
                 user.setNome(name);
 

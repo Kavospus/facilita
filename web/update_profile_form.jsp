@@ -78,7 +78,7 @@
                                 </tr>
                                 <tr>
                                     <td>Profile</td>
-                                    <td><input type="text" name="profile" value="<%out.print(profile.getPerfil());%>"/> </td>
+                                    <td><input type="text" name="profile" value="<%out.print(profile.getProfile());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td><input class="button" type="reset" value="Limpar"/> </td>

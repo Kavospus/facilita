@@ -64,7 +64,7 @@ public class UpdateUser extends HttpServlet {
                 user.setId(id);
                 user.setNome(name);
                 profileDB.connect();
-                user.setPerfil(profileDB.selectById(id_profile));
+                user.setProfile(profileDB.selectById(id_profile));
                 profileDB.disconnect();
                 user.setSenha(password);
                 user.setLogin(login);

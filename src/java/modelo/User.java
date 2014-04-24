@@ -35,11 +35,11 @@ public class User {
 	this.id = id;
     }
 
-    public Profile getPerfil() {
+    public Profile getProfile() {
 	return perfil;
     }
 
-    public void setPerfil(Profile perfil) {
+    public void setProfile(Profile perfil) {
 	this.perfil = perfil;
     }
 
@@ -63,8 +63,8 @@ public class User {
     public boolean temPermissao(String uri, String context, User user) {
 	boolean result = false;
 	String path = null;
-	for (Menu menu : user.getPerfil().getMenus()) {
-	    path = context + "/" + menu.getLink();
+	for (Menu m : user.getProfile().getMenus()) {
+	    path = context + "/" + m.getLink();
 	    if (path.equals(uri)) {
 		result = true;
 	    }

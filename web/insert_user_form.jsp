@@ -97,7 +97,7 @@
                                             <%for (Profile profile : profileList) {%>
 
                                             <option value="<%=profile.getId()%>">
-                                                <%=profile.getPerfil()%>
+                                                <%=profile.getProfile()%>
                                             </option>
                                             <%}%>
                                         </select>

@@ -11,7 +11,7 @@ try{
 
     userLogged = (User) session.getAttribute("userLogged");
     out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
-    for(Menu mp:userLogged.getPerfil().getMenus()){
+    for(Menu mp:userLogged.getProfile().getMenus()){
 
     out.print("<td >"
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
