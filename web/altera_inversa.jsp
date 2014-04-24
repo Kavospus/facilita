@@ -21,8 +21,8 @@
     
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_inversa_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_inversa_linesA");
+        if(session.getAttribute("data_inverse_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_inverse_linesA");
         }
     %>
     <body class="centertable" onload="refreshPage('matrizes', 'altera_matriz_dinamica.jsp?operation=inversa&linesA=<%=linesA%>&columnsA=<%=linesA%>');">

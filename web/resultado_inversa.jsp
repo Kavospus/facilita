@@ -26,20 +26,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_inversa_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_inversa_linesA");
+        if(session.getAttribute("data_inverse_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_inverse_linesA");
         }
-        if(session.getAttribute("data_inversa_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_inversa_columnsA");
+        if(session.getAttribute("data_inverse_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_inverse_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("result_inversa") != null){
-                resultado = (double[][])session.getAttribute("result_inversa");
+        if(session.getAttribute("result_inverse") != null){
+                resultado = (double[][])session.getAttribute("result_inverse");
             }
-        if(session.getAttribute("data_inversa_a") != null){
-                a = (double[][])session.getAttribute("data_inversa_a");
+        if(session.getAttribute("data_inverse_a") != null){
+                a = (double[][])session.getAttribute("data_inverse_a");
             }
 
         
