@@ -112,17 +112,17 @@
                                 <td>Desvincular</td>
                             </tr>
 
-                            <% for(Menu m:lista){%>
+                            <% for(Menu menu:lista){%>
 
                             <tr>
                                 <td>
-                                    <%out.print(m.getId());%>
+                                    <%out.print(menu.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(m.getMenu());%>
+                                    <%out.print(menu.getMenu());%>
                                 </td>
                                 <td align="center">
-                                    <a href="#" class="button" onclick="confirma(<%out.print(m.getId());%>,<%out.print(profile.getId());%>,2)"><img src="imagens/delete.png"></a>
+                                    <a href="#" class="button" onclick="confirma(<%out.print(menu.getId());%>,<%out.print(profile.getId());%>,2)"><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

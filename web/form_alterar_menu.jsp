@@ -29,7 +29,7 @@
 
                 var form_alterar_menu=document.form_alterar_menu;
                 var campo_menu=form_alterar_menu.menu;
-                var campo_icone=form_alterar_menu.icone;
+                var campo_icone=form_alterar_menu.icon;
                 var campo_link=form_alterar_menu.link;
 
 
@@ -70,7 +70,7 @@
                             <table width="500" align="center">
                                 <%
                                     int id = 0;
-                                    Menu m = null;
+                                    Menu menu = null;
 
                                         try {
 
@@ -81,7 +81,7 @@
                                         MenuDAO menuDB = new MenuDAO();
 
                                         menuDB.conectar();
-                                        m = menuDB.carregaPorId(id);
+                                        menu = menuDB.carregaPorId(id);
                                         menuDB.desconectar();
                                             
                                         } catch(SQLException e){
@@ -93,20 +93,20 @@
                         %>
                                 <tr>
                                     <td>Id:</td>
-                                    <td><input readonly type="text" size="10" name="id" value="<%=m.getId() %>" /> </td>
+                                    <td><input readonly type="text" size="10" name="id" value="<%=menu.getId() %>" /> </td>
                                 </tr>
                                 <tr>
                                     <td>Menu:</td>
-                                    <td><input type="text" size="45" name="menu" value="<%=m.getMenu() %>" /> </td>
+                                    <td><input type="text" size="45" name="menu" value="<%=menu.getMenu() %>" /> </td>
                                 </tr>
                                 <tr>
                                     <td>Icone URL:</td>
-                                    <td><input type="text" size="45" name="icone" value="<%=m.getIcone() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
-                                    <td ><div align="rigth" id="thumb"><img width="32" height="32" src="<%=m.getIcone()%>"/></div></td>
+                                    <td><input type="text" size="45" name="icon" value="<%=menu.getIcone() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
+                                    <td ><div align="rigth" id="thumb"><img width="32" height="32" src="<%=menu.getIcone()%>"/></div></td>
                                 </tr>
                                 <tr>
                                     <td>Link:</td>
-                                    <td><input type="text" size="45" name="link" value="<%=m.getLink() %>" /> </td>
+                                    <td><input type="text" size="45" name="link" value="<%=menu.getLink() %>" /> </td>
                                 </tr>
 
                                 <tr>

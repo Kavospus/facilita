@@ -23,7 +23,7 @@
 
                 var form_inserir_menu=document.form_inserir_menu;
                 var campo_menu=form_inserir_menu.menu;
-                var campo_icone=form_inserir_menu.icone;
+                var campo_icone=form_inserir_menu.icon;
                 var campo_link=form_inserir_menu.link;
 
 
@@ -68,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <td>Icone URL:</td>
-                                    <td><input type="text" size="45" name="icone" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)"/> </td>
+                                    <td><input type="text" size="45" name="icon" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)"/> </td>
                                     <td><div align="center" id="thumb"></div></td>
                                 </tr>
                                 <tr>
