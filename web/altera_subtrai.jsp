@@ -21,11 +21,11 @@
     
        int linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_subtrai_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_subtrai_linesA");
+        if(session.getAttribute("data_subtract_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_subtract_linesA");
         }
-        if(session.getAttribute("data_subtrai_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_subtrai_columnsA");
+        if(session.getAttribute("data_subtract_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_subtract_columnsA");
         }
 
 
