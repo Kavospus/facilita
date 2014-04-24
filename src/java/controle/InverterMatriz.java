@@ -80,9 +80,9 @@ public class InverterMatriz extends HttpServlet {
 			}
 		    }
 		}
-		session.setAttribute("data_inversa_a", a);
-		session.setAttribute("data_inversa_linesA", linesA);
-		session.setAttribute("data_inversa_columnsA", columnsA);
+		session.setAttribute("data_inverse_a", a);
+		session.setAttribute("data_inverse_linesA", linesA);
+		session.setAttribute("data_inverse_columnsA", columnsA);
 		if (error == 0) {
 		    Inverter inverter = new Inverter(a, linesA, columnsA);
 		    inverter.calcular();

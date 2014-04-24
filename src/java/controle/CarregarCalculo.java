@@ -64,10 +64,10 @@ public class CarregarCalculo extends HttpServlet {
 		    if (operacao.equals("Inverter")) {
 			Inverter i = (Inverter) calculus;
 			i.setDadosString();
-			session.setAttribute("data_t_a", i.getEntrada());
-			session.setAttribute("data_inversa_linesA",
+			session.setAttribute("data_inverse_a", i.getEntrada());
+			session.setAttribute("data_inverse_linesA",
 				i.getDimensaoA());
-			session.setAttribute("data_inversa_columnsA",
+			session.setAttribute("data_inverse_columnsA",
 				i.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_inversa.jsp?id="
