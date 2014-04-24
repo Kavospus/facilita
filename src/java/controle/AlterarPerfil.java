@@ -44,7 +44,7 @@ public class AlterarPerfil extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String profile = request.getParameter("profile");
+                String profileName = request.getParameter("profile");
 
                 PerfilDAO profileDB = new PerfilDAO();
 
@@ -53,7 +53,7 @@ public class AlterarPerfil extends HttpServlet {
                 Perfil profile = new Perfil();
 
                 profile.setId(id);
-                profile.setPerfil(profile);
+                profile.setPerfil(profileName);
 
                 profileDB.alterar(profile);
 
