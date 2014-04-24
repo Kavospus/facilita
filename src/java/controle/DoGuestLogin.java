@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to calculates determinant. 
+ *Description: Class to insert data to login into the system for guests. 
  */
 package controle;
 
@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.CalculoDAO;
-import modelo.Determinar;
+import modelo.Perfil;
 import modelo.Usuario;
+import modelo.UsuarioDAO;
 
-public class CalcularDeterminante extends HttpServlet {
+public class DoGuestLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,74 +38,28 @@ public class CalcularDeterminante extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet CalculaDeterminante</title>");
+	    out.println("<title>Servlet EfetuarLoginConvidado</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-	    if (request.getParameter("dima") != null) {
-		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
-		} catch (Exception e) {
-		    erro = 1;
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_determinante.jsp','_parent');");
-		    out.print("</script>");
-		}
-	    }
-	    dimb = dima;
-	    double a[][] = new double[dima][dimb];
-	    double resultado = 0;
+	    try {
+		String login = "guest";
+		String pass = "guest";
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
-			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
-			} catch (Exception e) {
-			    erro = 1;
-			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_determinante.jsp','_parent');");
-			    out.print("</script>");
-			}
-		    } else {
-			a[i][j] = 0;
-		    }
+		UsuarioDAO userDB = new UsuarioDAO();
+		userDB.conectar();
+		Usuario user = userDB.logar(login, pass);
+		userDB.desconectar();
+		session.setAttribute("userLogged", user);
+		if (user != null) {
+		    response.sendRedirect("index.jsp");
 		}
-	    }
-	    session.setAttribute("dados_determinante_a", a);
-	    session.setAttribute("dados_determinante_dima", dima);
-	    session.setAttribute("dados_determinante_dimb", dimb);
-	    if (erro == 0) {
-		Determinar d = new Determinar(a, dima, dimb);
-		d.calcular();
-		resultado = d.getResultado();
-		session.setAttribute("resultado_determinante", resultado);
-		try {
-		    d.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = d.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
-			if (request.getParameter("id") != null) {
-			    d.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(d);
-			} else {
-			    cDB.inserir(d);
-			}
-			cDB.desconectar();
-		    }
-		} catch (Exception e) {
-		}
+
+	    } catch (Exception e) {
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_determinante.jsp','_parent');");
+		out.print(" alert('Erro ao Logar!');");
+		out.print(" window.open('login.jsp','_parent');");
 		out.print("</script>");
 	    }
-
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {

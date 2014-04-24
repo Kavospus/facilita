@@ -18,7 +18,7 @@ import modelo.Perfil;
 import modelo.PerfilDAO;
 
 
-public class AlterarPerfil extends HttpServlet {
+public class UpdateProfile extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,8 +33,8 @@ public class AlterarPerfil extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(session.getAttribute("perfil") == null){
-       response.sendRedirect("index.jsp?erro=1");
+    if(session.getAttribute("profile") == null){
+       response.sendRedirect("index.jsp?error=1");
     }else{
             //TODO output your page here
             out.println("<html>");
@@ -44,20 +44,20 @@ public class AlterarPerfil extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String perfil = request.getParameter("perfil");
+                String profileName = request.getParameter("profile");
 
-                PerfilDAO pDB = new PerfilDAO();
+                PerfilDAO profileDB = new PerfilDAO();
 
-                pDB.conectar();
+                profileDB.conectar();
 
-                Perfil p = new Perfil();
+                Perfil profile = new Perfil();
 
-                p.setId(id);
-                p.setPerfil(perfil);
+                profile.setId(id);
+                profile.setPerfil(profileName);
 
-                pDB.alterar(p);
+                profileDB.alterar(profile);
 
-                pDB.desconectar();
+                profileDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

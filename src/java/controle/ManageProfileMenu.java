@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert a new menu.
+ *Description: Menu manager class of profiles.
  */
 
 package controle;
@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Menu;
 import modelo.MenuDAO;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
-public class InserirMenu extends HttpServlet {
+public class ManageProfileMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,40 +36,61 @@ public class InserirMenu extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("menu") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+	    if (session.getAttribute("profile") == null) {
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
-		// TODO output your page here
+
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet InserirMenu</title>");
+		out.println("<title>Servlet GerenciarMenuPerfil</title>");
 		out.println("</head>");
 		out.println("<body>");
+
 		try {
 
-		    String menu = request.getParameter("menu");
-		    String link = request.getParameter("link");
-		    String icone = request.getParameter("icone");
+		    int op = Integer.parseInt(request.getParameter("op"));
+		    int id_menu = Integer.parseInt(request
+			    .getParameter("id_menu"));
+		    int id_profile = Integer.parseInt(request
+			    .getParameter("id_profile"));
 
-		    Menu m = new Menu();
-		    m.setMenu(menu);
-		    m.setLink(link);
-		    m.setIcone(icone);
+		    MenuDAO menuDB = new MenuDAO();
+		    menuDB.conectar();
 
-		    MenuDAO mDB = new MenuDAO();
+		    if (op == 1) {
+			menuDB.vincularMenu(id_menu, id_profile);
+		    } else if (op == 2) {
+			menuDB.desvincularMenu(id_menu, id_profile);
+		    }
 
-		    mDB.conectar();
-		    mDB.inserir(m);
-		    mDB.desconectar();
+		    menuDB.desconectar();
 
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Registros inseridos com sucesso!');");
-		    out.print(" window.open('listar_menu.jsp','_parent');");
-		    out.print("</script>");
+		    Usuario user = (Usuario) session.getAttribute("user");
+		    UsuarioDAO userDB = new UsuarioDAO();
+		    userDB.conectar();
+		    Usuario nu = userDB.carregaPorId(user.getId());
+		    userDB.desconectar();
+		    session.removeAttribute("profile");
+		    session.removeAttribute("menu");
+		    session.removeAttribute("orcamento");
+		    session.removeAttribute("requisicao");
+		    session.removeAttribute("produto");
+		    session.removeAttribute("user");
+		    session.setAttribute("user", nu);
+		    session.setAttribute("profile", true);
+		    session.setAttribute("menu", null);
+		    session.setAttribute("orcamento", null);
+		    session.setAttribute("requisicao", null);
+		    session.setAttribute("produto", null);
+		    session.setAttribute("produto", null);
+		    session.setAttribute("user", null);
+		    response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="
+			    + id_profile);
 
 		} catch (Exception e) {
 		    out.print(e);
 		}
+
 		out.println("</body>");
 		out.println("</html>");
 	    }

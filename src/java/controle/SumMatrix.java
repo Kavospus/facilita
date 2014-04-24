@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to transpose matrices
+ *Description: Class to insert data to sum matrices. 
  */
 package controle;
 
@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Transpor;
+import modelo.Somar;
 import modelo.Usuario;
 
-public class TransporMatriz extends HttpServlet {
+public class SumMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,86 +38,112 @@ public class TransporMatriz extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet EscalarMatriz</title>");
+	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-
-	    if (request.getParameter("dima") != null) {
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('altera_soma.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_transposta.jsp','_parent');");
+		    out.print(" window.open('altera_soma.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
 
-	    double a[][] = new double[dima][dimb];
-	    double resultado[][];
+	    double matrixA[][] = new double[linesA][columnsA];
+	    double matrixB[][] = new double[linesA][columnsA];
+	    double result[][] = new double[linesA][columnsA];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
 			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_transposta.jsp','_parent');");
+			    out.print(" window.open('altera_soma.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
-			a[i][j] = 0;
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
-	    session.setAttribute("dados_transposta_a", a);
-	    session.setAttribute("dados_transposta_dima", dima);
-	    session.setAttribute("dados_transposta_dimb", dimb);
-	    if (erro == 0) {
-		Transpor transpor = new Transpor(a, dima, dimb);
-		transpor.calcular();
-		resultado = transpor.getResultado();
-		session.setAttribute("resultado_transposta", resultado);
-		session.setAttribute("resultado_transposta_dima", dimb);
-		session.setAttribute("resultado_transposta_dimb", dima);
-		try {
-		    transpor.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = transpor.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
-			if (request.getParameter("id") != null) {
-			    transpor.setId(Integer.parseInt(request
-				    .getParameter("id")));
-			    cDB.alterar(transpor);
-			} else {
-			    cDB.inserir(transpor);
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixB" + i + j) != null
+			    && request.getParameter("matrixB" + i + j) != "") {
+			try {
+			    matrixB[i][j] = Double.parseDouble(request
+				    .getParameter("matrixB" + i + j));
+			} catch (Exception e) {
+			    error = 1;
+			    out.print("<script language='JavaScript'>");
+			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print("</script>");
 			}
-			cDB.desconectar();
+		    } else {
+			matrixB[i][j] = 0;
+		    }
+		}
+	    }
+
+	    session.setAttribute("data_sum_matrixA", matrixA);
+	    session.setAttribute("data_sum_b", matrixB);
+	    session.setAttribute("data_sum_linesA", linesA);
+	    session.setAttribute("data_sum_columnsA", columnsA);
+	    session.setAttribute("data_sum_linesB", linesA);
+	    session.setAttribute("data_sum_columnsB", columnsA);
+	    if (error == 0) {
+		Somar sum = new Somar(matrixA, matrixB, linesA, columnsA);
+		sum.calcular();
+		result = sum.getResultado();
+		session.setAttribute("result_sum", result);
+		session.setAttribute("result_sum_linesA", linesA);
+		session.setAttribute("result_sum_columnsA", columnsA);
+		session.setAttribute("result_sum_linesB", linesA);
+		session.setAttribute("result_sum_columnsB", columnsA);
+
+		try {
+		    sum.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = sum.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
+			if (request.getParameter("id") != null) {
+			    sum.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(sum);
+			} else {
+			    calculusDB.inserir(sum);
+			}
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}
+
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_transposta.jsp','_parent');");
+		out.print(" window.open('resultado_soma.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

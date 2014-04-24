@@ -2,8 +2,9 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove menus. 
+ *Description: Class to remove profile.
  */
+
 package controle;
 
 import java.io.IOException;
@@ -13,10 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Menu;
-import modelo.MenuDAO;
+import modelo.Perfil;
+import modelo.PerfilDAO;
 
-public class ExcluirMenu extends HttpServlet {
+public class RemoveProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +35,29 @@ public class ExcluirMenu extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("menu") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+	    if (session.getAttribute("profile") == null) {
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet InserirMenu</title>");
+		out.println("<title>Servlet InserirPerfil</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Menu m = new Menu();
-		    m.setId(id);
+		    Perfil profile = new Perfil();
+		    profile.setId(id);
 
-		    MenuDAO mDB = new MenuDAO();
+		    PerfilDAO profileDB = new PerfilDAO();
 
-		    mDB.conectar();
-		    mDB.excluir(m);
-		    mDB.desconectar();
+		    profileDB.conectar();
+		    profileDB.excluir(profile);
+		    profileDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_menu.jsp','_parent');");
+		    out.print(" window.open('listar_perfil.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {

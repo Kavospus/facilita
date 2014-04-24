@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class that change the user.
+ *Description: Class that change the menu.
  */
 
 package controle;
@@ -14,13 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.MD5Encrypter;
-import modelo.PerfilDAO;
-import modelo.Usuario;
-import modelo.UsuarioDAO;
+import modelo.Menu;
+import modelo.MenuDAO;
 
 
-public class AlterarUsuario extends HttpServlet {
+public class UpdateMenu extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,58 +33,42 @@ public class AlterarUsuario extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(session.getAttribute("usuario") == null){
-       response.sendRedirect("index.jsp?erro=1");
+    if(session.getAttribute("menu") == null){
+       response.sendRedirect("index.jsp?error=1");
     }else{
             // TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AlterarUsuario</title>");
+            out.println("<title>Servlet AlterarMenu</title>");  
             out.println("</head>");
             out.println("<body>");
             try {
-
                 int id = Integer.parseInt(request.getParameter("id"));
-                int id_perfil = 0;
-                if(request.getParameter("id_perfil") != null){
-                    try{
-                        id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
-                    }catch(Exception e){
-                        e.printStackTrace();
-                    }
-                }
-                String nome = request.getParameter("nome");
-                String senha = MD5Encrypter.encryptMD5(request.getParameter("senha"));
-                String login = request.getParameter("login");
+                String menuName = request.getParameter("menu");
+                String link = request.getParameter("link");
+                String icon = request.getParameter("icon");
 
-                Usuario u = new Usuario();
-                PerfilDAO pDB = new PerfilDAO();
-                u.setId(id);
-                u.setNome(nome);
-                pDB.conectar();
-                u.setPerfil(pDB.carregaPorId(id_perfil));
-                pDB.desconectar();
-                u.setSenha(senha);
-                u.setLogin(login);
+                MenuDAO menuDB = new MenuDAO();
 
+                menuDB.conectar();
 
+                Menu menu = new Menu();
 
-                UsuarioDAO uDB = new UsuarioDAO();
+                menu.setId(id);
+                menu.setMenu(menuName);
+                menu.setLink(link);
+                menu.setIcone(icon);
+                menuDB.alterar(menu);
 
-                uDB.conectar();
-                uDB.alterar(u);
-                uDB.desconectar();
+                menuDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
-                out.print(" window.open('listar_usuario.jsp','_parent');");
+                out.print(" window.open('listar_menu.jsp','_parent');");
                 out.print("</script>");
 
             } catch (Exception e) {
-                out.print("<script language='JavaScript'>");
-                out.print(" alert('O usuário já existe!');");
-                out.print(" window.open('listar_usuario.jsp','_parent');");
-                out.print("</script>");
+                out.print(e);
             }
             out.println("</body>");
             out.println("</html>");

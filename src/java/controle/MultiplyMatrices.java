@@ -18,7 +18,7 @@ import modelo.CalculoDAO;
 import modelo.Multiplicar;
 import modelo.Usuario;
 
-public class MultiplicarMatrizes extends HttpServlet {
+public class MultiplyMatrices extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,113 +43,113 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 
-	    int i, j, dima = 0, dimb = 0, dimc = 0, dimd = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, error = 0;
 
-	    if (request.getParameter("dima") != null) {
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimc") != null) {
+	    if (request.getParameter("linesB") != null) {
 		try {
-		    dimc = Integer.parseInt(request.getParameter("dimc"));
+		    linesB = Integer.parseInt(request.getParameter("linesB"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
 		    out.print(" window.open('altera_multiplica.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    dimd = dimc;
-	    dimc = dimb;
-	    double a[][] = new double[dima][dimb];
-	    double b[][] = new double[dimc][dimd];
-	    double resultado[][] = new double[dima][dimd];
+	    columnsB = linesB;
+	    linesB = columnsA;
+	    double matrixA[][] = new double[linesA][columnsA];
+	    double matrixB[][] = new double[linesB][columnsB];
+	    double result[][] = new double[linesA][columnsB];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
 			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_multiplica.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
-			a[i][j] = 0;
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
-	    for (i = 0; i < dimc; i++) {
-		for (j = 0; j < dimd; j++) {
-		    if (request.getParameter("b" + i + j) != null
-			    && request.getParameter("b" + i + j) != "") {
+	    for (i = 0; i < linesB; i++) {
+		for (j = 0; j < columnsB; j++) {
+		    if (request.getParameter("matrixB" + i + j) != null
+			    && request.getParameter("matrixB" + i + j) != "") {
 			try {
-			    b[i][j] = Double.parseDouble(request
-				    .getParameter("b" + i + j));
+			    matrixB[i][j] = Double.parseDouble(request
+				    .getParameter("matrixB" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
 			    out.print(" window.open('altera_multiplica.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
-			b[i][j] = 0;
+			matrixB[i][j] = 0;
 		    }
 		}
 	    }
 
-	    session.setAttribute("dados_multiplica_a", a);
-	    session.setAttribute("dados_multiplica_b", b);
-	    session.setAttribute("dados_multiplica_dima", dima);
-	    session.setAttribute("dados_multiplica_dimb", dimb);
-	    session.setAttribute("dados_multiplica_dimc", dimc);
-	    session.setAttribute("dados_multiplica_dimd", dimd);
-	    if (erro == 0) {
-		Multiplicar m = new Multiplicar(a, b, dima, dimb, dimd);
-		m.calcular();
-		resultado = m.getResultado();
-		session.setAttribute("resultado_multiplica", resultado);
-		session.setAttribute("resultado_multiplica_dima", dima);
-		session.setAttribute("resultado_multiplica_dimb", dimd);
+	    session.setAttribute("data_multiply_matrixA", matrixA);
+	    session.setAttribute("data_multiply_b", matrixB);
+	    session.setAttribute("data_multiply_linesA", linesA);
+	    session.setAttribute("data_multiply_columnsA", columnsA);
+	    session.setAttribute("data_multiply_linesB", linesB);
+	    session.setAttribute("data_multiply_columnsB", columnsB);
+	    if (error == 0) {
+		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
+		menu.calcular();
+		result = menu.getResultado();
+		session.setAttribute("result_multiply", result);
+		session.setAttribute("result_multiply_linesA", linesA);
+		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    m.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = m.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+		    menu.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = menu.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    m.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(m);
+			    menu.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(menu);
 			} else {
-			    cDB.inserir(m);
+			    calculusDB.inserir(menu);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}

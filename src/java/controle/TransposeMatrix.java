@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to calculates least-squares. 
+ *Description: Class to insert data to transpose matrices
  */
 package controle;
 
@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Minimos;
-import org.ejml.factory.SingularMatrixException;
+import modelo.CalculoDAO;
+import modelo.Transpor;
+import modelo.Usuario;
 
-
-public class CalcularMinimos extends HttpServlet {
+public class TransposeMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,82 +38,86 @@ public class CalcularMinimos extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet CalculaMinimos</title>");
+	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int quantidade = 0, opcao = 1, i, errom = 0;
-	    double resultado[] = null;
-	    String erro = null;
-	    if (request.getParameter("quantidade") != null) {
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
+
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    quantidade = Integer.parseInt(request
-			    .getParameter("quantidade"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    errom = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_minimos.jsp','_parent');");
+		    out.print(" window.open('altera_transposta.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("opcao") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    opcao = Integer.parseInt(request.getParameter("opcao"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    errom = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_minimos.jsp','_parent');");
+		    out.print(" window.open('altera_transposta.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    double vx[] = new double[quantidade];
-	    double vy[] = new double[quantidade];
-	    for (i = 0; i < quantidade; i++) {
-		if (request.getParameter("vx" + i) != null) {
-		    try {
-			vx[i] = Double.parseDouble(request.getParameter("vx"
-				+ i));
-		    } catch (Exception e) {
-			errom = 1;
-			out.print("<script language='JavaScript'>");
-			out.print(" alert('Caracteres proibidos detectados!');");
-			out.print(" window.open('altera_minimos.jsp','_parent');");
-			out.print("</script>");
-		    }
-		}
-		if (request.getParameter("vy" + i) != null) {
-		    try {
-			vy[i] = Double.parseDouble(request.getParameter("vy"
-				+ i));
-		    } catch (Exception e) {
-			errom = 1;
-			out.print("<script language='JavaScript'>");
-			out.print(" alert('Caracteres proibidos detectados!');");
-			out.print(" window.open('altera_minimos.jsp','_parent');");
-			out.print("</script>");
+
+	    double matrixA[][] = new double[linesA][columnsA];
+	    double result[][];
+
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
+			try {
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
+			} catch (Exception e) {
+			    error = 1;
+			    out.print("<script language='JavaScript'>");
+			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" window.open('altera_transposta.jsp','_parent');");
+			    out.print("</script>");
+			}
+		    } else {
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
-	    session.setAttribute("dados_minimos_quantidade", quantidade);
-	    session.setAttribute("dados_minimos_opcao", opcao);
-	    session.setAttribute("dados_minimos_vx", vx);
-	    session.setAttribute("dados_minimos_vy", vy);
-	    if (errom == 0) {
-		Minimos m = new Minimos();
+	    session.setAttribute("data_transposed_matrixA", matrixA);
+	    session.setAttribute("data_transposed_linesA", linesA);
+	    session.setAttribute("data_transposed_columnsA", columnsA);
+	    if (error == 0) {
+		Transpor transpor = new Transpor(matrixA, linesA, columnsA);
+		transpor.calcular();
+		result = transpor.getResultado();
+		session.setAttribute("result_transposed", result);
+		session.setAttribute("result_transposed_linesA", columnsA);
+		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
-		    resultado = m.calculaMinimos(vx, vy, quantidade, opcao);
-		} catch (SingularMatrixException e) {
-		    erro = "Matriz Singular";
-
+		    transpor.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = transpor.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
+			if (request.getParameter("id") != null) {
+			    transpor.setId(Integer.parseInt(request
+				    .getParameter("id")));
+			    calculusDB.alterar(transpor);
+			} else {
+			    calculusDB.inserir(transpor);
+			}
+			calculusDB.desconectar();
+		    }
+		} catch (Exception e) {
 		}
-
-		session.setAttribute("resultado_minimos", resultado);
-		session.setAttribute("erro_minimos", erro);
-
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_minimos.jsp?dimens="
-			+ resultado.length + "','_parent');");
+		out.print(" window.open('resultado_transposta.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

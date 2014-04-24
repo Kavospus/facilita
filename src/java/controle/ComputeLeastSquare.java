@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to multiply a matrix by a scalar. 
+ *Description: Class to insert data to calculates least-squares. 
  */
 package controle;
 
@@ -13,12 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.CalculoDAO;
-import modelo.Escalar;
-import modelo.Usuario;
+import modelo.Minimos;
+import org.ejml.factory.SingularMatrixException;
 
 
-public class EscalarMatriz extends HttpServlet {
+public class ComputeLeastSquare extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,97 +38,82 @@ public class EscalarMatriz extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet EscalarMatriz</title>");
+	    out.println("<title>Servlet CalculaMinimos</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-	    double n = 0;
-	    if (request.getParameter("dima") != null) {
+	    int quantity = 0, option = 1, i, errom = 0;
+	    double result[] = null;
+	    String error = null;
+	    if (request.getParameter("quantity") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    quantity = Integer.parseInt(request
+			    .getParameter("quantity"));
 		} catch (Exception e) {
-		    erro = 1;
+		    errom = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_escalar.jsp','_parent');");
+		    out.print(" window.open('altera_minimos.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("option") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    option = Integer.parseInt(request.getParameter("option"));
 		} catch (Exception e) {
-		    erro = 1;
+		    errom = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_escalar.jsp','_parent');");
+		    out.print(" window.open('altera_minimos.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("n") != null) {
-		try {
-		    n = Double.parseDouble(request.getParameter("n"));
-		} catch (Exception e) {
-		    erro = 1;
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_escalar.jsp','_parent');");
-		    out.print("</script>");
+	    double vectorX[] = new double[quantity];
+	    double vectorY[] = new double[quantity];
+	    for (i = 0; i < quantity; i++) {
+		if (request.getParameter("vectorX" + i) != null) {
+		    try {
+			vectorX[i] = Double.parseDouble(request.getParameter("vectorX"
+				+ i));
+		    } catch (Exception e) {
+			errom = 1;
+			out.print("<script language='JavaScript'>");
+			out.print(" alert('Caracteres proibidos detectados!');");
+			out.print(" window.open('altera_minimos.jsp','_parent');");
+			out.print("</script>");
+		    }
 		}
-	    }
-
-	    double a[][] = new double[dima][dimb];
-	    double resultado[][];
-
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
-			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
-			} catch (Exception e) {
-			    erro = 1;
-			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_escalar.jsp','_parent');");
-			    out.print("</script>");
-			}
-		    } else {
-			a[i][j] = 0;
+		if (request.getParameter("vectorY" + i) != null) {
+		    try {
+			vectorY[i] = Double.parseDouble(request.getParameter("vectorY"
+				+ i));
+		    } catch (Exception e) {
+			errom = 1;
+			out.print("<script language='JavaScript'>");
+			out.print(" alert('Caracteres proibidos detectados!');");
+			out.print(" window.open('altera_minimos.jsp','_parent');");
+			out.print("</script>");
 		    }
 		}
 	    }
-	    session.setAttribute("dados_escalar_a", a);
-	    session.setAttribute("dados_escalar_dima", dima);
-	    session.setAttribute("dados_escalar_dimb", dimb);
-	    session.setAttribute("dados_escalar_n", n);
-	    if (erro == 0) {
-		Escalar e = new Escalar(a, n, dima, dimb);
-		e.calcular();
-		resultado = e.getResultado();
-		session.setAttribute("resultado_escalar", resultado);
-		session.setAttribute("resultado_escalar_dima", dima);
-		session.setAttribute("resultado_escalar_dimb", dimb);
+	    session.setAttribute("data_least_squares_quantity", quantity);
+	    session.setAttribute("data_least_squares_option", option);
+	    session.setAttribute("data_least_squares_vectorX", vectorX);
+	    session.setAttribute("data_least_squares_vectorY", vectorY);
+	    if (errom == 0) {
+		Minimos menu = new Minimos();
 		try {
-		    e.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = e.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
-			if (request.getParameter("id") != null) {
-			    e.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(e);
-			} else {
-			    cDB.inserir(e);
-			}
-			cDB.desconectar();
-		    }
-		} catch (Exception x) {
+		    result = menu.calculaMinimos(vectorX, vectorY, quantity, option);
+		} catch (SingularMatrixException e) {
+		    error = "Matriz Singular";
+
 		}
+
+		session.setAttribute("result_least_squares", result);
+		session.setAttribute("erro_minimos", error);
+
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_escalar.jsp','_parent');");
+		out.print(" window.open('resultado_minimos.jsp?dimension="
+			+ result.length + "','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

@@ -16,102 +16,102 @@
     </filter-mapping>
     <servlet>
         <servlet-name>InverterMatriz</servlet-name>
-        <servlet-class>controle.InverterMatriz</servlet-class>
+        <servlet-class>controle.InvertMatrix</servlet-class>
     </servlet>
     <servlet>
         <description>transpor_matriz</description>
         <servlet-name>TransporMatriz</servlet-name>
-        <servlet-class>controle.TransporMatriz</servlet-class>
+        <servlet-class>controle.TransposeMatrix</servlet-class>
     </servlet>
     <servlet>
         <description>EfetuaLogin</description>
         <servlet-name>EfetuarLogin</servlet-name>
-        <servlet-class>controle.EfetuarLogin</servlet-class>
+        <servlet-class>controle.DoLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CalcularDeterminante</servlet-name>
-        <servlet-class>controle.CalcularDeterminante</servlet-class>
+        <servlet-class>controle.ComputeDeterminat</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SomarMatrizes</servlet-name>
-        <servlet-class>controle.SomarMatrizes</servlet-class>
+        <servlet-class>controle.SumMatrix</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SubtrairMatrizes</servlet-name>
-        <servlet-class>controle.SubtrairMatrizes</servlet-class>
+        <servlet-class>controle.SubtractMatrix</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MultiplicarMatrizes</servlet-name>
-        <servlet-class>controle.MultiplicarMatrizes</servlet-class>
+        <servlet-class>controle.MultiplyMatrices</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CalcularMinimos</servlet-name>
-        <servlet-class>controle.CalcularMinimos</servlet-class>
+        <servlet-class>controle.ComputeLeastSquare</servlet-class>
     </servlet>
     <servlet>
         <description>Deleta o Perfil</description>
         <servlet-name>ExcluirPerfil</servlet-name>
-        <servlet-class>controle.ExcluirPerfil</servlet-class>
+        <servlet-class>controle.RemoveProfile</servlet-class>
     </servlet>
     <servlet>
         <description>Altera o Perfil</description>
         <servlet-name>AlterarPerfil</servlet-name>
-        <servlet-class>controle.AlterarPerfil</servlet-class>
+        <servlet-class>controle.UpdateProfile</servlet-class>
     </servlet>
     <servlet>
         <description>Gerencia Menu e Perfil</description>
         <servlet-name>GerenciarMenuPerfil</servlet-name>
-        <servlet-class>controle.GerenciarMenuPerfil</servlet-class>
+        <servlet-class>controle.ManageProfileMenu</servlet-class>
     </servlet>
     <servlet>
         <description>Adicionar um Perfil</description>
         <servlet-name>InserirPerfil</servlet-name>
-        <servlet-class>controle.InserirPerfil</servlet-class>
+        <servlet-class>controle.InsertProfile</servlet-class>
     </servlet>
     <servlet>
         <description>Adiciona um Menu</description>
         <servlet-name>InserirMenu</servlet-name>
-        <servlet-class>controle.InserirMenu</servlet-class>
+        <servlet-class>controle.InsertMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirMenu</servlet-name>
-        <servlet-class>controle.ExcluirMenu</servlet-class>
+        <servlet-class>controle.RemoveMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarMenu</servlet-name>
-        <servlet-class>controle.AlterarMenu</servlet-class>
+        <servlet-class>controle.UpdateMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirUsuario</servlet-name>
-        <servlet-class>controle.ExcluirUsuario</servlet-class>
+        <servlet-class>controle.RemoveUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InserirUsuario</servlet-name>
-        <servlet-class>controle.InserirUsuario</servlet-class>
+        <servlet-class>controle.InsertUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarUsuario</servlet-name>
-        <servlet-class>controle.AlterarUsuario</servlet-class>
+        <servlet-class>controle.UpdateUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CarregarCalculo</servlet-name>
-        <servlet-class>controle.CarregarCalculo</servlet-class>
+        <servlet-class>controle.LoadCalculus</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirCalculo</servlet-name>
-        <servlet-class>controle.ExcluirCalculo</servlet-class>
+        <servlet-class>controle.RemoveCalculus</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EscalarMatriz</servlet-name>
-        <servlet-class>controle.EscalarMatriz</servlet-class>
+        <servlet-class>controle.ScalarMatrix</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EfetuarLoginConvidado</servlet-name>
-        <servlet-class>controle.EfetuarLoginConvidado</servlet-class>
+        <servlet-class>controle.DoGuestLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarUsuario</servlet-name>
-        <servlet-class>controle.CadastrarUsuario</servlet-class>
+        <servlet-class>controle.RegisterUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>

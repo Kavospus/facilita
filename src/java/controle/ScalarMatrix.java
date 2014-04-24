@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to sum matrices. 
+ *Description: Class to insert data to multiply a matrix by a scalar. 
  */
 package controle;
 
@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
-import modelo.Somar;
+import modelo.Escalar;
 import modelo.Usuario;
 
-public class SomarMatrizes extends HttpServlet {
+
+public class ScalarMatrix extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,112 +39,97 @@ public class SomarMatrizes extends HttpServlet {
 	    /* TODO output your page here. You may use following sample code. */
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("<title>Servlet MultiplicaMatrizes</title>");
+	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-	    if (request.getParameter("dima") != null) {
+	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	    double number = 0;
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
-		    erro = 1;
+		    error = 1;
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Caracteres proibidos detectados!');");
-		    out.print(" window.open('altera_soma.jsp','_parent');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
+		    out.print("</script>");
+		}
+	    }
+	    if (request.getParameter("n") != null) {
+		try {
+		    number = Double.parseDouble(request.getParameter("number"));
+		} catch (Exception e) {
+		    error = 1;
+		    out.print("<script language='JavaScript'>");
+		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" window.open('altera_escalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
 
-	    double a[][] = new double[dima][dimb];
-	    double b[][] = new double[dima][dimb];
-	    double resultado[][] = new double[dima][dimb];
+	    double matrixA[][] = new double[linesA][columnsA];
+	    double result[][];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("a" + i + j) != null
-			    && request.getParameter("a" + i + j) != "") {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
+		    if (request.getParameter("matrixA" + i + j) != null
+			    && request.getParameter("matrixA" + i + j) != "") {
 			try {
-			    a[i][j] = Double.parseDouble(request
-				    .getParameter("a" + i + j));
+			    matrixA[i][j] = Double.parseDouble(request
+				    .getParameter("matrixA" + i + j));
 			} catch (Exception e) {
-			    erro = 1;
+			    error = 1;
 			    out.print("<script language='JavaScript'>");
 			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
+			    out.print(" window.open('altera_escalar.jsp','_parent');");
 			    out.print("</script>");
 			}
 		    } else {
-			a[i][j] = 0;
+			matrixA[i][j] = 0;
 		    }
 		}
 	    }
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
-		    if (request.getParameter("b" + i + j) != null
-			    && request.getParameter("b" + i + j) != "") {
-			try {
-			    b[i][j] = Double.parseDouble(request
-				    .getParameter("b" + i + j));
-			} catch (Exception e) {
-			    erro = 1;
-			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
-			    out.print(" window.open('altera_soma.jsp','_parent');");
-			    out.print("</script>");
-			}
-		    } else {
-			b[i][j] = 0;
-		    }
-		}
-	    }
-
-	    session.setAttribute("dados_soma_a", a);
-	    session.setAttribute("dados_soma_b", b);
-	    session.setAttribute("dados_soma_dima", dima);
-	    session.setAttribute("dados_soma_dimb", dimb);
-	    session.setAttribute("dados_soma_dimc", dima);
-	    session.setAttribute("dados_soma_dimd", dimb);
-	    if (erro == 0) {
-		Somar s = new Somar(a, b, dima, dimb);
-		s.calcular();
-		resultado = s.getResultado();
-		session.setAttribute("resultado_soma", resultado);
-		session.setAttribute("resultado_soma_dima", dima);
-		session.setAttribute("resultado_soma_dimb", dimb);
-		session.setAttribute("resultado_soma_dimc", dima);
-		session.setAttribute("resultado_soma_dimd", dimb);
-
+	    session.setAttribute("data_scalar_matrixA", matrixA);
+	    session.setAttribute("data_scalar_linesA", linesA);
+	    session.setAttribute("data_scalar_columnsA", columnsA);
+	    session.setAttribute("data_scalar_number", number);
+	    if (error == 0) {
+		Escalar scalar = new Escalar(matrixA, number, linesA, columnsA);
+		scalar.calcular();
+		result = scalar.getResultado();
+		session.setAttribute("result_escalar", result);
+		session.setAttribute("result_escalar_linesA", linesA);
+		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
-		    s.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = s.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+		    scalar.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = scalar.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    s.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(s);
+			    scalar.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(scalar);
 			} else {
-			    cDB.inserir(s);
+			    calculusDB.inserir(scalar);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
-		} catch (Exception e) {
+		} catch (Exception x) {
 		}
-
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_soma.jsp','_parent');");
+		out.print(" window.open('resultado_escalar.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

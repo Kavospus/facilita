@@ -2,8 +2,10 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert a new profile.
+ *Description: Class to insert data to login into the system. 
  */
+
+
 package controle;
 
 import java.io.IOException;
@@ -13,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
-import modelo.PerfilDAO;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
-public class InserirPerfil extends HttpServlet {
+public class DoLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,38 +36,37 @@ public class InserirPerfil extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("perfil") == null) {
-		response.sendRedirect("index.jsp?erro=1");
-	    } else {
-		// TODO output your page here
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Servlet InserirPerfil</title>");
-		out.println("</head>");
-		out.println("<body>");
-		try {
-		    String perfil = request.getParameter("perfil");
 
-		    Perfil p = new Perfil();
-		    p.setPerfil(perfil);
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("<title>Servlet EfetuarLogin</title>");
+	    out.println("</head>");
+	    out.println("<body>");
 
-		    PerfilDAO pDB = new PerfilDAO();
+	    try {
+		String login = request.getParameter("user");
+		String pass = request.getParameter("pass");
 
-		    pDB.conectar();
-		    pDB.inserir(p);
-		    pDB.desconectar();
+		UsuarioDAO userDB = new UsuarioDAO();
+		userDB.conectar();
+		Usuario user = userDB.logar(login, pass);
 
+		if (user.getId() > 0) {
+		    session.setAttribute("userLogged", user);
+		    response.sendRedirect("index.jsp");
+		} else {
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Registros inseridos com sucesso!');");
-		    out.print(" window.open('listar_perfil.jsp','_parent');");
+		    out.print(" alert('Usuário ou Senha Incorretos!');");
+		    out.print(" window.open('login.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print(e);
 		}
-		out.println("</body>");
-		out.println("</html>");
+	    } catch (Exception e) {
+		out.print(e);
 	    }
+
+	    out.println("</body>");
+	    out.println("</html>");
+
 	} finally {
 	    out.close();
 	}

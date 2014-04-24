@@ -2,9 +2,8 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to remove data calculus. 
+ *Description: Class to remove menus. 
  */
-
 package controle;
 
 import java.io.IOException;
@@ -14,11 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Calculo;
-import modelo.CalculoDAO;
-import modelo.Inverter;
+import modelo.Menu;
+import modelo.MenuDAO;
 
-public class ExcluirCalculo extends HttpServlet {
+public class RemoveMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,33 +34,29 @@ public class ExcluirCalculo extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
 	try {
-	    if (session.getAttribute("calculo") == null) {
-		response.sendRedirect("index.jsp?erro=1");
+	    if (session.getAttribute("menu") == null) {
+		response.sendRedirect("index.jsp?error=1");
 	    } else {
-		/*
-		 * TODO output your page here. You may use following sample
-		 * code.
-		 */
-		out.println("<!DOCTYPE html>");
+		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Servlet ExcluirCalculo</title>");
+		out.println("<title>Servlet InserirMenu</title>");
 		out.println("</head>");
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Calculo c = new Inverter();
-		    c.setId(id);
+		    Menu menu = new Menu();
+		    menu.setId(id);
 
-		    CalculoDAO cDB = new CalculoDAO();
+		    MenuDAO menuDB = new MenuDAO();
 
-		    cDB.conectar();
-		    cDB.excluir(c);
-		    cDB.desconectar();
+		    menuDB.conectar();
+		    menuDB.excluir(menu);
+		    menuDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");
-		    out.print(" window.open('listar_calculo.jsp','_parent');");
+		    out.print(" window.open('listar_menu.jsp','_parent');");
 		    out.print("</script>");
 
 		} catch (Exception e) {
