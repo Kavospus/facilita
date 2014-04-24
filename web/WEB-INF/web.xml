@@ -159,7 +159,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GerenciarMenuPerfil</servlet-name>
-        <url-pattern>/manage_menu_profile.do</url-pattern>
+        <url-pattern>/manage_profile_menu.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarMenu</servlet-name>
