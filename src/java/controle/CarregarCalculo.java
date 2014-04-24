@@ -156,7 +156,7 @@ public class CarregarCalculo extends HttpServlet {
 			Escalar e = (Escalar) calculus;
 			e.setDadosString();
 			session.setAttribute("data_scalar_a", e.getEntradaA());
-			session.setAttribute("data_scalar_n", e.getEntradaB());
+			session.setAttribute("data_scalar_number", e.getEntradaB());
 			session.setAttribute("data_scalar_linesA",
 				e.getDimensaoA());
 			session.setAttribute("data_scalar_columnsA",

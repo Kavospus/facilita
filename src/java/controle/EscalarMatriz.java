@@ -103,7 +103,7 @@ public class EscalarMatriz extends HttpServlet {
 	    session.setAttribute("data_scalar_a", a);
 	    session.setAttribute("data_scalar_linesA", linesA);
 	    session.setAttribute("data_scalar_columnsA", columnsA);
-	    session.setAttribute("data_scalar_n", number);
+	    session.setAttribute("data_scalar_number", number);
 	    if (error == 0) {
 		Escalar scalar = new Escalar(a, number, linesA, columnsA);
 		scalar.calcular();

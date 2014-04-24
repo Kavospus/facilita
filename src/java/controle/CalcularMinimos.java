@@ -41,7 +41,7 @@ public class CalcularMinimos extends HttpServlet {
 	    out.println("<title>Servlet CalculaMinimos</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int quantidade = 0, opcao = 1, i, errom = 0;
+	    int quantidade = 0, option = 1, i, errom = 0;
 	    double result[] = null;
 	    String error = null;
 	    if (request.getParameter("quantidade") != null) {
@@ -56,9 +56,9 @@ public class CalcularMinimos extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("opcao") != null) {
+	    if (request.getParameter("option") != null) {
 		try {
-		    opcao = Integer.parseInt(request.getParameter("opcao"));
+		    option = Integer.parseInt(request.getParameter("option"));
 		} catch (Exception e) {
 		    errom = 1;
 		    out.print("<script language='JavaScript'>");
@@ -96,13 +96,13 @@ public class CalcularMinimos extends HttpServlet {
 		}
 	    }
 	    session.setAttribute("data_least_squares_quantidade", quantidade);
-	    session.setAttribute("data_least_squares_opcao", opcao);
+	    session.setAttribute("data_least_squares_option", option);
 	    session.setAttribute("data_least_squares_vx", vx);
 	    session.setAttribute("data_least_squares_vy", vy);
 	    if (errom == 0) {
 		Minimos menu = new Minimos();
 		try {
-		    result = menu.calculaMinimos(vx, vy, quantidade, opcao);
+		    result = menu.calculaMinimos(vx, vy, quantidade, option);
 		} catch (SingularMatrixException e) {
 		    error = "Matriz Singular";
 
