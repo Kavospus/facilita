@@ -46,14 +46,14 @@ public class ExcluirPerfil extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Perfil p = new Perfil();
-		    p.setId(id);
+		    Perfil profile = new Perfil();
+		    profile.setId(id);
 
-		    PerfilDAO pDB = new PerfilDAO();
+		    PerfilDAO profileDB = new PerfilDAO();
 
-		    pDB.conectar();
-		    pDB.excluir(p);
-		    pDB.desconectar();
+		    profileDB.conectar();
+		    profileDB.excluir(profile);
+		    profileDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

@@ -46,14 +46,14 @@ public class InserirPerfil extends HttpServlet {
 		try {
 		    String perfil = request.getParameter("perfil");
 
-		    Perfil p = new Perfil();
-		    p.setPerfil(perfil);
+		    Perfil profile = new Perfil();
+		    profile.setPerfil(perfil);
 
-		    PerfilDAO pDB = new PerfilDAO();
+		    PerfilDAO profileDB = new PerfilDAO();
 
-		    pDB.conectar();
-		    pDB.inserir(p);
-		    pDB.desconectar();
+		    profileDB.conectar();
+		    profileDB.inserir(profile);
+		    profileDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros inseridos com sucesso!');");

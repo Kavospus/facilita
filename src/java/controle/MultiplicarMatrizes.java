@@ -43,11 +43,11 @@ public class MultiplicarMatrizes extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 
-	    int i, j, dima = 0, dimb = 0, dimc = 0, dimd = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, erro = 0;
 
-	    if (request.getParameter("dima") != null) {
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -56,9 +56,9 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -67,9 +67,9 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimc") != null) {
+	    if (request.getParameter("linesB") != null) {
 		try {
-		    dimc = Integer.parseInt(request.getParameter("dimc"));
+		    linesB = Integer.parseInt(request.getParameter("linesB"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -78,14 +78,14 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    dimd = dimc;
-	    dimc = dimb;
-	    double a[][] = new double[dima][dimb];
-	    double b[][] = new double[dimc][dimd];
-	    double resultado[][] = new double[dima][dimd];
+	    columnsB = linesB;
+	    linesB = columnsA;
+	    double a[][] = new double[linesA][columnsA];
+	    double b[][] = new double[linesB][columnsB];
+	    double resultado[][] = new double[linesA][columnsB];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("a" + i + j) != null
 			    && request.getParameter("a" + i + j) != "") {
 			try {
@@ -103,8 +103,8 @@ public class MultiplicarMatrizes extends HttpServlet {
 		    }
 		}
 	    }
-	    for (i = 0; i < dimc; i++) {
-		for (j = 0; j < dimd; j++) {
+	    for (i = 0; i < linesB; i++) {
+		for (j = 0; j < columnsB; j++) {
 		    if (request.getParameter("b" + i + j) != null
 			    && request.getParameter("b" + i + j) != "") {
 			try {
@@ -125,31 +125,31 @@ public class MultiplicarMatrizes extends HttpServlet {
 
 	    session.setAttribute("dados_multiplica_a", a);
 	    session.setAttribute("dados_multiplica_b", b);
-	    session.setAttribute("dados_multiplica_dima", dima);
-	    session.setAttribute("dados_multiplica_dimb", dimb);
-	    session.setAttribute("dados_multiplica_dimc", dimc);
-	    session.setAttribute("dados_multiplica_dimd", dimd);
+	    session.setAttribute("dados_multiplica_linesA", linesA);
+	    session.setAttribute("dados_multiplica_columnsA", columnsA);
+	    session.setAttribute("dados_multiplica_linesB", linesB);
+	    session.setAttribute("dados_multiplica_columnsB", columnsB);
 	    if (erro == 0) {
-		Multiplicar m = new Multiplicar(a, b, dima, dimb, dimd);
-		m.calcular();
-		resultado = m.getResultado();
+		Multiplicar menu = new Multiplicar(a, b, linesA, columnsA, columnsB);
+		menu.calcular();
+		resultado = menu.getResultado();
 		session.setAttribute("resultado_multiplica", resultado);
-		session.setAttribute("resultado_multiplica_dima", dima);
-		session.setAttribute("resultado_multiplica_dimb", dimd);
+		session.setAttribute("resultado_multiplica_linesA", linesA);
+		session.setAttribute("resultado_multiplica_columnsA", columnsB);
 		try {
-		    m.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = m.getUsuario();
+		    menu.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario uP = menu.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    m.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(m);
+			    menu.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(menu);
 			} else {
-			    cDB.inserir(m);
+			    calculusDB.inserir(menu);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}

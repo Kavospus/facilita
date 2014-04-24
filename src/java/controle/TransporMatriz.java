@@ -41,11 +41,11 @@ public class TransporMatriz extends HttpServlet {
 	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, erro = 0;
 
-	    if (request.getParameter("dima") != null) {
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -54,9 +54,9 @@ public class TransporMatriz extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -66,11 +66,11 @@ public class TransporMatriz extends HttpServlet {
 		}
 	    }
 
-	    double a[][] = new double[dima][dimb];
+	    double a[][] = new double[linesA][columnsA];
 	    double resultado[][];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("a" + i + j) != null
 			    && request.getParameter("a" + i + j) != "") {
 			try {
@@ -89,30 +89,30 @@ public class TransporMatriz extends HttpServlet {
 		}
 	    }
 	    session.setAttribute("dados_transposta_a", a);
-	    session.setAttribute("dados_transposta_dima", dima);
-	    session.setAttribute("dados_transposta_dimb", dimb);
+	    session.setAttribute("dados_transposta_linesA", linesA);
+	    session.setAttribute("dados_transposta_columnsA", columnsA);
 	    if (erro == 0) {
-		Transpor transpor = new Transpor(a, dima, dimb);
+		Transpor transpor = new Transpor(a, linesA, columnsA);
 		transpor.calcular();
 		resultado = transpor.getResultado();
 		session.setAttribute("resultado_transposta", resultado);
-		session.setAttribute("resultado_transposta_dima", dimb);
-		session.setAttribute("resultado_transposta_dimb", dima);
+		session.setAttribute("resultado_transposta_linesA", columnsA);
+		session.setAttribute("resultado_transposta_columnsA", linesA);
 		try {
 		    transpor.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = transpor.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    transpor.setId(Integer.parseInt(request
 				    .getParameter("id")));
-			    cDB.alterar(transpor);
+			    calculusDB.alterar(transpor);
 			} else {
-			    cDB.inserir(transpor);
+			    calculusDB.inserir(transpor);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}

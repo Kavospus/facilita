@@ -41,10 +41,10 @@ public class CalcularDeterminante extends HttpServlet {
 	    out.println("<title>Servlet CalculaDeterminante</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-	    if (request.getParameter("dima") != null) {
+	    int i, j, linesA = 0, columnsA = 0, erro = 0;
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -53,12 +53,12 @@ public class CalcularDeterminante extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    dimb = dima;
-	    double a[][] = new double[dima][dimb];
+	    columnsA = linesA;
+	    double a[][] = new double[linesA][columnsA];
 	    double resultado = 0;
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("a" + i + j) != null
 			    && request.getParameter("a" + i + j) != "") {
 			try {
@@ -77,10 +77,10 @@ public class CalcularDeterminante extends HttpServlet {
 		}
 	    }
 	    session.setAttribute("dados_determinante_a", a);
-	    session.setAttribute("dados_determinante_dima", dima);
-	    session.setAttribute("dados_determinante_dimb", dimb);
+	    session.setAttribute("dados_determinante_linesA", linesA);
+	    session.setAttribute("dados_determinante_columnsA", columnsA);
 	    if (erro == 0) {
-		Determinar d = new Determinar(a, dima, dimb);
+		Determinar d = new Determinar(a, linesA, columnsA);
 		d.calcular();
 		resultado = d.getResultado();
 		session.setAttribute("resultado_determinante", resultado);
@@ -89,15 +89,15 @@ public class CalcularDeterminante extends HttpServlet {
 		    Usuario uP = d.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    d.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(d);
+			    calculusDB.alterar(d);
 			} else {
-			    cDB.inserir(d);
+			    calculusDB.inserir(d);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}

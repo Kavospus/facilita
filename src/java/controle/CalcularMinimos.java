@@ -100,9 +100,9 @@ public class CalcularMinimos extends HttpServlet {
 	    session.setAttribute("dados_minimos_vx", vx);
 	    session.setAttribute("dados_minimos_vy", vy);
 	    if (errom == 0) {
-		Minimos m = new Minimos();
+		Minimos menu = new Minimos();
 		try {
-		    resultado = m.calculaMinimos(vx, vy, quantidade, opcao);
+		    resultado = menu.calculaMinimos(vx, vy, quantidade, opcao);
 		} catch (SingularMatrixException e) {
 		    erro = "Matriz Singular";
 

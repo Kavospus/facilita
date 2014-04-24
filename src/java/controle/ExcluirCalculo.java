@@ -51,14 +51,14 @@ public class ExcluirCalculo extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Calculo c = new Inverter();
-		    c.setId(id);
+		    Calculo calculus = new Inverter();
+		    calculus.setId(id);
 
-		    CalculoDAO cDB = new CalculoDAO();
+		    CalculoDAO calculusDB = new CalculoDAO();
 
-		    cDB.conectar();
-		    cDB.excluir(c);
-		    cDB.desconectar();
+		    calculusDB.conectar();
+		    calculusDB.excluir(calculus);
+		    calculusDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

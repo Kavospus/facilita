@@ -57,17 +57,17 @@ public class CarregarCalculo extends HttpServlet {
 		String operacao;
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    CalculoDAO cDB = new CalculoDAO();
-		    cDB.conectar();
-		    Calculo calculo = cDB.carregaPorId(id);
+		    CalculoDAO calculusDB = new CalculoDAO();
+		    calculusDB.conectar();
+		    Calculo calculo = calculusDB.carregaPorId(id);
 		    operacao = calculo.getOperacao();
 		    if (operacao.equals("Inverter")) {
 			Inverter i = (Inverter) calculo;
 			i.setDadosString();
 			session.setAttribute("dados_t_a", i.getEntrada());
-			session.setAttribute("dados_inversa_dima",
+			session.setAttribute("dados_inversa_linesA",
 				i.getDimensaoA());
-			session.setAttribute("dados_inversa_dimb",
+			session.setAttribute("dados_inversa_columnsA",
 				i.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_inversa.jsp?id="
@@ -78,9 +78,9 @@ public class CarregarCalculo extends HttpServlet {
 			t.setDadosString();
 			session.setAttribute("dados_transposta_a",
 				t.getEntrada());
-			session.setAttribute("dados_transposta_dima",
+			session.setAttribute("dados_transposta_linesA",
 				t.getDimensaoA());
-			session.setAttribute("dados_transposta_dimb",
+			session.setAttribute("dados_transposta_columnsA",
 				t.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_transposta.jsp?id="
@@ -91,9 +91,9 @@ public class CarregarCalculo extends HttpServlet {
 			d.setDadosString();
 			session.setAttribute("dados_determinante_a",
 				d.getEntrada());
-			session.setAttribute("dados_determinante_dima",
+			session.setAttribute("dados_determinante_linesA",
 				d.getDimensaoA());
-			session.setAttribute("dados_determinante_dimb",
+			session.setAttribute("dados_determinante_columnsA",
 				d.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_determinante.jsp?id="
@@ -104,13 +104,13 @@ public class CarregarCalculo extends HttpServlet {
 			s.setDadosString();
 			session.setAttribute("dados_soma_a", s.getEntradaA());
 			session.setAttribute("dados_soma_b", s.getEntradaB());
-			session.setAttribute("dados_soma_dima",
+			session.setAttribute("dados_soma_linesA",
 				s.getDimensaoA());
-			session.setAttribute("dados_soma_dimb",
+			session.setAttribute("dados_soma_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("dados_soma_dimc",
+			session.setAttribute("dados_soma_linesB",
 				s.getDimensaoA());
-			session.setAttribute("dados_soma_dimd",
+			session.setAttribute("dados_soma_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_soma.jsp?id="
@@ -121,45 +121,45 @@ public class CarregarCalculo extends HttpServlet {
 			s.setDadosString();
 			session.setAttribute("dados_subtrai_a", s.getEntradaA());
 			session.setAttribute("dados_subtrai_b", s.getEntradaB());
-			session.setAttribute("dados_subtrai_dima",
+			session.setAttribute("dados_subtrai_linesA",
 				s.getDimensaoA());
-			session.setAttribute("dados_subtrai_dimb",
+			session.setAttribute("dados_subtrai_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("dados_subtrai_dimc",
+			session.setAttribute("dados_subtrai_linesB",
 				s.getDimensaoA());
-			session.setAttribute("dados_subtrai_dimd",
+			session.setAttribute("dados_subtrai_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_subtrai.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Multiplicar")) {
-			Multiplicar m = (Multiplicar) calculo;
-			m.setDadosString();
+			Multiplicar menu = (Multiplicar) calculo;
+			menu.setDadosString();
 			session.setAttribute("dados_multiplica_a",
-				m.getEntradaA());
+				menu.getEntradaA());
 			session.setAttribute("dados_multiplica_b",
-				m.getEntradaB());
-			session.setAttribute("dados_multiplica_dima",
-				m.getDimensaoA());
-			session.setAttribute("dados_multiplica_dimb",
-				m.getDimensaoB());
-			session.setAttribute("dados_multiplica_dimc",
-				m.getDimensaoB());
-			session.setAttribute("dados_multiplica_dimd",
-				m.getDimensaoC());
+				menu.getEntradaB());
+			session.setAttribute("dados_multiplica_linesA",
+				menu.getDimensaoA());
+			session.setAttribute("dados_multiplica_columnsA",
+				menu.getDimensaoB());
+			session.setAttribute("dados_multiplica_linesB",
+				menu.getDimensaoB());
+			session.setAttribute("dados_multiplica_columnsB",
+				menu.getDimensaoC());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_multiplica.jsp?id="
-				+ m.getId() + "','_parent');");
+				+ menu.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Escalar")) {
 			Escalar e = (Escalar) calculo;
 			e.setDadosString();
 			session.setAttribute("dados_escalar_a", e.getEntradaA());
 			session.setAttribute("dados_escalar_n", e.getEntradaB());
-			session.setAttribute("dados_escalar_dima",
+			session.setAttribute("dados_escalar_linesA",
 				e.getDimensaoA());
-			session.setAttribute("dados_escalar_dimb",
+			session.setAttribute("dados_escalar_columnsA",
 				e.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_escalar.jsp?id="

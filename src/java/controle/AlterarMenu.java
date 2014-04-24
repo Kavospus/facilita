@@ -44,23 +44,23 @@ public class AlterarMenu extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String menu = request.getParameter("menu");
+                String menuName = request.getParameter("menu");
                 String link = request.getParameter("link");
                 String icone = request.getParameter("icone");
 
-                MenuDAO mDB = new MenuDAO();
+                MenuDAO menuDB = new MenuDAO();
 
-                mDB.conectar();
+                menuDB.conectar();
 
-                Menu m = new Menu();
+                Menu menu = new Menu();
 
-                m.setId(id);
-                m.setMenu(menu);
-                m.setLink(link);
-                m.setIcone(icone);
-                mDB.alterar(m);
+                menu.setId(id);
+                menu.setMenu(menuName);
+                menu.setLink(link);
+                menu.setIcone(icone);
+                menuDB.alterar(menu);
 
-                mDB.desconectar();
+                menuDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

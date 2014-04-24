@@ -42,11 +42,11 @@ public class EscalarMatriz extends HttpServlet {
 	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
+	    int i, j, linesA = 0, columnsA = 0, erro = 0;
 	    double n = 0;
-	    if (request.getParameter("dima") != null) {
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -55,9 +55,9 @@ public class EscalarMatriz extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -78,11 +78,11 @@ public class EscalarMatriz extends HttpServlet {
 		}
 	    }
 
-	    double a[][] = new double[dima][dimb];
+	    double a[][] = new double[linesA][columnsA];
 	    double resultado[][];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("a" + i + j) != null
 			    && request.getParameter("a" + i + j) != "") {
 			try {
@@ -101,30 +101,30 @@ public class EscalarMatriz extends HttpServlet {
 		}
 	    }
 	    session.setAttribute("dados_escalar_a", a);
-	    session.setAttribute("dados_escalar_dima", dima);
-	    session.setAttribute("dados_escalar_dimb", dimb);
+	    session.setAttribute("dados_escalar_linesA", linesA);
+	    session.setAttribute("dados_escalar_columnsA", columnsA);
 	    session.setAttribute("dados_escalar_n", n);
 	    if (erro == 0) {
-		Escalar e = new Escalar(a, n, dima, dimb);
+		Escalar e = new Escalar(a, n, linesA, columnsA);
 		e.calcular();
 		resultado = e.getResultado();
 		session.setAttribute("resultado_escalar", resultado);
-		session.setAttribute("resultado_escalar_dima", dima);
-		session.setAttribute("resultado_escalar_dimb", dimb);
+		session.setAttribute("resultado_escalar_linesA", linesA);
+		session.setAttribute("resultado_escalar_columnsA", columnsA);
 		try {
 		    e.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = e.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    e.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(e);
+			    calculusDB.alterar(e);
 			} else {
-			    cDB.inserir(e);
+			    calculusDB.inserir(e);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception x) {
 		}

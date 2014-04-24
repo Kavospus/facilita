@@ -44,15 +44,15 @@ public class EfetuarLogin extends HttpServlet {
 	    out.println("<body>");
 
 	    try {
-		String user = request.getParameter("user");
+		String login = request.getParameter("user");
 		String pass = request.getParameter("pass");
 
-		UsuarioDAO uDB = new UsuarioDAO();
-		uDB.conectar();
-		Usuario u = uDB.logar(user, pass);
+		UsuarioDAO userDB = new UsuarioDAO();
+		userDB.conectar();
+		Usuario user = userDB.logar(login, pass);
 
-		if (u.getId() > 0) {
-		    session.setAttribute("user", u);
+		if (user.getId() > 0) {
+		    session.setAttribute("user", user);
 		    response.sendRedirect("index.jsp");
 		} else {
 		    out.print("<script language='JavaScript'>");

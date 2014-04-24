@@ -45,14 +45,14 @@ public class ExcluirUsuario extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Usuario u = new Usuario();
-		    u.setId(id);
+		    Usuario user = new Usuario();
+		    user.setId(id);
 
-		    UsuarioDAO uDB = new UsuarioDAO();
+		    UsuarioDAO userDB = new UsuarioDAO();
 
-		    uDB.conectar();
-		    uDB.excluir(u);
-		    uDB.desconectar();
+		    userDB.conectar();
+		    userDB.excluir(user);
+		    userDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

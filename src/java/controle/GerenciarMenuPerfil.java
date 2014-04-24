@@ -54,22 +54,22 @@ public class GerenciarMenuPerfil extends HttpServlet {
 		    int id_perfil = Integer.parseInt(request
 			    .getParameter("id_perfil"));
 
-		    MenuDAO mDB = new MenuDAO();
-		    mDB.conectar();
+		    MenuDAO menuDB = new MenuDAO();
+		    menuDB.conectar();
 
 		    if (op == 1) {
-			mDB.vincularMenu(id_menu, id_perfil);
+			menuDB.vincularMenu(id_menu, id_perfil);
 		    } else if (op == 2) {
-			mDB.desvincularMenu(id_menu, id_perfil);
+			menuDB.desvincularMenu(id_menu, id_perfil);
 		    }
 
-		    mDB.desconectar();
+		    menuDB.desconectar();
 
-		    Usuario u = (Usuario) session.getAttribute("user");
-		    UsuarioDAO uDB = new UsuarioDAO();
-		    uDB.conectar();
-		    Usuario nu = uDB.carregaPorId(u.getId());
-		    uDB.desconectar();
+		    Usuario user = (Usuario) session.getAttribute("user");
+		    UsuarioDAO userDB = new UsuarioDAO();
+		    userDB.conectar();
+		    Usuario nu = userDB.carregaPorId(user.getId());
+		    userDB.desconectar();
 		    session.removeAttribute("perfil");
 		    session.removeAttribute("menu");
 		    session.removeAttribute("orcamento");

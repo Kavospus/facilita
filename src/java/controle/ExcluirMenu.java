@@ -45,14 +45,14 @@ public class ExcluirMenu extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Menu m = new Menu();
-		    m.setId(id);
+		    Menu menu = new Menu();
+		    menu.setId(id);
 
-		    MenuDAO mDB = new MenuDAO();
+		    MenuDAO menuDB = new MenuDAO();
 
-		    mDB.conectar();
-		    mDB.excluir(m);
-		    mDB.desconectar();
+		    menuDB.conectar();
+		    menuDB.excluir(menu);
+		    menuDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

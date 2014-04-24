@@ -41,10 +41,10 @@ public class SomarMatrizes extends HttpServlet {
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, dima = 0, dimb = 0, erro = 0;
-	    if (request.getParameter("dima") != null) {
+	    int i, j, linesA = 0, columnsA = 0, erro = 0;
+	    if (request.getParameter("linesA") != null) {
 		try {
-		    dima = Integer.parseInt(request.getParameter("dima"));
+		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -53,9 +53,9 @@ public class SomarMatrizes extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("dimb") != null) {
+	    if (request.getParameter("columnsA") != null) {
 		try {
-		    dimb = Integer.parseInt(request.getParameter("dimb"));
+		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
 		} catch (Exception e) {
 		    erro = 1;
 		    out.print("<script language='JavaScript'>");
@@ -65,12 +65,12 @@ public class SomarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    double a[][] = new double[dima][dimb];
-	    double b[][] = new double[dima][dimb];
-	    double resultado[][] = new double[dima][dimb];
+	    double a[][] = new double[linesA][columnsA];
+	    double b[][] = new double[linesA][columnsA];
+	    double resultado[][] = new double[linesA][columnsA];
 
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("a" + i + j) != null
 			    && request.getParameter("a" + i + j) != "") {
 			try {
@@ -88,8 +88,8 @@ public class SomarMatrizes extends HttpServlet {
 		    }
 		}
 	    }
-	    for (i = 0; i < dima; i++) {
-		for (j = 0; j < dimb; j++) {
+	    for (i = 0; i < linesA; i++) {
+		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("b" + i + j) != null
 			    && request.getParameter("b" + i + j) != "") {
 			try {
@@ -110,34 +110,34 @@ public class SomarMatrizes extends HttpServlet {
 
 	    session.setAttribute("dados_soma_a", a);
 	    session.setAttribute("dados_soma_b", b);
-	    session.setAttribute("dados_soma_dima", dima);
-	    session.setAttribute("dados_soma_dimb", dimb);
-	    session.setAttribute("dados_soma_dimc", dima);
-	    session.setAttribute("dados_soma_dimd", dimb);
+	    session.setAttribute("dados_soma_linesA", linesA);
+	    session.setAttribute("dados_soma_columnsA", columnsA);
+	    session.setAttribute("dados_soma_linesB", linesA);
+	    session.setAttribute("dados_soma_columnsB", columnsA);
 	    if (erro == 0) {
-		Somar s = new Somar(a, b, dima, dimb);
+		Somar s = new Somar(a, b, linesA, columnsA);
 		s.calcular();
 		resultado = s.getResultado();
 		session.setAttribute("resultado_soma", resultado);
-		session.setAttribute("resultado_soma_dima", dima);
-		session.setAttribute("resultado_soma_dimb", dimb);
-		session.setAttribute("resultado_soma_dimc", dima);
-		session.setAttribute("resultado_soma_dimd", dimb);
+		session.setAttribute("resultado_soma_linesA", linesA);
+		session.setAttribute("resultado_soma_columnsA", columnsA);
+		session.setAttribute("resultado_soma_linesB", linesA);
+		session.setAttribute("resultado_soma_columnsB", columnsA);
 
 		try {
 		    s.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = s.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    s.setId(Integer.parseInt(request.getParameter("id")));
-			    cDB.alterar(s);
+			    calculusDB.alterar(s);
 			} else {
-			    cDB.inserir(s);
+			    calculusDB.inserir(s);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		} catch (Exception e) {
 		}

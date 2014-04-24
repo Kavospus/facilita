@@ -42,15 +42,15 @@ public class EfetuarLoginConvidado extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		String user = "guest";
+		String login = "guest";
 		String pass = "guest";
 
-		UsuarioDAO uDB = new UsuarioDAO();
-		uDB.conectar();
-		Usuario u = uDB.logar(user, pass);
-		uDB.desconectar();
-		session.setAttribute("user", u);
-		if (u != null) {
+		UsuarioDAO userDB = new UsuarioDAO();
+		userDB.conectar();
+		Usuario user = userDB.logar(login, pass);
+		userDB.desconectar();
+		session.setAttribute("user", user);
+		if (user != null) {
 		    response.sendRedirect("index.jsp");
 		}
 

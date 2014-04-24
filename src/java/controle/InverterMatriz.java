@@ -43,11 +43,11 @@ public class InverterMatriz extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		int i, j, dima = 0, dimb = 0, erro = 0;
+		int i, j, linesA = 0, columnsA = 0, erro = 0;
 
-		if (request.getParameter("dima") != null) {
+		if (request.getParameter("linesA") != null) {
 		    try {
-			dima = Integer.parseInt(request.getParameter("dima"));
+			linesA = Integer.parseInt(request.getParameter("linesA"));
 		    } catch (Exception e) {
 			erro = 1;
 			out.print("<script language='JavaScript'>");
@@ -56,13 +56,13 @@ public class InverterMatriz extends HttpServlet {
 			out.print("</script>");
 		    }
 		}
-		dimb = dima;
+		columnsA = linesA;
 
-		double a[][] = new double[dima][dimb];
+		double a[][] = new double[linesA][columnsA];
 		double resultado[][];
 
-		for (i = 0; i < dima; i++) {
-		    for (j = 0; j < dimb; j++) {
+		for (i = 0; i < linesA; i++) {
+		    for (j = 0; j < columnsA; j++) {
 			if (request.getParameter("a" + i + j) != null
 				&& request.getParameter("a" + i + j) != "") {
 			    try {
@@ -81,30 +81,30 @@ public class InverterMatriz extends HttpServlet {
 		    }
 		}
 		session.setAttribute("dados_inversa_a", a);
-		session.setAttribute("dados_inversa_dima", dima);
-		session.setAttribute("dados_inversa_dimb", dimb);
+		session.setAttribute("dados_inversa_linesA", linesA);
+		session.setAttribute("dados_inversa_columnsA", columnsA);
 		if (erro == 0) {
-		    Inverter inverter = new Inverter(a, dima, dimb);
+		    Inverter inverter = new Inverter(a, linesA, columnsA);
 		    inverter.calcular();
 		    resultado = inverter.getResultado();
 		    session.setAttribute("resultado_inversa", resultado);
-		    session.setAttribute("resultado_inversa_dima", dima);
-		    session.setAttribute("resultado_inversa_dimb", dimb);
+		    session.setAttribute("resultado_inversa_linesA", linesA);
+		    session.setAttribute("resultado_inversa_columnsA", columnsA);
 
 		    inverter.setUsuario((Usuario) session.getAttribute("user"));
 		    Usuario uP = inverter.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
-			CalculoDAO cDB = new CalculoDAO();
-			cDB.conectar();
+			CalculoDAO calculusDB = new CalculoDAO();
+			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
 			    inverter.setId(Integer.parseInt(request
 				    .getParameter("id")));
-			    cDB.alterar(inverter);
+			    calculusDB.alterar(inverter);
 			} else {
-			    cDB.inserir(inverter);
+			    calculusDB.inserir(inverter);
 			}
-			cDB.desconectar();
+			calculusDB.desconectar();
 		    }
 		    out.print("<script language='JavaScript'>");
 		    out.print(" window.open('resultado_inversa.jsp','_parent');");

@@ -46,20 +46,20 @@ public class InserirMenu extends HttpServlet {
 		out.println("<body>");
 		try {
 
-		    String menu = request.getParameter("menu");
+		    String menuName = request.getParameter("menu");
 		    String link = request.getParameter("link");
 		    String icone = request.getParameter("icone");
 
-		    Menu m = new Menu();
-		    m.setMenu(menu);
-		    m.setLink(link);
-		    m.setIcone(icone);
+		    Menu menu = new Menu();
+		    menu.setMenu(menuName);
+		    menu.setLink(link);
+		    menu.setIcone(icone);
 
-		    MenuDAO mDB = new MenuDAO();
+		    MenuDAO menuDB = new MenuDAO();
 
-		    mDB.conectar();
-		    mDB.inserir(m);
-		    mDB.desconectar();
+		    menuDB.conectar();
+		    menuDB.inserir(menu);
+		    menuDB.desconectar();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros inseridos com sucesso!');");

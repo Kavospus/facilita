@@ -59,23 +59,23 @@ public class AlterarUsuario extends HttpServlet {
                 String senha = MD5Encrypter.encryptMD5(request.getParameter("senha"));
                 String login = request.getParameter("login");
 
-                Usuario u = new Usuario();
-                PerfilDAO pDB = new PerfilDAO();
-                u.setId(id);
-                u.setNome(nome);
-                pDB.conectar();
-                u.setPerfil(pDB.carregaPorId(id_perfil));
-                pDB.desconectar();
-                u.setSenha(senha);
-                u.setLogin(login);
+                Usuario user = new Usuario();
+                PerfilDAO profileDB = new PerfilDAO();
+                user.setId(id);
+                user.setNome(nome);
+                profileDB.conectar();
+                user.setPerfil(profileDB.carregaPorId(id_perfil));
+                profileDB.desconectar();
+                user.setSenha(senha);
+                user.setLogin(login);
 
 
 
-                UsuarioDAO uDB = new UsuarioDAO();
+                UsuarioDAO userDB = new UsuarioDAO();
 
-                uDB.conectar();
-                uDB.alterar(u);
-                uDB.desconectar();
+                userDB.conectar();
+                userDB.alterar(user);
+                userDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

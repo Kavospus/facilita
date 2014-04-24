@@ -46,18 +46,18 @@ public class AlterarPerfil extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String perfil = request.getParameter("perfil");
 
-                PerfilDAO pDB = new PerfilDAO();
+                PerfilDAO profileDB = new PerfilDAO();
 
-                pDB.conectar();
+                profileDB.conectar();
 
-                Perfil p = new Perfil();
+                Perfil profile = new Perfil();
 
-                p.setId(id);
-                p.setPerfil(perfil);
+                profile.setId(id);
+                profile.setPerfil(perfil);
 
-                pDB.alterar(p);
+                profileDB.alterar(profile);
 
-                pDB.desconectar();
+                profileDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
