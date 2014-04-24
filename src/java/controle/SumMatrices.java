@@ -143,7 +143,7 @@ public class SumMatrices extends HttpServlet {
 		}
 
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_soma.jsp','_parent');");
+		out.print(" window.open('sum_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

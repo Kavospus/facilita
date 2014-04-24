@@ -142,7 +142,7 @@ public class SubtractMatrices extends HttpServlet {
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_subtrai.jsp','_parent');");
+		out.print(" window.open('subtract_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

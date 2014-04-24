@@ -107,7 +107,7 @@ public class InvertMatrix extends HttpServlet {
 			calculusDB.desconectar();
 		    }
 		    out.print("<script language='JavaScript'>");
-		    out.print(" window.open('resultado_inversa.jsp','_parent');");
+		    out.print(" window.open('inverse_result.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    } catch (Exception e) {

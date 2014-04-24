@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_transposta
+    Document   : transposed_result
     Author     : Andre
 --%>
 
@@ -61,10 +61,10 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?operation=transposed">Subtração</a>
-        <a href="resposta_soma.jsp?operation=transposed">Adição</a>
+        <a href="answer_subtract.jsp?operation=transposed">Subtração</a>
+        <a href="answer_sum.jsp?operation=transposed">Adição</a>
         <a href="answer_multiply.jsp?operation=transposed">Multiplicação</a>
-        <a href="resposta_transposta.jsp?operation=transposed">Transposta</a>
+        <a href="answer_tranposed.jsp?operation=transposed">Transposta</a>
         <a href="answer_scalar.jsp?operation=transposed">Escalar</a>
         <%
         if(linesA==columnsA){

@@ -18,7 +18,7 @@ try{
             + "<img width='10' height='10' src='"+mp.getIcone()+"'>   "+mp.getMenu()+"</div></a></td>" );
     }
 
-    out.print("<td><a class='button' href='sair.jsp'>Sair</a></td>");
+    out.print("<td><a class='button' href='exit.jsp'>Sair</a></td>");
 
     logged = true;
 

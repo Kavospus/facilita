@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_subtrai
+    Document   : subtract_result
     Author     : Andre
 --%>
 
@@ -61,10 +61,10 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?operation=subtract">Subtração</a>
-        <a href="resposta_soma.jsp?operation=subtract">Adição</a>
+        <a href="answer_subtract.jsp?operation=subtract">Subtração</a>
+        <a href="answer_sum.jsp?operation=subtract">Adição</a>
         <a href="answer_multiply.jsp?operation=subtract">Multiplicação</a>
-        <a href="resposta_transposta.jsp?operation=subtract">Transposta</a>
+        <a href="answer_tranposed.jsp?operation=subtract">Transposta</a>
         <a href="answer_scalar.jsp?operation=subtract">Escalar</a>
         <%
         if(linesA==columnsA){

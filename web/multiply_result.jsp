@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_multiplica
+    Document   : multiply_result
     Author     : Andre
 --%>
 
@@ -69,10 +69,10 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?operation=multiply">Subtração</a>
-        <a href="resposta_soma.jsp?operation=multiply">Adição</a>
+        <a href="answer_subtract.jsp?operation=multiply">Subtração</a>
+        <a href="answer_sum.jsp?operation=multiply">Adição</a>
         <a href="answer_multiply.jsp?operation=multiply">Multiplicação</a>
-        <a href="resposta_transposta.jsp?operation=multiply">Transposta</a>
+        <a href="answer_tranposed.jsp?operation=multiply">Transposta</a>
         <a href="answer_scalar.jsp?operation=multiply">Escalar</a>
         <%
         if(linesA==columnsB){

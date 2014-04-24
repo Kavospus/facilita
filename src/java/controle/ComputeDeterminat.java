@@ -102,7 +102,7 @@ public class ComputeDeterminat extends HttpServlet {
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_determinante.jsp','_parent');");
+		out.print(" window.open('determinant_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 

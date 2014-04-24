@@ -112,7 +112,7 @@ public class ComputeLeastSquares extends HttpServlet {
 		session.setAttribute("erro_minimos", error);
 
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_minimos.jsp?dimension="
+		out.print(" window.open('least_squares_result.jsp?dimension="
 			+ result.length + "','_parent');");
 		out.print("</script>");
 	    }

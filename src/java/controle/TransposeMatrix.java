@@ -117,7 +117,7 @@ public class TransposeMatrix extends HttpServlet {
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_transposta.jsp','_parent');");
+		out.print(" window.open('transposed_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

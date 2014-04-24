@@ -155,7 +155,7 @@ public class MultiplyMatrices extends HttpServlet {
 		}
 
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_multiplica.jsp','_parent');");
+		out.print(" window.open('multiply_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");

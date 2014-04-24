@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_soma
+    Document   : sum_result
     Author     : Andre
 --%>
 
@@ -61,10 +61,10 @@
         <%}%>
         </table>
         <a href="index.jsp">Voltar</a>
-        <a href="resposta_subtrai.jsp?operation=sum">Subtração</a>
-        <a href="resposta_soma.jsp?operation=sum">Adição</a>
+        <a href="answer_subtract.jsp?operation=sum">Subtração</a>
+        <a href="answer_sum.jsp?operation=sum">Adição</a>
         <a href="answer_multiply.jsp?operation=sum">Multiplicação</a>
-        <a href="resposta_transposta.jsp?operation=sum">Transposta</a>
+        <a href="answer_tranposed.jsp?operation=sum">Transposta</a>
         <a href="answer_scalar.jsp?operation=sum">Escalar</a>
         <%
         if(linesA==columnsA){

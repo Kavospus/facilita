@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_determinante
+    Document   : determinant_result
     Author     : Andre
 --%>
 

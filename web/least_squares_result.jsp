@@ -1,5 +1,5 @@
 <%-- 
-    Document   : resultado_minimos
+    Document   : least_squares_result
     Author     : Andre
 --%>
 

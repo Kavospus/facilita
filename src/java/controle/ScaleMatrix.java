@@ -129,7 +129,7 @@ public class ScaleMatrix extends HttpServlet {
 		} catch (Exception x) {
 		}
 		out.print("<script language='JavaScript'>");
-		out.print(" window.open('resultado_escalar.jsp','_parent');");
+		out.print(" window.open('scalar_result.jsp','_parent');");
 		out.print("</script>");
 	    }
 	    out.println("</body>");
