@@ -84,25 +84,25 @@ public class InverterMatriz extends HttpServlet {
 		session.setAttribute("data_inverse_linesA", linesA);
 		session.setAttribute("data_inverse_columnsA", columnsA);
 		if (error == 0) {
-		    Inverter inverter = new Inverter(a, linesA, columnsA);
-		    inverter.calcular();
-		    result = inverter.getResultado();
+		    Inverter invert = new Inverter(a, linesA, columnsA);
+		    invert.calcular();
+		    result = invert.getResultado();
 		    session.setAttribute("result_inversa", result);
 		    session.setAttribute("result_inversa_linesA", linesA);
 		    session.setAttribute("result_inversa_columnsA", columnsA);
 
-		    inverter.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = inverter.getUsuario();
+		    invert.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario userPermission = invert.getUsuario();
 		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    inverter.setId(Integer.parseInt(request
+			    invert.setId(Integer.parseInt(request
 				    .getParameter("id")));
-			    calculusDB.alterar(inverter);
+			    calculusDB.alterar(invert);
 			} else {
-			    calculusDB.inserir(inverter);
+			    calculusDB.inserir(invert);
 			}
 			calculusDB.desconectar();
 		    }
