@@ -136,17 +136,17 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Multiplicar")) {
 			Multiplicar menu = (Multiplicar) calculus;
 			menu.setDadosString();
-			session.setAttribute("data_multiplica_a",
+			session.setAttribute("data_multiply_a",
 				menu.getEntradaA());
-			session.setAttribute("data_multiplica_b",
+			session.setAttribute("data_multiply_b",
 				menu.getEntradaB());
-			session.setAttribute("data_multiplica_linesA",
+			session.setAttribute("data_multiply_linesA",
 				menu.getDimensaoA());
-			session.setAttribute("data_multiplica_columnsA",
+			session.setAttribute("data_multiply_columnsA",
 				menu.getDimensaoB());
-			session.setAttribute("data_multiplica_linesB",
+			session.setAttribute("data_multiply_linesB",
 				menu.getDimensaoB());
-			session.setAttribute("data_multiplica_columnsB",
+			session.setAttribute("data_multiply_columnsB",
 				menu.getDimensaoC());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_multiplica.jsp?id="
