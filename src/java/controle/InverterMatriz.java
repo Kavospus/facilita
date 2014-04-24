@@ -92,9 +92,9 @@ public class InverterMatriz extends HttpServlet {
 		    session.setAttribute("result_inversa_columnsA", columnsA);
 
 		    inverter.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = inverter.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
+		    Usuario userPermission = inverter.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {

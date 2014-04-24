@@ -100,9 +100,9 @@ public class TransporMatriz extends HttpServlet {
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
 		    transpor.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = transpor.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
+		    Usuario userPermission = transpor.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {

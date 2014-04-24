@@ -126,9 +126,9 @@ public class SubtrairMatrizes extends HttpServlet {
 		session.setAttribute("result_subtrai_columnsB", columnsA);
 		try {
 		    s.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = s.getUsuario();
-		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
-			    "/Facilita", uP)) {
+		    Usuario userPermission = s.getUsuario();
+		    if (userPermission.temPermissao("/Facilita/listar_calculo.jsp",
+			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
