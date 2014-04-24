@@ -25,10 +25,10 @@
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id){
+            function verify(id){
                 var url="excluir_perfil.do?id="+id;
-                var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
-                if(resposta){
+                var answer=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
+                if(answer){
                     window.open(url,"_parent");
                 }
             }
@@ -60,25 +60,25 @@
                             <%
 
                                         try {
-                                            PerfilDAO pDB = new PerfilDAO();
+                                            PerfilDAO profileDB = new PerfilDAO();
 
-                                            pDB.conectar();
+                                            profileDB.conectar();
 
-                                            ArrayList<Perfil> lista = pDB.listar();
+                                            ArrayList<Perfil> lista = profileDB.listar();
 
-                                            for(Perfil p:lista){%>
+                                            for(Perfil profile:lista){%>
 
                             <tr>
                                 <td>
-                                    <%out.print(p.getId());%>
+                                    <%out.print(profile.getId());%>
                                 </td>
                                 <td>
-                                    <%out.print(p.getPerfil());%>
+                                    <%out.print(profile.getPerfil());%>
                                 </td>
                                 <td>
-                                    <a class="button" href="form_gerenciar_menu_perfil.jsp?id=<%out.print(p.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
-                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(p.getId());%>&perfil=<%out.print(p.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
-                                    <a class="button" href="#" onclick="confirma(<%out.print(p.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
+                                    <a class="button" href="form_gerenciar_menu_perfil.jsp?id=<%out.print(profile.getId());%>"><img width='16' height='16' src="imagens/gerenciar.png"></a>
+                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(profile.getId());%>&perfil=<%out.print(profile.getPerfil());%>"><img width='16' height='16' src="imagens/edit.png"></a>
+                                    <a class="button" href="#" onclick="verify(<%out.print(profile.getId());%>)"><img width='16' height='16' src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
@@ -107,11 +107,11 @@
 <%
 
     if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    Usuario userPermission = new Usuario();
+    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
-    session.setAttribute("perfil",true);
+    session.setAttribute("profile",true);
     }
     }
 

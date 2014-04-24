@@ -20,7 +20,7 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="calcular_determinante.do" method="POST" name="calcula_determinante">
-        Linhas e Colunas <input type="text" name="dima" id="dima" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?dima='+getElementById('dima').value+'&dimb='+getElementById('dima').value)" />
+        Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrizes', 'matriz_dinamica.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         <div id="matrizes" ></div>
         <input class="button" type="submit" name="OK"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('ajuda', 'ajuda.jsp?opcao=1');"/>
         </form>

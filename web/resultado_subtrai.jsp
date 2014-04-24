@@ -23,17 +23,17 @@
             <tr>
                 <td></td>
         <%
-        int i, j,dima=0,dimb=0;
+        int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("dados_subtrai_dima") != null){
-                dima = (Integer)session.getAttribute("dados_subtrai_dima");
+        if(session.getAttribute("dados_subtrai_linesA") != null){
+                linesA = (Integer)session.getAttribute("dados_subtrai_linesA");
         }
-        if(session.getAttribute("dados_subtrai_dimb") != null){
-                dimb = (Integer)session.getAttribute("dados_subtrai_dimb");
+        if(session.getAttribute("dados_subtrai_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("dados_subtrai_columnsA");
         }
 
-        double a[][] = new double[dima][dimb];
-        double resultado[][] = new double[dima][dimb];
+        double a[][] = new double[linesA][columnsA];
+        double resultado[][] = new double[linesA][columnsA];
         if(session.getAttribute("resultado_subtrai") != null){
                 resultado = (double[][])session.getAttribute("resultado_subtrai");
             }
@@ -43,17 +43,17 @@
 
         
         
-        for(i=0;i<dimb;i++){
+        for(i=0;i<columnsA;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dima;i++){
+        <%for(i=0;i<linesA;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimb;j++){
+            for(j=0;j<columnsA;j++){
         %>
         <td> <input type="text" size="10" name="r<%=i%><%=j%>" value="<%=resultado[i][j]%>" id="r<%=i%><%=j%>" /></td>
         <%}%>
@@ -67,7 +67,7 @@
         <a href="resposta_transposta.jsp?op=subtrai">Transposta</a>
         <a href="resposta_escalar.jsp?op=subtrai">Escalar</a>
         <%
-        if(dima==dimb){
+        if(linesA==columnsA){
         out.print("<a href='resposta_inversa.jsp?op=subtrai'>Inversa</a>");
         out.print("<a href='resposta_determinante.jsp?op=subtrai'>Determinante</a>");
         }

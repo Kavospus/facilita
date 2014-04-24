@@ -9,28 +9,28 @@
     <tr>
         <td></td>
         <%
-        int i,j,dima=0,dimb=0;
+        int i,j,linesA=0,columnsA=0;
         try{
-            if(request.getParameter("dima") != null){
-                dima = Integer.parseInt(request.getParameter("dima"));
+            if(request.getParameter("linesA") != null){
+                linesA = Integer.parseInt(request.getParameter("linesA"));
             }
-            if(request.getParameter("dimb") != null){
-                dimb = Integer.parseInt(request.getParameter("dimb"));
+            if(request.getParameter("columnsA") != null){
+                columnsA = Integer.parseInt(request.getParameter("columnsA"));
             }
         }catch(Exception e){
             out.print("Erro");
         }
-        for(i=0;i<dimb;i++){
+        for(i=0;i<columnsA;i++){
             %>
         <td><%=i%></td>
         <%}%>
         </tr>
-        <%for(i=0;i<dima;i++){
+        <%for(i=0;i<linesA;i++){
             %>
         <tr>
         <td><%=i%></td>
             <%
-            for(j=0;j<dimb;j++){
+            for(j=0;j<columnsA;j++){
         %>
         <td><input size="10" type="text" name="a<%=i%><%=j%>" id="a<%=i%><%=j%>" /></td>
         <%}%>

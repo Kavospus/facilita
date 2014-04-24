@@ -27,10 +27,10 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(id){
+            function verify(id){
                 var url="excluir_menu.do?id="+id;
-                var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
-                if(resposta){
+                var answer=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
+                if(answer){
                     window.open(url,"_parent");
                 }
             }
