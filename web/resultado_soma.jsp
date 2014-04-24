@@ -25,20 +25,20 @@
         <%
         int i, j,linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_soma_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_soma_linesA");
+        if(session.getAttribute("data_sum_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_sum_linesA");
         }
-        if(session.getAttribute("data_soma_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_soma_columnsA");
+        if(session.getAttribute("data_sum_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_sum_columnsA");
         }
 
         double a[][] = new double[linesA][columnsA];
         double resultado[][] = new double[linesA][columnsA];
-        if(session.getAttribute("result_soma") != null){
-                resultado = (double[][])session.getAttribute("result_soma");
+        if(session.getAttribute("result_sum") != null){
+                resultado = (double[][])session.getAttribute("result_sum");
             }
-        if(session.getAttribute("data_soma_a") != null){
-                a = (double[][])session.getAttribute("data_soma_a");
+        if(session.getAttribute("data_sum_a") != null){
+                a = (double[][])session.getAttribute("data_sum_a");
             }
 
         

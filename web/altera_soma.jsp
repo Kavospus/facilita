@@ -21,11 +21,11 @@
     
        int linesA=0,columnsA=0;
         
-        if(session.getAttribute("data_soma_linesA") != null){
-                linesA = (Integer)session.getAttribute("data_soma_linesA");
+        if(session.getAttribute("data_sum_linesA") != null){
+                linesA = (Integer)session.getAttribute("data_sum_linesA");
         }
-        if(session.getAttribute("data_soma_columnsA") != null){
-                columnsA = (Integer)session.getAttribute("data_soma_columnsA");
+        if(session.getAttribute("data_sum_columnsA") != null){
+                columnsA = (Integer)session.getAttribute("data_sum_columnsA");
         }
 
 
