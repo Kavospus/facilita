@@ -95,10 +95,10 @@ public class CalcularMinimos extends HttpServlet {
 		    }
 		}
 	    }
-	    session.setAttribute("data_minimos_quantidade", quantidade);
-	    session.setAttribute("data_minimos_opcao", opcao);
-	    session.setAttribute("data_minimos_vx", vx);
-	    session.setAttribute("data_minimos_vy", vy);
+	    session.setAttribute("data_least_squares_quantidade", quantidade);
+	    session.setAttribute("data_least_squares_opcao", opcao);
+	    session.setAttribute("data_least_squares_vx", vx);
+	    session.setAttribute("data_least_squares_vy", vy);
 	    if (errom == 0) {
 		Minimos menu = new Minimos();
 		try {
@@ -108,7 +108,7 @@ public class CalcularMinimos extends HttpServlet {
 
 		}
 
-		session.setAttribute("result_minimos", result);
+		session.setAttribute("result_least_squares", result);
 		session.setAttribute("erro_minimos", error);
 
 		out.print("<script language='JavaScript'>");
