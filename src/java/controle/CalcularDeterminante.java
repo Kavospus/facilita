@@ -80,22 +80,22 @@ public class CalcularDeterminante extends HttpServlet {
 	    session.setAttribute("data_determinant_linesA", linesA);
 	    session.setAttribute("data_determinant_columnsA", columnsA);
 	    if (error == 0) {
-		Determinar d = new Determinar(a, linesA, columnsA);
-		d.calcular();
-		result = d.getResultado();
+		Determinar determine = new Determinar(a, linesA, columnsA);
+		determine.calcular();
+		result = determine.getResultado();
 		session.setAttribute("result_determinante", result);
 		try {
-		    d.setUsuario((Usuario) session.getAttribute("user"));
-		    Usuario uP = d.getUsuario();
+		    determine.setUsuario((Usuario) session.getAttribute("user"));
+		    Usuario uP = determine.getUsuario();
 		    if (uP.temPermissao("/Facilita/listar_calculo.jsp",
 			    "/Facilita", uP)) {
 			CalculoDAO calculusDB = new CalculoDAO();
 			calculusDB.conectar();
 			if (request.getParameter("id") != null) {
-			    d.setId(Integer.parseInt(request.getParameter("id")));
-			    calculusDB.alterar(d);
+			    determine.setId(Integer.parseInt(request.getParameter("id")));
+			    calculusDB.alterar(determine);
 			} else {
-			    calculusDB.inserir(d);
+			    calculusDB.inserir(determine);
 			}
 			calculusDB.desconectar();
 		    }

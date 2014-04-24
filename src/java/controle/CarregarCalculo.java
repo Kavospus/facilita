@@ -87,17 +87,17 @@ public class CarregarCalculo extends HttpServlet {
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Determinar")) {
-			Determinar d = (Determinar) calculus;
-			d.setDadosString();
+			Determinar determine = (Determinar) calculus;
+			determine.setDadosString();
 			session.setAttribute("data_determinant_a",
-				d.getEntrada());
+				determine.getEntrada());
 			session.setAttribute("data_determinant_linesA",
-				d.getDimensaoA());
+				determine.getDimensaoA());
 			session.setAttribute("data_determinant_columnsA",
-				d.getDimensaoB());
+				determine.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_determinante.jsp?id="
-				+ d.getId() + "','_parent');");
+				+ determine.getId() + "','_parent');");
 			out.print("</script>");
 		    } else if (operacao.equals("Somar")) {
 			Somar s = (Somar) calculus;
