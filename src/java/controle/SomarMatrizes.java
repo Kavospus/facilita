@@ -108,21 +108,21 @@ public class SomarMatrizes extends HttpServlet {
 		}
 	    }
 
-	    session.setAttribute("data_soma_a", a);
-	    session.setAttribute("data_soma_b", b);
-	    session.setAttribute("data_soma_linesA", linesA);
-	    session.setAttribute("data_soma_columnsA", columnsA);
-	    session.setAttribute("data_soma_linesB", linesA);
-	    session.setAttribute("data_soma_columnsB", columnsA);
+	    session.setAttribute("data_sum_a", a);
+	    session.setAttribute("data_sum_b", b);
+	    session.setAttribute("data_sum_linesA", linesA);
+	    session.setAttribute("data_sum_columnsA", columnsA);
+	    session.setAttribute("data_sum_linesB", linesA);
+	    session.setAttribute("data_sum_columnsB", columnsA);
 	    if (error == 0) {
 		Somar s = new Somar(a, b, linesA, columnsA);
 		s.calcular();
 		result = s.getResultado();
-		session.setAttribute("result_soma", result);
-		session.setAttribute("result_soma_linesA", linesA);
-		session.setAttribute("result_soma_columnsA", columnsA);
-		session.setAttribute("result_soma_linesB", linesA);
-		session.setAttribute("result_soma_columnsB", columnsA);
+		session.setAttribute("result_sum", result);
+		session.setAttribute("result_sum_linesA", linesA);
+		session.setAttribute("result_sum_columnsA", columnsA);
+		session.setAttribute("result_sum_linesB", linesA);
+		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
 		    s.setUsuario((Usuario) session.getAttribute("user"));

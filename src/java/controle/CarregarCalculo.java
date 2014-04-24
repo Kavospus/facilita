@@ -102,15 +102,15 @@ public class CarregarCalculo extends HttpServlet {
 		    } else if (operacao.equals("Somar")) {
 			Somar s = (Somar) calculus;
 			s.setDadosString();
-			session.setAttribute("data_soma_a", s.getEntradaA());
-			session.setAttribute("data_soma_b", s.getEntradaB());
-			session.setAttribute("data_soma_linesA",
+			session.setAttribute("data_sum_a", s.getEntradaA());
+			session.setAttribute("data_sum_b", s.getEntradaB());
+			session.setAttribute("data_sum_linesA",
 				s.getDimensaoA());
-			session.setAttribute("data_soma_columnsA",
+			session.setAttribute("data_sum_columnsA",
 				s.getDimensaoB());
-			session.setAttribute("data_soma_linesB",
+			session.setAttribute("data_sum_linesB",
 				s.getDimensaoA());
-			session.setAttribute("data_soma_columnsB",
+			session.setAttribute("data_sum_columnsB",
 				s.getDimensaoB());
 			out.print("<script language='JavaScript'>");
 			out.print(" window.open('altera_soma.jsp?id="
