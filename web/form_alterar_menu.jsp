@@ -28,24 +28,24 @@
             function validateForm(){
 
                 var form_alterar_menu=document.form_alterar_menu;
-                var campo_menu=form_alterar_menu.menu;
-                var campo_icone=form_alterar_menu.icon;
-                var campo_link=form_alterar_menu.link;
+                var field_menu=form_alterar_menu.menu;
+                var field_icon=form_alterar_menu.icon;
+                var field_link=form_alterar_menu.link;
 
 
-                if(campo_menu.value==""){
+                if(field_menu.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_menu.focus();
+                    field_menu.focus();
                     return false;
                 }
-                if(campo_icone.value==""){
+                if(field_icon.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_icone.focus();
+                    field_icon.focus();
                     return false;
                 }
-                if(campo_link.value==""){
+                if(field_link.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_link.focus();
+                    field_link.focus();
                     return false;
                 }
                 return true;

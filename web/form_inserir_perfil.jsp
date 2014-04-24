@@ -22,11 +22,11 @@
             function validateForm(){
 
                 var form_inserir_perfil=document.form_inserir_perfil;
-                var campo_perfil=form_inserir_perfil.profile;
+                var field_profile=form_inserir_perfil.profile;
 
-                if(campo_perfil.value==""){
+                if(field_profile.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    field_profile.focus();
                     return false;
                 }
                 return true;

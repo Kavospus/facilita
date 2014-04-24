@@ -31,29 +31,29 @@
             function validateForm(){
 
             var form_alterar_usuario=document.form_alterar_usuario;
-                var campo_nome=form_alterar_usuario.name;
-                var campo_id_perfil=form_alterar_usuario.id_profile;
-                var campo_login=form_alterar_usuario.login;
-                var campo_senha=form_alterar_usuario.password;
+                var field_name=form_alterar_usuario.name;
+                var field_id_profile=form_alterar_usuario.id_profile;
+                var field_login=form_alterar_usuario.login;
+                var field_password=form_alterar_usuario.password;
 
-                if(campo_nome.value==""){
+                if(field_name.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_nome.focus();
+                    field_name.focus();
                     return false;
                 }
-                if(campo_id_perfil.value=="0"){
+                if(field_id_profile.value=="0"){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_id_perfil.focus();
+                    field_id_profile.focus();
                     return false;
                 }
-                if(campo_login.value==""){
+                if(field_login.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_login.focus();
+                    field_login.focus();
                     return false;
                 }
-                if(campo_senha.value==""){
+                if(field_password.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_senha.focus();
+                    field_password.focus();
                     return false;
                 }
 

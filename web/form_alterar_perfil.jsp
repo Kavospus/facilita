@@ -30,11 +30,11 @@
             function validateForm(){
 
                 var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.profile;
+                var field_profile=form_alterar_perfil.profile;
 
-                if(campo_perfil.value==""){
+                if(field_profile.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    field_profile.focus();
                     return false;
                 }
                 return true;
