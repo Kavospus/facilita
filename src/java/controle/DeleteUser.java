@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.User;
-import modelo.UsuarioDAO;
+import modelo.UserDAO;
 
 public class DeleteUser extends HttpServlet {
 
@@ -48,7 +48,7 @@ public class DeleteUser extends HttpServlet {
 		    User user = new User();
 		    user.setId(id);
 
-		    UsuarioDAO userDB = new UsuarioDAO();
+		    UserDAO userDB = new UserDAO();
 
 		    userDB.connect();
 		    userDB.delete(user);

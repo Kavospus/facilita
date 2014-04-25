@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.User;
-import modelo.UsuarioDAO;
+import modelo.UserDAO;
 
 public class DoLogin extends HttpServlet {
 
@@ -47,7 +47,7 @@ public class DoLogin extends HttpServlet {
 		String login = request.getParameter("user");
 		String pass = request.getParameter("pass");
 
-		UsuarioDAO userDB = new UsuarioDAO();
+		UserDAO userDB = new UserDAO();
 		userDB.connect();
 		User user = userDB.logon(login, pass);
 

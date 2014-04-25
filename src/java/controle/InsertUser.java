@@ -18,7 +18,7 @@ import modelo.MD5Encrypter;
 import modelo.Profile;
 import modelo.ProfileDAO;
 import modelo.User;
-import modelo.UsuarioDAO;
+import modelo.UserDAO;
 
 public class InsertUser extends HttpServlet {
 
@@ -66,7 +66,7 @@ public class InsertUser extends HttpServlet {
 		    profileDB.disconnect();
 		    user.setNome(name);
 
-		    UsuarioDAO userDB = new UsuarioDAO();
+		    UserDAO userDB = new UserDAO();
 
 		    userDB.connect();
 		    userDB.insert(user);

@@ -3,7 +3,7 @@
     Author     : André
 --%>
 
-<%@page import="modelo.UsuarioDAO"%>
+<%@page import="modelo.UserDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -82,7 +82,7 @@
                                             int id = Integer.parseInt(request.getParameter("id"));
                                             ArrayList<Profile> profileListA = new ArrayList<Profile>();
 
-                                            UsuarioDAO userDB = new UsuarioDAO();
+                                            UserDAO userDB = new UserDAO();
                                             userDB.connect();
                                             User u = userDB.selectById(id);
                                             userDB.disconnect();

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import modelo.MD5Encrypter;
 import modelo.ProfileDAO;
 import modelo.User;
-import modelo.UsuarioDAO;
+import modelo.UserDAO;
 
 
 public class UpdateUser extends HttpServlet {
@@ -71,7 +71,7 @@ public class UpdateUser extends HttpServlet {
 
 
 
-                UsuarioDAO userDB = new UsuarioDAO();
+                UserDAO userDB = new UserDAO();
 
                 userDB.connect();
                 userDB.update(user);

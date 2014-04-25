@@ -56,7 +56,7 @@ public class CalculusDAO extends DataBaseDAO {
     /*Consult a list of all Calculus objects on the database*/
     public ArrayList<Calculus> select() throws SQLException, Exception {
 
-	UsuarioDAO uDB = new UsuarioDAO();
+	UserDAO uDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM calculo";
@@ -79,7 +79,7 @@ public class CalculusDAO extends DataBaseDAO {
     
     /*Consult a list of Calculus objects owned by the User argument on the database*/
     public ArrayList<Calculus> select(User u) throws SQLException, Exception {
-        UsuarioDAO uDB = new UsuarioDAO();
+        UserDAO uDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM calculo WHERE id_usuario=?";
@@ -116,7 +116,7 @@ public class CalculusDAO extends DataBaseDAO {
     }
     /*Load a Calculus object with the id argument on the database*/
     public Calculus selectById(int id) throws SQLException, Exception {
-	UsuarioDAO uDB = new UsuarioDAO();
+	UserDAO uDB = new UserDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM calculo WHERE id=?";
 	pst = conn.prepareStatement(sql);

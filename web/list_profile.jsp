@@ -4,7 +4,7 @@
 --%>
 
 
-<%@page import="modelo.UsuarioDAO"%>
+<%@page import="modelo.UserDAO"%>
 <%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.ProfileDAO"%>

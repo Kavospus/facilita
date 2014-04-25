@@ -3,7 +3,7 @@
     Author     : André
 --%>
 
-<%@page import="modelo.UsuarioDAO"%>
+<%@page import="modelo.UserDAO"%>
 <%@page import="modelo.Menu"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.MenuDAO"%>
@@ -63,7 +63,7 @@
 
                             <%
                             try{
-                                UsuarioDAO userDB = new UsuarioDAO();
+                                UserDAO userDB = new UserDAO();
                                 userDB.connect();
                                 ArrayList<User> userList = userDB.select();
                             for(User u:userList){%>

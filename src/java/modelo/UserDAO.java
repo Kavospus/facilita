@@ -13,9 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UsuarioDAO extends DataBaseDAO {
+public class UserDAO extends DataBaseDAO {
 
-    public UsuarioDAO() throws Exception {
+    public UserDAO() throws Exception {
     }
     
     /*Insert a User object to the database*/
