@@ -40,20 +40,20 @@ public class Multiply extends Calculus {
 
     /*Function to multiply two matrices*/
     public double[][] multiplyMatrices(double ma[][], double mb[][],
-					 int dima, int dimb, int dimc) {
-	double result[][] = new double[dima][dimc];
+					 int linesA, int columnsA, int linesB) {
+	double resultMultiplication[][] = new double[linesA][linesB];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix b = new SimpleMatrix(mb);
 	SimpleMatrix x;
 	x = A.mult(b);
 
-	for (i = 0; i < dima; i++) {
-	    for (j = 0; j < dimc; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < linesA; i++) {
+	    for (j = 0; j < linesB; j++) {
+		resultMultiplication[i][j] = x.get(i, j);
 	    }
 	}
-	return result;
+	return resultMultiplication;
     }
 
     /*Abstract method implementation to feed data to variables*/
