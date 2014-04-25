@@ -60,7 +60,7 @@ public class User {
     }
     
     /*Verify the permission of the User on the given context*/
-    public boolean temPermissao(String uri, String context, User user) {
+    public boolean havePermission(String uri, String context, User user) {
 	boolean result = false;
 	String path = null;
 	for (Menu m : user.getProfile().getMenus()) {

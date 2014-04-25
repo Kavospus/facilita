@@ -101,7 +101,7 @@ public class TransposeMatrix extends HttpServlet {
 		try {
 		    transpor.setUser((User) session.getAttribute("user"));
 		    User userPermission = transpor.getUser();
-		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
+		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculusDAO calculusDB = new CalculusDAO();
 			calculusDB.connect();

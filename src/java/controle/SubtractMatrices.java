@@ -127,7 +127,7 @@ public class SubtractMatrices extends HttpServlet {
 		try {
 		    s.setUser((User) session.getAttribute("user"));
 		    User userPermission = s.getUser();
-		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
+		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculusDAO calculusDB = new CalculusDAO();
 			calculusDB.connect();

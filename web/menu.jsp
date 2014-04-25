@@ -10,7 +10,7 @@ User userLogged = null;
 try{
 
     userLogged = (User) session.getAttribute("userLogged");
-    out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
+    out.print("<td>Bem Vindo "+userLogged.getName()+"</td>");
     for(Menu mp:userLogged.getProfile().getMenus()){
 
     out.print("<td >"

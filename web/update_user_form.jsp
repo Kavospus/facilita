@@ -100,7 +100,7 @@
                                 </tr>
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="name" value="<%=user.getNome()%>"/> </td>
+                                    <td><input type="text" size="45" name="name" value="<%=user.getName()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>

@@ -114,7 +114,7 @@ public class ScaleMatrix extends HttpServlet {
 		try {
 		    scalar.setUser((User) session.getAttribute("user"));
 		    User userPermission = scalar.getUser();
-		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
+		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculusDAO calculusDB = new CalculusDAO();
 			calculusDB.connect();

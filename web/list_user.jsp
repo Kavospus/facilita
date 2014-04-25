@@ -73,13 +73,13 @@
                                     <%=user.getId()%>
                                 </td>
                                 <td>
-                                    <%=user.getNome()%>
+                                    <%=user.getName()%>
                                 </td>
                                 <td>
                                     <%=user.getLogin()%>
                                 </td>
                                 <td>
-                                    <%=user.getSenha()%>
+                                    <%=user.getPassword()%>
                                 </td>
                                 <td>
                                     <a class="button" href="update_user_form.jsp?id=<%=user.getId()%>"><img width='16' height='16' src="imagens/edit.png"></a>
@@ -105,7 +105,7 @@
 
     if(logged){
     User uP = new User();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
+    if(!uP.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
     session.setAttribute("user",true);
