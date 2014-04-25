@@ -68,9 +68,9 @@ public class CalculoDAO extends DataBaseDAO {
 	    c.setOperation(rs.getString("operacao"));
 	    c.setInputString(rs.getString("entrada"));
 	    c.setResultString(rs.getString("resultado"));
-	    uDB.conectar();
+	    uDB.connect();
 	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.desconectar();
+	    uDB.disconnect();
 	    lista.add(c);
 	}
 	return lista;
@@ -92,9 +92,9 @@ public class CalculoDAO extends DataBaseDAO {
 	    c.setOperation(rs.getString("operacao"));
 	    c.setInputString(rs.getString("entrada"));
 	    c.setResultString(rs.getString("resultado"));
-	    uDB.conectar();
+	    uDB.connect();
 	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.desconectar();
+	    uDB.disconnect();
 	    lista.add(c);
 	}
 	return lista;
@@ -128,9 +128,9 @@ public class CalculoDAO extends DataBaseDAO {
 	    c.setOperation(rs.getString("operacao"));
 	    c.setInputString(rs.getString("entrada"));
 	    c.setResultString(rs.getString("resultado"));
-	    uDB.conectar();
+	    uDB.connect();
 	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.desconectar();
+	    uDB.disconnect();
 	    return c;
 	}
 	return null;

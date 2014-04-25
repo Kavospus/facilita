@@ -63,11 +63,11 @@
 
                                             PerfilDAO profileDB = new PerfilDAO();
 
-                                            profileDB.conectar();
+                                            profileDB.connect();
 
                                             Profile profile = profileDB.selectById(id);
 
-                                            profileDB.desconectar();
+                                            profileDB.disconnect();
 
                         if(profile.getId()>0){%>
                         <table align="center">

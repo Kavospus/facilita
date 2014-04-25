@@ -50,9 +50,9 @@ public class DeleteMenu extends HttpServlet {
 
 		    MenuDAO menuDB = new MenuDAO();
 
-		    menuDB.conectar();
+		    menuDB.connect();
 		    menuDB.delete(menu);
-		    menuDB.desconectar();
+		    menuDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

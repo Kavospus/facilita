@@ -50,9 +50,9 @@ public class DeleteUser extends HttpServlet {
 
 		    UsuarioDAO userDB = new UsuarioDAO();
 
-		    userDB.conectar();
+		    userDB.connect();
 		    userDB.delete(user);
-		    userDB.desconectar();
+		    userDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

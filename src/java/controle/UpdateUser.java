@@ -63,9 +63,9 @@ public class UpdateUser extends HttpServlet {
                 PerfilDAO profileDB = new PerfilDAO();
                 user.setId(id);
                 user.setNome(name);
-                profileDB.conectar();
+                profileDB.connect();
                 user.setPerfil(profileDB.selectById(id_profile));
-                profileDB.desconectar();
+                profileDB.disconnect();
                 user.setSenha(password);
                 user.setLogin(login);
 
@@ -73,9 +73,9 @@ public class UpdateUser extends HttpServlet {
 
                 UsuarioDAO userDB = new UsuarioDAO();
 
-                userDB.conectar();
+                userDB.connect();
                 userDB.update(user);
-                userDB.desconectar();
+                userDB.disconnect();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

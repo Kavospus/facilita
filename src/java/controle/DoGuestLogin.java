@@ -46,9 +46,9 @@ public class DoGuestLogin extends HttpServlet {
 		String pass = "guest";
 
 		UsuarioDAO userDB = new UsuarioDAO();
-		userDB.conectar();
+		userDB.connect();
 		User user = userDB.logon(login, pass);
-		userDB.desconectar();
+		userDB.disconnect();
 		session.setAttribute("userLogged", user);
 		if (user != null) {
 		    response.sendRedirect("index.jsp");

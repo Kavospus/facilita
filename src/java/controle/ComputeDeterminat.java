@@ -90,14 +90,14 @@ public class ComputeDeterminat extends HttpServlet {
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
-			calculusDB.conectar();
+			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    determine.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(determine);
 			} else {
 			    calculusDB.insert(determine);
 			}
-			calculusDB.desconectar();
+			calculusDB.disconnect();
 		    }
 		} catch (Exception e) {
 		}

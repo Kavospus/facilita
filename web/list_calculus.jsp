@@ -59,7 +59,7 @@
                                             User user = (User)session.getAttribute("userLogged");
                                             CalculoDAO calculusDB = new CalculoDAO();
 
-                                            calculusDB.conectar();
+                                            calculusDB.connect();
 
                                             ArrayList<Calculus> calculusList = calculusDB.select(user);
 

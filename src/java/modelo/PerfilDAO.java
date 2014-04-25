@@ -39,10 +39,10 @@ public class PerfilDAO extends DataBaseDAO {
 	pst = conn.prepareStatement(sql);
 	ResultSet rs = pst.executeQuery();
 	while (rs.next()) {
-	    mDB.conectar();
+	    mDB.connect();
 	    Profile p = new Profile(rs.getInt("id"), rs.getString("perfil"),
 		    mDB.menusPerfil(rs.getInt("id")));
-	    mDB.desconectar();
+	    mDB.disconnect();
 	    lista.add(p);
 	}
 	return lista;
@@ -72,9 +72,9 @@ public class PerfilDAO extends DataBaseDAO {
 	if (rs.next()) {
 	    p.setId(rs.getInt("id"));
 	    p.setPerfil(rs.getString("perfil"));
-	    mDB.conectar();
+	    mDB.connect();
 	    p.setMenus(mDB.menusPerfil(id));
-	    mDB.desconectar();
+	    mDB.disconnect();
 	}
 	return p;
 

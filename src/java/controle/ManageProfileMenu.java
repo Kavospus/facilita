@@ -55,7 +55,7 @@ public class ManageProfileMenu extends HttpServlet {
 			    .getParameter("id_profile"));
 
 		    MenuDAO menuDB = new MenuDAO();
-		    menuDB.conectar();
+		    menuDB.connect();
 
 		    if (op == 1) {
 			menuDB.vincularMenu(id_menu, id_profile);
@@ -63,13 +63,13 @@ public class ManageProfileMenu extends HttpServlet {
 			menuDB.desvincularMenu(id_menu, id_profile);
 		    }
 
-		    menuDB.desconectar();
+		    menuDB.disconnect();
 
 		    User user = (User) session.getAttribute("user");
 		    UsuarioDAO userDB = new UsuarioDAO();
-		    userDB.conectar();
+		    userDB.connect();
 		    User nu = userDB.selectById(user.getId());
-		    userDB.desconectar();
+		    userDB.disconnect();
 		    session.removeAttribute("profile");
 		    session.removeAttribute("menu");
 		    session.removeAttribute("orcamento");

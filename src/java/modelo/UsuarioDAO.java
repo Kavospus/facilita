@@ -48,9 +48,9 @@ public class UsuarioDAO extends DataBaseDAO {
 	    u.setLogin(rs.getString("login"));
 	    u.setSenha(rs.getString("senha"));
 	    u.setNome(rs.getString("nome"));
-	    pDB.conectar();
+	    pDB.connect();
 	    u.setPerfil(pDB.selectById(rs.getInt("id_perfil")));
-	    pDB.desconectar();
+	    pDB.disconnect();
 	    lista.add(u);
 	}
 	return lista;
@@ -72,9 +72,9 @@ public class UsuarioDAO extends DataBaseDAO {
 		u.setId(rs.getInt("id"));
 		u.setLogin(rs.getString("login"));
 		u.setNome(rs.getString("nome"));
-		pDB.conectar();
+		pDB.connect();
 		u.setPerfil(pDB.selectById(rs.getInt("id_perfil")));
-		pDB.desconectar();
+		pDB.disconnect();
 	    }
 	}
 
@@ -110,9 +110,9 @@ public class UsuarioDAO extends DataBaseDAO {
 	    u.setLogin(rs.getString("login"));
 	    u.setSenha(rs.getString("senha"));
 	    u.setNome(rs.getString("nome"));
-	    pDB.conectar();
+	    pDB.connect();
 	    u.setPerfil(pDB.selectById(rs.getInt("id_perfil")));
-	    pDB.desconectar();
+	    pDB.disconnect();
 	}
 	return u;
 

@@ -50,7 +50,7 @@ public class UpdateMenu extends HttpServlet {
 
                 MenuDAO menuDB = new MenuDAO();
 
-                menuDB.conectar();
+                menuDB.connect();
 
                 Menu menu = new Menu();
 
@@ -60,7 +60,7 @@ public class UpdateMenu extends HttpServlet {
                 menu.setIcone(icon);
                 menuDB.update(menu);
 
-                menuDB.desconectar();
+                menuDB.disconnect();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

@@ -96,7 +96,7 @@ public class InvertMatrix extends HttpServlet {
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
-			calculusDB.conectar();
+			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    invert.setId(Integer.parseInt(request
 				    .getParameter("id")));
@@ -104,7 +104,7 @@ public class InvertMatrix extends HttpServlet {
 			} else {
 			    calculusDB.insert(invert);
 			}
-			calculusDB.desconectar();
+			calculusDB.disconnect();
 		    }
 		    out.print("<script language='JavaScript'>");
 		    out.print(" window.open('inverse_result.jsp','_parent');");

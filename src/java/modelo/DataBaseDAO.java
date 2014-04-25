@@ -15,7 +15,7 @@ public class DataBaseDAO {
 
     public static final String DRIVER = "com.mysql.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/facilita?useEncoding=true&amp;characterEncoding=UTF-8";
-    public static final String SENHA = "root";
+    public static final String PASSWORD = "root";
     public static final String USER = "root";
     protected Connection conn;
     
@@ -27,12 +27,12 @@ public class DataBaseDAO {
     }
     
     /*Connects to the database*/
-    public void conectar() throws SQLException {
-	conn = DriverManager.getConnection(URL, USER, SENHA);
+    public void connect() throws SQLException {
+	conn = DriverManager.getConnection(URL, USER, PASSWORD);
     }
     
     /*Disconnects to the database*/
-    public void desconectar() throws SQLException {
+    public void disconnect() throws SQLException {
 	if (conn != null) {
 	    conn.close();
 	    DriverManager.deregisterDriver(new com.mysql.jdbc.Driver());

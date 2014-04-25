@@ -51,9 +51,9 @@ public class DeleteProfile extends HttpServlet {
 
 		    PerfilDAO profileDB = new PerfilDAO();
 
-		    profileDB.conectar();
+		    profileDB.connect();
 		    profileDB.delete(profile);
-		    profileDB.desconectar();
+		    profileDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

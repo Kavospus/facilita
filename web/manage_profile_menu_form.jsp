@@ -54,12 +54,12 @@
                                         try {
                                             int id_profile = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO menuDB = new MenuDAO();
-                                            menuDB.conectar();
+                                            menuDB.connect();
                                             ArrayList<Menu> menuListA = menuDB.menusNaoPerfil(id_profile);
                                             ArrayList<Menu> menuListB = menuDB.menusPerfil(id_profile);
                                             PerfilDAO profileDB = new PerfilDAO();
 
-                                            profileDB.conectar();
+                                            profileDB.connect();
 
                                             Profile profile = profileDB.selectById(id_profile);
 

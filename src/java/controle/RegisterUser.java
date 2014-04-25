@@ -48,16 +48,16 @@ public class RegisterUser extends HttpServlet {
                 PerfilDAO profileDB = new PerfilDAO();
                 user.setSenha(password);
                 user.setLogin(login);
-                profileDB.conectar();
+                profileDB.connect();
                 user.setPerfil(profileDB.selectById(id_profile));
-                profileDB.desconectar();
+                profileDB.disconnect();
                 user.setNome(name);
 
                 UsuarioDAO userDB = new UsuarioDAO();
 
-                userDB.conectar();
+                userDB.connect();
                 userDB.insert(user);
-                userDB.desconectar();
+                userDB.disconnect();
 
 
                 out.print("<script language='JavaScript'>");

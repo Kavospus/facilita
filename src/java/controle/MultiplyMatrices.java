@@ -142,14 +142,14 @@ public class MultiplyMatrices extends HttpServlet {
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
-			calculusDB.conectar();
+			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    menu.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(menu);
 			} else {
 			    calculusDB.insert(menu);
 			}
-			calculusDB.desconectar();
+			calculusDB.disconnect();
 		    }
 		} catch (Exception e) {
 		}

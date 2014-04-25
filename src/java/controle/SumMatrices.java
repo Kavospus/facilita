@@ -130,14 +130,14 @@ public class SumMatrices extends HttpServlet {
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
-			calculusDB.conectar();
+			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    sum.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(sum);
 			} else {
 			    calculusDB.insert(sum);
 			}
-			calculusDB.desconectar();
+			calculusDB.disconnect();
 		    }
 		} catch (Exception e) {
 		}

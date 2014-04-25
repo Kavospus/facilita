@@ -58,7 +58,7 @@ public class LoadCalculus extends HttpServlet {
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
 		    CalculoDAO calculusDB = new CalculoDAO();
-		    calculusDB.conectar();
+		    calculusDB.connect();
 		    Calculus calculus = calculusDB.selectById(id);
 		    operacao = calculus.getOperation();
 		    if (operacao.equals("Invert")) {

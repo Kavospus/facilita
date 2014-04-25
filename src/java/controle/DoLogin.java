@@ -48,7 +48,7 @@ public class DoLogin extends HttpServlet {
 		String pass = request.getParameter("pass");
 
 		UsuarioDAO userDB = new UsuarioDAO();
-		userDB.conectar();
+		userDB.connect();
 		User user = userDB.logon(login, pass);
 
 		if (user.getId() > 0) {

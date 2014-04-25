@@ -48,7 +48,7 @@ public class UpdateProfile extends HttpServlet {
 
                 PerfilDAO profileDB = new PerfilDAO();
 
-                profileDB.conectar();
+                profileDB.connect();
 
                 Profile profile = new Profile();
 
@@ -57,7 +57,7 @@ public class UpdateProfile extends HttpServlet {
 
                 profileDB.update(profile);
 
-                profileDB.desconectar();
+                profileDB.disconnect();
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");

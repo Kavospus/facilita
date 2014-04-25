@@ -57,9 +57,9 @@ public class InsertMenu extends HttpServlet {
 
 		    MenuDAO menuDB = new MenuDAO();
 
-		    menuDB.conectar();
+		    menuDB.connect();
 		    menuDB.insert(menu);
-		    menuDB.desconectar();
+		    menuDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros inseridos com sucesso!');");

@@ -56,9 +56,9 @@ public class DeleteCalculus extends HttpServlet {
 
 		    CalculoDAO calculusDB = new CalculoDAO();
 
-		    calculusDB.conectar();
+		    calculusDB.connect();
 		    calculusDB.delete(calculus);
-		    calculusDB.desconectar();
+		    calculusDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Registros deletados com sucesso!');");

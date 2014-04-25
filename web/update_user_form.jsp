@@ -83,13 +83,13 @@
                                             ArrayList<Profile> profileListA = new ArrayList<Profile>();
 
                                             UsuarioDAO userDB = new UsuarioDAO();
-                                            userDB.conectar();
+                                            userDB.connect();
                                             User u = userDB.selectById(id);
-                                            userDB.desconectar();
+                                            userDB.disconnect();
 
  
                                                 PerfilDAO profileDB = new PerfilDAO();
-                                                profileDB.conectar();
+                                                profileDB.connect();
                                                 ArrayList<Profile> profileListB = profileDB.select();
 
                                 %>
@@ -139,7 +139,7 @@
                             </form>
                         </table>
                         <%
-                                        profileDB.desconectar();
+                                        profileDB.disconnect();
                                     } catch (Exception e) {
                                         out.println(e);
 

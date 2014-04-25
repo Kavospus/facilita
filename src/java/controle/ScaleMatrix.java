@@ -117,14 +117,14 @@ public class ScaleMatrix extends HttpServlet {
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
-			calculusDB.conectar();
+			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    scalar.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(scalar);
 			} else {
 			    calculusDB.insert(scalar);
 			}
-			calculusDB.desconectar();
+			calculusDB.disconnect();
 		    }
 		} catch (Exception x) {
 		}
