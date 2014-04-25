@@ -31,9 +31,9 @@ public class SubtrairTest {
     @Test
     public void testSubtrair() {
         subtrair = new Subtract(new double[][]{{1.0,2.0},{3.0,2.0}},new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
-        subtrair.calcular();
+        subtrair.calculate();
         double[][] saida = new double[][]{{0.0,0.0},{0.0,0.0}};
-        assertArrayEquals(saida[0],subtrair.getResultado()[0], 0.000001);
-        assertArrayEquals(saida[1],subtrair.getResultado()[1], 0.000001);
+        assertArrayEquals(saida[0],subtrair.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],subtrair.getResult()[1], 0.000001);
     }
 }

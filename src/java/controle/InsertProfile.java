@@ -47,7 +47,7 @@ public class InsertProfile extends HttpServlet {
 		    String profileName = request.getParameter("profile");
 
 		    Profile profile = new Profile();
-		    profile.setPerfil(profileName);
+		    profile.setProfile(profileName);
 
 		    ProfileDAO profileDB = new ProfileDAO();
 

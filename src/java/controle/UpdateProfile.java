@@ -53,7 +53,7 @@ public class UpdateProfile extends HttpServlet {
                 Profile profile = new Profile();
 
                 profile.setId(id);
-                profile.setPerfil(profileName);
+                profile.setProfile(profileName);
 
                 profileDB.update(profile);
 

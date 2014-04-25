@@ -10,12 +10,12 @@ User userLogged = null;
 try{
 
     userLogged = (User) session.getAttribute("userLogged");
-    out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
-    for(Menu mp:userLogged.getPerfil().getMenus()){
+    out.print("<td>Bem Vindo "+userLogged.getName()+"</td>");
+    for(Menu mp:userLogged.getProfile().getMenus()){
 
     out.print("<td >"
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
-            + "<img width='10' height='10' src='"+mp.getIcone()+"'>   "+mp.getMenu()+"</div></a></td>" );
+            + "<img width='10' height='10' src='"+mp.getIcon()+"'>   "+mp.getMenu()+"</div></a></td>" );
     }
 
     out.print("<td><a class='button' href='exit.jsp'>Sair</a></td>");

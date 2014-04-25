@@ -62,7 +62,7 @@
                                             calculusDB.connect();
                                             
                                             ArrayList<Calculus> calculusList = calculusDB.select(user);
-                                            out.print(user.getNome());
+                                            out.print(user.getName());
                                             for(Calculus calculus:calculusList){%>
 
                             <tr>
@@ -107,7 +107,8 @@
 
     if(logged){
     User userPermission = new User();
-    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
+    
+    if(!userPermission.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?error=1");
     }else{
     session.setAttribute("calculus",true);

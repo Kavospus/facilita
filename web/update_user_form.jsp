@@ -100,7 +100,7 @@
                                 </tr>
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="name" value="<%=user.getNome()%>"/> </td>
+                                    <td><input type="text" size="45" name="name" value="<%=user.getName()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -109,15 +109,15 @@
                                     <td><select name="id_profile" size="1">
                                             
                                             <%for (Profile profile : profileListB) {%>
-                                            <%if(user.getPerfil().getId() == profile.getId()) {%>
+                                            <%if(user.getProfile().getId() == profile.getId()) {%>
                                             <option value="<%=profile.getId()%>">
-                                                <%=profile.getPerfil()%>
+                                                <%=profile.getProfile()%>
                                             </option>
                                             <%}else {profileListA.add(profile);}
                                             }
                                             for (Profile p1 : profileListA) {%>
                                             <option value="<%=p1.getId()%>">
-                                                <%=p1.getPerfil()%>
+                                                <%=p1.getProfile()%>
                                             </option>
                                             <%}%>
                                         </select>

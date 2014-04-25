@@ -20,75 +20,75 @@ public class ProfileDAO extends DataBaseDAO {
     }
     
     /*Insert a Profile object to the database*/
-    public void insert(Profile profile) throws SQLException {
+    public void insert(Profile p) throws SQLException {
 
-	PreparedStatement preparedStatement;
+	PreparedStatement pst;
 	String sql = "INSERT INTO perfil(perfil) VALUES(?)";
-	preparedStatement = conn.prepareStatement(sql);
-	preparedStatement.setString(1, profile.getPerfil());
-	preparedStatement.execute();
+	pst = conn.prepareStatement(sql);
+	pst.setString(1, p.getProfile());
+	pst.execute();
 
     }
     
     /*Consult a list of all Profile objects on the database*/
     public ArrayList<Profile> select() throws SQLException, Exception {
-	MenuDAO menuDB = new MenuDAO();
+	MenuDAO mDB = new MenuDAO();
 	ArrayList<Profile> lista = new ArrayList<Profile>();
-	PreparedStatement preparedStatement;
+	PreparedStatement pst;
 	String sql = "SELECT * FROM perfil";
-	preparedStatement = conn.prepareStatement(sql);
-	ResultSet rs = preparedStatement.executeQuery();
+	pst = conn.prepareStatement(sql);
+	ResultSet rs = pst.executeQuery();
 	while (rs.next()) {
-	    menuDB.connect();
-	    Profile profile = new Profile(rs.getInt("id"), rs.getString("perfil"),
-		    menuDB.menusPerfil(rs.getInt("id")));
-	    menuDB.disconnect();
-	    lista.add(profile);
+	    mDB.connect();
+	    Profile p = new Profile(rs.getInt("id"), rs.getString("perfil"),
+		    mDB.menusPerfil(rs.getInt("id")));
+	    mDB.disconnect();
+	    lista.add(p);
 	}
 	return lista;
 
     }
     
     /*Delete a Profile object on the database*/
-    public void delete(Profile profile) throws SQLException {
+    public void delete(Profile p) throws SQLException {
 
-	PreparedStatement preparedStatement;
+	PreparedStatement pst;
 	String sql = "DELETE FROM perfil WHERE id=?";
-	preparedStatement = conn.prepareStatement(sql);
-	preparedStatement.setInt(1, profile.getId());
-	preparedStatement.execute();
+	pst = conn.prepareStatement(sql);
+	pst.setInt(1, p.getId());
+	pst.execute();
 
     }
     
     /*Load a Profile object with the id argument on the database*/
     public Profile selectById(int id) throws SQLException, Exception {
-	Profile profile = new Profile();
-	MenuDAO menuDB = new MenuDAO();
-	PreparedStatement preparedStatement;
+	Profile p = new Profile();
+	MenuDAO mDB = new MenuDAO();
+	PreparedStatement pst;
 	String sql = "SELECT * FROM perfil WHERE id=?";
-	preparedStatement = conn.prepareStatement(sql);
-	preparedStatement.setInt(1, id);
-	ResultSet rs = preparedStatement.executeQuery();
+	pst = conn.prepareStatement(sql);
+	pst.setInt(1, id);
+	ResultSet rs = pst.executeQuery();
 	if (rs.next()) {
-	    profile.setId(rs.getInt("id"));
-	    profile.setPerfil(rs.getString("perfil"));
-	    menuDB.connect();
-	    profile.setMenus(menuDB.menusPerfil(id));
-	    menuDB.disconnect();
+	    p.setId(rs.getInt("id"));
+	    p.setProfile(rs.getString("perfil"));
+	    mDB.connect();
+	    p.setMenus(mDB.menusPerfil(id));
+	    mDB.disconnect();
 	}
-	return profile;
+	return p;
 
     }
     
     /*Edit a Profile object on the database*/
-    public void update(Profile profile) throws SQLException {
+    public void update(Profile p) throws SQLException {
 
-	PreparedStatement preparedStatement;
+	PreparedStatement pst;
 	String sql = "UPDATE perfil SET perfil=? WHERE id=?";
-	preparedStatement = conn.prepareStatement(sql);
-	preparedStatement.setString(1, profile.getPerfil());
-	preparedStatement.setInt(2, profile.getId());
-	preparedStatement.execute();
+	pst = conn.prepareStatement(sql);
+	pst.setString(1, p.getProfile());
+	pst.setInt(2, p.getId());
+	pst.execute();
 
     }
 

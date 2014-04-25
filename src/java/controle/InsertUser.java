@@ -59,12 +59,12 @@ public class InsertUser extends HttpServlet {
 
 		    User user = new User();
 		    ProfileDAO profileDB = new ProfileDAO();
-		    user.setSenha(password);
+		    user.setPassword(password);
 		    user.setLogin(login);
 		    profileDB.connect();
-		    user.setPerfil(profileDB.selectById(id_profile));
+		    user.setProfile(profileDB.selectById(id_profile));
 		    profileDB.disconnect();
-		    user.setNome(name);
+		    user.setName(name);
 
 		    UserDAO userDB = new UserDAO();
 

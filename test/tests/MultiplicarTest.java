@@ -31,9 +31,9 @@ public class MultiplicarTest {
     @Test
     public void testMultiplicar() {
         multiplicar = new Multiply(new double[][]{{-0.25,-0.5},{-0.75,-0.5}},new double[][]{{1.0,2.0},{3.0,2.0}},2, 2,2);
-        multiplicar.calcular();
+        multiplicar.calculate();
         double[][] saida = new double[][]{{-1.75,-1.5},{-2.25,-2.5}};
-        assertArrayEquals(saida[0],multiplicar.getResultado()[0], 0.000001);
-        assertArrayEquals(saida[1],multiplicar.getResultado()[1], 0.000001);
+        assertArrayEquals(saida[0],multiplicar.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],multiplicar.getResult()[1], 0.000001);
     }
 }

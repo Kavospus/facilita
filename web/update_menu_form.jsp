@@ -101,8 +101,8 @@
                                 </tr>
                                 <tr>
                                     <td>Icone URL:</td>
-                                    <td><input type="text" size="45" name="icon" value="<%=menu.getIcone() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
-                                    <td ><div align="rigth" id="thumb"><img width="32" height="32" src="<%=menu.getIcone()%>"/></div></td>
+                                    <td><input type="text" size="45" name="icon" value="<%=menu.getIcon() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
+                                    <td ><div align="rigth" id="thumb"><img width="32" height="32" src="<%=menu.getIcon()%>"/></div></td>
                                 </tr>
                                 <tr>
                                     <td>Link:</td>

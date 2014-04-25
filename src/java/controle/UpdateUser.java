@@ -62,11 +62,11 @@ public class UpdateUser extends HttpServlet {
                 User user = new User();
                 ProfileDAO profileDB = new ProfileDAO();
                 user.setId(id);
-                user.setNome(name);
+                user.setName(name);
                 profileDB.connect();
-                user.setPerfil(profileDB.selectById(id_profile));
+                user.setProfile(profileDB.selectById(id_profile));
                 profileDB.disconnect();
-                user.setSenha(password);
+                user.setPassword(password);
                 user.setLogin(login);
 
 
