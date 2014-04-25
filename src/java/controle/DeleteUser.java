@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Usuario;
+import modelo.User;
 import modelo.UsuarioDAO;
 
 public class DeleteUser extends HttpServlet {
@@ -45,7 +45,7 @@ public class DeleteUser extends HttpServlet {
 		out.println("<body>");
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    Usuario user = new Usuario();
+		    User user = new User();
 		    user.setId(id);
 
 		    UsuarioDAO userDB = new UsuarioDAO();

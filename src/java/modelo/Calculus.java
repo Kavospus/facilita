@@ -14,7 +14,7 @@ public abstract class Calculus {
     private String operation;
     private String dataString;
     private String resultString;
-    private Usuario user;
+    private User user;
 
     public String getOperation() {
 	return operation;
@@ -46,11 +46,11 @@ public abstract class Calculus {
 	this.resultString = resultString;
     }
 
-    public Usuario getUser() {
+    public User getUser() {
 	return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(User user) {
 	this.user = user;
     }
 

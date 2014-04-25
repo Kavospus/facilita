@@ -56,7 +56,7 @@
                             <%
 
                                         try {
-                                            Usuario user = (Usuario)session.getAttribute("userLogged");
+                                            User user = (User)session.getAttribute("userLogged");
                                             CalculoDAO calculusDB = new CalculoDAO();
 
                                             calculusDB.conectar();
@@ -106,7 +106,7 @@
                         <%
 
     if(logged){
-    Usuario userPermission = new Usuario();
+    User userPermission = new User();
     if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{

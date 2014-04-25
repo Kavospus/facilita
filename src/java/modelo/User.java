@@ -7,18 +7,18 @@
 
 package modelo;
 
-public class Usuario {
+public class User {
     private int id;
     private String nome;
     private Perfil perfil;
     private String login;
     private String senha;
 
-    public Usuario() {
+    public User() {
     }
 
     /*Constructor*/
-    public Usuario(int id, String nome, Perfil perfil, String login,
+    public User(int id, String nome, Perfil perfil, String login,
 	    String senha) {
 	this.id = id;
 	this.nome = nome;
@@ -60,7 +60,7 @@ public class Usuario {
     }
     
     /*Verify the permission of the User on the given context*/
-    public boolean temPermissao(String uri, String context, Usuario user) {
+    public boolean temPermissao(String uri, String context, User user) {
 	boolean result = false;
 	String path = null;
 	for (Menu m : user.getPerfil().getMenus()) {

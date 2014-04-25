@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Subtrair;
-import modelo.Usuario;
+import modelo.User;
 
 
 public class SubtractMatrices extends HttpServlet {
@@ -125,8 +125,8 @@ public class SubtractMatrices extends HttpServlet {
 		session.setAttribute("result_subtract_linesB", linesA);
 		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    s.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = s.getUser();
+		    s.setUser((User) session.getAttribute("user"));
+		    User userPermission = s.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Perfil;
-import modelo.Usuario;
+import modelo.User;
 import modelo.UsuarioDAO;
 
 public class DoGuestLogin extends HttpServlet {
@@ -47,7 +47,7 @@ public class DoGuestLogin extends HttpServlet {
 
 		UsuarioDAO userDB = new UsuarioDAO();
 		userDB.conectar();
-		Usuario user = userDB.logon(login, pass);
+		User user = userDB.logon(login, pass);
 		userDB.desconectar();
 		session.setAttribute("userLogged", user);
 		if (user != null) {

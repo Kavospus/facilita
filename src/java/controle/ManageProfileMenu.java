@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.MenuDAO;
-import modelo.Usuario;
+import modelo.User;
 import modelo.UsuarioDAO;
 
 public class ManageProfileMenu extends HttpServlet {
@@ -65,10 +65,10 @@ public class ManageProfileMenu extends HttpServlet {
 
 		    menuDB.desconectar();
 
-		    Usuario user = (Usuario) session.getAttribute("user");
+		    User user = (User) session.getAttribute("user");
 		    UsuarioDAO userDB = new UsuarioDAO();
 		    userDB.conectar();
-		    Usuario nu = userDB.selectById(user.getId());
+		    User nu = userDB.selectById(user.getId());
 		    userDB.desconectar();
 		    session.removeAttribute("profile");
 		    session.removeAttribute("menu");

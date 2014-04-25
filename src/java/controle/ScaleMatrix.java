@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Scale;
-import modelo.Usuario;
+import modelo.User;
 
 
 public class ScaleMatrix extends HttpServlet {
@@ -112,8 +112,8 @@ public class ScaleMatrix extends HttpServlet {
 		session.setAttribute("result_escalar_linesA", linesA);
 		session.setAttribute("result_escalar_columnsA", columnsA);
 		try {
-		    scalar.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = scalar.getUser();
+		    scalar.setUser((User) session.getAttribute("user"));
+		    User userPermission = scalar.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import modelo.MD5Encrypter;
 import modelo.Perfil;
 import modelo.PerfilDAO;
-import modelo.Usuario;
+import modelo.User;
 import modelo.UsuarioDAO;
 
 public class InsertUser extends HttpServlet {
@@ -57,7 +57,7 @@ public class InsertUser extends HttpServlet {
 			    .getParameter("password"));
 		    String login = request.getParameter("login");
 
-		    Usuario user = new Usuario();
+		    User user = new User();
 		    PerfilDAO profileDB = new PerfilDAO();
 		    user.setSenha(password);
 		    user.setLogin(login);

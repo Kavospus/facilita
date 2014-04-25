@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Invert;
-import modelo.Usuario;
+import modelo.User;
 
 public class InvertMatrix extends HttpServlet {
 
@@ -91,8 +91,8 @@ public class InvertMatrix extends HttpServlet {
 		    session.setAttribute("result_inversa_linesA", linesA);
 		    session.setAttribute("result_inversa_columnsA", columnsA);
 
-		    invert.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = invert.getUser();
+		    invert.setUser((User) session.getAttribute("user"));
+		    User userPermission = invert.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

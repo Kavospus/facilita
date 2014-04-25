@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Sum;
-import modelo.Usuario;
+import modelo.User;
 
 public class SumMatrices extends HttpServlet {
 
@@ -125,8 +125,8 @@ public class SumMatrices extends HttpServlet {
 		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
-		    sum.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = sum.getUser();
+		    sum.setUser((User) session.getAttribute("user"));
+		    User userPermission = sum.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Transpose;
-import modelo.Usuario;
+import modelo.User;
 
 public class TransposeMatrix extends HttpServlet {
 
@@ -99,8 +99,8 @@ public class TransposeMatrix extends HttpServlet {
 		session.setAttribute("result_transposed_linesA", columnsA);
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
-		    transpor.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = transpor.getUser();
+		    transpor.setUser((User) session.getAttribute("user"));
+		    User userPermission = transpor.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

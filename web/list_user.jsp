@@ -65,8 +65,8 @@
                             try{
                                 UsuarioDAO userDB = new UsuarioDAO();
                                 userDB.conectar();
-                                ArrayList<Usuario> userList = userDB.select();
-                            for(Usuario u:userList){%>
+                                ArrayList<User> userList = userDB.select();
+                            for(User u:userList){%>
 
                             <tr>
                                 <td>
@@ -104,7 +104,7 @@
 <%
 
     if(logged){
-    Usuario uP = new Usuario();
+    User uP = new User();
     if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{

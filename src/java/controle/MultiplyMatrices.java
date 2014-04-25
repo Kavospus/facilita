@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Multiplicar;
-import modelo.Usuario;
+import modelo.User;
 
 public class MultiplyMatrices extends HttpServlet {
 
@@ -137,8 +137,8 @@ public class MultiplyMatrices extends HttpServlet {
 		session.setAttribute("result_multiply_linesA", linesA);
 		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    menu.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = menu.getUser();
+		    menu.setUser((User) session.getAttribute("user"));
+		    User userPermission = menu.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();

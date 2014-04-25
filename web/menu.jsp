@@ -1,15 +1,15 @@
 <%@page import="modelo.Menu"%>
-<%@page import="modelo.Usuario"%>
+<%@page import="modelo.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <table class="centertable" >
     <tr>
 <%
 boolean logged = false;
-Usuario userLogged = null;
+User userLogged = null;
 try{
 
-    userLogged = (Usuario) session.getAttribute("userLogged");
+    userLogged = (User) session.getAttribute("userLogged");
     out.print("<td>Bem Vindo "+userLogged.getNome()+"</td>");
     for(Menu mp:userLogged.getPerfil().getMenus()){
 

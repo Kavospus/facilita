@@ -84,7 +84,7 @@
 
                                             UsuarioDAO userDB = new UsuarioDAO();
                                             userDB.conectar();
-                                            Usuario u = userDB.selectById(id);
+                                            User u = userDB.selectById(id);
                                             userDB.desconectar();
 
  

@@ -19,7 +19,7 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Insert a User object to the database*/
-    public void insert(Usuario u) throws SQLException {
+    public void insert(User u) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "INSERT INTO usuario (id_perfil,login,senha,nome) "
@@ -34,16 +34,16 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Consult a list of all User objects on the database*/
-    public ArrayList<Usuario> select() throws SQLException, Exception {
+    public ArrayList<User> select() throws SQLException, Exception {
 
 	PerfilDAO pDB = new PerfilDAO();
-	ArrayList<Usuario> lista = new ArrayList<Usuario>();
+	ArrayList<User> lista = new ArrayList<User>();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario";
 	pst = conn.prepareStatement(sql);
 	ResultSet rs = pst.executeQuery();
 	while (rs.next()) {
-	    Usuario u = new Usuario();
+	    User u = new User();
 	    u.setId(rs.getInt("id"));
 	    u.setLogin(rs.getString("login"));
 	    u.setSenha(rs.getString("senha"));
@@ -58,7 +58,7 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Login a User object throught the user and password arguments*/
-    public Usuario logon(String user, String senha) throws SQLException,
+    public User logon(String user, String senha) throws SQLException,
 	    Exception {
 	PerfilDAO pDB = new PerfilDAO();
 	PreparedStatement pst;
@@ -66,7 +66,7 @@ public class UsuarioDAO extends DataBaseDAO {
 	pst = conn.prepareStatement(sql);
 	pst.setString(1, user);
 	ResultSet rs = pst.executeQuery();
-	Usuario u = new Usuario();
+	User u = new User();
 	if (rs.next()) {
 	    if (MD5Encrypter.encryptMD5(senha).equals(rs.getString("senha"))) {
 		u.setId(rs.getInt("id"));
@@ -82,7 +82,7 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Edit a User object on the database*/
-    public void update(Usuario u) throws SQLException {
+    public void update(User u) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "UPDATE usuario SET login=?, senha=?, id_perfil=?, nome=?  WHERE id=?";
@@ -97,8 +97,8 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Load a User object with the id argument on the database*/
-    public Usuario selectById(int id) throws SQLException, Exception {
-	Usuario u = new Usuario();
+    public User selectById(int id) throws SQLException, Exception {
+	User u = new User();
 	PerfilDAO pDB = new PerfilDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario WHERE id=?";
@@ -119,7 +119,7 @@ public class UsuarioDAO extends DataBaseDAO {
     }
     
     /*Delete a User object on the database*/
-    public void delete(Usuario u) throws SQLException {
+    public void delete(User u) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "DELETE FROM usuario WHERE id=?";

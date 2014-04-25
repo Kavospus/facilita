@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculoDAO;
 import modelo.Determine;
-import modelo.Usuario;
+import modelo.User;
 
 public class ComputeDeterminat extends HttpServlet {
 
@@ -85,8 +85,8 @@ public class ComputeDeterminat extends HttpServlet {
 		result = determine.getResult();
 		session.setAttribute("result_determinante", result);
 		try {
-		    determine.setUser((Usuario) session.getAttribute("user"));
-		    Usuario userPermission = determine.getUser();
+		    determine.setUser((User) session.getAttribute("user"));
+		    User userPermission = determine.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculoDAO calculusDB = new CalculoDAO();
