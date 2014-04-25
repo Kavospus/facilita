@@ -124,7 +124,7 @@ public class MultiplyMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_multiply_matrixA", matrixA);
-	    session.setAttribute("data_multiply_b", matrixB);
+	    session.setAttribute("data_multiply_matrixB", matrixB);
 	    session.setAttribute("data_multiply_linesA", linesA);
 	    session.setAttribute("data_multiply_columnsA", columnsA);
 	    session.setAttribute("data_multiply_linesB", linesB);
@@ -137,7 +137,7 @@ public class MultiplyMatrices extends HttpServlet {
 		session.setAttribute("result_multiply_linesA", linesA);
 		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    menu.setUser((User) session.getAttribute("user"));
+		    menu.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = menu.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

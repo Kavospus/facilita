@@ -60,9 +60,8 @@
                                             CalculusDAO calculusDB = new CalculusDAO();
 
                                             calculusDB.connect();
-                                            
                                             ArrayList<Calculus> calculusList = calculusDB.select(user);
-                                            out.print(user.getName());
+                                            
                                             for(Calculus calculus:calculusList){%>
 
                             <tr>

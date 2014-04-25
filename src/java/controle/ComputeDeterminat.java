@@ -83,9 +83,9 @@ public class ComputeDeterminat extends HttpServlet {
 		Determine determine = new Determine(matrixA, linesA, columnsA);
 		determine.calculate();
 		result = determine.getResult();
-		session.setAttribute("result_determinante", result);
+		session.setAttribute("result_determinant", result);
 		try {
-		    determine.setUser((User) session.getAttribute("user"));
+		    determine.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = determine.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

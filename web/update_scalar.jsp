@@ -20,10 +20,10 @@
     <%
     
        int linesA=0,columnsA=0;
-       double n=0;
+       double number=0;
         
        if(session.getAttribute("data_scalar_number") != null){
-                n = (Double)session.getAttribute("data_scalar_number");
+                number = (Double)session.getAttribute("data_scalar_number");
        }
        if(session.getAttribute("data_scalar_linesA") != null){
                 linesA = (Integer)session.getAttribute("data_scalar_linesA");
@@ -37,7 +37,7 @@
     <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="scale_matrix.do" method="POST" name="scale_matrix">
-        Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
+        Escalar <input type="text" name="number" value="<%=number%>" id="number"/>
         Linhas <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         Colunas <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=scalar&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         <div id="matrixes" ></div>

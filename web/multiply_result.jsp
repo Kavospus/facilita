@@ -43,11 +43,11 @@
         if(session.getAttribute("result_multiply") != null){
                 result = (double[][])session.getAttribute("result_multiply");
             }
-        if(session.getAttribute("data_mmultiplica_matrixA") != null){
-                matrixA = (double[][])session.getAttribute("data_mmultiplica_matrixA");
+        if(session.getAttribute("data_multiply_matrixA") != null){
+                matrixA = (double[][])session.getAttribute("data_multiply_matrixA");
             }
-        if(session.getAttribute("data_mmultiplica_matrixB") != null){
-                matrixB = (double[][])session.getAttribute("data_mmultiplica_matrixB");
+        if(session.getAttribute("data_multiply_matrixB") != null){
+                matrixB = (double[][])session.getAttribute("data_multiply_matrixB");
             }
         
         

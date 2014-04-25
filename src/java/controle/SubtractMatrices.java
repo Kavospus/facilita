@@ -110,7 +110,7 @@ public class SubtractMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_subtract_matrixA", matrixA);
-	    session.setAttribute("data_subtract_b", matrixB);
+	    session.setAttribute("data_subtract_matrixB", matrixB);
 	    session.setAttribute("data_subtract_linesA", linesA);
 	    session.setAttribute("data_subtract_columnsA", columnsA);
 	    session.setAttribute("data_subtract_linesB", linesA);
@@ -125,7 +125,7 @@ public class SubtractMatrices extends HttpServlet {
 		session.setAttribute("result_subtract_linesB", linesA);
 		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    s.setUser((User) session.getAttribute("user"));
+		    s.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = s.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

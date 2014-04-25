@@ -66,7 +66,7 @@ public class ScaleMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    if (request.getParameter("n") != null) {
+	    if (request.getParameter("number") != null) {
 		try {
 		    number = Double.parseDouble(request.getParameter("number"));
 		} catch (Exception e) {
@@ -108,11 +108,11 @@ public class ScaleMatrix extends HttpServlet {
 		Scale scalar = new Scale(matrixA, number, linesA, columnsA);
 		scalar.calculate();
 		result = scalar.getResult();
-		session.setAttribute("result_escalar", result);
-		session.setAttribute("result_escalar_linesA", linesA);
-		session.setAttribute("result_escalar_columnsA", columnsA);
+		session.setAttribute("result_scalar", result);
+		session.setAttribute("result_scalar_linesA", linesA);
+		session.setAttribute("result_scalar_columnsA", columnsA);
 		try {
-		    scalar.setUser((User) session.getAttribute("user"));
+		    scalar.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = scalar.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

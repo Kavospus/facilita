@@ -18,15 +18,15 @@
         <title>JSP Page</title>
     </head>
     <%
-    double n = 0;
+    double number = 0;
     if(session.getAttribute("result_determinant") != null){
-                n = (Double)session.getAttribute("result_determinant");
+                number = (Double)session.getAttribute("result_determinant");
     }
     %>
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="scale_matrix.do" method="POST" name="scale_matrix">
-            Escalar <input type="text" name="n" value="<%=n%>" id="n"/>
+            Escalar <input type="text" name="number" value="<%=number%>" id="n"/>
         Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         

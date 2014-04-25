@@ -36,7 +36,7 @@
     <body class="centertable" onload="refreshPage('matrixes', 'dynamic_answer_matrix.jsp?operation=<%=operation%>&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="scale_matrix.do" method="POST" name="scale_matrix">
-        Escalar <input type="text" name="n" id="n"/>
+        Escalar <input type="text" name="number" id="number"/>
         Linhas <input type="text" name="linesA" readonly="true" value="<%=linesA%>" id="linesA"  />
         Colunas <input type="text" value="<%=columnsA%>" readonly="true"   name="columnsA" id="columnsA" />
         <div id="matrixes" ></div>

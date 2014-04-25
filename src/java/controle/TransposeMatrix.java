@@ -99,7 +99,7 @@ public class TransposeMatrix extends HttpServlet {
 		session.setAttribute("result_transposed_linesA", columnsA);
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
-		    transpor.setUser((User) session.getAttribute("user"));
+		    transpor.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = transpor.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

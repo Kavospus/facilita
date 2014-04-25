@@ -87,11 +87,11 @@ public class InvertMatrix extends HttpServlet {
 		    Invert invert = new Invert(matrixA, linesA, columnsA);
 		    invert.calculate();
 		    result = invert.getResult();
-		    session.setAttribute("result_inversa", result);
-		    session.setAttribute("result_inversa_linesA", linesA);
-		    session.setAttribute("result_inversa_columnsA", columnsA);
+		    session.setAttribute("result_inverse", result);
+		    session.setAttribute("result_inverse_linesA", linesA);
+		    session.setAttribute("result_inverse_columnsA", columnsA);
 
-		    invert.setUser((User) session.getAttribute("user"));
+		    invert.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = invert.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

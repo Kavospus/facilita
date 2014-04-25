@@ -109,7 +109,7 @@ public class SumMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_sum_matrixA", matrixA);
-	    session.setAttribute("data_sum_b", matrixB);
+	    session.setAttribute("data_sum_matrixB", matrixB);
 	    session.setAttribute("data_sum_linesA", linesA);
 	    session.setAttribute("data_sum_columnsA", columnsA);
 	    session.setAttribute("data_sum_linesB", linesA);
@@ -125,7 +125,7 @@ public class SumMatrices extends HttpServlet {
 		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
-		    sum.setUser((User) session.getAttribute("user"));
+		    sum.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = sum.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

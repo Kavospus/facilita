@@ -72,15 +72,10 @@ public class ManageProfileMenu extends HttpServlet {
 		    userDB.disconnect();
 		    session.removeAttribute("profile");
 		    session.removeAttribute("menu");
-		    session.removeAttribute("produto");
 		    session.removeAttribute("user");
 		    session.setAttribute("userLogged", newUser);
 		    session.setAttribute("profile", true);
 		    session.setAttribute("menu", null);
-		    session.setAttribute("orcamento", null);
-		    session.setAttribute("requisicao", null);
-		    session.setAttribute("produto", null);
-		    session.setAttribute("produto", null);
 		    session.setAttribute("user", null);
 		    response.sendRedirect("manage_profile_menu_form.jsp?id="
 			    + id_profile);
