@@ -11,7 +11,7 @@ package modelo;
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Multiplicar extends Calculus {
+public class Multiply extends Calculus {
     private double[][] inputA;
     private double[][] inputB;
     private double[][] result;
@@ -19,12 +19,12 @@ public class Multiplicar extends Calculus {
     private int columnsA;
     private int linesB;
 
-    public Multiplicar() {
+    public Multiply() {
 
     }
 
     /*Constructor*/
-    public Multiplicar(double[][] inputA, double[][] inputB, int linesA,
+    public Multiply(double[][] inputA, double[][] inputB, int linesA,
 	    int columnsA, int linesB) {
 	ArrayList<String> inputs = new ArrayList<String>();
 	this.inputA = inputA;
@@ -35,7 +35,7 @@ public class Multiplicar extends Calculus {
 	inputs.add(MatrixParser.parseString(inputA));
 	inputs.add(MatrixParser.parseString(inputB));
 	this.setInputString(MatrixParser.concat(inputs));
-	this.setOperation("Multiplicar");
+	this.setOperation("Multiply");
     }
 
     /*Function to multiply two matrices*/

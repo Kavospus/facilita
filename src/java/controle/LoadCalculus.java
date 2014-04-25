@@ -18,7 +18,7 @@ import modelo.CalculusDAO;
 import modelo.Determine;
 import modelo.Scale;
 import modelo.Invert;
-import modelo.Multiplicar;
+import modelo.Multiply;
 import modelo.Sum;
 import modelo.Subtract;
 import modelo.Transpose;
@@ -133,8 +133,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_subtract.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Multiplicar")) {
-			Multiplicar menu = (Multiplicar) calculus;
+		    } else if (operacao.equals("Multiply")) {
+			Multiply menu = (Multiply) calculus;
 			menu.setDataString();
 			session.setAttribute("data_multiply_matrixA",
 				menu.getInputA());

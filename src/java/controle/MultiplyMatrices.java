@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculusDAO;
-import modelo.Multiplicar;
+import modelo.Multiply;
 import modelo.User;
 
 public class MultiplyMatrices extends HttpServlet {
@@ -130,7 +130,7 @@ public class MultiplyMatrices extends HttpServlet {
 	    session.setAttribute("data_multiply_linesB", linesB);
 	    session.setAttribute("data_multiply_columnsB", columnsB);
 	    if (error == 0) {
-		Multiplicar menu = new Multiplicar(matrixA, matrixB, linesA, columnsA, columnsB);
+		Multiply menu = new Multiply(matrixA, matrixB, linesA, columnsA, columnsB);
 		menu.calculate();
 		result = menu.getResult();
 		session.setAttribute("result_multiply", result);
