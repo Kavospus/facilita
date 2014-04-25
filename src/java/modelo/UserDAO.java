@@ -58,13 +58,13 @@ public class UserDAO extends DataBaseDAO {
     }
     
     /*Login a User object throught the user and password arguments*/
-    public User logon(String user, String senha) throws SQLException,
+    public User logon(String login, String senha) throws SQLException,
 	    Exception {
 	ProfileDAO profileDB = new ProfileDAO();
 	PreparedStatement preparedStatement;
 	String sql = "SELECT * FROM usuario WHERE login=?";
 	preparedStatement = conn.prepareStatement(sql);
-	preparedStatement.setString(1, user);
+	preparedStatement.setString(1, login);
 	ResultSet rs = preparedStatement.executeQuery();
 	User user = new User();
 	if (rs.next()) {
