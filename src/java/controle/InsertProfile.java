@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
+import modelo.Profile;
 import modelo.PerfilDAO;
 
 public class InsertProfile extends HttpServlet {
@@ -46,7 +46,7 @@ public class InsertProfile extends HttpServlet {
 		try {
 		    String profileName = request.getParameter("profile");
 
-		    Perfil profile = new Perfil();
+		    Profile profile = new Profile();
 		    profile.setPerfil(profileName);
 
 		    PerfilDAO profileDB = new PerfilDAO();

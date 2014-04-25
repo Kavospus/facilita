@@ -49,22 +49,22 @@
         <servlet-class>controle.ComputeLeastSquares</servlet-class>
     </servlet>
     <servlet>
-        <description>Deleta o Perfil</description>
+        <description>Deleta o Profile</description>
         <servlet-name>ExcluirPerfil</servlet-name>
         <servlet-class>controle.DeleteProfile</servlet-class>
     </servlet>
     <servlet>
-        <description>Altera o Perfil</description>
+        <description>Altera o Profile</description>
         <servlet-name>AlterarPerfil</servlet-name>
         <servlet-class>controle.UpdateProfile</servlet-class>
     </servlet>
     <servlet>
-        <description>Gerencia Menu e Perfil</description>
+        <description>Gerencia Menu e Profile</description>
         <servlet-name>GerenciarMenuPerfil</servlet-name>
         <servlet-class>controle.ManageProfileMenu</servlet-class>
     </servlet>
     <servlet>
-        <description>Adicionar um Perfil</description>
+        <description>Adicionar um Profile</description>
         <servlet-name>InserirPerfil</servlet-name>
         <servlet-class>controle.InsertProfile</servlet-class>
     </servlet>

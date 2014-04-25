@@ -2,7 +2,7 @@
     Document   : update_menu_form
     Author     : André
 --%>
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="modelo.MenuDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>

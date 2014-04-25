@@ -5,7 +5,7 @@
 
 
 <%@page import="modelo.UsuarioDAO"%>
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.PerfilDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -46,13 +46,13 @@
                         <table class="tableDist" align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Perfis</h1></td>
-                                <td align="right" ><a class="button" href="insert_profile_form.jsp">Inserir Perfil</a></td>
+                                <td align="right" ><a class="button" href="insert_profile_form.jsp">Inserir Profile</a></td>
                             </tr>
                         </table>
                         <table class="" align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Perfil</td>
+                                <td>Profile</td>
                                 <td>Opções</td>
                             </tr>
 
@@ -64,9 +64,9 @@
 
                                             profileDB.conectar();
 
-                                            ArrayList<Perfil> profileList = profileDB.select();
+                                            ArrayList<Profile> profileList = profileDB.select();
 
-                                            for(Perfil profile:profileList){%>
+                                            for(Profile profile:profileList){%>
 
                             <tr>
                                 <td>

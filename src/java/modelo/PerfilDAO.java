@@ -20,7 +20,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Insert a Profile object to the database*/
-    public void insert(Perfil p) throws SQLException {
+    public void insert(Profile p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "INSERT INTO perfil(perfil) VALUES(?)";
@@ -31,16 +31,16 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Consult a list of all Profile objects on the database*/
-    public ArrayList<Perfil> select() throws SQLException, Exception {
+    public ArrayList<Profile> select() throws SQLException, Exception {
 	MenuDAO mDB = new MenuDAO();
-	ArrayList<Perfil> lista = new ArrayList<Perfil>();
+	ArrayList<Profile> lista = new ArrayList<Profile>();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM perfil";
 	pst = conn.prepareStatement(sql);
 	ResultSet rs = pst.executeQuery();
 	while (rs.next()) {
 	    mDB.conectar();
-	    Perfil p = new Perfil(rs.getInt("id"), rs.getString("perfil"),
+	    Profile p = new Profile(rs.getInt("id"), rs.getString("perfil"),
 		    mDB.menusPerfil(rs.getInt("id")));
 	    mDB.desconectar();
 	    lista.add(p);
@@ -50,7 +50,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Delete a Profile object on the database*/
-    public void delete(Perfil p) throws SQLException {
+    public void delete(Profile p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "DELETE FROM perfil WHERE id=?";
@@ -61,8 +61,8 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Load a Profile object with the id argument on the database*/
-    public Perfil selectById(int id) throws SQLException, Exception {
-	Perfil p = new Perfil();
+    public Profile selectById(int id) throws SQLException, Exception {
+	Profile p = new Profile();
 	MenuDAO mDB = new MenuDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM perfil WHERE id=?";
@@ -81,7 +81,7 @@ public class PerfilDAO extends DataBaseDAO {
     }
     
     /*Edit a Profile object on the database*/
-    public void update(Perfil p) throws SQLException {
+    public void update(Profile p) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "UPDATE perfil SET perfil=? WHERE id=?";

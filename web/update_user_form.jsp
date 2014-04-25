@@ -9,7 +9,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.PerfilDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -80,7 +80,7 @@
 
                                         try {
                                             int id = Integer.parseInt(request.getParameter("id"));
-                                            ArrayList<Perfil> profileListA = new ArrayList<Perfil>();
+                                            ArrayList<Profile> profileListA = new ArrayList<Profile>();
 
                                             UsuarioDAO userDB = new UsuarioDAO();
                                             userDB.conectar();
@@ -90,7 +90,7 @@
  
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> profileListB = profileDB.select();
+                                                ArrayList<Profile> profileListB = profileDB.select();
 
                                 %>
                                 <form name="update_user_form" action="update_user.do" method="POST" onsubmit="return validateForm()">
@@ -104,18 +104,18 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        Perfil:
+                                        Profile:
                                     </td>
                                     <td><select name="id_profile" size="1">
                                             
-                                            <%for (Perfil profile : profileListB) {%>
+                                            <%for (Profile profile : profileListB) {%>
                                             <%if(u.getPerfil().getId() == profile.getId()) {%>
                                             <option value="<%=profile.getId()%>">
                                                 <%=profile.getPerfil()%>
                                             </option>
                                             <%}else {profileListA.add(profile);}
                                             }
-                                            for (Perfil p1 : profileListA) {%>
+                                            for (Profile p1 : profileListA) {%>
                                             <option value="<%=p1.getId()%>">
                                                 <%=p1.getPerfil()%>
                                             </option>

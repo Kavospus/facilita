@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.MD5Encrypter;
-import modelo.Perfil;
+import modelo.Profile;
 import modelo.PerfilDAO;
 import modelo.User;
 import modelo.UsuarioDAO;

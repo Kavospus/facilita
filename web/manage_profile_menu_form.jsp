@@ -5,7 +5,7 @@
 
 <%@page import="modelo.Menu"%>
 <%@page import="modelo.MenuDAO"%>
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.PerfilDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulátio de Gerenciamento de Menu-Perfil</title>
+        <title>Formulátio de Gerenciamento de Menu-Profile</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -61,7 +61,7 @@
 
                                             profileDB.conectar();
 
-                                            Perfil profile = profileDB.selectById(id_profile);
+                                            Profile profile = profileDB.selectById(id_profile);
 
                                             %>
                                             <table align="center">
@@ -70,7 +70,7 @@
                                                         ID: <%=profile.getId()%>
                                                     </td>
                                                     <td>
-                                                        Perfil: <%=profile.getPerfil()%>
+                                                        Profile: <%=profile.getPerfil()%>
                                                     </td>
                                                 </tr>
                                                 <tr>

@@ -3,7 +3,7 @@
     Author     : André
 --%>
 
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.PerfilDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -77,7 +77,7 @@
                                             try {
                                                 PerfilDAO profileDB = new PerfilDAO();
                                                 profileDB.conectar();
-                                                ArrayList<Perfil> profileList = profileDB.select();
+                                                ArrayList<Profile> profileList = profileDB.select();
 
                                 %>
 
@@ -87,14 +87,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        Perfil:
+                                        Profile:
                                     </td>
                                     <td><select name="id_profile" size="1">
                                             <option value="0">
                                                 Selecione um profile
                                             </option>
 
-                                            <%for (Perfil profile : profileList) {%>
+                                            <%for (Profile profile : profileList) {%>
 
                                             <option value="<%=profile.getId()%>">
                                                 <%=profile.getPerfil()%>

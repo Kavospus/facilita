@@ -4,7 +4,7 @@
 --%>
 
 
-<%@page import="modelo.Perfil"%>
+<%@page import="modelo.Profile"%>
 <%@page import="modelo.PerfilDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Alteração - Perfil</title>
+        <title>Formulário de Alteração - Profile</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -52,7 +52,7 @@
                     <td class="filled" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Alterar Perfil</h1></td>
+                                <td align="left" ><h1>Alterar Profile</h1></td>
                             </tr>
                         </table>
                         <%
@@ -65,7 +65,7 @@
 
                                             profileDB.conectar();
 
-                                            Perfil profile = profileDB.selectById(id);
+                                            Profile profile = profileDB.selectById(id);
 
                                             profileDB.desconectar();
 
@@ -77,7 +77,7 @@
                                     <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Perfil</td>
+                                    <td>Profile</td>
                                     <td><input type="text" name="profile" value="<%out.print(profile.getPerfil());%>"/> </td>
                                 </tr>
                                 <tr>

@@ -9,22 +9,22 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Perfil {
+public class Profile {
     private int id;
     private String perfil;
     private ArrayList<Menu> menus;
 
-    public Perfil() {
+    public Profile() {
     }
 
     /*Constructor*/
-    public Perfil(int id, String perfil) {
+    public Profile(int id, String perfil) {
 	this.id = id;
 	this.perfil = perfil;
     }
 
     /*Constructor*/
-    public Perfil(int id, String perfil, ArrayList<Menu> menus) {
+    public Profile(int id, String perfil, ArrayList<Menu> menus) {
 	this.id = id;
 	this.perfil = perfil;
 	this.menus = menus;

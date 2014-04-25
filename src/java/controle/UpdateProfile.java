@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
+import modelo.Profile;
 import modelo.PerfilDAO;
 
 
@@ -50,7 +50,7 @@ public class UpdateProfile extends HttpServlet {
 
                 profileDB.conectar();
 
-                Perfil profile = new Perfil();
+                Profile profile = new Profile();
 
                 profile.setId(id);
                 profile.setPerfil(profileName);

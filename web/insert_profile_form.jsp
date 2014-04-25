@@ -44,13 +44,13 @@
                     <td class="filled" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Novo Perfil</h1></td>
+                                <td align="left" ><h1>Novo Profile</h1></td>
                             </tr>
                         </table>
                         <form name="insert_profile_form" action="insert_profile.do" method="GET" onsubmit="return validateForm()">
                             <table align="center">
                                 <tr>
-                                    <td>Perfil:</td>
+                                    <td>Profile:</td>
                                     <td><input type="text" size="45" name="profile"/> </td>
                                 </tr>
                                 <tr>

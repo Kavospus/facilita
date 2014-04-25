@@ -10,7 +10,7 @@ package modelo;
 public class User {
     private int id;
     private String nome;
-    private Perfil perfil;
+    private Profile perfil;
     private String login;
     private String senha;
 
@@ -18,7 +18,7 @@ public class User {
     }
 
     /*Constructor*/
-    public User(int id, String nome, Perfil perfil, String login,
+    public User(int id, String nome, Profile perfil, String login,
 	    String senha) {
 	this.id = id;
 	this.nome = nome;
@@ -35,11 +35,11 @@ public class User {
 	this.id = id;
     }
 
-    public Perfil getPerfil() {
+    public Profile getPerfil() {
 	return perfil;
     }
 
-    public void setPerfil(Perfil perfil) {
+    public void setPerfil(Profile perfil) {
 	this.perfil = perfil;
     }
 
