@@ -11,17 +11,17 @@ public class Menu {
     private int id;
     private String menu;
     private String link;
-    private String icone;
+    private String icon;
 
     public Menu() {
     }
 
     /*Constructor*/
-    public Menu(int id, String menu, String link, String icone) {
+    public Menu(int id, String menu, String link, String icon) {
 	this.id = id;
 	this.menu = menu;
 	this.link = link;
-	this.icone = icone;
+	this.icon = icon;
     }
 
     public int getId() {
@@ -48,12 +48,12 @@ public class Menu {
 	this.link = link;
     }
 
-    public String getIcone() {
-	return icone;
+    public String getIcon() {
+	return icon;
     }
 
-    public void setIcone(String icone) {
-	this.icone = icone;
+    public void setIcon(String icon) {
+	this.icon = icon;
     }
 
 }

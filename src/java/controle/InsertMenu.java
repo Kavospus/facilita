@@ -53,7 +53,7 @@ public class InsertMenu extends HttpServlet {
 		    Menu menu = new Menu();
 		    menu.setMenu(menuName);
 		    menu.setLink(link);
-		    menu.setIcone(icon);
+		    menu.setIcon(icon);
 
 		    MenuDAO menuDB = new MenuDAO();
 

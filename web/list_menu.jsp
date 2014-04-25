@@ -80,7 +80,7 @@
                                     <%out.print(menu.getLink());%>
                                 </td>
                                 <td>
-                                    <img width="16" height="16" src="<%out.print(menu.getIcone());%>">
+                                    <img width="16" height="16" src="<%out.print(menu.getIcon());%>">
                                 </td>
                                 <td>
                                     <a class="button" href="update_menu_form.jsp?id=<%out.print(menu.getId());%>"><img width='16' height='16' src="imagens/edit.png"></a>

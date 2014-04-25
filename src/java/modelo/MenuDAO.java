@@ -27,7 +27,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setString(1,menu.getMenu());
         preparedStatement.setString(2, menu.getLink());
-        preparedStatement.setString(3, menu.getIcone());
+        preparedStatement.setString(3, menu.getIcon());
         preparedStatement.execute();
 
     }
@@ -99,7 +99,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement =conn.prepareStatement(sql);
         preparedStatement.setString(1,menu.getMenu());
         preparedStatement.setString(2,menu.getLink());
-        preparedStatement.setString(3,menu.getIcone());
+        preparedStatement.setString(3,menu.getIcon());
         preparedStatement.setInt(4,menu.getId());
         preparedStatement.execute();
 
@@ -117,7 +117,7 @@ public class MenuDAO extends DataBaseDAO {
         menu.setId(rs.getInt("id"));
         menu.setMenu(rs.getString("menu"));
         menu.setLink(rs.getString("link"));
-        menu.setIcone(rs.getString("icone"));
+        menu.setIcon(rs.getString("icone"));
         }
         return menu;
 

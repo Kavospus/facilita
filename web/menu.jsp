@@ -15,7 +15,7 @@ try{
 
     out.print("<td >"
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
-            + "<img width='10' height='10' src='"+mp.getIcone()+"'>   "+mp.getMenu()+"</div></a></td>" );
+            + "<img width='10' height='10' src='"+mp.getIcon()+"'>   "+mp.getMenu()+"</div></a></td>" );
     }
 
     out.print("<td><a class='button' href='exit.jsp'>Sair</a></td>");
