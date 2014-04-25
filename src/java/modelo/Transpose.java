@@ -29,18 +29,18 @@ public class Transpose extends Calculus {
     }
     
     /*Function to transpose the matrix*/
-    public double[][] transposeMatrix(double ma[][], int dima, int dimb) {
-	double result[][] = new double[dimb][dima];
+    public double[][] transposeMatrix(double ma[][], int linesA, int columnsA) {
+	double resultTransposition[][] = new double[columnsA][linesA];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix x;
 	x = A.transpose();
-	for (i = 0; i < dimb; i++) {
-	    for (j = 0; j < dima; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < columnsA; i++) {
+	    for (j = 0; j < linesA; j++) {
+		resultTransposition[i][j] = x.get(i, j);
 	    }
 	}
-	return result;
+	return resultTransposition;
     }
 
     /*Abstract method implementation to feed data to variables*/

@@ -48,10 +48,10 @@ public class Determine extends Calculus {
 
     /*Function to calculate the determinant of a matrix*/
     public double determineMatrix(double ma[][]) {
-	double result = 0;
+	double resultDeterminant = 0;
 	SimpleMatrix A = new SimpleMatrix(ma);
-	result = A.determinant();
-	return result;
+	resultDeterminant = A.determinant();
+	return resultDeterminant;
     }
 
     /*Abstract method implementation to calculate the operation of determinant of a matrix*/

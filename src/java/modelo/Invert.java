@@ -29,18 +29,18 @@ public class Invert extends Calculus {
     }
 
     /*Function to invert a matrix*/
-    public double[][] invertMatrix(double ma[][], int dima, int dimb) {
-	double result[][] = new double[dima][dimb];
+    public double[][] invertMatrix(double ma[][], int linesA, int columnsA) {
+	double resultInverse[][] = new double[linesA][columnsA];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix x;
 	x = A.invert();
-	for (i = 0; i < dima; i++) {
-	    for (j = 0; j < dimb; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < linesA; i++) {
+	    for (j = 0; j < columnsA; j++) {
+		resultInverse[i][j] = x.get(i, j);
 	    }
 	}
-	return result;
+	return resultInverse;
     }
 
     /*Abstract method implementation to feed data to variables*/

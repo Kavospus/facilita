@@ -36,19 +36,19 @@ public class Scale extends Calculus {
     }
 
     /*Function to multiply a matrix by a scalar*/
-    public double[][] scaleMatrix(double ma[][], double n, int dima, int dimb) {
-	double result[][] = new double[dima][dimb];
+    public double[][] scaleMatrix(double ma[][], double inputB, int linesA, int columnsA) {
+	double resultMultiplicationByScalar[][] = new double[linesA][columnsA];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix x;
-	x = A.scale(n);
+	x = A.scale(inputB);
 
-	for (i = 0; i < dima; i++) {
-	    for (j = 0; j < dimb; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < linesA; i++) {
+	    for (j = 0; j < columnsA; j++) {
+		resultMultiplicationByScalar[i][j] = x.get(i, j);
 	    }
 	}
-	return result;
+	return resultMultiplicationByScalar;
     }
 
     /*Abstract method implementation to feed data to variables*/
