@@ -156,7 +156,7 @@
 
     if(logged){
     if(session.getAttribute("user") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

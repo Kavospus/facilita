@@ -107,7 +107,7 @@
     if(logged){
     User userPermission = new User();
     if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }else{
     session.setAttribute("menu",true);
     }

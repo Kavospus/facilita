@@ -39,7 +39,7 @@
         </div>
             <%
                         try{
-                        if(request.getParameter("erro").equalsIgnoreCase("1")){
+                        if(request.getParameter("error").equalsIgnoreCase("1")){
                             out.print("<script language='JavaScript'>");
                             out.print("function erro(){");
                             out.print("alert('Você não tem permissão para acessar a área!');}");

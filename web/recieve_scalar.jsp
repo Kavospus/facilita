@@ -20,7 +20,7 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="scale_matrix.do" method="POST" name="scale_matrix">
-        Escalar <input type="text" name="n" id="n"/>
+        Escalar <input type="text" name="number" id="number"/>
         Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         

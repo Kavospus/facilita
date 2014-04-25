@@ -127,7 +127,7 @@
 
     if(logged){
     if(session.getAttribute("menu") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 
