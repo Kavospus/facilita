@@ -10,19 +10,19 @@ package modelo;
 import java.util.ArrayList;
 import org.ejml.simple.SimpleMatrix;
 
-public class Subtrair extends Calculus {
+public class Subtract extends Calculus {
     private double[][] inputA;
     private double[][] inputB;
     private double[][] result;
     private int linesA;
     private int columnsA;
 
-    public Subtrair() {
+    public Subtract() {
 
     }
     
     /*Constructor*/
-    public Subtrair(double[][] inputA, double[][] inputB, int linesA,
+    public Subtract(double[][] inputA, double[][] inputB, int linesA,
 	    int columnsA) {
 	ArrayList<String> inputs = new ArrayList<String>();
 	this.inputA = inputA;
@@ -32,7 +32,7 @@ public class Subtrair extends Calculus {
 	inputs.add(MatrixParser.parseString(inputA));
 	inputs.add(MatrixParser.parseString(inputB));
 	this.setInputString(MatrixParser.concat(inputs));
-	this.setOperation("Subtrair");
+	this.setOperation("Subtract");
     }
     
     /*Function to Subtract two matrices*/

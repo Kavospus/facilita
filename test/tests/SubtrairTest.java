@@ -4,7 +4,7 @@
  */
 package tests;
 
-import modelo.Subtrair;
+import modelo.Subtract;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class SubtrairTest {
     
     public SubtrairTest() {
     }
-    Subtrair subtrair;
+    Subtract subtrair;
     @Before
     public void setUp() {
     }
@@ -30,7 +30,7 @@ public class SubtrairTest {
     //
     @Test
     public void testSubtrair() {
-        subtrair = new Subtrair(new double[][]{{1.0,2.0},{3.0,2.0}},new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
+        subtrair = new Subtract(new double[][]{{1.0,2.0},{3.0,2.0}},new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
         subtrair.calcular();
         double[][] saida = new double[][]{{0.0,0.0},{0.0,0.0}};
         assertArrayEquals(saida[0],subtrair.getResultado()[0], 0.000001);

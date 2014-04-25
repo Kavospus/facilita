@@ -20,7 +20,7 @@ import modelo.Scale;
 import modelo.Invert;
 import modelo.Multiplicar;
 import modelo.Sum;
-import modelo.Subtrair;
+import modelo.Subtract;
 import modelo.Transpose;
 
 
@@ -116,8 +116,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_sum.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Subtrair")) {
-			Subtrair s = (Subtrair) calculus;
+		    } else if (operacao.equals("Subtract")) {
+			Subtract s = (Subtract) calculus;
 			s.setDataString();
 			session.setAttribute("data_subtract_matrixA", s.getInputA());
 			session.setAttribute("data_subtract_b", s.getInputB());

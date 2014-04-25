@@ -28,8 +28,8 @@ public class CalculusDAO extends DataBaseDAO {
 	    calculo = new Determine();
 	} else if (operador.equals("Sum")) {
 	    calculo = new Sum();
-	} else if (operador.equals("Subtrair")) {
-	    calculo = new Subtrair();
+	} else if (operador.equals("Subtract")) {
+	    calculo = new Subtract();
 	} else if (operador.equals("Multiplicar")) {
 	    calculo = new Multiplicar();
 	} else if (operador.equals("Scale")) {

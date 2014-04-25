@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.CalculusDAO;
-import modelo.Subtrair;
+import modelo.Subtract;
 import modelo.User;
 
 
@@ -116,7 +116,7 @@ public class SubtractMatrices extends HttpServlet {
 	    session.setAttribute("data_subtract_linesB", linesA);
 	    session.setAttribute("data_subtract_columnsB", columnsA);
 	    if (error == 0) {
-		Subtrair s = new Subtrair(matrixA, matrixB, linesA, columnsA);
+		Subtract s = new Subtract(matrixA, matrixB, linesA, columnsA);
 		s.calculate();
 		result = s.getResult();
 		session.setAttribute("result_subtract", result);
