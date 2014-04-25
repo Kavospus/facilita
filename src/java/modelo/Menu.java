@@ -11,7 +11,7 @@ public class Menu {
     private int id;
     private String menu;
     private String link;
-    private String icon;
+    private String icone;
 
     public Menu() {
     }
@@ -21,7 +21,7 @@ public class Menu {
 	this.id = id;
 	this.menu = menu;
 	this.link = link;
-	this.icon = icon;
+	this.icone = icon;
     }
 
     public int getId() {
@@ -48,12 +48,12 @@ public class Menu {
 	this.link = link;
     }
 
-    public String getIcon() {
-	return icon;
+    public String getIcone() {
+	return icone;
     }
 
-    public void setIcon(String icon) {
-	this.icon = icon;
+    public void setIcone(String icone) {
+	this.icone = icone;
     }
 
 }

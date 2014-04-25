@@ -36,22 +36,22 @@ public class Subtract extends Calculus {
     }
     
     /*Function to Subtract two matrices*/
-    public double[][] subtractMatrices(double ma[][], double mb[][], int dima,
-				      int dimb) {
+    public double[][] subtractMatrices(double ma[][], double mb[][], int linesA,
+				      int columnsA) {
 
-	double result[][] = new double[dima][dimb];
+	double resultSubtraction[][] = new double[linesA][columnsA];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix b = new SimpleMatrix(mb);
 	SimpleMatrix x;
 	x = A.minus(b);
-	for (i = 0; i < dima; i++) {
-	    for (j = 0; j < dimb; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < linesA; i++) {
+	    for (j = 0; j < columnsA; j++) {
+		resultSubtraction[i][j] = x.get(i, j);
 	    }
 	}
 
-	return result;
+	return resultSubtraction;
     }
     
     /*Abstract method implementation to feed data to variables*/
