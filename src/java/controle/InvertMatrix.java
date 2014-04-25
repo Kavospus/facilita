@@ -93,7 +93,7 @@ public class InvertMatrix extends HttpServlet {
 
 		    invert.setUser((User) session.getAttribute("user"));
 		    User userPermission = invert.getUser();
-		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
+		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
 			CalculusDAO calculusDB = new CalculusDAO();
 			calculusDB.connect();

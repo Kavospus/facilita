@@ -31,9 +31,9 @@ public class SomarTest {
     @Test
     public void testSomar() {
         somar = new Sum(new double[][]{{1.0,2.0},{3.0,2.0}},new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
-        somar.calcular();
+        somar.calculate();
         double[][] saida = new double[][]{{2.0,4.0},{6.0,4.0}};
-        assertArrayEquals(saida[0],somar.getResultado()[0], 0.000001);
-        assertArrayEquals(saida[1],somar.getResultado()[1], 0.000001);
+        assertArrayEquals(saida[0],somar.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],somar.getResult()[1], 0.000001);
     }
 }

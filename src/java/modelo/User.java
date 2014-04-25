@@ -9,22 +9,22 @@ package modelo;
 
 public class User {
     private int id;
-    private String nome;
-    private Profile perfil;
+    private String name;
+    private Profile profile;
     private String login;
-    private String senha;
+    private String password;
 
     public User() {
     }
 
     /*Constructor*/
-    public User(int id, String nome, Profile perfil, String login,
-	    String senha) {
+    public User(int id, String name, Profile profile, String login,
+	    String password) {
 	this.id = id;
-	this.nome = nome;
-	this.perfil = perfil;
+	this.name = name;
+	this.profile = profile;
 	this.login = login;
-	this.senha = senha;
+	this.password = password;
     }
 
     public int getId() {
@@ -36,11 +36,11 @@ public class User {
     }
 
     public Profile getProfile() {
-	return perfil;
+	return profile;
     }
 
-    public void setProfile(Profile perfil) {
-	this.perfil = perfil;
+    public void setProfile(Profile profile) {
+	this.profile = profile;
     }
 
     public String getLogin() {
@@ -51,16 +51,16 @@ public class User {
 	this.login = login;
     }
 
-    public String getSenha() {
-	return senha;
+    public String getPassword() {
+	return password;
     }
 
-    public void setSenha(String senha) {
-	this.senha = senha;
+    public void setPassword(String password) {
+	this.password = password;
     }
     
     /*Verify the permission of the User on the given context*/
-    public boolean temPermissao(String uri, String context, User user) {
+    public boolean havePermission(String uri, String context, User user) {
 	boolean result = false;
 	String path = null;
 	for (Menu m : user.getProfile().getMenus()) {
@@ -72,12 +72,12 @@ public class User {
 	return result;
     }
 
-    public String getNome() {
-	return nome;
+    public String getName() {
+	return name;
     }
 
-    public void setNome(String nome) {
-	this.nome = nome;
+    public void setName(String name) {
+	this.name = name;
     }
 
 }

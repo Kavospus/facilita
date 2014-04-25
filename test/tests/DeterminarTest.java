@@ -28,9 +28,9 @@ public class DeterminarTest {
     @Test
     public void testDeterminar() {
         determinar = new Determine(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2);
-        determinar.calcular();
+        determinar.calculate();
         double saida = -0.25;
-        assertEquals(saida,determinar.getResultado(), 0.000001);
-        assertEquals(saida,determinar.getResultado(), 0.000001);
+        assertEquals(saida,determinar.getResult(), 0.000001);
+        assertEquals(saida,determinar.getResult(), 0.000001);
     }
 }

@@ -108,7 +108,7 @@
 
     if(logged){
     User userPermission = new User();
-    if(!userPermission.temPermissao(request.getRequestURI(),request.getContextPath(), userLogged)){
+    if(!userPermission.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
     session.setAttribute("profile",true);

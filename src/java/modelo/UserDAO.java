@@ -27,8 +27,8 @@ public class UserDAO extends DataBaseDAO {
 	pst = conn.prepareStatement(sql);
 	pst.setInt(1, u.getProfile().getId());
 	pst.setString(2, u.getLogin());
-	pst.setString(3, u.getSenha());
-	pst.setString(4, u.getNome());
+	pst.setString(3, u.getPassword());
+	pst.setString(4, u.getName());
 	pst.execute();
 
     }
@@ -46,8 +46,8 @@ public class UserDAO extends DataBaseDAO {
 	    User u = new User();
 	    u.setId(rs.getInt("id"));
 	    u.setLogin(rs.getString("login"));
-	    u.setSenha(rs.getString("senha"));
-	    u.setNome(rs.getString("nome"));
+	    u.setPassword(rs.getString("senha"));
+	    u.setName(rs.getString("nome"));
 	    pDB.connect();
 	    u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 	    pDB.disconnect();
@@ -71,7 +71,7 @@ public class UserDAO extends DataBaseDAO {
 	    if (MD5Encrypter.encryptMD5(senha).equals(rs.getString("senha"))) {
 		u.setId(rs.getInt("id"));
 		u.setLogin(rs.getString("login"));
-		u.setNome(rs.getString("nome"));
+		u.setName(rs.getString("nome"));
 		pDB.connect();
 		u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 		pDB.disconnect();
@@ -88,9 +88,9 @@ public class UserDAO extends DataBaseDAO {
 	String sql = "UPDATE usuario SET login=?, senha=?, id_perfil=?, nome=?  WHERE id=?";
 	pst = conn.prepareStatement(sql);
 	pst.setString(1, u.getLogin());
-	pst.setString(2, u.getSenha());
+	pst.setString(2, u.getPassword());
 	pst.setInt(3, u.getProfile().getId());
-	pst.setString(4, u.getNome());
+	pst.setString(4, u.getName());
 	pst.setInt(5, u.getId());
 	pst.execute();
 
@@ -108,8 +108,8 @@ public class UserDAO extends DataBaseDAO {
 	if (rs.next()) {
 	    u.setId(rs.getInt("id"));
 	    u.setLogin(rs.getString("login"));
-	    u.setSenha(rs.getString("senha"));
-	    u.setNome(rs.getString("nome"));
+	    u.setPassword(rs.getString("senha"));
+	    u.setName(rs.getString("nome"));
 	    pDB.connect();
 	    u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 	    pDB.disconnect();

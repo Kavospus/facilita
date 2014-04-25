@@ -31,9 +31,9 @@ public class TransporTest {
     @Test
     public void testTranspor() {
         transpor = new Transpose(new double[][]{{-0.5,0.5},{0.75,-0.25}}, 2, 2);
-        transpor.calcular();
+        transpor.calculate();
         double[][] saida = new double[][]{{-0.5,0.75},{0.5,-0.25}};
-        assertArrayEquals(saida[0],transpor.getResultado()[0], 0.000001);
-        assertArrayEquals(saida[1],transpor.getResultado()[1], 0.000001);
+        assertArrayEquals(saida[0],transpor.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],transpor.getResult()[1], 0.000001);
     }
 }
