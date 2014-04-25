@@ -40,110 +40,110 @@ public class CalculusDAO extends DataBaseDAO {
     }   
     
     /*Insert a Calculus object to the database*/
-    public void insert(Calculus c) throws SQLException {
+    public void insert(Calculus calculus) throws SQLException {
 
-	PreparedStatement pst;
+	PreparedStatement preparedStatement;
 	String sql = "INSERT INTO calculo (id_usuario,operacao,entrada,resultado) values(?,?,?,?)";
-	pst = conn.prepareStatement(sql);
-	pst.setInt(1, c.getUser().getId());
-	pst.setString(2, c.getOperation());
-	pst.setString(3, c.getInputString());
-	pst.setString(4, c.getResultString());
-	pst.execute();
+	preparedStatement = conn.prepareStatement(sql);
+	preparedStatement.setInt(1, calculus.getUser().getId());
+	preparedStatement.setString(2, calculus.getOperation());
+	preparedStatement.setString(3, calculus.getInputString());
+	preparedStatement.setString(4, calculus.getResultString());
+	preparedStatement.execute();
 
     }
     
     /*Consult a list of all Calculus objects on the database*/
     public ArrayList<Calculus> select() throws SQLException, Exception {
 
-	UserDAO uDB = new UserDAO();
+	UserDAO userDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
-	PreparedStatement pst;
+	PreparedStatement preparedStatement;
 	String sql = "SELECT * FROM calculo";
-	pst = conn.prepareStatement(sql);
-	ResultSet rs = pst.executeQuery();
+	preparedStatement = conn.prepareStatement(sql);
+	ResultSet rs = preparedStatement.executeQuery();
 	while (rs.next()) {
-	    Calculus c = init(rs.getString("operacao"));
-	    c.setId(rs.getInt("id"));
-	    c.setOperation(rs.getString("operacao"));
-	    c.setInputString(rs.getString("entrada"));
-	    c.setResultString(rs.getString("resultado"));
-	    uDB.connect();
-	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.disconnect();
-	    lista.add(c);
+	    Calculus calculus = init(rs.getString("operacao"));
+	    calculus.setId(rs.getInt("id"));
+	    calculus.setOperation(rs.getString("operacao"));
+	    calculus.setInputString(rs.getString("entrada"));
+	    calculus.setResultString(rs.getString("resultado"));
+	    userDB.connect();
+	    calculus.setUser(userDB.selectById(rs.getInt("id_usuario")));
+	    userDB.disconnect();
+	    lista.add(calculus);
 	}
 	return lista;
 
     }
     
     /*Consult a list of Calculus objects owned by the User argument on the database*/
-    public ArrayList<Calculus> select(User u) throws SQLException, Exception {
-        UserDAO uDB = new UserDAO();
+    public ArrayList<Calculus> select(User user) throws SQLException, Exception {
+        UserDAO userDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
-	PreparedStatement pst;
+	PreparedStatement preparedStatement;
 	String sql = "SELECT * FROM calculo WHERE id_usuario=?";
-	pst = conn.prepareStatement(sql);
-	pst.setInt(1, u.getId());
-	ResultSet rs = pst.executeQuery();
+	preparedStatement = conn.prepareStatement(sql);
+	preparedStatement.setInt(1, user.getId());
+	ResultSet rs = preparedStatement.executeQuery();
 	while (rs.next()) {
-	    Calculus c = init(rs.getString("operacao"));
-	    c.setId(rs.getInt("id"));
-	    c.setOperation(rs.getString("operacao"));
-	    c.setInputString(rs.getString("entrada"));
-	    c.setResultString(rs.getString("resultado"));
-	    uDB.connect();
-	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.disconnect();
-	    lista.add(c);
+	    Calculus calculus = init(rs.getString("operacao"));
+	    calculus.setId(rs.getInt("id"));
+	    calculus.setOperation(rs.getString("operacao"));
+	    calculus.setInputString(rs.getString("entrada"));
+	    calculus.setResultString(rs.getString("resultado"));
+	    userDB.connect();
+	    calculus.setUser(userDB.selectById(rs.getInt("id_usuario")));
+	    userDB.disconnect();
+	    lista.add(calculus);
 	}
 	return lista;
 
     }
     
     /*Edit a Calculus object on the database*/
-    public void update(Calculus c) throws SQLException {
-	PreparedStatement pst;
+    public void update(Calculus calculus) throws SQLException {
+	PreparedStatement preparedStatement;
 	String sql = "UPDATE calculo SET operacao=?, entrada=?, resultado=?, id_usuario=?  WHERE id=?";
-	pst = conn.prepareStatement(sql);
-	pst.setString(1, c.getOperation());
-	pst.setString(2, c.getInputString());
-	pst.setString(3, c.getResultString());
-	pst.setInt(4, c.getUser().getId());
-	pst.setInt(5, c.getId());
-	pst.execute();
+	preparedStatement = conn.prepareStatement(sql);
+	preparedStatement.setString(1, calculus.getOperation());
+	preparedStatement.setString(2, calculus.getInputString());
+	preparedStatement.setString(3, calculus.getResultString());
+	preparedStatement.setInt(4, calculus.getUser().getId());
+	preparedStatement.setInt(5, calculus.getId());
+	preparedStatement.execute();
 
     }
     /*Load a Calculus object with the id argument on the database*/
     public Calculus selectById(int id) throws SQLException, Exception {
-	UserDAO uDB = new UserDAO();
-	PreparedStatement pst;
+	UserDAO userDB = new UserDAO();
+	PreparedStatement preparedStatement;
 	String sql = "SELECT * FROM calculo WHERE id=?";
-	pst = conn.prepareStatement(sql);
-	pst.setInt(1, id);
-	ResultSet rs = pst.executeQuery();
+	preparedStatement = conn.prepareStatement(sql);
+	preparedStatement.setInt(1, id);
+	ResultSet rs = preparedStatement.executeQuery();
 	if (rs.next()) {
-	    Calculus c = init(rs.getString("operacao"));
-	    c.setId(rs.getInt("id"));
-	    c.setOperation(rs.getString("operacao"));
-	    c.setInputString(rs.getString("entrada"));
-	    c.setResultString(rs.getString("resultado"));
-	    uDB.connect();
-	    c.setUser(uDB.selectById(rs.getInt("id_usuario")));
-	    uDB.disconnect();
-	    return c;
+	    Calculus calculus = init(rs.getString("operacao"));
+	    calculus.setId(rs.getInt("id"));
+	    calculus.setOperation(rs.getString("operacao"));
+	    calculus.setInputString(rs.getString("entrada"));
+	    calculus.setResultString(rs.getString("resultado"));
+	    userDB.connect();
+	    calculus.setUser(userDB.selectById(rs.getInt("id_usuario")));
+	    userDB.disconnect();
+	    return calculus;
 	}
 	return null;
 
     }
     
     /*Delete a Calculus object on the database*/
-    public void delete(Calculus c) throws SQLException {
-	PreparedStatement pst;
+    public void delete(Calculus calculus) throws SQLException {
+	PreparedStatement preparedStatement;
 	String sql = "DELETE FROM calculo WHERE id=?";
-	pst = conn.prepareStatement(sql);
-	pst.setInt(1, c.getId());
-	pst.execute();
+	preparedStatement = conn.prepareStatement(sql);
+	preparedStatement.setInt(1, calculus.getId());
+	preparedStatement.execute();
 
     }
 
