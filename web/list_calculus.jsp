@@ -5,7 +5,7 @@
 
 <%@page import="modelo.Calculus"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="modelo.CalculoDAO"%>
+<%@page import="modelo.CalculusDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@
 
                                         try {
                                             User user = (User)session.getAttribute("userLogged");
-                                            CalculoDAO calculusDB = new CalculoDAO();
+                                            CalculusDAO calculusDB = new CalculusDAO();
 
                                             calculusDB.connect();
 

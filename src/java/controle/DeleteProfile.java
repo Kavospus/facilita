@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Profile;
-import modelo.PerfilDAO;
+import modelo.ProfileDAO;
 
 public class DeleteProfile extends HttpServlet {
 
@@ -49,7 +49,7 @@ public class DeleteProfile extends HttpServlet {
 		    Profile profile = new Profile();
 		    profile.setId(id);
 
-		    PerfilDAO profileDB = new PerfilDAO();
+		    ProfileDAO profileDB = new ProfileDAO();
 
 		    profileDB.connect();
 		    profileDB.delete(profile);

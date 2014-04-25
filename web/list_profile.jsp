@@ -7,7 +7,7 @@
 <%@page import="modelo.UsuarioDAO"%>
 <%@page import="modelo.Profile"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="modelo.PerfilDAO"%>
+<%@page import="modelo.ProfileDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -60,7 +60,7 @@
                             <%
 
                                         try {
-                                            PerfilDAO profileDB = new PerfilDAO();
+                                            ProfileDAO profileDB = new ProfileDAO();
 
                                             profileDB.connect();
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.MD5Encrypter;
-import modelo.PerfilDAO;
+import modelo.ProfileDAO;
 import modelo.User;
 import modelo.UsuarioDAO;
 
@@ -60,7 +60,7 @@ public class UpdateUser extends HttpServlet {
                 String login = request.getParameter("login");
 
                 User user = new User();
-                PerfilDAO profileDB = new PerfilDAO();
+                ProfileDAO profileDB = new ProfileDAO();
                 user.setId(id);
                 user.setNome(name);
                 profileDB.connect();

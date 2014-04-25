@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Calculus;
-import modelo.CalculoDAO;
+import modelo.CalculusDAO;
 import modelo.Determine;
 import modelo.Scale;
 import modelo.Invert;
@@ -57,7 +57,7 @@ public class LoadCalculus extends HttpServlet {
 		String operacao;
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
-		    CalculoDAO calculusDB = new CalculoDAO();
+		    CalculusDAO calculusDB = new CalculusDAO();
 		    calculusDB.connect();
 		    Calculus calculus = calculusDB.selectById(id);
 		    operacao = calculus.getOperation();

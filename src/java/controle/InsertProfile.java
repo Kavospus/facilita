@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Profile;
-import modelo.PerfilDAO;
+import modelo.ProfileDAO;
 
 public class InsertProfile extends HttpServlet {
 
@@ -49,7 +49,7 @@ public class InsertProfile extends HttpServlet {
 		    Profile profile = new Profile();
 		    profile.setPerfil(profileName);
 
-		    PerfilDAO profileDB = new PerfilDAO();
+		    ProfileDAO profileDB = new ProfileDAO();
 
 		    profileDB.connect();
 		    profileDB.insert(profile);

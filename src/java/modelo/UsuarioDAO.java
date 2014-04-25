@@ -36,7 +36,7 @@ public class UsuarioDAO extends DataBaseDAO {
     /*Consult a list of all User objects on the database*/
     public ArrayList<User> select() throws SQLException, Exception {
 
-	PerfilDAO pDB = new PerfilDAO();
+	ProfileDAO pDB = new ProfileDAO();
 	ArrayList<User> lista = new ArrayList<User>();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario";
@@ -60,7 +60,7 @@ public class UsuarioDAO extends DataBaseDAO {
     /*Login a User object throught the user and password arguments*/
     public User logon(String user, String senha) throws SQLException,
 	    Exception {
-	PerfilDAO pDB = new PerfilDAO();
+	ProfileDAO pDB = new ProfileDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario WHERE login=?";
 	pst = conn.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class UsuarioDAO extends DataBaseDAO {
     /*Load a User object with the id argument on the database*/
     public User selectById(int id) throws SQLException, Exception {
 	User u = new User();
-	PerfilDAO pDB = new PerfilDAO();
+	ProfileDAO pDB = new ProfileDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario WHERE id=?";
 	pst = conn.prepareStatement(sql);

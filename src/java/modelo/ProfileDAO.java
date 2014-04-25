@@ -14,9 +14,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PerfilDAO extends DataBaseDAO {
+public class ProfileDAO extends DataBaseDAO {
 
-    public PerfilDAO() throws Exception {
+    public ProfileDAO() throws Exception {
     }
     
     /*Insert a Profile object to the database*/

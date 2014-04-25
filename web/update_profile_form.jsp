@@ -5,7 +5,7 @@
 
 
 <%@page import="modelo.Profile"%>
-<%@page import="modelo.PerfilDAO"%>
+<%@page import="modelo.ProfileDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -61,7 +61,7 @@
 
                                             int id = Integer.parseInt(request.getParameter("id"));
 
-                                            PerfilDAO profileDB = new PerfilDAO();
+                                            ProfileDAO profileDB = new ProfileDAO();
 
                                             profileDB.connect();
 

@@ -13,9 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CalculoDAO extends DataBaseDAO {
+public class CalculusDAO extends DataBaseDAO {
 
-    public CalculoDAO() throws Exception {
+    public CalculusDAO() throws Exception {
     }
     /*Initialize Calculos object acording to the operator*/
     public Calculus init(String operador) {

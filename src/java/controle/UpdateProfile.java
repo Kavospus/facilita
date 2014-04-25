@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Profile;
-import modelo.PerfilDAO;
+import modelo.ProfileDAO;
 
 
 public class UpdateProfile extends HttpServlet {
@@ -46,7 +46,7 @@ public class UpdateProfile extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String profileName = request.getParameter("profile");
 
-                PerfilDAO profileDB = new PerfilDAO();
+                ProfileDAO profileDB = new ProfileDAO();
 
                 profileDB.connect();
 

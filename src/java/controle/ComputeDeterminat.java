@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.CalculoDAO;
+import modelo.CalculusDAO;
 import modelo.Determine;
 import modelo.User;
 
@@ -89,7 +89,7 @@ public class ComputeDeterminat extends HttpServlet {
 		    User userPermission = determine.getUser();
 		    if (userPermission.temPermissao("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {
-			CalculoDAO calculusDB = new CalculoDAO();
+			CalculusDAO calculusDB = new CalculusDAO();
 			calculusDB.connect();
 			if (request.getParameter("id") != null) {
 			    determine.setId(Integer.parseInt(request.getParameter("id")));
