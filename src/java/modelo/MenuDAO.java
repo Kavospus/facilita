@@ -41,7 +41,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement = conn.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
@@ -52,7 +52,7 @@ public class MenuDAO extends DataBaseDAO {
      *Consult a list of Menu objects associated by id_perfil argument
      *on the database
      */
-    public ArrayList<Menu> menusPerfil(int id_perfil) throws SQLException {
+    public ArrayList<Menu> profileMenus(int id_perfil) throws SQLException {
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;
@@ -64,7 +64,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
@@ -75,7 +75,7 @@ public class MenuDAO extends DataBaseDAO {
      *Consult a list of Menu objects not associated by id_perfil argument
      *on the database
      */
-    public ArrayList<Menu> menusNaoPerfil(int id_perfil) throws SQLException {
+    public ArrayList<Menu> notProfileMenus(int id_perfil) throws SQLException {
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;
@@ -84,7 +84,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
@@ -117,7 +117,7 @@ public class MenuDAO extends DataBaseDAO {
         menu.setId(rs.getInt("id"));
         menu.setMenu(rs.getString("menu"));
         menu.setLink(rs.getString("link"));
-        menu.setIcon(rs.getString("icon"));
+        menu.setIcon(rs.getString("icone"));
         }
         return menu;
 

@@ -55,8 +55,8 @@
                                             int id_profile = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO menuDB = new MenuDAO();
                                             menuDB.connect();
-                                            ArrayList<Menu> menuListA = menuDB.menusNaoPerfil(id_profile);
-                                            ArrayList<Menu> menuListB = menuDB.menusPerfil(id_profile);
+                                            ArrayList<Menu> menuListA = menuDB.notProfileMenus(id_profile);
+                                            ArrayList<Menu> menuListB = menuDB.profileMenus(id_profile);
                                             ProfileDAO profileDB = new ProfileDAO();
 
                                             profileDB.connect();
@@ -70,7 +70,7 @@
                                                         ID: <%=profile.getId()%>
                                                     </td>
                                                     <td>
-                                                        Profile: <%=profile.getProfile()%>
+                                                        Profile: <%=profile.getPerfil()%>
                                                     </td>
                                                 </tr>
                                                 <tr>
