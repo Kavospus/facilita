@@ -36,23 +36,23 @@ public class Sum extends Calculus {
     }
     
     /*Function to sum two matrices*/
-    public double[][] sumMatrices(double ma[][], double mb[][], int dima,
-				   int dimb) {
+    public double[][] sumMatrices(double ma[][], double mb[][], int linesA,
+				   int columnsA) {
 
-	double result[][] = new double[dima][dimb];
+	double resultSum[][] = new double[linesA][columnsA];
 	int i, j;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix b = new SimpleMatrix(mb);
 	SimpleMatrix x;
 	x = A.plus(b);
 
-	for (i = 0; i < dima; i++) {
-	    for (j = 0; j < dimb; j++) {
-		result[i][j] = x.get(i, j);
+	for (i = 0; i < linesA; i++) {
+	    for (j = 0; j < columnsA; j++) {
+		resultSum[i][j] = x.get(i, j);
 	    }
 	}
 
-	return result;
+	return resultSum;
     }
     
     /*Abstract method implementation to feed data to variables*/
