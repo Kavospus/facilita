@@ -31,9 +31,9 @@ public class InverterTest {
     @Test
     public void testInverter() {
         inverter = new Invert(new double[][]{{1.0,2.0},{3.0,2.0}}, 2, 2);
-        inverter.calcular();
+        inverter.calculate();
         double[][] saida = new double[][]{{-0.5,0.5},{0.75,-0.25}};
-        assertArrayEquals(saida[0],inverter.getResultado()[0], 0.000001);
-        assertArrayEquals(saida[1],inverter.getResultado()[1], 0.000001);
+        assertArrayEquals(saida[0],inverter.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],inverter.getResult()[1], 0.000001);
     }
 }
