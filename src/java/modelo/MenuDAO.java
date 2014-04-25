@@ -41,7 +41,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement = conn.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
             lista.add(menu);
         }
         return lista;
@@ -64,7 +64,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
             lista.add(menu);
         }
         return lista;
@@ -84,7 +84,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
             lista.add(menu);
         }
         return lista;
@@ -117,7 +117,7 @@ public class MenuDAO extends DataBaseDAO {
         menu.setId(rs.getInt("id"));
         menu.setMenu(rs.getString("menu"));
         menu.setLink(rs.getString("link"));
-        menu.setIcon(rs.getString("icone"));
+        menu.setIcon(rs.getString("icon"));
         }
         return menu;
 
