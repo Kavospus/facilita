@@ -9,6 +9,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +65,7 @@ public class UpdateMenu extends HttpServlet {
                 menuDB.disconnect();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Registros alterados com sucesso!');");
+                out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly updated")+"!');");
                 out.print(" window.open('list_menu.jsp','_parent');");
                 out.print("</script>");
 

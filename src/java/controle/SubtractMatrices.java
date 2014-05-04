@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +51,7 @@ public class SubtractMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -60,7 +62,7 @@ public class SubtractMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -80,7 +82,7 @@ public class SubtractMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -99,7 +101,7 @@ public class SubtractMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}

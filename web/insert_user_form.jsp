@@ -66,7 +66,7 @@
                     <td class="" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="center" ><h1>Inserir Usuário</h1></td>
+                                <td align="center" ><h1><%=_("New",bundle)%> <%=_("User",bundle)%></h1></td>
                             </tr>
                         </table>
                         <form name="insert_user_form" action="insert_user.do" method="POST" onsubmit="return validateForm()" >
@@ -82,16 +82,16 @@
                                 %>
 
                                 <tr>
-                                    <td>Nome:</td>
+                                    <td><%=_("Name",bundle)%>:</td>
                                     <td><input type="text" size="45" name="name"/> </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        Profile:
+                                        <%=_("Profile",bundle)%>:
                                     </td>
                                     <td><select name="id_profile" size="1">
                                             <option value="0">
-                                                Selecione um profile
+                                                <%=_("Select a profile",bundle)%>
                                             </option>
 
                                             <%for (Profile profile : profileList) {%>
@@ -104,17 +104,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Login:</td>
+                                    <td><%=_("User",bundle)%>:</td>
                                     <td><input type="text" size="45" name="login"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Senha:</td>
+                                    <td><%=_("Password",bundle)%>:</td>
                                     <td><input type="password" size="45" name="password"/> </td>
                                 </tr>
 
                                 <tr>
                                     <td></td>
-                                    <td><input class="button" type="submit" value="Inserir"/> </td>
+                                    <td><input class="button" type="submit" value="<%=_("Insert",bundle)%>"/> </td>
                                 </tr>
                             
                         </table>

@@ -8,12 +8,13 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Profile;
 import modelo.User;
 import modelo.UserDAO;
 
@@ -56,7 +57,7 @@ public class DoGuestLogin extends HttpServlet {
 
 	    } catch (Exception e) {
 		out.print("<script language='JavaScript'>");
-		out.print(" alert('Erro ao Logar!');");
+		out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Error on Login")+"!');");
 		out.print(" window.open('login.jsp','_parent');");
 		out.print("</script>");
 	    }

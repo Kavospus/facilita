@@ -78,7 +78,7 @@
         <%}%>
             </tr>
         </table>
-            Função Ajuste f(x)=<%
+            <%=_("Adjust Function",bundle)%> f(x)=<%
         switch(option){
             case 1:
                 out.print("("+result[0]+")*x + ("+result[1]+")");
@@ -96,8 +96,8 @@
         
         %>
         <br>
-        <a href="index.jsp">Voltar</a>
-        <a href="update_least_squares.jsp">Refazer Operação</a>
+        <a href="index.jsp"><%=_("Back",bundle)%></a>
+        <a href="update_least_squares.jsp"><%=_("Edit Operation",bundle)%></a>
         <br>
         
         <canvas id="myCanvas" width="600" height="600" >

@@ -28,11 +28,11 @@
     <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=inverse&linesA=<%=linesA%>&columnsA=<%=linesA%>');">
         <%@include file="menu.jsp" %>
         <form action="invert_matrix.do" method="POST" name="invert_matrix">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=inverse&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        <%=_("Lines",bundle)%> <%=_("and",bundle)%> <%=_("Columns",bundle)%> <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=inverse&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         
         
         <div id="matrixes" ></div>
-        <input class="button"type="submit" name="OK"/>
+        <input class="button"type="submit" value="<%=_("Calculate",bundle)%>"/>
         <%
         if(request.getParameter("id")!=null){
         int id  = Integer.parseInt(request.getParameter("id"));

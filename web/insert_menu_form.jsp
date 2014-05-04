@@ -57,17 +57,17 @@
                     <td class="" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Novo Menu</h1></td>
+                                <td align="left" ><h1><%=_("New",bundle)%> <%=_("Menu",bundle)%></h1></td>
                             </tr>
                         </table>
                         <form name="insert_menu_form" action="insert_menu.do" method="POST" onsubmit="return validateForm()">
                         <table align="center" >
                                 <tr>
-                                    <td>Nome:</td>
+                                    <td><%=_("Name",bundle)%>:</td>
                                     <td><input type="text" size="45" name="menu"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Icone URL:</td>
+                                    <td><%=_("Icon",bundle)%> URL:</td>
                                     <td><input type="text" size="45" name="icon" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)"/> </td>
                                     <td><div align="center" id="thumb"></div></td>
                                 </tr>
@@ -78,7 +78,7 @@
                                 
                                 <tr>
                                     <td></td>
-                                    <td><input class="button" type="submit" value="insert"/> </td>
+                                    <td><input class="button" type="submit" value="<%=_("Insert",bundle)%>"/> </td>
                                 </tr>
                             </table>
 

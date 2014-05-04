@@ -99,12 +99,12 @@
                                     <td><input type="text" readonly size="45" name="id" value="<%=user.getId()%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Nome:</td>
+                                    <td><%=_("Name",bundle)%>:</td>
                                     <td><input type="text" size="45" name="name" value="<%=user.getName()%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        Profile:
+                                        <%=_("Profile",bundle)%>:
                                     </td>
                                     <td><select name="id_profile" size="1">
                                             
@@ -124,11 +124,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Login:</td>
+                                    <td><%=_("User",bundle)%>:</td>
                                     <td><input type="text" size="45" name="login" value="<%=user.getLogin()%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Senha:</td>
+                                    <td><%=_("Password",bundle)%>:</td>
                                     <td><input type="password" size="45" name="password" value=""/> </td>
                                 </tr>
 

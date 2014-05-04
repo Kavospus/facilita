@@ -44,18 +44,18 @@
                     <td class="filled" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Novo Profile</h1></td>
+                                <td align="left" ><h1><%=_("New",bundle)%> <%=_("Profile",bundle)%></h1></td>
                             </tr>
                         </table>
                         <form name="insert_profile_form" action="insert_profile.do" method="GET" onsubmit="return validateForm()">
                             <table align="center">
                                 <tr>
-                                    <td>Profile:</td>
+                                    <td><%=_("Profile",bundle)%>:</td>
                                     <td><input type="text" size="45" name="profile"/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input class="button" type="submit" value="insert"/> </td>
+                                    <td><input class="button" type="submit" value="<%=_("Insert",bundle)%>"/> </td>
                                 </tr>
                             </table>
 

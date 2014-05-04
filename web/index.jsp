@@ -26,14 +26,14 @@
         
         <div id="container" class="container centralize">
             <div id="operacoes" class="centro">
-            <a class="button" href="recieve_least_squares.jsp">Minimos</a>
-            <a class="button"  href="recieve_multiply.jsp">Multiplicação</a>
-            <a class="button"  href="recieve_determinant.jsp">Determinante</a>
-            <a class="button"  href="recieve_scalar.jsp">Escalar</a>
-            <a class="button"  href="recieve_inverse.jsp">Inversa</a>
-            <a class="button"  href="recieve_sum.jsp">Adição</a>
-            <a class="button"  href="recieve_subtract.jsp">Subtração</a>
-            <a class="button"  href="recieve_transposed.jsp">Transposta</a>
+            <a class="button" href="recieve_least_squares.jsp"><%=_("Least Squares",bundle)%></a>
+            <a class="button"  href="recieve_multiply.jsp"><%=_("Multiply",bundle)%></a>
+            <a class="button"  href="recieve_determinant.jsp"><%=_("Determinant",bundle)%></a>
+            <a class="button"  href="recieve_scalar.jsp"><%=_("Scalar",bundle)%></a>
+            <a class="button"  href="recieve_inverse.jsp"><%=_("Invert",bundle)%></a>
+            <a class="button"  href="recieve_sum.jsp"><%=_("Sum",bundle)%></a>
+            <a class="button"  href="recieve_subtract.jsp"><%=_("Subtract",bundle)%></a>
+            <a class="button"  href="recieve_transposed.jsp"><%=_("Transpose",bundle)%></a>
             </div>
         </div>
         </div>
@@ -42,7 +42,7 @@
                         if(request.getParameter("error").equalsIgnoreCase("1")){
                             out.print("<script language='JavaScript'>");
                             out.print("function erro(){");
-                            out.print("alert('Você não tem permissão para acessar a área!');}");
+                            out.print("alert('"+_("no permission", bundle) +"!');}");
                             out.print("</script>");
                         }
                         }catch (Exception e){

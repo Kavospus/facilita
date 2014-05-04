@@ -3,6 +3,8 @@
     Author     : Andre
 --%>
 
+<%@page import="java.util.Locale"%>
+<%@page import="java.util.ResourceBundle"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -48,6 +50,11 @@
         </script>
     </head>
     <body>
+<%
+ResourceBundle bundle = ResourceBundle.getBundle("MessagesBundle",
+        (session.getAttribute("user_locale") != null) ? 
+            (Locale)session.getAttribute("user_locale") : request.getLocale());
+%>
         <div class="selfcontainer" align="center">
         <div class="header">
         </div>
@@ -65,21 +72,21 @@
                             
 
                                 <tr>
-                                    <td>Nome:</td>
+                                    <td><%=bundle.getString("Name")%>: </td>
                                     <td><input type="text" size="45" name="name"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Login:</td>
+                                    <td><%=bundle.getString("User")%>: </td>
                                     <td><input type="text" size="45" name="login"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Senha:</td>
+                                    <td><%=bundle.getString("Password")%>: </td>
                                     <td><input type="password" size="45" name="password"/> </td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="login.jsp">Voltar</a></td>
-                                    <td><input class="button" type="submit" value="Cadastrar"/> </td>
+                                    <td><a href="login.jsp"><%=bundle.getString("Back")%></a></td>
+                                    <td><input class="button" type="submit" value="<%=bundle.getString("Register")%>"/> </td>
                                 </tr>
                             
                         </table>

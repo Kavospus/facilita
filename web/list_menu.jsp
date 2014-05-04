@@ -47,8 +47,8 @@
                     <td class="filled" valign="top">
                         <table class="tableDist" align="center" >
                             <tr>
-                                <td align="left" ><h1>Lista de Menus</h1></td>
-                                <td align="right" ><a class="button" href="insert_menu_form.jsp">Inserir Menu</a></td>
+                                <td align="left" ><h1><%=_("List",bundle)%> <%=_("of",bundle)%> <%=_("Menus",bundle)%></h1></td>
+                                <td align="right" ><a class="button" href="insert_menu_form.jsp"><%=_("New",bundle)%> <%=_("Menu",bundle)%></a></td>
                             </tr>
                         </table>
                         
@@ -57,8 +57,8 @@
                                 <td>Id</td>
                                 <td>Menu</td>
                                 <td>Link</td>
-                                <td>Icone</td>
-                                <td>Opções</td>
+                                <td><%=_("Icon",bundle)%></td>
+                                <td><%=_("Options",bundle)%></td>
                             </tr>
 
 
