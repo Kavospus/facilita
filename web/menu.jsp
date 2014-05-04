@@ -24,7 +24,7 @@ try{
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
             + "<img width='10' height='10' src='"+mp.getIcon()+"'>   "+_(mp.getMenu(),bundle)+"</div></a></td>" );
     }
-    out.print("<td><a class='button' href='change_locale.jsp?locale="+request.getLocale().toString()+"'>"+_("Locale Change",bundle)+"</a></td>");
+    out.print("<td><a class='button' href='change_locale.jsp?locale="+userLocale.toString()+"'>"+_("Locale Change",bundle)+"</a></td>");
     out.print("<td><a class='button' href='exit.jsp'>"+_("Logout",bundle)+"</a></td>");
 
     logged = true;

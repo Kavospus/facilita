@@ -47,7 +47,7 @@
                         <table width="700" align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Calculus</td>
+                                <td><%=_("Calculus",bundle)%></td>
                                 <td><%=_("Input",bundle)%></td>
                                 <td><%=_("Options",bundle)%></td>
                             </tr>
