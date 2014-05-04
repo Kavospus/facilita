@@ -10,7 +10,9 @@
 
 boolean logged = false;
 User userLogged = null;
-
+if(session.getAttribute("user_locale")== null){
+    response.sendRedirect("login.jsp");
+}
 ResourceBundle bundle = null;
 try{
 
