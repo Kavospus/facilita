@@ -42,9 +42,15 @@ public class ScaleMatrix extends HttpServlet {
 	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	   
+            int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int error = 0;
 	    double number = 0;
-	    if (request.getParameter("linesA") != null) {
+	   
+            if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
@@ -55,6 +61,9 @@ public class ScaleMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("columnsA") != null) {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
@@ -66,6 +75,9 @@ public class ScaleMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("n") != null) {
 		try {
 		    number = Double.parseDouble(request.getParameter("number"));
@@ -77,6 +89,9 @@ public class ScaleMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 
 	    double matrixA[][] = new double[linesA][columnsA];
 	    double result[][];
@@ -95,7 +110,8 @@ public class ScaleMatrix extends HttpServlet {
 			    out.print(" window.open('update_scalar.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    }
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
@@ -121,17 +137,24 @@ public class ScaleMatrix extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    scalar.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(scalar);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(scalar);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception x) {
 		}
 		out.print("<script language='JavaScript'>");
 		out.print(" window.open('scalar_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {
