@@ -25,18 +25,25 @@ public class DataBaseDAO {
 	DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
     }
-    
-    /*Connects to the database*/
+    /**
+     *
+     * @throws SQLException
+     * Connects to the database*/
     public void connect() throws SQLException {
 	conn = DriverManager.getConnection(URL, USER, PASSWORD);
     }
-    
-    /*Disconnects to the database*/
+    /**
+     *
+     * @throws SQLException
+     * Disconnects to the database*/
     public void disconnect() throws SQLException {
 	if (conn != null) {
 	    conn.close();
 	    DriverManager.deregisterDriver(new com.mysql.jdbc.Driver());
 	}
+        else{
+            //Nothing to do
+        }
 
     }
 }
