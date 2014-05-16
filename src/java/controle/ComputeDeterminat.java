@@ -41,8 +41,14 @@ public class ComputeDeterminat extends HttpServlet {
 	    out.println("<title>Servlet CalculaDeterminante</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
-	    if (request.getParameter("linesA") != null) {
+	   
+            int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int error = 0;
+	   
+            if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
 		} catch (Exception e) {
@@ -53,8 +59,13 @@ public class ComputeDeterminat extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    columnsA = linesA;
-	    double matrixA[][] = new double[linesA][columnsA];
+            else{
+                //Nothing to do
+            }
+	   
+            columnsA = linesA;
+	   
+            double matrixA[][] = new double[linesA][columnsA];
 	    double result = 0;
 
 	    for (i = 0; i < linesA; i++) {
@@ -71,7 +82,8 @@ public class ComputeDeterminat extends HttpServlet {
 			    out.print(" window.open('update_determinant.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    } 
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
@@ -99,12 +111,18 @@ public class ComputeDeterminat extends HttpServlet {
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
 		out.print(" window.open('determinant_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 
 	    out.println("</body>");
 	    out.println("</html>");
