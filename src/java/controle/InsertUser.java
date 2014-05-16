@@ -40,11 +40,13 @@ public class InsertUser extends HttpServlet {
 	try {
 	    if (session.getAttribute("user") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		// TODO output your page here
 		try {
 		    int id_profile = 0;
-		    if (request.getParameter("id_profile") != null) {
+		   
+                    if (request.getParameter("id_profile") != null) {
 			try {
 			    id_profile = Integer.parseInt(request
 				    .getParameter("id_profile"));
@@ -52,6 +54,9 @@ public class InsertUser extends HttpServlet {
 			    e.printStackTrace();
 			}
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		    String name = request.getParameter("name");
 		    String password = MD5Encrypter.encryptMD5(request
 			    .getParameter("password"));

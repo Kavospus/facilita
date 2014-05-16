@@ -54,7 +54,8 @@ public class DoLogin extends HttpServlet {
 		if (user.getId() > 0) {
 		    session.setAttribute("userLogged", user);
 		    response.sendRedirect("index.jsp");
-		} else {
+		} 
+                else {
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('Usuário ou Senha Incorretos!');");
 		    out.print(" window.open('login.jsp','_parent');");
