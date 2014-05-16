@@ -37,8 +37,7 @@ public class Invert extends Calculus {
     public double[][] invertMatrix(double ma[][], int linesA, int columnsA) {
 	
         double resultInverse[][] = new double[linesA][columnsA];
-	int i=0;
-        int j=0;
+	int i, j;
         
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix x;

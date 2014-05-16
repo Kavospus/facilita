@@ -13,13 +13,21 @@ import org.ejml.simple.SimpleMatrix;
 
 
 public class LeastSquares {
-    String erro = null;
     
-    /*Function to calculate Least-Squares*/
+    String erro = null;
+    /**
+     *
+     * @param vx
+     * @param  vy
+     * @param qnt
+     * @param opcao
+     * @throws SingularMatrixException
+     * @return result
+     * Function to calculate Least-Squares*/
     public double[] calculateLeastSquares(double vx[], double vy[], int qnt, int opcao)
 	    throws SingularMatrixException {
 
-	int i, dimens = 2;
+        int dimens = 2;
 
 	switch (opcao) {
 
@@ -36,13 +44,15 @@ public class LeastSquares {
 		dimens = 2;
 		break;
 	}
-	double result[] = new double[dimens];
+
+        double result[] = new double[dimens];
 	double reverteLn[] = new double[dimens];
 	SimpleMatrix A = new SimpleMatrix(dimens, dimens);
 	SimpleMatrix b = new SimpleMatrix(dimens, 1);
 	SimpleMatrix x;
-
-	switch (opcao) {
+        int i;
+	
+        switch (opcao) {
 
 	    case 1:
 		// Linear
@@ -138,8 +148,14 @@ public class LeastSquares {
 
 	return result;
     }
-    
-    /*Static method to solve a LU decomposition*/
+    /**
+     *
+     * @param A
+     * @param b
+     * @param  dimension
+     * @throws SingularMatrixException
+     * @return x
+     * Static method to solve a LU decomposition*/
     public static SimpleMatrix solveMatrix(SimpleMatrix A, SimpleMatrix b,
 					   int dimension)
 	    throws SingularMatrixException {
