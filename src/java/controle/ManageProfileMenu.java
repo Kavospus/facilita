@@ -38,7 +38,8 @@ public class ManageProfileMenu extends HttpServlet {
 	try {
 	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 
 		out.println("<html>");
 		out.println("<head>");
@@ -59,9 +60,13 @@ public class ManageProfileMenu extends HttpServlet {
 
 		    if (op == 1) {
 			menuDB.vincularMenu(id_menu, id_profile);
-		    } else if (op == 2) {
+		    } 
+                    else if (op == 2) {
 			menuDB.desvincularMenu(id_menu, id_profile);
 		    }
+                    else{
+                        //Nothing to do
+                    }
 
 		    menuDB.disconnect();
 
