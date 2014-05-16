@@ -43,7 +43,13 @@ public class MultiplyMatrices extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 
-	    int i, j, linesA = 0, columnsA = 0, linesB = 0, columnsB = 0, error = 0;
+	    int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int linesB = 0;
+            int columnsB = 0;
+            int error = 0;
 
 	    if (request.getParameter("linesA") != null) {
 		try {
@@ -56,6 +62,9 @@ public class MultiplyMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("columnsA") != null) {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
@@ -67,6 +76,9 @@ public class MultiplyMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("linesB") != null) {
 		try {
 		    linesB = Integer.parseInt(request.getParameter("linesB"));
@@ -78,9 +90,14 @@ public class MultiplyMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    columnsB = linesB;
+            else{
+                //Nothing to do
+            }
+	  
+            columnsB = linesB;
 	    linesB = columnsA;
-	    double matrixA[][] = new double[linesA][columnsA];
+	  
+            double matrixA[][] = new double[linesA][columnsA];
 	    double matrixB[][] = new double[linesB][columnsB];
 	    double result[][] = new double[linesA][columnsB];
 
@@ -98,11 +115,13 @@ public class MultiplyMatrices extends HttpServlet {
 			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    }
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
 	    }
+            
 	    for (i = 0; i < linesB; i++) {
 		for (j = 0; j < columnsB; j++) {
 		    if (request.getParameter("matrixB" + i + j) != null
@@ -117,7 +136,8 @@ public class MultiplyMatrices extends HttpServlet {
 			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    }
+                    else {
 			matrixB[i][j] = 0;
 		    }
 		}
@@ -129,7 +149,8 @@ public class MultiplyMatrices extends HttpServlet {
 	    session.setAttribute("data_multiply_columnsA", columnsA);
 	    session.setAttribute("data_multiply_linesB", linesB);
 	    session.setAttribute("data_multiply_columnsB", columnsB);
-	    if (error == 0) {
+	   
+            if (error == 0) {
 		Multiply menu = new Multiply(matrixA, matrixB, linesA, columnsA, columnsB);
 		menu.calculate();
 		result = menu.getResult();
@@ -146,11 +167,15 @@ public class MultiplyMatrices extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    menu.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(menu);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(menu);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception e) {
 		}
 
@@ -158,6 +183,9 @@ public class MultiplyMatrices extends HttpServlet {
 		out.print(" window.open('multiply_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {
