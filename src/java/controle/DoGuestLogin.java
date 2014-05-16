@@ -53,6 +53,9 @@ public class DoGuestLogin extends HttpServlet {
 		if (user != null) {
 		    response.sendRedirect("index.jsp");
 		}
+                else{
+                    //Nothing to do
+                }
 
 	    } catch (Exception e) {
 		out.print("<script language='JavaScript'>");

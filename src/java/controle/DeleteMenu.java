@@ -36,7 +36,8 @@ public class DeleteMenu extends HttpServlet {
 	try {
 	    if (session.getAttribute("menu") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");

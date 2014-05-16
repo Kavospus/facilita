@@ -38,7 +38,8 @@ public class DeleteCalculus extends HttpServlet {
 	try {
 	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		/*
 		 * TODO output your page here. You may use following sample
 		 * code.
