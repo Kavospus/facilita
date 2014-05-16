@@ -18,8 +18,11 @@ public class ProfileDAO extends DataBaseDAO {
 
     public ProfileDAO() throws Exception {
     }
-    
-    /*Insert a Profile object to the database*/
+    /**
+     *
+     * @param p 
+     * @throws SQLException
+     * Insert a Profile object to the database*/
     public void insert(Profile p) throws SQLException {
 
 	PreparedStatement pst;
@@ -29,8 +32,12 @@ public class ProfileDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-    
-    /*Consult a list of all Profile objects on the database*/
+    /**
+     *
+     * @throws SQLException
+     * @throws Exception
+     * @return lista
+     * Consult a list of all Profile objects on the database*/
     public ArrayList<Profile> select() throws SQLException, Exception {
 	MenuDAO mDB = new MenuDAO();
 	ArrayList<Profile> lista = new ArrayList<Profile>();
@@ -48,8 +55,11 @@ public class ProfileDAO extends DataBaseDAO {
 	return lista;
 
     }
-    
-    /*Delete a Profile object on the database*/
+    /**
+     *
+     * @param p 
+     * @throws SQLException
+     * Delete a Profile object on the database*/
     public void delete(Profile p) throws SQLException {
 
 	PreparedStatement pst;
@@ -59,8 +69,13 @@ public class ProfileDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-    
-    /*Load a Profile object with the id argument on the database*/
+    /**
+     *
+     * @param id
+     * @throws SQLException
+     * @throws Exception
+     * @return p
+     * Load a Profile object with the id argument on the database*/
     public Profile selectById(int id) throws SQLException, Exception {
 	Profile p = new Profile();
 	MenuDAO mDB = new MenuDAO();
@@ -76,11 +91,17 @@ public class ProfileDAO extends DataBaseDAO {
 	    p.setMenus(mDB.menusPerfil(id));
 	    mDB.disconnect();
 	}
+        else{
+            //Nothing to do
+        }
 	return p;
 
     }
-    
-    /*Edit a Profile object on the database*/
+    /**
+     *
+     * @param p
+     * @throws SQLException
+     * Edit a Profile object on the database*/
     public void update(Profile p) throws SQLException {
 
 	PreparedStatement pst;
