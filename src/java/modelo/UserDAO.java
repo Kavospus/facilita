@@ -17,8 +17,11 @@ public class UserDAO extends DataBaseDAO {
 
     public UserDAO() throws Exception {
     }
-    
-    /*Insert a User object to the database*/
+    /**
+     *
+     * @param u 
+     * @throws SQLException
+     * Insert a User object to the database*/
     public void insert(User u) throws SQLException {
 
 	PreparedStatement pst;
@@ -32,8 +35,12 @@ public class UserDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-    
-    /*Consult a list of all User objects on the database*/
+    /**
+     *
+     * @throws SQLException
+     * @throws Exception
+     * @return  lista
+     * Consult a list of all User objects on the database*/
     public ArrayList<User> select() throws SQLException, Exception {
 
 	ProfileDAO pDB = new ProfileDAO();
@@ -56,8 +63,13 @@ public class UserDAO extends DataBaseDAO {
 	return lista;
 
     }
-    
-    /*Login a User object throught the user and password arguments*/
+    /**
+     *
+     * @param user
+     * @param senha
+     * @throws SQLException
+     * @return  u;
+     * Login a User object throught the user and password arguments*/
     public User logon(String user, String senha) throws SQLException,
 	    Exception {
 	ProfileDAO pDB = new ProfileDAO();
@@ -76,12 +88,21 @@ public class UserDAO extends DataBaseDAO {
 		u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 		pDB.disconnect();
 	    }
+            else{
+                //Nothing to do
+            }
 	}
+        else{
+            //Nothing to do
+        }
 
 	return u;
     }
-    
-    /*Edit a User object on the database*/
+    /**
+     *
+     * @param u 
+     * @throws SQLException
+     * Edit a User object on the database*/
     public void update(User u) throws SQLException {
 
 	PreparedStatement pst;
@@ -95,8 +116,13 @@ public class UserDAO extends DataBaseDAO {
 	pst.execute();
 
     }
-    
-    /*Load a User object with the id argument on the database*/
+    /**
+     *
+     * @param id 
+     * @throws SQLException
+     * @throws Exception
+     * @return u
+     * Load a User object with the id argument on the database*/
     public User selectById(int id) throws SQLException, Exception {
 	User u = new User();
 	ProfileDAO pDB = new ProfileDAO();
@@ -114,11 +140,17 @@ public class UserDAO extends DataBaseDAO {
 	    u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 	    pDB.disconnect();
 	}
+        else{
+            //Nothing to do
+        }
 	return u;
 
     }
-    
-    /*Delete a User object on the database*/
+    /**
+     *
+     * @param u 
+     * @throws SQLException
+     * Delete a User object on the database*/
     public void delete(User u) throws SQLException {
 
 	PreparedStatement pst;
