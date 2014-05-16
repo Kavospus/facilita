@@ -19,19 +19,19 @@ public class UserDAO extends DataBaseDAO {
     }
     /**
      *
-     * @param user 
+     * @param userToInsert 
      * @throws SQLException
      * Insert a User object to the database*/
-    public void insert(User user) throws SQLException {
+    public void insert(User userToInsert) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "INSERT INTO usuario (id_perfil,login,senha,nome) "
 		+ "values(?,?,?,?)";
 	pst = conn.prepareStatement(sql);
-	pst.setInt(1, user.getProfile().getId());
-	pst.setString(2, user.getLogin());
-	pst.setString(3, user.getPassword());
-	pst.setString(4, user.getName());
+	pst.setInt(1, userToInsert.getProfile().getId());
+	pst.setString(2, userToInsert.getLogin());
+	pst.setString(3, userToInsert.getPassword());
+	pst.setString(4, userToInsert.getName());
 	pst.execute();
 
     }
@@ -50,15 +50,15 @@ public class UserDAO extends DataBaseDAO {
 	pst = conn.prepareStatement(sql);
 	ResultSet rs = pst.executeQuery();
 	while (rs.next()) {
-	    User u = new User();
-	    u.setId(rs.getInt("id"));
-	    u.setLogin(rs.getString("login"));
-	    u.setPassword(rs.getString("senha"));
-	    u.setName(rs.getString("nome"));
+	    User newUser = new User();
+	    newUser.setId(rs.getInt("id"));
+	    newUser.setLogin(rs.getString("login"));
+	    newUser.setPassword(rs.getString("senha"));
+	    newUser.setName(rs.getString("nome"));
 	    pDB.connect();
-	    u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
+	    newUser.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 	    pDB.disconnect();
-	    lista.add(u);
+	    lista.add(newUser);
 	}
 	return lista;
 
@@ -68,8 +68,8 @@ public class UserDAO extends DataBaseDAO {
      * @param user
      * @param senha
      * @throws SQLException
-     * @return  u;
-     * Login a User object throught the user and password arguments*/
+     * @return  newUser;
+ Login a User object throught the user and password arguments*/
     public User logon(String user, String senha) throws SQLException,
 	    Exception {
 	ProfileDAO pDB = new ProfileDAO();
@@ -78,14 +78,14 @@ public class UserDAO extends DataBaseDAO {
 	pst = conn.prepareStatement(sql);
 	pst.setString(1, user);
 	ResultSet rs = pst.executeQuery();
-	User u = new User();
+	User userToLogon = new User();
 	if (rs.next()) {
 	    if (MD5Encrypter.encryptMD5(senha).equals(rs.getString("senha"))) {
-		u.setId(rs.getInt("id"));
-		u.setLogin(rs.getString("login"));
-		u.setName(rs.getString("nome"));
+		userToLogon.setId(rs.getInt("id"));
+		userToLogon.setLogin(rs.getString("login"));
+		userToLogon.setName(rs.getString("nome"));
 		pDB.connect();
-		u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
+		userToLogon.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 		pDB.disconnect();
 	    }
             else{
@@ -96,23 +96,23 @@ public class UserDAO extends DataBaseDAO {
             //Nothing to do
         }
 
-	return u;
+	return userToLogon;
     }
     /**
      *
-     * @param u 
+     * @param userToUpdate 
      * @throws SQLException
      * Edit a User object on the database*/
-    public void update(User u) throws SQLException {
+    public void update(User userToUpdate) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "UPDATE usuario SET login=?, senha=?, id_perfil=?, nome=?  WHERE id=?";
 	pst = conn.prepareStatement(sql);
-	pst.setString(1, u.getLogin());
-	pst.setString(2, u.getPassword());
-	pst.setInt(3, u.getProfile().getId());
-	pst.setString(4, u.getName());
-	pst.setInt(5, u.getId());
+	pst.setString(1, userToUpdate.getLogin());
+	pst.setString(2, userToUpdate.getPassword());
+	pst.setInt(3, userToUpdate.getProfile().getId());
+	pst.setString(4, userToUpdate.getName());
+	pst.setInt(5, userToUpdate.getId());
 	pst.execute();
 
     }
@@ -121,10 +121,10 @@ public class UserDAO extends DataBaseDAO {
      * @param id 
      * @throws SQLException
      * @throws Exception
-     * @return u
-     * Load a User object with the id argument on the database*/
+     * @return newUser
+ Load a User object with the id argument on the database*/
     public User selectById(int id) throws SQLException, Exception {
-	User u = new User();
+	User userToSelect = new User();
 	ProfileDAO pDB = new ProfileDAO();
 	PreparedStatement pst;
 	String sql = "SELECT * FROM usuario WHERE id=?";
@@ -132,31 +132,31 @@ public class UserDAO extends DataBaseDAO {
 	pst.setInt(1, id);
 	ResultSet rs = pst.executeQuery();
 	if (rs.next()) {
-	    u.setId(rs.getInt("id"));
-	    u.setLogin(rs.getString("login"));
-	    u.setPassword(rs.getString("senha"));
-	    u.setName(rs.getString("nome"));
+	    userToSelect.setId(rs.getInt("id"));
+	    userToSelect.setLogin(rs.getString("login"));
+	    userToSelect.setPassword(rs.getString("senha"));
+	    userToSelect.setName(rs.getString("nome"));
 	    pDB.connect();
-	    u.setProfile(pDB.selectById(rs.getInt("id_perfil")));
+	    userToSelect.setProfile(pDB.selectById(rs.getInt("id_perfil")));
 	    pDB.disconnect();
 	}
         else{
             //Nothing to do
         }
-	return u;
+	return userToSelect;
 
     }
     /**
      *
-     * @param u 
+     * @param userToDelete 
      * @throws SQLException
      * Delete a User object on the database*/
-    public void delete(User u) throws SQLException {
+    public void delete(User userToDelete) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "DELETE FROM usuario WHERE id=?";
 	pst = conn.prepareStatement(sql);
-	pst.setInt(1, u.getId());
+	pst.setInt(1, userToDelete.getId());
 	pst.execute();
 
     }
