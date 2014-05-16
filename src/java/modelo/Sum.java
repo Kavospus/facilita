@@ -40,7 +40,7 @@ public class Sum extends Calculus {
      * @param mb
      * @param linesA
      * @param columnsA
-     * @return resultMUltiplication
+     * @return resultSum
      * Function to sum two matrices*/
     public double[][] sumMatrices(double ma[][], double mb[][], int linesA,
 				   int columnsA) {
