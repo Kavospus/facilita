@@ -38,12 +38,12 @@ public class MatrixParserTest {
         strings.add("olá");
         strings.add("teste");
         
-        assertEquals("olá;teste;",parser.concat(strings));
-        assertEquals("{3.0}",parser.parseString(3.0));
-        assertEquals(3.0,parser.parseNumber("{3.0}"),0.000001);
+        assertEquals("olá;teste;",MatrixParser.concat(strings));
+        assertEquals("{3.0}",MatrixParser.parseString(3.0));
+        assertEquals(3.0,MatrixParser.parseNumber("{3.0}"),0.000001);
         double infinito = Double.parseDouble("Infinity");
         matrix = new double[][]{{infinito,-infinito},{-infinito,infinito}};
-        assertArrayEquals(matrix, parser.parseMatrix("{{Infinity,-Infinity},{-Infinity,Infinity}}"));
+        assertArrayEquals(matrix, MatrixParser.parseMatrix("{{Infinity,-Infinity},{-Infinity,Infinity}}"));
 
        
     }
