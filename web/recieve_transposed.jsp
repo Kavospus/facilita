@@ -20,12 +20,12 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
-        Linhas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
-        Colunas <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
+        <%=_("Lines",bundle)%> <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
+        <%=_("Columns",bundle)%> <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value);" />
         
         
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=8');"/>
+        <input class="button" type="submit" value="<%=_("Calculate",bundle)%>"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=8');"/>
         </form>
         
         <br>

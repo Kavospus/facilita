@@ -20,9 +20,9 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="compute_determinant.do" method="POST" name="compute_determinant">
-        Linhas e Colunas <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
+        <%=_("Lines",bundle)%> <%=_("and",bundle)%> <%=_("Columns",bundle)%> <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrix.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('linesA').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=1');"/>
+        <input class="button" type="submit" value="<%=_("Calculate",bundle)%>"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=1');"/>
         </form>
         
         <br>

@@ -41,15 +41,15 @@
                     <td class="filled" valign="top">
                         <table class="tableDist" align="center" >
                             <tr>
-                                <td align="center" ><h1>Lista de Calculos</h1></td>
+                                <td align="center" ><h1><%=_("List",bundle)%> <%=_("of",bundle)%> <%=_("Calculus",bundle)%></h1></td>
                             </tr>
                         </table>
                         <table width="700" align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Calculus</td>
-                                <td>Entrada</td>
-                                <td>Opções</td>
+                                <td><%=_("Calculus",bundle)%></td>
+                                <td><%=_("Input",bundle)%></td>
+                                <td><%=_("Options",bundle)%></td>
                             </tr>
 
 
@@ -60,9 +60,8 @@
                                             CalculusDAO calculusDB = new CalculusDAO();
 
                                             calculusDB.connect();
-
                                             ArrayList<Calculus> calculusList = calculusDB.select(user);
-
+                                            
                                             for(Calculus calculus:calculusList){%>
 
                             <tr>
@@ -107,8 +106,9 @@
 
     if(logged){
     User userPermission = new User();
+    
     if(!userPermission.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }else{
     session.setAttribute("calculus",true);
     }

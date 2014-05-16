@@ -60,16 +60,16 @@
         </tr>
         <%}%>
         </table>
-        <a href="index.jsp">Voltar</a>
-        <a href="answer_subtract.jsp?operation=subtract">Subtração</a>
-        <a href="answer_sum.jsp?operation=subtract">Adição</a>
-        <a href="answer_multiply.jsp?operation=subtract">Multiplicação</a>
-        <a href="answer_tranposed.jsp?operation=subtract">Transposta</a>
-        <a href="answer_scalar.jsp?operation=subtract">Escalar</a>
+        <a href="index.jsp"><%=_("Back",bundle)%></a>
+        <a href="answer_subtract.jsp?operation=subtract"><%=_("Subtract",bundle)%></a>
+        <a href="answer_sum.jsp?operation=subtract"><%=_("Sum",bundle)%></a>
+        <a href="answer_multiply.jsp?operation=subtract"><%=_("Multiply",bundle)%></a>
+        <a href="answer_tranposed.jsp?operation=subtract"><%=_("Transpose",bundle)%></a>
+        <a href="answer_scalar.jsp?operation=subtract"><%=_("Scalar",bundle)%></a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='answer_inverse.jsp?operation=subtract'>Inversa</a>");
-        out.print("<a href='answer_determinant.jsp?operation=subtract'>Determinante</a>");
+        out.print("<a href='answer_inverse.jsp?operation=subtract'>"+_("Invert",bundle)+"</a>");
+        out.print("<a href='answer_determinant.jsp?operation=subtract'>"+_("Determinant",bundle)+"</a>");
         }
         
         %>

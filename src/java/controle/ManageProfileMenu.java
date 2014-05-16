@@ -49,7 +49,7 @@ public class ManageProfileMenu extends HttpServlet {
 
 		try {
 
-		    int op = Integer.parseInt(request.getParameter("op"));
+		    int operation = Integer.parseInt(request.getParameter("operation"));
 		    int id_menu = Integer.parseInt(request
 			    .getParameter("id_menu"));
 		    int id_profile = Integer.parseInt(request
@@ -58,10 +58,14 @@ public class ManageProfileMenu extends HttpServlet {
 		    MenuDAO menuDB = new MenuDAO();
 		    menuDB.connect();
 
-		    if (op == 1) {
+		    if (operation == 1) {
 			menuDB.vincularMenu(id_menu, id_profile);
+<<<<<<< HEAD
 		    } 
                     else if (op == 2) {
+=======
+		    } else if (operation == 2) {
+>>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 			menuDB.desvincularMenu(id_menu, id_profile);
 		    }
                     else{
@@ -70,24 +74,17 @@ public class ManageProfileMenu extends HttpServlet {
 
 		    menuDB.disconnect();
 
-		    User user = (User) session.getAttribute("user");
+		    User user = (User) session.getAttribute("userLogged");
 		    UserDAO userDB = new UserDAO();
 		    userDB.connect();
-		    User nu = userDB.selectById(user.getId());
+		    User newUser = userDB.selectById(user.getId());
 		    userDB.disconnect();
 		    session.removeAttribute("profile");
 		    session.removeAttribute("menu");
-		    session.removeAttribute("orcamento");
-		    session.removeAttribute("requisicao");
-		    session.removeAttribute("produto");
 		    session.removeAttribute("user");
-		    session.setAttribute("user", nu);
+		    session.setAttribute("userLogged", newUser);
 		    session.setAttribute("profile", true);
 		    session.setAttribute("menu", null);
-		    session.setAttribute("orcamento", null);
-		    session.setAttribute("requisicao", null);
-		    session.setAttribute("produto", null);
-		    session.setAttribute("produto", null);
 		    session.setAttribute("user", null);
 		    response.sendRedirect("manage_profile_menu_form.jsp?id="
 			    + id_profile);

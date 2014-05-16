@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +58,7 @@ public class ScaleMatrix extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_scalar.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -70,21 +72,25 @@ public class ScaleMatrix extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_scalar.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
+<<<<<<< HEAD
             else{
                 //Nothing to do
             }
 	    if (request.getParameter("n") != null) {
+=======
+	    if (request.getParameter("number") != null) {
+>>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 		try {
 		    number = Double.parseDouble(request.getParameter("number"));
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_scalar.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -106,7 +112,7 @@ public class ScaleMatrix extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_scalar.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -124,11 +130,11 @@ public class ScaleMatrix extends HttpServlet {
 		Scale scalar = new Scale(matrixA, number, linesA, columnsA);
 		scalar.calculate();
 		result = scalar.getResult();
-		session.setAttribute("result_escalar", result);
-		session.setAttribute("result_escalar_linesA", linesA);
-		session.setAttribute("result_escalar_columnsA", columnsA);
+		session.setAttribute("result_scalar", result);
+		session.setAttribute("result_scalar_linesA", linesA);
+		session.setAttribute("result_scalar_columnsA", columnsA);
 		try {
-		    scalar.setUser((User) session.getAttribute("user"));
+		    scalar.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = scalar.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

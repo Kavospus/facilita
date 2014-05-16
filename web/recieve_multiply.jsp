@@ -20,11 +20,11 @@
     <body class="centertable">
         <%@include file="menu.jsp" %>
         <form action="multiply_matrices.do" method="POST" name="multiply_matrices">
-            Linhas de A <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de A e linhas de B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de B <input type="text" name="linesB" id="linesB" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+            <%=_("Lines",bundle)%> <%=_("of",bundle)%> A <input type="text" name="linesA" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        <%=_("Columns",bundle)%> <%=_("of",bundle)%> A <%=_("and",bundle)%> <%=_("Lines",bundle)%> <%=_("of",bundle)%> B <input type="text" name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        <%=_("Columns",bundle)%> <%=_("of",bundle)%> B <input type="text" name="linesB" id="linesB" onkeyup="refreshPage('matrixes', 'dynamic_matrices.jsp?linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrixes" ></div>
-        <input class="button" type="submit" name="OK"/><img src="imagens/help.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=5');"/>
+        <input class="button" type="submit" value="<%=_("Calculate",bundle)%>"/><img src="imagens/ajuda.png" width="20" height="20"onclick="refreshPage('help', 'help.jsp?option=5');"/>
         </form>
         
         <br>

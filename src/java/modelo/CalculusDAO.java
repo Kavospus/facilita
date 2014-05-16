@@ -106,12 +106,15 @@ public class CalculusDAO extends DataBaseDAO {
         UserDAO userDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
 	PreparedStatement preparedStatement;
+        
 	String sql = "SELECT * FROM calculo WHERE id_usuario=?";
 	preparedStatement = conn.prepareStatement(sql);
 	preparedStatement.setInt(1, user.getId());
 	ResultSet rs = preparedStatement.executeQuery();
+        
 	while (rs.next()) {
 	    Calculus calculus = init(rs.getString("operacao"));
+            
 	    calculus.setId(rs.getInt("id"));
 	    calculus.setOperation(rs.getString("operacao"));
 	    calculus.setInputString(rs.getString("entrada"));

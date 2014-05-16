@@ -15,7 +15,7 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/querySets.js"></script>
         <script type="text/javascript" src="js/canvasManager.js"></script>        
-        <title>Resultado Transposta</title>
+        <title>Resultado Transposta%></title>
     </head>
     <body class="centertable">
         <%@include file="menu.jsp" %>
@@ -60,16 +60,16 @@
         </tr>
         <%}%>
         </table>
-        <a href="index.jsp">Voltar</a>
-        <a href="answer_subtract.jsp?operation=transposed">Subtração</a>
-        <a href="answer_sum.jsp?operation=transposed">Adição</a>
-        <a href="answer_multiply.jsp?operation=transposed">Multiplicação</a>
-        <a href="answer_tranposed.jsp?operation=transposed">Transposta</a>
-        <a href="answer_scalar.jsp?operation=transposed">Escalar</a>
+        <a href="index.jsp"><%=_("Back",bundle)%></a>
+        <a href="answer_subtract.jsp?operation=transposed"><%=_("Subtract",bundle)%></a>
+        <a href="answer_sum.jsp?operation=transposed"><%=_("Sum",bundle)%></a>
+        <a href="answer_multiply.jsp?operation=transposed"><%=_("Multiply",bundle)%></a>
+        <a href="answer_tranposed.jsp?operation=transposed"><%=_("Transpose",bundle)%></a>
+        <a href="answer_scalar.jsp?operation=transposed"><%=_("Scalar",bundle)%></a>
         <%
         if(linesA==columnsA){
-        out.print("<a href='answer_inverse.jsp?operation=transposed'>Inversa</a>");
-        out.print("<a href='answer_determinant.jsp?operation=transposed'>Determinante</a>");
+        out.print("<a href='answer_inverse.jsp?operation=transposed'>"+_("Invert",bundle)+"</a>");
+        out.print("<a href='answer_determinant.jsp?operation=transposed'>"+_("Determinant",bundle)+"</a>");
         }
         
         %>

@@ -9,6 +9,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,7 +59,7 @@ public class MultiplyMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -71,7 +73,7 @@ public class MultiplyMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -85,7 +87,7 @@ public class MultiplyMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_multiply.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -111,7 +113,7 @@ public class MultiplyMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -132,7 +134,7 @@ public class MultiplyMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_multiply.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -144,7 +146,7 @@ public class MultiplyMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_multiply_matrixA", matrixA);
-	    session.setAttribute("data_multiply_b", matrixB);
+	    session.setAttribute("data_multiply_matrixB", matrixB);
 	    session.setAttribute("data_multiply_linesA", linesA);
 	    session.setAttribute("data_multiply_columnsA", columnsA);
 	    session.setAttribute("data_multiply_linesB", linesB);
@@ -158,7 +160,7 @@ public class MultiplyMatrices extends HttpServlet {
 		session.setAttribute("result_multiply_linesA", linesA);
 		session.setAttribute("result_multiply_columnsA", columnsB);
 		try {
-		    menu.setUser((User) session.getAttribute("user"));
+		    menu.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = menu.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

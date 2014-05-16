@@ -47,17 +47,17 @@
                     <td class="filled" valign="top">
                         <table class="tableDist" align="center" >
                             <tr>
-                                <td align="left" ><h1>Lista de Usuários</h1></td>
-                                <td align="right" ><a class="button" href="insert_user_form.jsp">Inserir Usuário</a></td>
+                                <td align="left" ><h1><%=_("List",bundle)%> <%=_("of",bundle)%> <%=_("Users",bundle)%></h1></td>
+                                <td align="right" ><a class="button" href="insert_user_form.jsp"><%=_("New",bundle)%> <%=_("User",bundle)%></a></td>
                             </tr>
                         </table>
                         <table width="700"  align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Nome</td>
-                                <td>Login</td>
-                                <td>Senha</td>
-                                <td>Opções</td>
+                                <td><%=_("Name",bundle)%></td>
+                                <td><%=_("User",bundle)%></td>
+                                <td><%=_("Password",bundle)%></td>
+                                <td><%=_("Options",bundle)%></td>
                             </tr>
 
 
@@ -104,9 +104,9 @@
 <%
 
     if(logged){
-    User uP = new User();
-    if(!uP.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
-       response.sendRedirect("index.jsp?erro=1");
+    User userPermission = new User();
+    if(!userPermission.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
+       response.sendRedirect("index.jsp?error=1");
     }else{
     session.setAttribute("user",true);
     }

@@ -37,10 +37,10 @@
         if(session.getAttribute("data_determinant_matrixA") != null){
                 matrixA = (double[][])session.getAttribute("data_determinant_matrixA");
             }
-        out.print("Resultado do Determinante: "+result);
+        out.print(_("Result of",bundle)+" "+_("Determinant",bundle)+": "+result);
         %>
-        <a href="index.jsp">Voltar</a>
-        <a href="answer_determinant_scalar.jsp">Escalar</a>
+        <a href="index.jsp"><%=_("Back",bundle)%></a>
+        <a href="answer_determinant_scalar.jsp"><%=_("Scalar",bundle)%></a>
 
     </body>
 </html>

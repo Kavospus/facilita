@@ -9,6 +9,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +58,7 @@ public class InvertMatrix extends HttpServlet {
 		    } catch (Exception e) {
 			error = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('Caracteres proibidos detectados!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_inverse.jsp','_parent');");
 			out.print("</script>");
 		    }
@@ -80,7 +82,7 @@ public class InvertMatrix extends HttpServlet {
 			    } catch (Exception e) {
 				error = 1;
 				out.print("<script language='JavaScript'>");
-				out.print(" alert('Caracteres proibidos detectados!');");
+				out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 				out.print(" window.open('update_inverse.jsp','_parent');");
 				out.print("</script>");
 			    }
@@ -97,11 +99,11 @@ public class InvertMatrix extends HttpServlet {
 		    Invert invert = new Invert(matrixA, linesA, columnsA);
 		    invert.calculate();
 		    result = invert.getResult();
-		    session.setAttribute("result_inversa", result);
-		    session.setAttribute("result_inversa_linesA", linesA);
-		    session.setAttribute("result_inversa_columnsA", columnsA);
+		    session.setAttribute("result_inverse", result);
+		    session.setAttribute("result_inverse_linesA", linesA);
+		    session.setAttribute("result_inverse_columnsA", columnsA);
 
-		    invert.setUser((User) session.getAttribute("user"));
+		    invert.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = invert.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

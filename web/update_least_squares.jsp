@@ -28,14 +28,17 @@
 
 %>
 <body class="centertable" onload="refreshPage('least_squares','dynamic_update_least_squares.jsp?auxiliarQuantity=<%=quantity%>');">
-        <form action="compute_least_squares.do" method="POST" name="compute_least_squares">
-            Quantidade <input type="text" value="<%=quantity%>" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','dynamic_update_least_squares.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
-        Ajuste <input type="radio" <%if(option == 1){out.print("checked");}%> name="option" value="1">Linear 
-              <input type="radio" <%if(option == 2){out.print("checked");}%> name="option" value="2">Gaussiano
-              <input type="radio" <%if(option == 3){out.print("checked");}%> name="option" value="3">Parabólico
-              <input type="radio" <%if(option == 4){out.print("checked");}%> name="option" value="4">Exponencial
+    <div class="header">
+            <%@include file="menu.jsp" %>
+        </div>    
+    <form action="compute_least_squares.do" method="POST" name="compute_least_squares">
+            <%=_("Quantity",bundle)%> <input type="text" value="<%=quantity%>" name="quantity" id="quantity" onkeyup="refreshPage('least_squares','dynamic_update_least_squares.jsp?auxiliarQuantity='+getElementById('quantity').value)" /><br>
+        <%=_("Adjust",bundle)%> <input type="radio" <%if(option == 1){out.print("checked");}%> name="option" value="1"><%=_("Linear",bundle)%> 
+              <input type="radio" <%if(option == 2){out.print("checked");}%> name="option" value="2"><%=_("Gaussian",bundle)%>
+              <input type="radio" <%if(option == 3){out.print("checked");}%> name="option" value="3"><%=_("Parabolic",bundle)%>
+              <input type="radio" <%if(option == 4){out.print("checked");}%> name="option" value="4"><%=_("Exponential",bundle)%>
         <div id="least_squares"></div>
-        <input class="button"type="submit" name="OK"/>
+        <input class="button"type="submit" value="<%=_("Calculate",bundle)%>"/>
         </form>
     </body>
 </html>

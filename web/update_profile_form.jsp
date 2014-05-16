@@ -77,7 +77,7 @@
                                     <td><input type="text" name="id" readonly value="<%out.print(profile.getId());%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Profile</td>
+                                    <td><%=_("Profile",bundle)%></td>
                                     <td><input type="text" name="profile" value="<%out.print(profile.getProfile());%>"/> </td>
                                 </tr>
                                 <tr>
@@ -106,7 +106,7 @@
 
     if(logged){
     if(session.getAttribute("profile") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

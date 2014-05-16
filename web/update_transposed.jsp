@@ -31,11 +31,11 @@
     <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA=<%=linesA%>&columnsA=<%=columnsA%>');">
         <%@include file="menu.jsp" %>
         <form action="transpose_matrix.do" method="POST" name="transpose_matrix">
-        Linhas<input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
-        Colunas<input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        <%=_("Lines",bundle)%> <input type="text" name="linesA" id="linesA" value="<%=linesA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
+        <%=_("Columns",bundle)%> <input type="text" name="columnsA" id="columnsA" value="<%=columnsA%>" onkeyup="refreshPage('matrixes', 'dynamic_update_matrix.jsp?operation=transposed&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value)" />
         
         <div id="matrixes" ></div>
-        <input class="button"type="submit" name="OK"/>
+        <input class="button"type="submit" value="<%=_("Calculate",bundle)%>"/>
                 <%
         if(request.getParameter("id")!=null){
         int id  = Integer.parseInt(request.getParameter("id"));
@@ -49,7 +49,7 @@
 
     if(logged){
     if(session.getAttribute("calculus") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

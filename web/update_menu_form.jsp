@@ -16,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulário de Alteração - Menus</title>
+        <title>Formulário<%=_("of",bundle)%>Alteração - Menus</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -96,11 +96,11 @@
                                     <td><input readonly type="text" size="10" name="id" value="<%=menu.getId() %>" /> </td>
                                 </tr>
                                 <tr>
-                                    <td>Menu:</td>
+                                    <td><%=_("Menu",bundle)%>:</td>
                                     <td><input type="text" size="45" name="menu" value="<%=menu.getMenu() %>" /> </td>
                                 </tr>
                                 <tr>
-                                    <td>Icone URL:</td>
+                                    <td><%=_("Icon",bundle)%> URL:</td>
                                     <td><input type="text" size="45" name="icon" value="<%=menu.getIcon() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
                                     <td ><div align="rigth" id="thumb"><img width="32" height="32" src="<%=menu.getIcon()%>"/></div></td>
                                 </tr>
@@ -127,7 +127,7 @@
 
     if(logged){
     if(session.getAttribute("menu") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

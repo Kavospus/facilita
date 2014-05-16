@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +56,7 @@ public class TransposeMatrix extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_transposed.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -68,7 +70,7 @@ public class TransposeMatrix extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_transposed.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -90,7 +92,7 @@ public class TransposeMatrix extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_transposed.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -113,7 +115,7 @@ public class TransposeMatrix extends HttpServlet {
 		session.setAttribute("result_transposed_linesA", columnsA);
 		session.setAttribute("result_transposed_columnsA", linesA);
 		try {
-		    transpor.setUser((User) session.getAttribute("user"));
+		    transpor.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = transpor.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

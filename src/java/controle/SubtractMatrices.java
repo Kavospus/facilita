@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +57,7 @@ public class SubtractMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -69,7 +71,7 @@ public class SubtractMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_subtract.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -92,7 +94,7 @@ public class SubtractMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -112,7 +114,7 @@ public class SubtractMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -124,7 +126,7 @@ public class SubtractMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_subtract_matrixA", matrixA);
-	    session.setAttribute("data_subtract_b", matrixB);
+	    session.setAttribute("data_subtract_matrixB", matrixB);
 	    session.setAttribute("data_subtract_linesA", linesA);
 	    session.setAttribute("data_subtract_columnsA", columnsA);
 	    session.setAttribute("data_subtract_linesB", linesA);
@@ -139,7 +141,7 @@ public class SubtractMatrices extends HttpServlet {
 		session.setAttribute("result_subtract_linesB", linesA);
 		session.setAttribute("result_subtract_columnsB", columnsA);
 		try {
-		    s.setUser((User) session.getAttribute("user"));
+		    s.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = s.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

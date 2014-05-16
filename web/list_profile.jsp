@@ -45,15 +45,15 @@
                     <td class="filled" valign="top">
                         <table class="tableDist" align="center" >
                             <tr>
-                                <td align="left" ><h1>Lista de Perfis</h1></td>
-                                <td align="right" ><a class="button" href="insert_profile_form.jsp">Inserir Profile</a></td>
+                                <td align="left" ><h1><%=_("List",bundle)%> <%=_("of",bundle)%> <%=_("Profiles",bundle)%></h1></td>
+                                <td align="right" ><a class="button" href="insert_profile_form.jsp"><%=_("New",bundle)%> <%=_("Profile",bundle)%></a></td>
                             </tr>
                         </table>
                         <table class="" align="center" >
                             <tr>
                                 <td>Id</td>
                                 <td>Profile</td>
-                                <td>Opções</td>
+                                <td><%=_("Options",bundle)%></td>
                             </tr>
 
 
@@ -109,7 +109,7 @@
     if(logged){
     User userPermission = new User();
     if(!userPermission.havePermission(request.getRequestURI(),request.getContextPath(), userLogged)){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }else{
     session.setAttribute("profile",true);
     }

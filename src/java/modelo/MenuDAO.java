@@ -47,12 +47,13 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement = conn.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
 
     }
+<<<<<<< HEAD
     /**
      *
      * @param  id_perfil
@@ -60,6 +61,14 @@ public class MenuDAO extends DataBaseDAO {
      * @return  lista
      * Consult a list of Menu objects associated by id_perfil argument on the database*/
     public ArrayList<Menu> menusPerfil(int id_perfil) throws SQLException {
+=======
+    
+    /*
+     *Consult a list of Menu objects associated by id_perfil argument
+     *on the database
+     */
+    public ArrayList<Menu> profileMenus(int id_perfil) throws SQLException {
+>>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;
@@ -71,12 +80,13 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
 
     }
+<<<<<<< HEAD
     /**
      *
      * @param  id_perfil
@@ -84,6 +94,14 @@ public class MenuDAO extends DataBaseDAO {
      * @return  lista
      * Consult a list of Menu objects not associated by id_perfil argument on the database*/
     public ArrayList<Menu> menusNaoPerfil(int id_perfil) throws SQLException {
+=======
+    
+    /*
+     *Consult a list of Menu objects not associated by id_perfil argument
+     *on the database
+     */
+    public ArrayList<Menu> notProfileMenus(int id_perfil) throws SQLException {
+>>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;
@@ -92,7 +110,7 @@ public class MenuDAO extends DataBaseDAO {
         preparedStatement.setInt(1,id_perfil);
         ResultSet rs = preparedStatement.executeQuery();
         while(rs.next()){
-            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icon"));
+            Menu menu = new Menu(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
             lista.add(menu);
         }
         return lista;
@@ -132,7 +150,7 @@ public class MenuDAO extends DataBaseDAO {
         menu.setId(rs.getInt("id"));
         menu.setMenu(rs.getString("menu"));
         menu.setLink(rs.getString("link"));
-        menu.setIcon(rs.getString("icon"));
+        menu.setIcon(rs.getString("icone"));
         }
         else{
             //Nothing to do

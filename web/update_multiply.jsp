@@ -36,11 +36,11 @@
     <body class="centertable" onload="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA=<%=linesA%>&columnsA=<%=columnsA%>&linesB=<%=columnsA%>&columnsB=<%=columnsB%>');">
         <%@include file="menu.jsp" %>
         <form action="multiply_matrices.do" method="POST" name="multiply_matrices">
-        Linhas de A <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de A e linhas de B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
-        Colunas de B <input type="text" name="linesB" value="<%=columnsB%>"  id="linesB" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        <%=_("Lines",bundle)%> <%=_("of",bundle)%> A <input type="text" name="linesA" value="<%=linesA%>" id="linesA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        <%=_("Columns",bundle)%> <%=_("of",bundle)%> A<%=_("and",bundle)%> <%=_("Lines",bundle)%> <%=_("of",bundle)%> B <input type="text" value="<%=columnsA%>"  name="columnsA" id="columnsA" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
+        <%=_("Columns",bundle)%> <%=_("of",bundle)%> B <input type="text" name="linesB" value="<%=columnsB%>"  id="linesB" onkeyup="refreshPage('matrixes', 'dynamic_update_matrices.jsp?operation=multiply&linesA='+getElementById('linesA').value+'&columnsA='+getElementById('columnsA').value+'&linesB='+getElementById('columnsA').value+'&columnsB='+getElementById('linesB').value)" />
         <div id="matrixes" ></div>
-        <input class="button"type="submit" name="OK"/>
+        <input class="button"type="submit" value="<%=_("Calculate",bundle)%>"/>
                 <%
         if(request.getParameter("id")!=null){
         int id  = Integer.parseInt(request.getParameter("id"));
@@ -54,7 +54,7 @@
 
     if(logged){
     if(session.getAttribute("calculus") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

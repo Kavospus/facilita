@@ -44,7 +44,7 @@
                     <td class="filled" valign="top">
                         <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Vincular Menus</h1></td>
+                                <td align="left" ><h1><%=_("Link",bundle)%> <%=_("Menus",bundle)%></h1></td>
                             </tr>
                         </table>
                         <form name="form_gerenciar_menu" action="manage_profile_menu.do">
@@ -55,8 +55,8 @@
                                             int id_profile = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO menuDB = new MenuDAO();
                                             menuDB.connect();
-                                            ArrayList<Menu> menuListA = menuDB.menusNaoPerfil(id_profile);
-                                            ArrayList<Menu> menuListB = menuDB.menusPerfil(id_profile);
+                                            ArrayList<Menu> menuListA = menuDB.notProfileMenus(id_profile);
+                                            ArrayList<Menu> menuListB = menuDB.profileMenus(id_profile);
                                             ProfileDAO profileDB = new ProfileDAO();
 
                                             profileDB.connect();
@@ -70,7 +70,7 @@
                                                         ID: <%=profile.getId()%>
                                                     </td>
                                                     <td>
-                                                        Profile: <%=profile.getProfile()%>
+                                                        <%=_("Profile",bundle)%>: <%=profile.getProfile()%>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -79,7 +79,7 @@
                                                     </td>
                                                     <td><select name="id_menu" size="1">
                                                     <option value="0">
-                                                        Selecione um menu
+                                                        <%=_("Select a menu",bundle)%>
                                                     </option>
 
                                                     <%for(Menu m1:menuListA){%>
@@ -93,7 +93,7 @@
                                                     <td>
                                                         <input type="text" hidden="true" value="<%=profile.getId()%>" name="id_profile">
                                                         <input type="text" hidden="true" value="1" name="operation">
-                                                        <input class="button" type="submit" value="Vincular">
+                                                        <input class="button" type="submit" value="<%=_("Link",bundle)%>">
                                                     </td>
                                                 </tr>
 
@@ -102,14 +102,14 @@
                                           </form>
                             <table  align="center" >
                             <tr>
-                                <td align="left" ><h1>Menus Vinculados</h1></td>
+                                <td align="left" ><h1><%=_("Linked Menus",bundle)%></h1></td>
                             </tr>
                         </table>
                             <table class="" align="center" >
                             <tr>
                                 <td>Id</td>
-                                <td>Menu</td>
-                                <td>Desvincular</td>
+                                <td><%=_("Menu",bundle)%></td>
+                                <td><%=_("Unlink",bundle)%></td>
                             </tr>
 
                             <% for(Menu menu:menuListB){%>
@@ -146,7 +146,7 @@
 
     if(logged){
     if(session.getAttribute("profile") == null){
-       response.sendRedirect("index.jsp?erro=1");
+       response.sendRedirect("index.jsp?error=1");
     }
     }
 

@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +56,7 @@ public class SumMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_sum.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -68,7 +70,7 @@ public class SumMatrices extends HttpServlet {
 		} catch (Exception e) {
 		    error = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('Caracteres proibidos detectados!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_sum.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -91,7 +93,7 @@ public class SumMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -112,7 +114,7 @@ public class SumMatrices extends HttpServlet {
 			} catch (Exception e) {
 			    error = 1;
 			    out.print("<script language='JavaScript'>");
-			    out.print(" alert('Caracteres proibidos detectados!');");
+			    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
@@ -124,7 +126,7 @@ public class SumMatrices extends HttpServlet {
 	    }
 
 	    session.setAttribute("data_sum_matrixA", matrixA);
-	    session.setAttribute("data_sum_b", matrixB);
+	    session.setAttribute("data_sum_matrixB", matrixB);
 	    session.setAttribute("data_sum_linesA", linesA);
 	    session.setAttribute("data_sum_columnsA", columnsA);
 	    session.setAttribute("data_sum_linesB", linesA);
@@ -141,7 +143,7 @@ public class SumMatrices extends HttpServlet {
 		session.setAttribute("result_sum_columnsB", columnsA);
 
 		try {
-		    sum.setUser((User) session.getAttribute("user"));
+		    sum.setUser((User) session.getAttribute("userLogged"));
 		    User userPermission = sum.getUser();
 		    if (userPermission.havePermission("/Facilita/list_calculus.jsp",
 			    "/Facilita", userPermission)) {

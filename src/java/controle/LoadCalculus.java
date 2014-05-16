@@ -107,7 +107,7 @@ public class LoadCalculus extends HttpServlet {
 			Sum s = (Sum) calculus;
 			s.setDataString();
 			session.setAttribute("data_sum_matrixA", s.getInputA());
-			session.setAttribute("data_sum_b", s.getInputB());
+			session.setAttribute("data_sum_matrixB", s.getInputB());
 			session.setAttribute("data_sum_linesA",
 				s.getLinesA());
 			session.setAttribute("data_sum_columnsA",
@@ -125,7 +125,7 @@ public class LoadCalculus extends HttpServlet {
 			Subtract s = (Subtract) calculus;
 			s.setDataString();
 			session.setAttribute("data_subtract_matrixA", s.getInputA());
-			session.setAttribute("data_subtract_b", s.getInputB());
+			session.setAttribute("data_subtract_matrixB", s.getInputB());
 			session.setAttribute("data_subtract_linesA",
 				s.getLinesA());
 			session.setAttribute("data_subtract_columnsA",
@@ -144,7 +144,7 @@ public class LoadCalculus extends HttpServlet {
 			menu.setDataString();
 			session.setAttribute("data_multiply_matrixA",
 				menu.getInputA());
-			session.setAttribute("data_multiply_b",
+			session.setAttribute("data_multiply_matrixB",
 				menu.getInputB());
 			session.setAttribute("data_multiply_linesA",
 				menu.getLinesA());
