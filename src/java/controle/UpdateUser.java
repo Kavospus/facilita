@@ -37,7 +37,8 @@ public class UpdateUser extends HttpServlet {
         try {
     if(session.getAttribute("user") == null){
        response.sendRedirect("index.jsp?error=1");
-    }else{
+    }
+    else{
             // TODO output your page here
             out.println("<html>");
             out.println("<head>");
@@ -48,6 +49,7 @@ public class UpdateUser extends HttpServlet {
 
                 int id = Integer.parseInt(request.getParameter("id"));
                 int id_profile = 0;
+               
                 if(request.getParameter("id_profile") != null){
                     try{
                         id_profile = Integer.parseInt(request.getParameter("id_profile"));
@@ -55,6 +57,10 @@ public class UpdateUser extends HttpServlet {
                         e.printStackTrace();
                     }
                 }
+                else{
+                    //Nothing to do
+                }
+                
                 String name = request.getParameter("name");
                 String password = MD5Encrypter.encryptMD5(request.getParameter("password"));
                 String login = request.getParameter("login");
