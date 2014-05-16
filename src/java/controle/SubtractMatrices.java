@@ -42,7 +42,13 @@ public class SubtractMatrices extends HttpServlet {
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	 
+            int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int error = 0;
+            
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -54,6 +60,9 @@ public class SubtractMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("columnsA") != null) {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
@@ -65,6 +74,9 @@ public class SubtractMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 
 	    double matrixA[][] = new double[linesA][columnsA];
 	    double matrixB[][] = new double[linesA][columnsA];
@@ -84,7 +96,8 @@ public class SubtractMatrices extends HttpServlet {
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    } 
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
@@ -103,7 +116,8 @@ public class SubtractMatrices extends HttpServlet {
 			    out.print(" window.open('update_subtract.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    } 
+                    else {
 			matrixB[i][j] = 0;
 		    }
 		}
@@ -134,17 +148,24 @@ public class SubtractMatrices extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    s.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(s);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(s);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
 		out.print(" window.open('subtract_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {
