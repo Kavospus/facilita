@@ -53,22 +53,13 @@ public class MenuDAO extends DataBaseDAO {
         return lista;
 
     }
-<<<<<<< HEAD
     /**
      *
      * @param  id_perfil
      * @throws SQLException
      * @return  lista
      * Consult a list of Menu objects associated by id_perfil argument on the database*/
-    public ArrayList<Menu> menusPerfil(int id_perfil) throws SQLException {
-=======
-    
-    /*
-     *Consult a list of Menu objects associated by id_perfil argument
-     *on the database
-     */
     public ArrayList<Menu> profileMenus(int id_perfil) throws SQLException {
->>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;
@@ -86,22 +77,13 @@ public class MenuDAO extends DataBaseDAO {
         return lista;
 
     }
-<<<<<<< HEAD
     /**
      *
      * @param  id_perfil
      * @throws SQLException
      * @return  lista
      * Consult a list of Menu objects not associated by id_perfil argument on the database*/
-    public ArrayList<Menu> menusNaoPerfil(int id_perfil) throws SQLException {
-=======
-    
-    /*
-     *Consult a list of Menu objects not associated by id_perfil argument
-     *on the database
-     */
     public ArrayList<Menu> notProfileMenus(int id_perfil) throws SQLException {
->>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 
         ArrayList<Menu> lista = new ArrayList<Menu>();
         PreparedStatement preparedStatement;

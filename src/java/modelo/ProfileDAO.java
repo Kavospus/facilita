@@ -18,7 +18,7 @@ public class ProfileDAO extends DataBaseDAO {
 
     public ProfileDAO() throws Exception {
     }
-    
+
     /**
      *
      * @param profile 
@@ -105,6 +105,7 @@ public class ProfileDAO extends DataBaseDAO {
      * @throws SQLException
     /*Edit a Profile object on the database*/
     public void update(Profile profile) throws SQLException {
+
 	PreparedStatement preparedStatement;
 	String sql = "UPDATE perfil SET perfil=? WHERE id=?";
 	preparedStatement = conn.prepareStatement(sql);

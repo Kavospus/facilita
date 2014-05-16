@@ -60,12 +60,8 @@ public class ManageProfileMenu extends HttpServlet {
 
 		    if (operation == 1) {
 			menuDB.vincularMenu(id_menu, id_profile);
-<<<<<<< HEAD
-		    } 
-                    else if (op == 2) {
-=======
+
 		    } else if (operation == 2) {
->>>>>>> 03f303b2de29eb8200cb5b7f54ea34bdbb84e656
 			menuDB.desvincularMenu(id_menu, id_profile);
 		    }
                     else{
