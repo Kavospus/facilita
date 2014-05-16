@@ -11,6 +11,7 @@ package modelo;
 import org.ejml.simple.SimpleMatrix;
 
 public class Determine extends Calculus {
+   
     private double[][] input;
     private double result;
     private int linesA;
@@ -29,8 +30,9 @@ public class Determine extends Calculus {
 	this.setOperation("Determine");
 
     }
-
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	this.setInput(MatrixParser.parseMatrix(this.getInputString()));
@@ -38,23 +40,28 @@ public class Determine extends Calculus {
 	this.setColumnsA(this.getInput()[0].length);
 	this.setResult(MatrixParser.parseNumber(this.getResultString()));
     }
-
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	this.setInputString(MatrixParser.parseString(getInput()));
 	this.setResultString(MatrixParser.parseString(this.getResult()));
     }
-
-    /*Function to calculate the determinant of a matrix*/
+    /**
+     *
+     * @param  ma
+     * @return resultDeterminant
+     * Function to calculate the determinant of a matrix*/
     public double determineMatrix(double ma[][]) {
 	double resultDeterminant = 0;
 	SimpleMatrix A = new SimpleMatrix(ma);
 	resultDeterminant = A.determinant();
 	return resultDeterminant;
     }
-
-    /*Abstract method implementation to calculate the operation of determinant of a matrix*/
+    /**
+     *
+     * Abstract method implementation to calculate the operation of determinant of a matrix*/
     @Override
     public void calculate() {
 	this.setResult(determineMatrix(getInput()));
