@@ -12,8 +12,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MD5Encrypter {
-    
-    /*Static method to encrypt a password into a md5 hash string*/
+    /**
+     *
+     * @param pass
+     * @return senha
+     * Static method to encrypt a password into a md5 hash string*/
     public static String encryptMD5(String pass) {
 	String senha = "";
 	try {
@@ -21,10 +24,18 @@ public class MD5Encrypter {
 
 	    md.update(pass.getBytes());
 	    BigInteger hash = new BigInteger(1, md.digest());
-	    senha = hash.toString(16);
-	    if (senha.length() != 32) {
+            
+            int buffer = 16;
+            int hashLength = 32;
+            
+	    senha = hash.toString(buffer);
+	   
+            if (senha.length() != hashLength) {
 		senha = "0" + senha;
 	    }
+            else{
+                //Nothing to do
+            }
 	}
 
 	catch (NoSuchAlgorithmException ns) {
