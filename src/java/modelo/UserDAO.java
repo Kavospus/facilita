@@ -19,19 +19,19 @@ public class UserDAO extends DataBaseDAO {
     }
     /**
      *
-     * @param u 
+     * @param user 
      * @throws SQLException
      * Insert a User object to the database*/
-    public void insert(User u) throws SQLException {
+    public void insert(User user) throws SQLException {
 
 	PreparedStatement pst;
 	String sql = "INSERT INTO usuario (id_perfil,login,senha,nome) "
 		+ "values(?,?,?,?)";
 	pst = conn.prepareStatement(sql);
-	pst.setInt(1, u.getProfile().getId());
-	pst.setString(2, u.getLogin());
-	pst.setString(3, u.getPassword());
-	pst.setString(4, u.getName());
+	pst.setInt(1, user.getProfile().getId());
+	pst.setString(2, user.getLogin());
+	pst.setString(3, user.getPassword());
+	pst.setString(4, user.getName());
 	pst.execute();
 
     }
