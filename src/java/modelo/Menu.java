@@ -18,42 +18,42 @@ public class Menu {
 
     /*Constructor*/
     public Menu(int id, String menu, String link, String icon) {
-this.id = id;
-this.menu = menu;
-this.link = link;
-this.icon = icon;
+        this.id = id;
+        this.menu = menu;
+        this.link = link;
+        this.icon = icon;
     }
 
     public int getId() {
-return id;
+        return id;
     }
 
     public void setId(int id) {
-this.id = id;
+        this.id = id;
     }
 
     public String getMenu() {
-return menu;
+        return menu;
     }
 
     public void setMenu(String menu) {
-this.menu = menu;
+        this.menu = menu;
     }
 
     public String getLink() {
-return link;
+        return link;
     }
 
     public void setLink(String link) {
-this.link = link;
+        this.link = link;
     }
 
     public String getIcon() {
-return icon;
+        return icon;
     }
 
     public void setIcon(String icon) {
-this.icon = icon;
+        this.icon = icon;
     }
 
 }
