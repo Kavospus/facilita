@@ -58,7 +58,9 @@ public class DeleteUser extends HttpServlet {
 		    userDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly deleted")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly deleted")+"!');");
 		    out.print(" window.open('list_user.jsp','_parent');");
 		    out.print("</script>");
 
