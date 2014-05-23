@@ -63,7 +63,9 @@ public class UpdateProfile extends HttpServlet {
                 profileDB.disconnect();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly updated")+"!');");
+                out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                        (Locale)session.getAttribute("user_locale")).
+                        getString("sucessfuly updated")+"!');");
                 out.print(" window.open('list_profile.jsp','_parent');");
                 out.print("</script>");
                 
