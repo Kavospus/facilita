@@ -58,7 +58,8 @@ public class ComputeLeastSquares extends HttpServlet {
 		} catch (Exception e) {
 		    errom = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_least_squares.jsp','_parent');");
 		    out.print("</script>");
 		}
@@ -92,7 +93,8 @@ public class ComputeLeastSquares extends HttpServlet {
 		    } catch (Exception e) {
 			errom = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_least_squares.jsp','_parent');");
 			out.print("</script>");
 		    }
@@ -107,7 +109,9 @@ public class ComputeLeastSquares extends HttpServlet {
 		    } catch (Exception e) {
 			errom = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).
+                                getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_least_squares.jsp','_parent');");
 			out.print("</script>");
 		    }
@@ -123,7 +127,8 @@ public class ComputeLeastSquares extends HttpServlet {
 	    if (errom == 0) {
 		LeastSquares menu = new LeastSquares();
 		try {
-		    result = menu.calculateLeastSquares(vectorX, vectorY, quantity, option);
+		    result = menu.calculateLeastSquares(vectorX, vectorY,
+                            quantity, option);
 		} catch (SingularMatrixException e) {
 		    error = "Matriz Singular";
 
