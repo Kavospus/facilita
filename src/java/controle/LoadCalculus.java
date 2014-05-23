@@ -55,14 +55,14 @@ public class LoadCalculus extends HttpServlet {
 		out.println("<title>Servlet CarregarCalculo</title>");
 		out.println("</head>");
 		out.println("<body>");
-		String operacao;
+		String operation;
 		try {
 		    int id = Integer.parseInt(request.getParameter("id"));
 		    CalculusDAO calculusDB = new CalculusDAO();
 		    calculusDB.connect();
 		    Calculus calculus = calculusDB.selectById(id);
-		    operacao = calculus.getOperation();
-		    if (operacao.equals("Invert")) {
+		    operation = calculus.getOperation();
+		    if (operation.equals("Invert")) {
 			Invert i = (Invert) calculus;
 			i.setDataString();
 			session.setAttribute("data_inverse_matrixA", i.getInput());
@@ -75,7 +75,7 @@ public class LoadCalculus extends HttpServlet {
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Transpose")) {
+                    else if (operation.equals("Transpose")) {
 			Transpose t = (Transpose) calculus;
 			t.setDataString();
 			session.setAttribute("data_transposed_matrixA",
@@ -89,7 +89,7 @@ public class LoadCalculus extends HttpServlet {
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Determine")) {
+                    else if (operation.equals("Determine")) {
 			Determine determine = (Determine) calculus;
 			determine.setDataString();
 			session.setAttribute("data_determinant_matrixA",
@@ -103,7 +103,7 @@ public class LoadCalculus extends HttpServlet {
 				+ determine.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Sum")) {
+                    else if (operation.equals("Sum")) {
 			Sum s = (Sum) calculus;
 			s.setDataString();
 			session.setAttribute("data_sum_matrixA", s.getInputA());
@@ -121,7 +121,7 @@ public class LoadCalculus extends HttpServlet {
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Subtract")) {
+                    else if (operation.equals("Subtract")) {
 			Subtract s = (Subtract) calculus;
 			s.setDataString();
 			session.setAttribute("data_subtract_matrixA", s.getInputA());
@@ -139,7 +139,7 @@ public class LoadCalculus extends HttpServlet {
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Multiply")) {
+                    else if (operation.equals("Multiply")) {
 			Multiply menu = (Multiply) calculus;
 			menu.setDataString();
 			session.setAttribute("data_multiply_matrixA",
@@ -159,7 +159,7 @@ public class LoadCalculus extends HttpServlet {
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
 		    } 
-                    else if (operacao.equals("Scale")) {
+                    else if (operation.equals("Scale")) {
 			Scale e = (Scale) calculus;
 			e.setDataString();
 			session.setAttribute("data_scalar_matrixA", e.getInputA());

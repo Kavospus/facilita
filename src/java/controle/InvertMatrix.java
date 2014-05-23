@@ -58,7 +58,9 @@ public class InvertMatrix extends HttpServlet {
 		    } catch (Exception e) {
 			error = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).
+                                getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_inverse.jsp','_parent');");
 			out.print("</script>");
 		    }
@@ -82,7 +84,9 @@ public class InvertMatrix extends HttpServlet {
 			    } catch (Exception e) {
 				error = 1;
 				out.print("<script language='JavaScript'>");
-				out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+				out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                        (Locale)session.getAttribute("user_locale")).
+                                        getString("Forbidden characters detected")+"!');");
 				out.print(" window.open('update_inverse.jsp','_parent');");
 				out.print("</script>");
 			    }
