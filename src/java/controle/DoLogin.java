@@ -59,7 +59,9 @@ public class DoLogin extends HttpServlet {
 		} 
                 else {
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Incorrect Login")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("Incorrect Login")+"!');");
 		    out.print(" window.open('login.jsp','_parent');");
 		    out.print("</script>");
 		}
