@@ -43,7 +43,12 @@ public class TransposeMatrix extends HttpServlet {
 	    out.println("<title>Servlet EscalarMatriz</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	    
+            int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int error = 0;
 
 	    if (request.getParameter("linesA") != null) {
 		try {
@@ -56,6 +61,9 @@ public class TransposeMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("columnsA") != null) {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
@@ -67,6 +75,9 @@ public class TransposeMatrix extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 
 	    double matrixA[][] = new double[linesA][columnsA];
 	    double result[][];
@@ -85,15 +96,18 @@ public class TransposeMatrix extends HttpServlet {
 			    out.print(" window.open('update_transposed.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    } 
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
 	    }
+            
 	    session.setAttribute("data_transposed_matrixA", matrixA);
 	    session.setAttribute("data_transposed_linesA", linesA);
 	    session.setAttribute("data_transposed_columnsA", columnsA);
-	    if (error == 0) {
+	   
+            if (error == 0) {
 		Transpose transpor = new Transpose(matrixA, linesA, columnsA);
 		transpor.calculate();
 		result = transpor.getResult();
@@ -111,17 +125,24 @@ public class TransposeMatrix extends HttpServlet {
 			    transpor.setId(Integer.parseInt(request
 				    .getParameter("id")));
 			    calculusDB.update(transpor);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(transpor);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception e) {
 		}
 		out.print("<script language='JavaScript'>");
 		out.print(" window.open('transposed_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {

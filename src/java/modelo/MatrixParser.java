@@ -11,8 +11,11 @@ package modelo;
 import java.util.ArrayList;
 
 public class MatrixParser {
-    
-    /*Static method to parse a matrix into a string*/
+    /**
+     *
+     * @param  matrix
+     * @return result
+     * Static method to parse a matrix into a string*/
     public static String parseString(double[][] matrix) {
 	int i, j;
 	String result = "{";
@@ -23,24 +26,36 @@ public class MatrixParser {
 		if (j != matrix[0].length - 1) {
 		    result += ",";
 		}
+                else{
+                    //Nothing to do
+                }
 	    }
 	    result += "}";
 	    if (i != matrix.length - 1) {
 		result += ",";
 	    }
+            else{
+                //Nothing to do
+            }
 	}
 	result += "}";
 	return result;
     }
-    
-    /*Static method to parse a double into a string*/
+    /**
+     *
+     * @param  num
+     * @return  result
+     * Static method to parse a double into a string*/
     public static String parseString(double num) {
 	String result = "";
 	result = "{" + num + "}";
 	return result;
     }
-    
-    /*Static method to parse a string into a double*/
+    /**
+     *
+     * @param  num
+     * @return  result
+     * Static method to parse a string into a double*/
     public static double parseNumber(String num) {
 	double result = 0;
 	String aux = "";
@@ -49,6 +64,9 @@ public class MatrixParser {
 	    if (num.charAt(i) != '{' && num.charAt(i) != '}') {
 		aux += num.charAt(i);
 	    }
+            else{
+                //Nothing to do
+            }
 	}
 	try {
 	    result = Double.parseDouble(aux);
@@ -56,19 +74,32 @@ public class MatrixParser {
 	}
 	return result;
     }
-    
+    /**
+     *
+     * @param  matrix
+     * @return result
     /*Static method to parse a string into a matrix*/
     public static double[][] parseMatrix(String matrix) {
 	String num = "";
-	int i = 0, j = 0, a = 0, b = 0, k;
+	int i = 0;
+        int j = 0;
+        int a = 0;
+        int b = 0;
+        int k = 0;
 	for (k = 1; k < (matrix.length() - 1); k++) {
 	    if (matrix.charAt(k) == ',' && matrix.charAt(k - 1) != '}') {
 		b++;
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (matrix.charAt(k) == '}' && matrix.charAt(k + 1) != '}') {
 		b = 0;
 		a++;
 	    }
+            else{
+                //Nothing to do
+            }
 
 	}
 	double[][] result = new double[a + 1][b + 1];
@@ -78,24 +109,36 @@ public class MatrixParser {
 		    && matrix.charAt(k) != '{') {
 		num += matrix.charAt(k);
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (matrix.charAt(k) == ',' && matrix.charAt(k - 1) != '}') {
 		result[i][j] = Double.parseDouble(num);
 		num = "";
 		j++;
 
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (matrix.charAt(k) == '}') {
 		result[i][j] = Double.parseDouble(num);
 		num = "";
 		j = 0;
 		i++;
 	    }
+            else{
+                //Nothing to do
+            }
 	}
 
 	return result;
     }
-    
-    /*Static method to concatenate parsed strings*/
+    /**
+     *
+     * @param  data
+     * @return result
+     * Static method to concatenate parsed strings*/
     public static String concat(ArrayList<String> data) {
 	String result = "";
 	for (String s : data) {
@@ -103,8 +146,11 @@ public class MatrixParser {
 	}
 	return result;
     }
-    
-    /*Static method to unconcatenate concatenated strings*/
+    /**
+     *
+     * @param  data
+     * @return results
+     * Static method to unconcatenate concatenated strings*/
     public static ArrayList<String> unconcat(String data) {
 	ArrayList<String> results = new ArrayList<String>();
 	String aux = "";
@@ -112,10 +158,14 @@ public class MatrixParser {
 	for (i = 0; i < data.length(); i++) {
 	    if (data.charAt(i) != ';') {
 		aux += data.charAt(i);
-	    } else if (data.charAt(i) == ';') {
+	    } 
+            else if (data.charAt(i) == ';') {
 		results.add(aux);
 		aux = "";
 	    }
+            else{
+                //Nothing to do
+            }
 	}
 	return results;
     }

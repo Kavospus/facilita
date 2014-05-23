@@ -38,7 +38,8 @@ public class InsertProfile extends HttpServlet {
 	try {
 	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
@@ -58,7 +59,9 @@ public class InsertProfile extends HttpServlet {
 		    profileDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly inserted")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly inserted")+"!');");
 		    out.print(" window.open('list_profile.jsp','_parent');");
 		    out.print("</script>");
 

@@ -54,10 +54,15 @@ public class DoGuestLogin extends HttpServlet {
 		if (user != null) {
 		    response.sendRedirect("index.jsp");
 		}
+                else{
+                    //Nothing to do
+                }
 
 	    } catch (Exception e) {
 		out.print("<script language='JavaScript'>");
-		out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Error on Login")+"!');");
+		out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                        (Locale)session.getAttribute("user_locale")).
+                        getString("Error on Login")+"!');");
 		out.print(" window.open('login.jsp','_parent');");
 		out.print("</script>");
 	    }

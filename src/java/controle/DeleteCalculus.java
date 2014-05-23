@@ -40,7 +40,8 @@ public class DeleteCalculus extends HttpServlet {
 	try {
 	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		/*
 		 * TODO output your page here. You may use following sample
 		 * code.
@@ -63,7 +64,9 @@ public class DeleteCalculus extends HttpServlet {
 		    calculusDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly deleted")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly deleted")+"!');");
 		    out.print(" window.open('list_calculus.jsp','_parent');");
 		    out.print("</script>");
 

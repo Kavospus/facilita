@@ -27,11 +27,18 @@ public class Invert extends Calculus {
 	this.setInputString(MatrixParser.parseString(input));
 	this.setOperation("Invert");
     }
-
-    /*Function to invert a matrix*/
+    /**
+     *
+     * @param ma
+     * @param linesA
+     * @param columnsA
+     * @return resultInverse
+     * Function to invert a matrix*/
     public double[][] invertMatrix(double ma[][], int linesA, int columnsA) {
-	double resultInverse[][] = new double[linesA][columnsA];
+	
+        double resultInverse[][] = new double[linesA][columnsA];
 	int i, j;
+        
 	SimpleMatrix A = new SimpleMatrix(ma);
 	SimpleMatrix x;
 	x = A.invert();
@@ -42,8 +49,17 @@ public class Invert extends Calculus {
 	}
 	return resultInverse;
     }
-
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to calculate the matrix inversion operation*/
+    @Override
+    public void calculate() {
+	this.result = invertMatrix(input, linesA, columnsA);
+	this.setResultString(MatrixParser.parseString(this.result));
+    }
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	this.setInput(MatrixParser.parseMatrix(this.getInputString()));
@@ -51,8 +67,9 @@ public class Invert extends Calculus {
 	this.setColumnsA(this.getInput()[0].length);
 	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
-
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	this.setInputString(MatrixParser.parseString(input));
@@ -90,12 +107,5 @@ public class Invert extends Calculus {
     public void setColumnsA(int columnsA) {
 	this.columnsA = columnsA;
     }
-
-    /*Abstract method implementation to calculate the matrix inversion operation*/
-    @Override
-    public void calculate() {
-	this.result = invertMatrix(input, linesA, columnsA);
-	this.setResultString(MatrixParser.parseString(this.result));
-    }
-
+    
 }

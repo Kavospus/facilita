@@ -43,7 +43,13 @@ public class SumMatrices extends HttpServlet {
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int i, j, linesA = 0, columnsA = 0, error = 0;
+	    
+            int i=0;
+            int j=0;
+            int linesA = 0;
+            int columnsA = 0;
+            int error = 0;
+            
 	    if (request.getParameter("linesA") != null) {
 		try {
 		    linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -55,6 +61,9 @@ public class SumMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("columnsA") != null) {
 		try {
 		    columnsA = Integer.parseInt(request.getParameter("columnsA"));
@@ -66,6 +75,9 @@ public class SumMatrices extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 
 	    double matrixA[][] = new double[linesA][columnsA];
 	    double matrixB[][] = new double[linesA][columnsA];
@@ -85,11 +97,13 @@ public class SumMatrices extends HttpServlet {
 			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    } 
+                    else {
 			matrixA[i][j] = 0;
 		    }
 		}
 	    }
+            
 	    for (i = 0; i < linesA; i++) {
 		for (j = 0; j < columnsA; j++) {
 		    if (request.getParameter("matrixB" + i + j) != null
@@ -104,7 +118,8 @@ public class SumMatrices extends HttpServlet {
 			    out.print(" window.open('update_sum.jsp','_parent');");
 			    out.print("</script>");
 			}
-		    } else {
+		    }
+                    else {
 			matrixB[i][j] = 0;
 		    }
 		}
@@ -116,7 +131,8 @@ public class SumMatrices extends HttpServlet {
 	    session.setAttribute("data_sum_columnsA", columnsA);
 	    session.setAttribute("data_sum_linesB", linesA);
 	    session.setAttribute("data_sum_columnsB", columnsA);
-	    if (error == 0) {
+	   
+            if (error == 0) {
 		Sum sum = new Sum(matrixA, matrixB, linesA, columnsA);
 		sum.calculate();
 		result = sum.getResult();
@@ -136,11 +152,15 @@ public class SumMatrices extends HttpServlet {
 			if (request.getParameter("id") != null) {
 			    sum.setId(Integer.parseInt(request.getParameter("id")));
 			    calculusDB.update(sum);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(sum);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		} catch (Exception e) {
 		}
 
@@ -148,6 +168,9 @@ public class SumMatrices extends HttpServlet {
 		out.print(" window.open('sum_result.jsp','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {

@@ -34,8 +34,14 @@ public class Scale extends Calculus {
 	this.setInputString(MatrixParser.concat(inputs));
 	this.setOperation("Scale");
     }
-
-    /*Function to multiply a matrix by a scalar*/
+    /**
+     *
+     * @param ma
+     * @param inputB
+     * @param linesA
+     * @param columnsA
+     * @return resultMultiplicationByScalar
+     * Function to multiply a matrix by a scalar*/
     public double[][] scaleMatrix(double ma[][], double inputB, int linesA, int columnsA) {
 	double resultMultiplicationByScalar[][] = new double[linesA][columnsA];
 	int i, j;
@@ -50,8 +56,18 @@ public class Scale extends Calculus {
 	}
 	return resultMultiplicationByScalar;
     }
-
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to calculate the operation of multiplication of a matrix by a scalar*/
+    @Override
+    public void calculate() {
+	this.result = scaleMatrix(getInputA(), getInputB(), linesA,
+		columnsA);
+	this.setResultString(MatrixParser.parseString(this.result));
+    }
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	ArrayList<String> inputs = MatrixParser.unconcat(this
@@ -62,8 +78,9 @@ public class Scale extends Calculus {
 	this.setColumnsA(this.getInputA()[0].length);
 	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
-
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	ArrayList<String> inputs = new ArrayList<String>();
@@ -95,14 +112,6 @@ public class Scale extends Calculus {
 
     public void setColumnsA(int columnsA) {
 	this.columnsA = columnsA;
-    }
-
-    /*Abstract method implementation to calculate the operation of multiplication of a matrix by a scalar*/
-    @Override
-    public void calculate() {
-	this.result = scaleMatrix(getInputA(), getInputB(), linesA,
-		columnsA);
-	this.setResultString(MatrixParser.parseString(this.result));
     }
 
     public double[][] getInputA() {

@@ -26,6 +26,28 @@ public class User {
 	this.login = login;
 	this.password = password;
     }
+    
+    /**
+     *
+     * @param uri
+     * @param context
+     * @param user
+     * @return result
+     * Verify the permission of the User on the given context*/
+    public boolean havePermission(String uri, String context, User user) {
+	boolean result = false;
+	String path = null;
+	for (Menu m : user.getProfile().getMenus()) {
+	    path = context + "/" + m.getLink();
+	    if (path.equals(uri)) {
+		result = true;
+	    }
+            else{
+                //Nothing to do
+            }
+	}
+	return result;
+    }
 
     public int getId() {
 	return id;
@@ -57,19 +79,6 @@ public class User {
 
     public void setPassword(String password) {
 	this.password = password;
-    }
-    
-    /*Verify the permission of the User on the given context*/
-    public boolean havePermission(String uri, String context, User user) {
-	boolean result = false;
-	String path = null;
-	for (Menu m : user.getProfile().getMenus()) {
-	    path = context + "/" + m.getLink();
-	    if (path.equals(uri)) {
-		result = true;
-	    }
-	}
-	return result;
     }
 
     public String getName() {

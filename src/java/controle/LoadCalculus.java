@@ -44,7 +44,8 @@ public class LoadCalculus extends HttpServlet {
 	try {
 	    if (session.getAttribute("calculus") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		/*
 		 * TODO output your page here. You may use following sample
 		 * code.
@@ -73,7 +74,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_inverse.jsp?id="
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Transpose")) {
+		    } 
+                    else if (operacao.equals("Transpose")) {
 			Transpose t = (Transpose) calculus;
 			t.setDataString();
 			session.setAttribute("data_transposed_matrixA",
@@ -86,7 +88,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_transposed.jsp?id="
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Determine")) {
+		    } 
+                    else if (operacao.equals("Determine")) {
 			Determine determine = (Determine) calculus;
 			determine.setDataString();
 			session.setAttribute("data_determinant_matrixA",
@@ -99,7 +102,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_determinant.jsp?id="
 				+ determine.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Sum")) {
+		    } 
+                    else if (operacao.equals("Sum")) {
 			Sum s = (Sum) calculus;
 			s.setDataString();
 			session.setAttribute("data_sum_matrixA", s.getInputA());
@@ -116,7 +120,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_sum.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Subtract")) {
+		    } 
+                    else if (operacao.equals("Subtract")) {
 			Subtract s = (Subtract) calculus;
 			s.setDataString();
 			session.setAttribute("data_subtract_matrixA", s.getInputA());
@@ -133,7 +138,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_subtract.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Multiply")) {
+		    } 
+                    else if (operacao.equals("Multiply")) {
 			Multiply menu = (Multiply) calculus;
 			menu.setDataString();
 			session.setAttribute("data_multiply_matrixA",
@@ -152,7 +158,8 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_multiply.jsp?id="
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
-		    } else if (operacao.equals("Scale")) {
+		    } 
+                    else if (operacao.equals("Scale")) {
 			Scale e = (Scale) calculus;
 			e.setDataString();
 			session.setAttribute("data_scalar_matrixA", e.getInputA());
@@ -166,6 +173,9 @@ public class LoadCalculus extends HttpServlet {
 				+ e.getId() + "','_parent');");
 			out.print("</script>");
 		    }
+                    else{
+                        //Nothing to do
+                    }
 
 		} catch (Exception x) {
 		    x.printStackTrace();

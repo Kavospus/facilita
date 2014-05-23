@@ -41,11 +41,13 @@ public class InsertUser extends HttpServlet {
 	try {
 	    if (session.getAttribute("user") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		// TODO output your page here
 		try {
 		    int id_profile = 0;
-		    if (request.getParameter("id_profile") != null) {
+		   
+                    if (request.getParameter("id_profile") != null) {
 			try {
 			    id_profile = Integer.parseInt(request
 				    .getParameter("id_profile"));
@@ -53,6 +55,9 @@ public class InsertUser extends HttpServlet {
 			    e.printStackTrace();
 			}
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		    String name = request.getParameter("name");
 		    String password = MD5Encrypter.encryptMD5(request
 			    .getParameter("password"));
@@ -74,7 +79,9 @@ public class InsertUser extends HttpServlet {
 		    userDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly inserted")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly inserted")+"!');");
 		    out.print(" window.open('list_user.jsp','_parent');");
 		    out.print("</script>");
 

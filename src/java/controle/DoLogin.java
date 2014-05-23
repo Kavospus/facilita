@@ -56,9 +56,12 @@ public class DoLogin extends HttpServlet {
 		if (user.getId() > 0) {
 		    session.setAttribute("userLogged", user);
 		    response.sendRedirect("index.jsp");
-		} else {
+		} 
+                else {
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Incorrect Login")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("Incorrect Login")+"!');");
 		    out.print(" window.open('login.jsp','_parent');");
 		    out.print("</script>");
 		}

@@ -45,7 +45,12 @@ public class InvertMatrix extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		int i, j, linesA = 0, columnsA = 0, error = 0;
+		
+                int i=0;
+                int j=0;
+                int linesA = 0;
+                int columnsA = 0;
+                int error = 0;
 
 		if (request.getParameter("linesA") != null) {
 		    try {
@@ -58,6 +63,10 @@ public class InvertMatrix extends HttpServlet {
 			out.print("</script>");
 		    }
 		}
+                else{
+                    //Nothing to do
+                }
+                
 		columnsA = linesA;
 
 		double matrixA[][] = new double[linesA][columnsA];
@@ -77,7 +86,8 @@ public class InvertMatrix extends HttpServlet {
 				out.print(" window.open('update_inverse.jsp','_parent');");
 				out.print("</script>");
 			    }
-			} else {
+			} 
+                        else {
 			    matrixA[i][j] = 0;
 			}
 		    }
@@ -103,15 +113,22 @@ public class InvertMatrix extends HttpServlet {
 			    invert.setId(Integer.parseInt(request
 				    .getParameter("id")));
 			    calculusDB.update(invert);
-			} else {
+			} 
+                        else {
 			    calculusDB.insert(invert);
 			}
 			calculusDB.disconnect();
 		    }
+                    else{
+                        //Nothing to do
+                    }
 		    out.print("<script language='JavaScript'>");
 		    out.print(" window.open('inverse_result.jsp','_parent');");
 		    out.print("</script>");
 		}
+                else{
+                    //Nothing to do
+                }
 	    } catch (Exception e) {
 		System.out.println(e.getMessage());
 	    }

@@ -38,7 +38,8 @@ public class DeleteMenu extends HttpServlet {
 	try {
 	    if (session.getAttribute("menu") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } else {
+	    } 
+            else {
 		// TODO output your page here
 		out.println("<html>");
 		out.println("<head>");
@@ -57,7 +58,9 @@ public class DeleteMenu extends HttpServlet {
 		    menuDB.disconnect();
 
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly deleted")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly deleted")+"!');");
 		    out.print(" window.open('list_menu.jsp','_parent');");
 		    out.print("</script>");
 

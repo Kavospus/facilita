@@ -43,21 +43,30 @@ public class ComputeLeastSquares extends HttpServlet {
 	    out.println("<title>Servlet CalculaMinimos</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	    int quantity = 0, option = 1, i, errom = 0;
+	   
+            int quantity = 0;
+            int option = 1;
+            int i=0;
+            int errom = 0;
 	    double result[] = null;
 	    String error = null;
-	    if (request.getParameter("quantity") != null) {
+	    
+            if (request.getParameter("quantity") != null) {
 		try {
 		    quantity = Integer.parseInt(request
 			    .getParameter("quantity"));
 		} catch (Exception e) {
 		    errom = 1;
 		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 		    out.print(" window.open('update_least_squares.jsp','_parent');");
 		    out.print("</script>");
 		}
 	    }
+            else{
+                //Nothing to do
+            }
 	    if (request.getParameter("option") != null) {
 		try {
 		    option = Integer.parseInt(request.getParameter("option"));
@@ -69,9 +78,14 @@ public class ComputeLeastSquares extends HttpServlet {
 		    out.print("</script>");
 		}
 	    }
-	    double vectorX[] = new double[quantity];
+            else{
+                //Nothing to do
+            }
+	   
+            double vectorX[] = new double[quantity];
 	    double vectorY[] = new double[quantity];
-	    for (i = 0; i < quantity; i++) {
+	    
+            for (i = 0; i < quantity; i++) {
 		if (request.getParameter("vectorX" + i) != null) {
 		    try {
 			vectorX[i] = Double.parseDouble(request.getParameter("vectorX"
@@ -79,11 +93,15 @@ public class ComputeLeastSquares extends HttpServlet {
 		    } catch (Exception e) {
 			errom = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_least_squares.jsp','_parent');");
 			out.print("</script>");
 		    }
 		}
+                else{
+                    //Nothing to do
+                }
 		if (request.getParameter("vectorY" + i) != null) {
 		    try {
 			vectorY[i] = Double.parseDouble(request.getParameter("vectorY"
@@ -91,12 +109,17 @@ public class ComputeLeastSquares extends HttpServlet {
 		    } catch (Exception e) {
 			errom = 1;
 			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).
+                                getString("Forbidden characters detected")+"!');");
 			out.print(" window.open('update_least_squares.jsp','_parent');");
 			out.print("</script>");
 		    }
 		}
-	    }
+                else{
+                    //Nothing to do
+                }
+	    }//end of for
 	    session.setAttribute("data_least_squares_quantity", quantity);
 	    session.setAttribute("data_least_squares_option", option);
 	    session.setAttribute("data_least_squares_vectorX", vectorX);
@@ -104,7 +127,8 @@ public class ComputeLeastSquares extends HttpServlet {
 	    if (errom == 0) {
 		LeastSquares menu = new LeastSquares();
 		try {
-		    result = menu.calculateLeastSquares(vectorX, vectorY, quantity, option);
+		    result = menu.calculateLeastSquares(vectorX, vectorY,
+                            quantity, option);
 		} catch (SingularMatrixException e) {
 		    error = "Matriz Singular";
 
@@ -118,6 +142,9 @@ public class ComputeLeastSquares extends HttpServlet {
 			+ result.length + "','_parent');");
 		out.print("</script>");
 	    }
+            else{
+                //Nothing to do
+            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {

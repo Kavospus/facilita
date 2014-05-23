@@ -13,13 +13,21 @@ import org.ejml.simple.SimpleMatrix;
 
 
 public class LeastSquares {
-    String erro = null;
     
-    /*Function to calculate Least-Squares*/
+    String erro = null;
+    /**
+     *
+     * @param vx
+     * @param  vy
+     * @param qnt
+     * @param opcao
+     * @throws SingularMatrixException
+     * @return resultLeastSquares
+ Function to calculate Least-Squares*/
     public double[] calculateLeastSquares(double vx[], double vy[], int qnt, int opcao)
 	    throws SingularMatrixException {
 
-	int i, dimens = 2;
+        int dimens = 2;
 
 	switch (opcao) {
 
@@ -36,13 +44,15 @@ public class LeastSquares {
 		dimens = 2;
 		break;
 	}
-	double result[] = new double[dimens];
+
+        double resultLeastSquares[] = new double[dimens];
 	double reverteLn[] = new double[dimens];
 	SimpleMatrix A = new SimpleMatrix(dimens, dimens);
 	SimpleMatrix b = new SimpleMatrix(dimens, 1);
 	SimpleMatrix x;
-
-	switch (opcao) {
+        int i;
+	
+        switch (opcao) {
 
 	    case 1:
 		// Linear
@@ -59,7 +69,7 @@ public class LeastSquares {
 		x = solveMatrix(A, b, dimens);
 
 		for (i = 0; i < dimens; i++) {
-		    result[i] = x.get(i, 0);
+		    resultLeastSquares[i] = x.get(i, 0);
 		}
 		break;
 	    case 2:
@@ -88,7 +98,7 @@ public class LeastSquares {
 			* Math.pow(reverteLn[2], 2));
 
 		for (i = 0; i < dimens; i++) {
-		    result[i] = reverteLn[i];
+		    resultLeastSquares[i] = reverteLn[i];
 		}
 		break;
 	    case 3:
@@ -112,7 +122,7 @@ public class LeastSquares {
 		x = solveMatrix(A, b, dimens);
 
 		for (i = 0; i < dimens; i++) {
-		    result[i] = x.get(i, 0);
+		    resultLeastSquares[i] = x.get(i, 0);
 		}
 		break;
 	    case 4:
@@ -131,22 +141,28 @@ public class LeastSquares {
 		reverteLn[0] = Math.exp(x.get(0, 0));
 		reverteLn[1] = x.get(1, 0);
 		for (i = 0; i < dimens; i++) {
-		    result[i] = reverteLn[i];
+		    resultLeastSquares[i] = reverteLn[i];
 		}
 		break;
 	}
 
-	return result;
+	return resultLeastSquares;
     }
-    
-    /*Static method to solve a LU decomposition*/
+    /**
+     *
+     * @param A
+     * @param b
+     * @param  dimension
+     * @throws SingularMatrixException
+     * @return resultMatrixLU
+ Static method to solve a LU decomposition*/
     public static SimpleMatrix solveMatrix(SimpleMatrix A, SimpleMatrix b,
 					   int dimension)
 	    throws SingularMatrixException {
-	SimpleMatrix x = new SimpleMatrix(dimension, 1);
-	x = A.solve(b);
+	SimpleMatrix resultMatrixLU = new SimpleMatrix(dimension, 1);
+	resultMatrixLU = A.solve(b);
 
-	return x;
+	return resultMatrixLU;
     }
 
     public String getErro() {

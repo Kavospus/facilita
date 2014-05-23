@@ -37,8 +37,15 @@ public class Multiply extends Calculus {
 	this.setInputString(MatrixParser.concat(inputs));
 	this.setOperation("Multiply");
     }
-
-    /*Function to multiply two matrices*/
+    /**
+     *
+     * @param ma
+     * @param mb
+     * @param linesA
+     * @param columnsA
+     * @param linesB
+     * @return resultMUltiplication
+     * Function to multiply two matrices*/
     public double[][] multiplyMatrices(double ma[][], double mb[][],
 					 int linesA, int columnsA, int linesB) {
 	double resultMultiplication[][] = new double[linesA][linesB];
@@ -55,8 +62,9 @@ public class Multiply extends Calculus {
 	}
 	return resultMultiplication;
     }
-
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	ArrayList<String> inputs = MatrixParser.unconcat(this
@@ -68,8 +76,9 @@ public class Multiply extends Calculus {
 	this.setLinesB(this.getInputB()[0].length);
 	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
-
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	ArrayList<String> inputs = new ArrayList<String>();
@@ -98,8 +107,9 @@ public class Multiply extends Calculus {
     public void setColumnsA(int columnsA) {
 	this.columnsA = columnsA;
     }
-
-    /*Abstract method implementation to calculate the operation of multiplication of two matrices*/
+    /**
+     *
+     * Abstract method implementation to calculate the operation of multiplication of two matrices*/
     @Override
     public void calculate() {
 	this.setResult(multiplyMatrices(getInputA(), getInputB(),

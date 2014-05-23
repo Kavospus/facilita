@@ -27,7 +27,12 @@ public class Transpose extends Calculus {
 	this.setInputString(MatrixParser.parseString(input));
 	this.setOperation("Transpose");
     }
-    
+    /**
+     *
+     * @param ma
+     * @param linesA
+     * @param columnsA
+     * @return resultTransposition
     /*Function to transpose the matrix*/
     public double[][] transposeMatrix(double ma[][], int linesA, int columnsA) {
 	double resultTransposition[][] = new double[columnsA][linesA];
@@ -42,8 +47,17 @@ public class Transpose extends Calculus {
 	}
 	return resultTransposition;
     }
-
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to calculate the operation of matrix transposition*/
+    @Override
+    public void calculate() {
+	this.result = transposeMatrix(input, linesA, columnsA);
+	this.setResultString(MatrixParser.parseString(this.result));
+    }
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	this.setInput(MatrixParser.parseMatrix(this.getInputString()));
@@ -51,8 +65,9 @@ public class Transpose extends Calculus {
 	this.setColumnsA(this.getInput()[0].length);
 	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
-
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	this.setInputString(MatrixParser.parseString(input));
@@ -89,12 +104,5 @@ public class Transpose extends Calculus {
 
     public void setColumnsA(int columnsA) {
 	this.columnsA = columnsA;
-    }
-
-    /*Abstract method implementation to calculate the operation of matrix transposition*/
-    @Override
-    public void calculate() {
-	this.result = transposeMatrix(input, linesA, columnsA);
-	this.setResultString(MatrixParser.parseString(this.result));
     }
 }

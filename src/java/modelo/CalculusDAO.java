@@ -17,29 +17,44 @@ public class CalculusDAO extends DataBaseDAO {
 
     public CalculusDAO() throws Exception {
     }
-    /*Initialize Calculos object acording to the operator*/
+    /**
+     *
+     * @param operador 
+     * @return calculo
+     * Initialize Calculos object acording to the operator*/
     public Calculus init(String operador) {
-	Calculus calculo = null;
-	if (operador.equals("Invert")) {
+	
+        Calculus calculo = null;
+	
+        if (operador.equals("Invert")) {
 	    calculo = new Invert();
-	} else if (operador.equals("Transpose")) {
+	} 
+        else if (operador.equals("Transpose")) {
 	    calculo = new Transpose();
-	} else if (operador.equals("Determine")) {
+	} 
+        else if (operador.equals("Determine")) {
 	    calculo = new Determine();
-	} else if (operador.equals("Sum")) {
+	} 
+        else if (operador.equals("Sum")) {
 	    calculo = new Sum();
-	} else if (operador.equals("Subtract")) {
+	} 
+        else if (operador.equals("Subtract")) {
 	    calculo = new Subtract();
-	} else if (operador.equals("Multiply")) {
+	} 
+        else if (operador.equals("Multiply")) {
 	    calculo = new Multiply();
-	} else if (operador.equals("Scale")) {
+	} 
+        else if (operador.equals("Scale")) {
 	    calculo = new Scale();
 	}
 
 	return calculo;
     }   
-    
-    /*Insert a Calculus object to the database*/
+    /**
+     *
+     * @param calculus 
+     * @throws SQLException
+     * Insert a Calculus object to the database*/
     public void insert(Calculus calculus) throws SQLException {
 
 	PreparedStatement preparedStatement;
@@ -52,8 +67,12 @@ public class CalculusDAO extends DataBaseDAO {
 	preparedStatement.execute();
 
     }
-    
-    /*Consult a list of all Calculus objects on the database*/
+    /**
+     *
+     * @throws SQLException
+     * @throws Exception
+     * @return lista
+     * Consult a list of all Calculus objects on the database*/
     public ArrayList<Calculus> select() throws SQLException, Exception {
 
 	UserDAO userDB = new UserDAO();
@@ -76,8 +95,13 @@ public class CalculusDAO extends DataBaseDAO {
 	return lista;
 
     }
-    
-    /*Consult a list of Calculus objects owned by the User argument on the database*/
+    /**
+     *
+     * @param user 
+     * @throws SQLException
+     * @throws Exception
+     * @return lista
+     * Consult a list of Calculus objects owned by the User argument on the database*/
     public ArrayList<Calculus> select(User user) throws SQLException, Exception {
         UserDAO userDB = new UserDAO();
 	ArrayList<Calculus> lista = new ArrayList<Calculus>();
@@ -103,8 +127,11 @@ public class CalculusDAO extends DataBaseDAO {
 	return lista;
 
     }
-    
-    /*Edit a Calculus object on the database*/
+    /**
+     *
+     * @param calculus 
+     * @throws SQLException
+     * Edit a Calculus object on the database*/
     public void update(Calculus calculus) throws SQLException {
 	PreparedStatement preparedStatement;
 	String sql = "UPDATE calculo SET operacao=?, entrada=?, resultado=?, id_usuario=?  WHERE id=?";
@@ -117,7 +144,13 @@ public class CalculusDAO extends DataBaseDAO {
 	preparedStatement.execute();
 
     }
-    /*Load a Calculus object with the id argument on the database*/
+    /**
+     *
+     * @param id 
+     * @throws SQLException
+     * @throws Exception
+     * @return calculus
+     * Load a Calculus object with the id argument on the database*/
     public Calculus selectById(int id) throws SQLException, Exception {
 	UserDAO userDB = new UserDAO();
 	PreparedStatement preparedStatement;
@@ -136,11 +169,15 @@ public class CalculusDAO extends DataBaseDAO {
 	    userDB.disconnect();
 	    return calculus;
 	}
-	return null;
-
+        else{   
+	    return null;
+        }
     }
-    
-    /*Delete a Calculus object on the database*/
+    /**
+     *
+     * @param calculus 
+     * @throws SQLException
+     * Delete a Calculus object on the database*/
     public void delete(Calculus calculus) throws SQLException {
 	PreparedStatement preparedStatement;
 	String sql = "DELETE FROM calculo WHERE id=?";

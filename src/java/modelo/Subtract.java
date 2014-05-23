@@ -34,8 +34,14 @@ public class Subtract extends Calculus {
 	this.setInputString(MatrixParser.concat(inputs));
 	this.setOperation("Subtract");
     }
-    
-    /*Function to Subtract two matrices*/
+    /**
+     *
+     * @param ma
+     * @param mb
+     * @param linesA
+     * @param columnsA
+     * @return resultSubtraction
+     * Function to Subtract two matrices*/
     public double[][] subtractMatrices(double ma[][], double mb[][], int linesA,
 				      int columnsA) {
 
@@ -53,8 +59,19 @@ public class Subtract extends Calculus {
 
 	return resultSubtraction;
     }
-    
-    /*Abstract method implementation to feed data to variables*/
+    /**
+     *
+     * Abstract method implementation to calculate the operation*/
+    @Override
+    public void calculate() {
+	this.setResult(subtractMatrices(getInputA(), getInputB(),
+		getLinesA(), getColumnsA()));
+	this.setResultString(MatrixParser.parseString(this.getResult()));
+    }
+
+    /**
+     *
+     * Abstract method implementation to feed data to variables*/
     @Override
     public void setDataString() {
 	ArrayList<String> inputs = MatrixParser.unconcat(this
@@ -65,8 +82,9 @@ public class Subtract extends Calculus {
 	this.setColumnsA(this.getInputA()[0].length);
 	this.setResult(MatrixParser.parseMatrix(this.getResultString()));
     }
-    
-    /*Abstract method implementation to feed data to string*/
+    /**
+     *
+     * Abstract method implementation to feed data to string*/
     @Override
     public void setStringData() {
 	ArrayList<String> inputs = new ArrayList<String>();
@@ -96,14 +114,6 @@ public class Subtract extends Calculus {
 	this.columnsA = columnsA;
     }
     
-    /*Abstract method implementation to calculate the operation*/
-    @Override
-    public void calculate() {
-	this.setResult(subtractMatrices(getInputA(), getInputB(),
-		getLinesA(), getColumnsA()));
-	this.setResultString(MatrixParser.parseString(this.getResult()));
-    }
-
     public double[][] getInputA() {
 	return inputA;
     }

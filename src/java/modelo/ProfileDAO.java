@@ -18,8 +18,12 @@ public class ProfileDAO extends DataBaseDAO {
 
     public ProfileDAO() throws Exception {
     }
-    
-    /*Insert a Profile object to the database*/
+
+    /**
+     *
+     * @param profile 
+     * @throws SQLException
+     * Insert a Profile object to the database*/
     public void insert(Profile profile) throws SQLException {
 
 	PreparedStatement preparedStatement;
@@ -29,8 +33,12 @@ public class ProfileDAO extends DataBaseDAO {
 	preparedStatement.execute();
 
     }
-    
-    /*Consult a list of all Profile objects on the database*/
+    /**
+     *
+     * @throws SQLException
+     * @throws Exception
+     * @return lista
+     * Consult a list of all Profile objects on the database*/
     public ArrayList<Profile> select() throws SQLException, Exception {
 	MenuDAO menuDB = new MenuDAO();
 	ArrayList<Profile> lista = new ArrayList<Profile>();
@@ -48,7 +56,11 @@ public class ProfileDAO extends DataBaseDAO {
 	return lista;
 
     }
-    
+
+    /**
+     *
+     * @param profile 
+     * @throws SQLException
     /*Delete a Profile object on the database*/
     public void delete(Profile profile) throws SQLException {
 
@@ -59,8 +71,13 @@ public class ProfileDAO extends DataBaseDAO {
 	preparedStatement.execute();
 
     }
-    
-    /*Load a Profile object with the id argument on the database*/
+    /**
+     *
+     * @param id
+     * @throws SQLException
+     * @throws Exception
+     * @return profile
+     * Load a Profile object with the id argument on the database*/
     public Profile selectById(int id) throws SQLException, Exception {
 	Profile profile = new Profile();
 	MenuDAO menuDB = new MenuDAO();
@@ -76,10 +93,16 @@ public class ProfileDAO extends DataBaseDAO {
 	    profile.setMenus(menuDB.profileMenus(id));
 	    menuDB.disconnect();
 	}
+        else{
+            //Nothing to do
+        }
 	return profile;
 
     }
-    
+    /**
+     *
+     * @param profile
+     * @throws SQLException
     /*Edit a Profile object on the database*/
     public void update(Profile profile) throws SQLException {
 
