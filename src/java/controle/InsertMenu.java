@@ -48,8 +48,22 @@ public class InsertMenu extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
+                    insertMenu(request, response, session, out);
+		} catch (Exception e) {
+		    out.print(e);
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
 
-		    String menuName = request.getParameter("menu");
+    public void insertMenu(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out) throws Exception{
+                    String menuName = request.getParameter("menu");
 		    String link = request.getParameter("link");
 		    String icon = request.getParameter("icon");
 
@@ -70,18 +84,7 @@ public class InsertMenu extends HttpServlet {
                             getString("sucessfuly inserted")+"!');");
 		    out.print(" window.open('list_menu.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print(e);
-		}
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
-
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

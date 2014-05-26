@@ -43,21 +43,7 @@ public class DoGuestLogin extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    try {
-		String login = "guest";
-		String pass = "guest";
-
-		UserDAO userDB = new UserDAO();
-		userDB.connect();
-		User user = userDB.logon(login, pass);
-		userDB.disconnect();
-		session.setAttribute("userLogged", user);
-		if (user != null) {
-		    response.sendRedirect("index.jsp");
-		}
-                else{
-                    //Nothing to do
-                }
-
+		doGuestLogin(request, response, session, out);
 	    } catch (Exception e) {
 		out.print("<script language='JavaScript'>");
 		out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
@@ -73,6 +59,25 @@ public class DoGuestLogin extends HttpServlet {
 	}
     }
 
+    public void doGuestLogin(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out) throws Exception{
+                String login = "guest";
+		String pass = "guest";
+
+		UserDAO userDB = new UserDAO();
+		userDB.connect();
+		User user = userDB.logon(login, pass);
+		userDB.disconnect();
+		session.setAttribute("userLogged", user);
+		if (user != null) {
+		    response.sendRedirect("index.jsp");
+		}
+                else{
+                    //Nothing to do
+                }
+
+    }
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -45,7 +45,25 @@ public class InsertUser extends HttpServlet {
             else {
 		// TODO output your page here
 		try {
-		    int id_profile = 0;
+		    insertMenu(request, response, session, out);
+		} catch (Exception e) {
+		    out.print("<script language='JavaScript'>");
+		    out.print(" alert('O usuário já existe!');");
+		    out.print(" window.open('insert_user_form.jsp','_parent');");
+		    out.print("</script>");
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
+    
+    public void insertMenu(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out) throws Exception{
+                    int id_profile = 0;
 		   
                     if (request.getParameter("id_profile") != null) {
 			try {
@@ -84,19 +102,6 @@ public class InsertUser extends HttpServlet {
                             getString("sucessfuly inserted")+"!');");
 		    out.print(" window.open('list_user.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('O usuário já existe!');");
-		    out.print(" window.open('insert_user_form.jsp','_parent');");
-		    out.print("</script>");
-		}
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
 
     // <editor-fold defaultstate="collapsed"
