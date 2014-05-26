@@ -23,7 +23,7 @@ public class InsertProfile extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -38,7 +38,7 @@ public class InsertProfile extends HttpServlet {
 	try {
 	    if (session.getAttribute("profile") == null) {
 		response.sendRedirect("index.jsp?error=1");
-	    } 
+	    }
             else {
 		// TODO output your page here
 		out.println("<html>");
@@ -47,24 +47,7 @@ public class InsertProfile extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    String profileName = request.getParameter("profile");
-
-		    Profile profile = new Profile();
-		    profile.setProfile(profileName);
-
-		    ProfileDAO profileDB = new ProfileDAO();
-
-		    profileDB.connect();
-		    profileDB.insert(profile);
-		    profileDB.disconnect();
-
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                            (Locale)session.getAttribute("user_locale")).
-                            getString("sucessfuly inserted")+"!');");
-		    out.print(" window.open('list_profile.jsp','_parent');");
-		    out.print("</script>");
-
+            insertProfile(request,response,session,out);
 		} catch (Exception e) {
 		    out.print(e);
 		}
@@ -76,11 +59,32 @@ public class InsertProfile extends HttpServlet {
 	}
     }
 
+    public void insertProfile(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+        String profileName = request.getParameter("profile");
+
+            Profile profile = new Profile();
+            profile.setProfile(profileName);
+
+            ProfileDAO profileDB = new ProfileDAO();
+
+            profileDB.connect();
+            profileDB.insert(profile);
+            profileDB.disconnect();
+
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("sucessfuly inserted")+"!');");
+            out.print(" window.open('list_profile.jsp','_parent');");
+            out.print("</script>");
+    }
+
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -95,7 +99,7 @@ public class InsertProfile extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -110,7 +114,7 @@ public class InsertProfile extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     * 
+     *
      * @return a String containing servlet description
      */
     @Override

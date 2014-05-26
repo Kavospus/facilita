@@ -78,7 +78,7 @@ public class MatrixParser {
      *
      * @param  matrix
      * @return result
-    /*Static method to parse a string into a matrix*/
+     * Static method to parse a string into a matrix*/
     public static double[][] parseMatrix(String matrix) {
 	String num = "";
 	int i = 0;
@@ -158,7 +158,7 @@ public class MatrixParser {
 	for (i = 0; i < data.length(); i++) {
 	    if (data.charAt(i) != ';') {
 		aux += data.charAt(i);
-	    } 
+	    }
             else if (data.charAt(i) == ';') {
 		results.add(aux);
 		aux = "";

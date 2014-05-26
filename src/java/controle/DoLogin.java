@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to login into the system. 
+ *Description: Class to insert data to login into the system.
  */
 
 
@@ -25,7 +25,7 @@ public class DoLogin extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -46,25 +46,7 @@ public class DoLogin extends HttpServlet {
 	    out.println("<body>");
 
 	    try {
-		String login = request.getParameter("user");
-		String pass = request.getParameter("pass");
-
-		UserDAO userDB = new UserDAO();
-		userDB.connect();
-		User user = userDB.logon(login, pass);
-
-		if (user.getId() > 0) {
-		    session.setAttribute("userLogged", user);
-		    response.sendRedirect("index.jsp");
-		} 
-                else {
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                            (Locale)session.getAttribute("user_locale")).
-                            getString("Incorrect Login")+"!');");
-		    out.print(" window.open('login.jsp','_parent');");
-		    out.print("</script>");
-		}
+            doLogin(request,response,session,out);
 	    } catch (Exception e) {
 		out.print(e);
 	    }
@@ -77,11 +59,34 @@ public class DoLogin extends HttpServlet {
 	}
     }
 
+    public void doLogin(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+        String login = request.getParameter("user");
+        String pass = request.getParameter("pass");
+
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        User user = userDB.logon(login, pass);
+
+        if (user.getId() > 0) {
+            session.setAttribute("userLogged", user);
+            response.sendRedirect("index.jsp");
+        }
+                else {
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).
+                            getString("Incorrect Login")+"!');");
+            out.print(" window.open('login.jsp','_parent');");
+            out.print("</script>");
+        }
+    }
+
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -96,7 +101,7 @@ public class DoLogin extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -111,7 +116,7 @@ public class DoLogin extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     * 
+     *
      * @return a String containing servlet description
      */
     @Override

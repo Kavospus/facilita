@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class that calculates least-squares to a linear,gauss, 
+ *Description: Class that calculates least-squares to a linear,gauss,
  *parabolico or exponential functions.
  */
 
@@ -13,7 +13,7 @@ import org.ejml.simple.SimpleMatrix;
 
 
 public class LeastSquares {
-    
+
     String erro = null;
     /**
      *
@@ -23,7 +23,7 @@ public class LeastSquares {
      * @param opcao
      * @throws SingularMatrixException
      * @return resultLeastSquares
- Function to calculate Least-Squares*/
+     * Function to calculate Least-Squares*/
     public double[] calculateLeastSquares(double vx[], double vy[], int qnt, int opcao)
 	    throws SingularMatrixException {
 
@@ -51,7 +51,7 @@ public class LeastSquares {
 	SimpleMatrix b = new SimpleMatrix(dimens, 1);
 	SimpleMatrix x;
         int i;
-	
+
         switch (opcao) {
 
 	    case 1:
@@ -155,7 +155,7 @@ public class LeastSquares {
      * @param  dimension
      * @throws SingularMatrixException
      * @return resultMatrixLU
- Static method to solve a LU decomposition*/
+     * Static method to solve a LU decomposition*/
     public static SimpleMatrix solveMatrix(SimpleMatrix A, SimpleMatrix b,
 					   int dimension)
 	    throws SingularMatrixException {

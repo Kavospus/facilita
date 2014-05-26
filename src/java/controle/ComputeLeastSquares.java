@@ -2,7 +2,7 @@
  *Licensed under ..., see LICENSE.md
  *Authors: André Bernardes.
  *Created on: 28/03/2014, 11:23:34
- *Description: Class to insert data to calculates least-squares. 
+ *Description: Class to insert data to calculates least-squares.
  */
 package controle;
 
@@ -24,7 +24,7 @@ public class ComputeLeastSquares extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -43,108 +43,9 @@ public class ComputeLeastSquares extends HttpServlet {
 	    out.println("<title>Servlet CalculaMinimos</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	   
-            int quantity = 0;
-            int option = 1;
-            int i=0;
-            int errom = 0;
-	    double result[] = null;
-	    String error = null;
-	    
-            if (request.getParameter("quantity") != null) {
-		try {
-		    quantity = Integer.parseInt(request
-			    .getParameter("quantity"));
-		} catch (Exception e) {
-		    errom = 1;
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                            (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
-		    out.print(" window.open('update_least_squares.jsp','_parent');");
-		    out.print("</script>");
-		}
-	    }
-            else{
-                //Nothing to do
-            }
-	    if (request.getParameter("option") != null) {
-		try {
-		    option = Integer.parseInt(request.getParameter("option"));
-		} catch (Exception e) {
-		    errom = 1;
-		    out.print("<script language='JavaScript'>");
-		    out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
-		    out.print(" window.open('update_least_squares.jsp','_parent');");
-		    out.print("</script>");
-		}
-	    }
-            else{
-                //Nothing to do
-            }
-	   
-            double vectorX[] = new double[quantity];
-	    double vectorY[] = new double[quantity];
-	    
-            for (i = 0; i < quantity; i++) {
-		if (request.getParameter("vectorX" + i) != null) {
-		    try {
-			vectorX[i] = Double.parseDouble(request.getParameter("vectorX"
-				+ i));
-		    } catch (Exception e) {
-			errom = 1;
-			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                                (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
-			out.print(" window.open('update_least_squares.jsp','_parent');");
-			out.print("</script>");
-		    }
-		}
-                else{
-                    //Nothing to do
-                }
-		if (request.getParameter("vectorY" + i) != null) {
-		    try {
-			vectorY[i] = Double.parseDouble(request.getParameter("vectorY"
-				+ i));
-		    } catch (Exception e) {
-			errom = 1;
-			out.print("<script language='JavaScript'>");
-			out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                                (Locale)session.getAttribute("user_locale")).
-                                getString("Forbidden characters detected")+"!');");
-			out.print(" window.open('update_least_squares.jsp','_parent');");
-			out.print("</script>");
-		    }
-		}
-                else{
-                    //Nothing to do
-                }
-	    }//end of for
-	    session.setAttribute("data_least_squares_quantity", quantity);
-	    session.setAttribute("data_least_squares_option", option);
-	    session.setAttribute("data_least_squares_vectorX", vectorX);
-	    session.setAttribute("data_least_squares_vectorY", vectorY);
-	    if (errom == 0) {
-		LeastSquares menu = new LeastSquares();
-		try {
-		    result = menu.calculateLeastSquares(vectorX, vectorY,
-                            quantity, option);
-		} catch (SingularMatrixException e) {
-		    error = "Matriz Singular";
 
-		}
+        computeLeastSquares(request,response,session,out);
 
-		session.setAttribute("result_least_squares", result);
-		session.setAttribute("erro_minimos", error);
-
-		out.print("<script language='JavaScript'>");
-		out.print(" window.open('least_squares_result.jsp?dimension="
-			+ result.length + "','_parent');");
-		out.print("</script>");
-	    }
-            else{
-                //Nothing to do
-            }
 	    out.println("</body>");
 	    out.println("</html>");
 	} finally {
@@ -152,11 +53,116 @@ public class ComputeLeastSquares extends HttpServlet {
 	}
     }
 
+    public void computeLeastSquares(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+        int quantity = 0;
+        int option = 1;
+        int i=0;
+        int errom = 0;
+        double result[] = null;
+        String error = null;
+
+            if (request.getParameter("quantity") != null) {
+        try {
+            quantity = Integer.parseInt(request
+                .getParameter("quantity"));
+        } catch (Exception e) {
+            errom = 1;
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                            (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+            out.print(" window.open('update_least_squares.jsp','_parent');");
+            out.print("</script>");
+        }
+        }
+            else{
+                //Nothing to do
+            }
+        if (request.getParameter("option") != null) {
+        try {
+            option = Integer.parseInt(request.getParameter("option"));
+        } catch (Exception e) {
+            errom = 1;
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+            out.print(" window.open('update_least_squares.jsp','_parent');");
+            out.print("</script>");
+        }
+        }
+            else{
+                //Nothing to do
+            }
+
+            double vectorX[] = new double[quantity];
+        double vectorY[] = new double[quantity];
+
+            for (i = 0; i < quantity; i++) {
+        if (request.getParameter("vectorX" + i) != null) {
+            try {
+            vectorX[i] = Double.parseDouble(request.getParameter("vectorX"
+                + i));
+            } catch (Exception e) {
+            errom = 1;
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
+            out.print(" window.open('update_least_squares.jsp','_parent');");
+            out.print("</script>");
+            }
+        }
+                else{
+                    //Nothing to do
+                }
+        if (request.getParameter("vectorY" + i) != null) {
+            try {
+            vectorY[i] = Double.parseDouble(request.getParameter("vectorY"
+                + i));
+            } catch (Exception e) {
+            errom = 1;
+            out.print("<script language='JavaScript'>");
+            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                                (Locale)session.getAttribute("user_locale")).
+                                getString("Forbidden characters detected")+"!');");
+            out.print(" window.open('update_least_squares.jsp','_parent');");
+            out.print("</script>");
+            }
+        }
+                else{
+                    //Nothing to do
+                }
+        }//end of for
+        session.setAttribute("data_least_squares_quantity", quantity);
+        session.setAttribute("data_least_squares_option", option);
+        session.setAttribute("data_least_squares_vectorX", vectorX);
+        session.setAttribute("data_least_squares_vectorY", vectorY);
+        if (errom == 0) {
+        LeastSquares menu = new LeastSquares();
+        try {
+            result = menu.calculateLeastSquares(vectorX, vectorY,
+                            quantity, option);
+        } catch (SingularMatrixException e) {
+            error = "Matriz Singular";
+
+        }
+
+        session.setAttribute("result_least_squares", result);
+        session.setAttribute("erro_minimos", error);
+
+        out.print("<script language='JavaScript'>");
+        out.print(" window.open('least_squares_result.jsp?dimension="
+            + result.length + "','_parent');");
+        out.print("</script>");
+        }
+            else{
+                //Nothing to do
+            }
+    }
+
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -171,7 +177,7 @@ public class ComputeLeastSquares extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     * 
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -186,7 +192,7 @@ public class ComputeLeastSquares extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     * 
+     *
      * @return a String containing servlet description
      */
     @Override
