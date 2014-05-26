@@ -63,7 +63,9 @@ public class RegisterUser extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("sucessfuly inserted")+"!');");
+                out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
+                        (Locale)session.getAttribute("user_locale")).
+                        getString("sucessfuly inserted")+"!');");
                 out.print(" window.open('list_user.jsp','_parent');");
                 out.print("</script>");
 
@@ -81,7 +83,8 @@ public class RegisterUser extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. 
+    // Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.
