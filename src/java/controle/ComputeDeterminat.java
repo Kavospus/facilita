@@ -43,7 +43,18 @@ public class ComputeDeterminat extends HttpServlet {
 	    out.println("<title>Servlet CalculaDeterminante</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	   
+            computeDeterminant(request, response, session, out);
+	    out.println("</body>");
+	    out.println("</html>");
+	} finally {
+	    out.close();
+	}
+    }
+    
+    public void computeDeterminant(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out){
+        
             int i=0;
             int j=0;
             int linesA = 0;
@@ -128,13 +139,8 @@ public class ComputeDeterminat extends HttpServlet {
             else{
                 //Nothing to do
             }
-
-	    out.println("</body>");
-	    out.println("</html>");
-	} finally {
-	    out.close();
-	}
     }
+    
 
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

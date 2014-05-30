@@ -53,7 +53,21 @@ public class DeleteCalculus extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    int id = Integer.parseInt(request.getParameter("id"));
+                    deleteCalculus(request, response, session, out);
+		} catch (Exception e) {
+		    out.print(e);
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
+    public void deleteCalculus(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out) throws Exception{
+                    int id = Integer.parseInt(request.getParameter("id"));
 		    Calculus calculus = new Invert();
 		    calculus.setId(id);
 
@@ -69,16 +83,6 @@ public class DeleteCalculus extends HttpServlet {
                             getString("sucessfuly deleted")+"!');");
 		    out.print(" window.open('list_calculus.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print(e);
-		}
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
 
     // <editor-fold defaultstate="collapsed"

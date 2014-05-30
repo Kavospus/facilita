@@ -48,7 +48,23 @@ public class DeleteProfile extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-		    int id = Integer.parseInt(request.getParameter("id"));
+		    deleteProfile(request, response, session, out);
+
+		} catch (Exception e) {
+		    out.print(e);
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
+
+    public void deleteProfile(HttpServletRequest request,
+            HttpServletResponse response,
+            HttpSession session, PrintWriter out) throws Exception{
+                    int id = Integer.parseInt(request.getParameter("id"));
 		    Profile profile = new Profile();
 		    profile.setId(id);
 
@@ -64,18 +80,8 @@ public class DeleteProfile extends HttpServlet {
                             getString("sucessfuly deleted")+"!');");
 		    out.print(" window.open('list_profile.jsp','_parent');");
 		    out.print("</script>");
-
-		} catch (Exception e) {
-		    out.print(e);
-		}
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
-
+    
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
