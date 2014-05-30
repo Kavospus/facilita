@@ -37,7 +37,7 @@ public class CalculusTest {
     
     @BeforeClass
     public static void setUpClass() throws SQLException, Exception {
-           ProfileDAO profileDB = new ProfileDAO();
+        ProfileDAO profileDB = new ProfileDAO();
         profileDB.connect();
         User userTest = new User();
         userTest.setName("User Test");
@@ -51,11 +51,9 @@ public class CalculusTest {
         userDB.insert(userTest);
         userDB.disconnect();
                 
-        Invert invert = new Invert();
+        Invert invert = new Invert(new double[][]{{4,5},{4,5}},2,2);
         invert.setUser(userTest);
-        invert.setColumnsA(2);
-        invert.setLinesA(2);
-        invert.setInput(new double[][]{{4,5},{4,5}});
+   
         
         invert.calculate();
         CalculusDAO calculusDB = new CalculusDAO();
@@ -75,8 +73,7 @@ public class CalculusTest {
     
     @AfterClass
     public static void tearDownClass() throws SQLException, Exception {
-        
-         UserDAO userDB = new UserDAO();
+        UserDAO userDB = new UserDAO();
         userDB.connect();
         User userTest = userDB.logon("test", "123456");
     
@@ -90,7 +87,7 @@ public class CalculusTest {
         calculusDB.disconnect();
         userDB.delete(userTest);
         userDB.disconnect();
-    }
+     }
     
     @Before
     public void setUp() throws Exception {
@@ -112,12 +109,9 @@ public class CalculusTest {
         userDB.connect();
         User userTest = userDB.logon("test", "123456");
         userDB.disconnect();
-        Invert invert = new Invert();
+        Invert invert = new Invert(new double[][]{{4,5},{4,5}},2,2);
         invert.setUser(userTest);
-        invert.setColumnsA(2);
-        invert.setLinesA(2);
-        invert.setInput(new double[][]{{4,5},{4,5}});
-        invert.calculate();
+       
         
         CalculusDAO calculusDB = new CalculusDAO();
         calculusDB.connect();
