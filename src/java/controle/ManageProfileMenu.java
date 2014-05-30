@@ -48,7 +48,23 @@ public class ManageProfileMenu extends HttpServlet {
 		out.println("<body>");
 
 		try {
+                    manageProfileMenu(request,response,session,out);
+		} catch (Exception e) {
+		    out.print(e);
+		}
 
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
+
+    
+    public void manageProfileMenu(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out) throws Exception{
+        
 		    int operation = Integer.parseInt(request.getParameter("operation"));
 		    int id_menu = Integer.parseInt(request
 			    .getParameter("id_menu"));
@@ -85,18 +101,7 @@ public class ManageProfileMenu extends HttpServlet {
 		    response.sendRedirect("manage_profile_menu_form.jsp?id="
 			    + id_profile);
 
-		} catch (Exception e) {
-		    out.print(e);
-		}
-
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
-
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

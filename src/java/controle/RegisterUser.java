@@ -6,6 +6,7 @@
  */
 package controle;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
@@ -41,7 +42,23 @@ public class RegisterUser extends HttpServlet {
         try {
             // TODO output your page here
             try {
-                int id_profile = 2;
+                registerUser(request,response,session,out);
+            } catch (Exception e) {
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('O usuário já existe!');");
+                out.print(" window.open('register_user_form.jsp','_parent');");
+                out.print("</script>");
+            }
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
+            out.close();
+        }
+    }
+    
+    public void registerUser(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out) throws Exception{
+           int id_profile = 2;
                 String name = request.getParameter("name");
                 String password = MD5Encrypter.encryptMD5(request.getParameter("password"));
                 String login = request.getParameter("login");
@@ -68,19 +85,6 @@ public class RegisterUser extends HttpServlet {
                         getString("sucessfuly inserted")+"!');");
                 out.print(" window.open('list_user.jsp','_parent');");
                 out.print("</script>");
-
-
-            } catch (Exception e) {
-                out.print("<script language='JavaScript'>");
-                out.print(" alert('O usuário já existe!');");
-                out.print(" window.open('register_user_form.jsp','_parent');");
-                out.print("</script>");
-            }
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. 
