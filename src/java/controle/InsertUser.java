@@ -45,7 +45,7 @@ public class InsertUser extends HttpServlet {
             else {
 		// TODO output your page here
 		try {
-		    insertMenu(request, response, session, out);
+		    insertUser(request, response, session, out);
 		} catch (Exception e) {
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('O usuário já existe!');");
@@ -60,7 +60,7 @@ public class InsertUser extends HttpServlet {
 	}
     }
     
-    public void insertMenu(HttpServletRequest request,
+    public void insertUser(HttpServletRequest request,
             HttpServletResponse response,
             HttpSession session, PrintWriter out) throws Exception{
                     int id_profile = 0;

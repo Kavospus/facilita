@@ -63,7 +63,43 @@ public class LoadCalculus extends HttpServlet {
 		    Calculus calculus = calculusDB.selectById(id);
 		    operation = calculus.getOperation();
 		    if (operation.equals("Invert")) {
-			Invert i = (Invert) calculus;
+			                     invert(session, calculus, out);
+		    } 
+                    else if (operation.equals("Transpose")) {
+			                     transpose(session, calculus, out);
+		    } 
+                    else if (operation.equals("Determine")) {
+			                     determine(session, calculus, out);
+		    } 
+                    else if (operation.equals("Sum")) {
+			                     sum(session, calculus, out);
+		    } 
+                    else if (operation.equals("Subtract")) {
+			                     subtract(session, calculus, out);
+		    } 
+                    else if (operation.equals("Multiply")) {
+			                     multiply(session, calculus, out);
+		    } 
+                    else if (operation.equals("Scale")) {
+			                     scale(session, calculus, out);
+		    }
+                    else{
+                        //Nothing to do
+                    }
+
+		} catch (Exception x) {
+		    x.printStackTrace();
+		}
+		out.println("</body>");
+		out.println("</html>");
+	    }
+	} finally {
+	    out.close();
+	}
+    }
+    
+    public void invert(HttpSession session, Calculus calculus, PrintWriter out){
+                Invert i = (Invert) calculus;
 			i.setDataString();
 			session.setAttribute("data_inverse_matrixA", i.getInput());
 			session.setAttribute("data_inverse_linesA",
@@ -74,9 +110,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_inverse.jsp?id="
 				+ i.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Transpose")) {
-			Transpose t = (Transpose) calculus;
+    }
+    
+    public void transpose(HttpSession session, Calculus calculus, PrintWriter out){
+                Transpose t = (Transpose) calculus;
 			t.setDataString();
 			session.setAttribute("data_transposed_matrixA",
 				t.getInput());
@@ -88,9 +125,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_transposed.jsp?id="
 				+ t.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Determine")) {
-			Determine determine = (Determine) calculus;
+    }
+    
+    public void determine(HttpSession session, Calculus calculus, PrintWriter out){
+                Determine determine = (Determine) calculus;
 			determine.setDataString();
 			session.setAttribute("data_determinant_matrixA",
 				determine.getInput());
@@ -102,9 +140,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_determinant.jsp?id="
 				+ determine.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Sum")) {
-			Sum s = (Sum) calculus;
+    }
+    
+    public void sum(HttpSession session, Calculus calculus, PrintWriter out){
+                Sum s = (Sum) calculus;
 			s.setDataString();
 			session.setAttribute("data_sum_matrixA", s.getInputA());
 			session.setAttribute("data_sum_matrixB", s.getInputB());
@@ -120,9 +159,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_sum.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Subtract")) {
-			Subtract s = (Subtract) calculus;
+    }
+    
+    public void subtract(HttpSession session, Calculus calculus, PrintWriter out){
+                Subtract s = (Subtract) calculus;
 			s.setDataString();
 			session.setAttribute("data_subtract_matrixA", s.getInputA());
 			session.setAttribute("data_subtract_matrixB", s.getInputB());
@@ -138,9 +178,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_subtract.jsp?id="
 				+ s.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Multiply")) {
-			Multiply menu = (Multiply) calculus;
+    }
+    
+    public void multiply(HttpSession session, Calculus calculus, PrintWriter out){
+                Multiply menu = (Multiply) calculus;
 			menu.setDataString();
 			session.setAttribute("data_multiply_matrixA",
 				menu.getInputA());
@@ -158,9 +199,10 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_multiply.jsp?id="
 				+ menu.getId() + "','_parent');");
 			out.print("</script>");
-		    } 
-                    else if (operation.equals("Scale")) {
-			Scale e = (Scale) calculus;
+    }
+    
+    public void scale(HttpSession session, Calculus calculus, PrintWriter out){
+                Scale e = (Scale) calculus;
 			e.setDataString();
 			session.setAttribute("data_scalar_matrixA", e.getInputA());
 			session.setAttribute("data_scalar_number", e.getInputB());
@@ -172,22 +214,7 @@ public class LoadCalculus extends HttpServlet {
 			out.print(" window.open('update_scalar.jsp?id="
 				+ e.getId() + "','_parent');");
 			out.print("</script>");
-		    }
-                    else{
-                        //Nothing to do
-                    }
-
-		} catch (Exception x) {
-		    x.printStackTrace();
-		}
-		out.println("</body>");
-		out.println("</html>");
-	    }
-	} finally {
-	    out.close();
-	}
     }
-
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

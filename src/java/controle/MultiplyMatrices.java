@@ -104,7 +104,16 @@ public class MultiplyMatrices extends HttpServlet {
 	  
             columnsB = linesB;
 	    linesB = columnsA;
-	  
+            multiplyMatrices(request, response, session, out, linesA, columnsA, linesB, columnsB, error);
+	    out.println("</body>");
+	    out.println("</html>");
+	} finally {
+	    out.close();
+	}
+    }
+
+    public void multiplyMatrices(HttpServletRequest request, HttpServletResponse response, HttpSession session, PrintWriter out, int linesA, int columnsA, int linesB, int columnsB, int error ){
+            int i, j;
             double matrixA[][] = new double[linesA][columnsA];
 	    double matrixB[][] = new double[linesB][columnsB];
 	    double result[][] = new double[linesA][columnsB];
@@ -198,13 +207,7 @@ public class MultiplyMatrices extends HttpServlet {
             else{
                 //Nothing to do
             }
-	    out.println("</body>");
-	    out.println("</html>");
-	} finally {
-	    out.close();
-	}
     }
-
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
