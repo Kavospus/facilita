@@ -44,7 +44,18 @@ public class TransposeMatrix extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    
-            int i=0;
+            transposeMatrix(request, response, session, out);
+	    out.println("</body>");
+	    out.println("</html>");
+	} finally {
+	    out.close();
+	}
+    }
+    
+    
+    public void transposeMatrix(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+          int i=0;
             int j=0;
             int linesA = 0;
             int columnsA = 0;
@@ -149,11 +160,6 @@ public class TransposeMatrix extends HttpServlet {
             else{
                 //Nothing to do
             }
-	    out.println("</body>");
-	    out.println("</html>");
-	} finally {
-	    out.close();
-	}
     }
 
     // <editor-fold defaultstate="collapsed"

@@ -37,15 +37,27 @@ public class SubtractMatrices extends HttpServlet {
 	response.setContentType("text/html;charset=UTF-8");
 	PrintWriter out = response.getWriter();
 	HttpSession session = request.getSession();
-	try {
-	    /* TODO output your page here. You may use following sample code. */
-	    out.println("<html>");
+        
+        try {
+            out.println("<html>");
 	    out.println("<head>");
 	    out.println("<title>Servlet MultiplicaMatrizes</title>");
 	    out.println("</head>");
 	    out.println("<body>");
-	 
-            int i=0;
+	
+	    /* TODO output your page here. You may use following sample code. */
+            subtractMatrices(request, response, session, out);
+	    out.println("</body>");
+	    out.println("</html>");
+	} finally {
+	    out.close();
+	}
+    }
+
+    
+    public void subtractMatrices(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+        int i=0;
             int j=0;
             int linesA = 0;
             int columnsA = 0;
@@ -176,13 +188,7 @@ public class SubtractMatrices extends HttpServlet {
             else{
                 //Nothing to do
             }
-	    out.println("</body>");
-	    out.println("</html>");
-	} finally {
-	    out.close();
-	}
     }
-
     // <editor-fold defaultstate="collapsed"
 // desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

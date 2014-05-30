@@ -45,7 +45,18 @@ public class UpdateProfile extends HttpServlet {
             out.println("<title>Servlet AlterarPerfil</title>");  
             out.println("</head>");
             out.println("<body>");
-            try {
+            updateProfile(request, response, session, out);
+            out.println("</body>");
+            out.println("</html>");
+            }
+        } finally { 
+            out.close();
+        }
+    } 
+    
+    public void updateProfile(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out){
+     try {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String profileName = request.getParameter("profile");
 
@@ -72,13 +83,7 @@ public class UpdateProfile extends HttpServlet {
             } catch (Exception e) {
                 out.print(e);
             }
-            out.println("</body>");
-            out.println("</html>");
-            }
-        } finally { 
-            out.close();
-        }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
