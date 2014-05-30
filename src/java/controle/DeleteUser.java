@@ -61,7 +61,7 @@ public class DeleteUser extends HttpServlet {
 
 
     public void deleteUser(HttpServletRequest request,HttpServletResponse response,
-        HttpSession session,PrintWriter out){
+        HttpSession session,PrintWriter out) throws Exception{
          int id = Integer.parseInt(request.getParameter("id"));
             User user = new User();
             user.setId(id);

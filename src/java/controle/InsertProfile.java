@@ -60,7 +60,7 @@ public class InsertProfile extends HttpServlet {
     }
 
     public void insertProfile(HttpServletRequest request,HttpServletResponse response,
-        HttpSession session,PrintWriter out){
+        HttpSession session,PrintWriter out) throws Exception{
         String profileName = request.getParameter("profile");
 
             Profile profile = new Profile();

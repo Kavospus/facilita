@@ -60,7 +60,7 @@ public class DoLogin extends HttpServlet {
     }
 
     public void doLogin(HttpServletRequest request,HttpServletResponse response,
-        HttpSession session,PrintWriter out){
+        HttpSession session,PrintWriter out) throws Exception{
         String login = request.getParameter("user");
         String pass = request.getParameter("pass");
 

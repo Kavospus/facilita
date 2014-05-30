@@ -57,27 +57,13 @@ public class InvertMatrix extends HttpServlet {
     }
 
     public void invertMatrix(HttpServletRequest request,HttpServletResponse response,
-        HttpSession session,PrintWriter out){
+        HttpSession session,PrintWriter out) throws Exception{
 
                 int i=0;
                 int j=0;
                 int linesA = 0;
                 int columnsA = 0;
                 int error = 0;
-
-<<<<<<< HEAD
-        if (request.getParameter("linesA") != null) {
-            try {
-            linesA = Integer.parseInt(request.getParameter("linesA"));
-            } catch (Exception e) {
-            error = 1;
-            out.print("<script language='JavaScript'>");
-            out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",(Locale)session.getAttribute("user_locale")).getString("Forbidden characters detected")+"!');");
-            out.print(" window.open('update_inverse.jsp','_parent');");
-            out.print("</script>");
-            }
-        }
-=======
 		if (request.getParameter("linesA") != null) {
 		    try {
 			linesA = Integer.parseInt(request.getParameter("linesA"));
@@ -91,14 +77,13 @@ public class InvertMatrix extends HttpServlet {
 			out.print("</script>");
 		    }
 		}
->>>>>>> 9abc4eea73d62ced8f1f591ce2910a29181e1417
                 else{
                     //Nothing to do
                 }
 
         columnsA = linesA;
 
-<<<<<<< HEAD
+
         double matrixA[][] = new double[linesA][columnsA];
         double result[][];
 
@@ -117,25 +102,6 @@ public class InvertMatrix extends HttpServlet {
                 out.print("</script>");
                 }
             }
-=======
-		for (i = 0; i < linesA; i++) {
-		    for (j = 0; j < columnsA; j++) {
-			if (request.getParameter("matrixA" + i + j) != null
-				&& request.getParameter("matrixA" + i + j) != "") {
-			    try {
-				matrixA[i][j] = Double.parseDouble(request
-					.getParameter("matrixA" + i + j));
-			    } catch (Exception e) {
-				error = 1;
-				out.print("<script language='JavaScript'>");
-				out.print(" alert('"+ResourceBundle.getBundle("MessagesBundle",
-                                        (Locale)session.getAttribute("user_locale")).
-                                        getString("Forbidden characters detected")+"!');");
-				out.print(" window.open('update_inverse.jsp','_parent');");
-				out.print("</script>");
-			    }
-			} 
->>>>>>> 9abc4eea73d62ced8f1f591ce2910a29181e1417
                         else {
                 matrixA[i][j] = 0;
             }
