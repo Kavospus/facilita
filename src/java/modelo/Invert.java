@@ -16,7 +16,7 @@ public class Invert extends Calculus {
     private int columnsA;
 
     public Invert() {
-
+        this.setOperation("Invert");
     }
 
     /*Constructor*/

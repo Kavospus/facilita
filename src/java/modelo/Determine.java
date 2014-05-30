@@ -18,7 +18,7 @@ public class Determine extends Calculus {
     private int columnsA;
 
     public Determine() {
-
+        this.setOperation("Determine");
     }
 
     /*Constructor*/
