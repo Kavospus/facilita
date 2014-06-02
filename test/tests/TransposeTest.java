@@ -14,9 +14,9 @@ import static org.junit.Assert.*;
  *
  * @author Andre
  */
-public class TransporTest {
+public class TransposeTest {
     
-    public TransporTest() {
+    public TransposeTest() {
     }
     Transpose transpor;
     @Before

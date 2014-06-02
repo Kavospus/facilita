@@ -14,9 +14,9 @@ import static org.junit.Assert.*;
  *
  * @author Andre
  */
-public class DeterminarTest {
+public class DetermineTest {
     
-    public DeterminarTest() {
+    public DetermineTest() {
     }
     Determine determinar;
     @Before

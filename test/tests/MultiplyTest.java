@@ -14,9 +14,9 @@ import static org.junit.Assert.*;
  *
  * @author Andre
  */
-public class MultiplicarTest {
+public class MultiplyTest {
     
-    public MultiplicarTest() {
+    public MultiplyTest() {
     }
     Multiply multiplicar;
     @Before
