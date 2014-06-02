@@ -49,7 +49,25 @@ public class UpdateUser extends HttpServlet {
             out.println("<body>");
             try {
 
-                int id = Integer.parseInt(request.getParameter("id"));
+                updateUser(request, response, session, out);
+
+            } catch (Exception e) {
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('O usuário já existe!');");
+                out.print(" window.open('list_user.jsp','_parent');");
+                out.print("</script>");
+            }
+            out.println("</body>");
+            out.println("</html>");
+            }
+        } finally { 
+            out.close();
+        }
+    } 
+    
+    public void updateUser(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out) throws Exception{
+        int id = Integer.parseInt(request.getParameter("id"));
                 int id_profile = 0;
                
                 if(request.getParameter("id_profile") != null){
@@ -91,20 +109,7 @@ public class UpdateUser extends HttpServlet {
                         getString("sucessfuly updated")+"!');");
                 out.print(" window.open('list_user.jsp','_parent');");
                 out.print("</script>");
-
-            } catch (Exception e) {
-                out.print("<script language='JavaScript'>");
-                out.print(" alert('O usuário já existe!');");
-                out.print(" window.open('list_user.jsp','_parent');");
-                out.print("</script>");
-            }
-            out.println("</body>");
-            out.println("</html>");
-            }
-        } finally { 
-            out.close();
-        }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
