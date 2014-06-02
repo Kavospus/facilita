@@ -26,11 +26,25 @@ public class DeterminarTest {
     public void tearDown() {
     }
     @Test
-    public void testDeterminar() {
-        determinar = new Determine(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2);
+    public void testDetermineFirstValue(){
+        testDetermine(new double[][]{{-0.5,0.75},{0.5,-0.25}}, 2, 2, -0.25);
+    }
+    
+    @Test
+    public void testDetermineSecondValue(){
+        testDetermine(new double[][]{{-1,-2},{-3,-4}}, 2, 2, -2);
+    }
+    
+    @Test
+    public void testDetermineThirdValue(){
+        testDetermine(new double[][]{{2014,2000},{2000,2010}}, 2, 2, 48140.0);
+    }
+    
+    private void testDetermine(double[][] input, int linesA, int columnsA, double valorEsperado) {
+        determinar = new Determine(input, linesA, columnsA);
         determinar.calculate();
-        double saida = -0.25;
+        double saida = valorEsperado;
         assertEquals(saida,determinar.getResult(), 0.000001);
-        assertEquals(saida,determinar.getResult(), 0.000001);
+        
     }
 }
