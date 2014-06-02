@@ -198,5 +198,22 @@ public class CalculusTest {
         
         assertEquals(calculusAmount, calculus.size()); 
     }
-   
+    @Test
+    public void shouldSelectACalculusByIdOnDataBase() throws Exception{
+        
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        User userTest = userDB.logon("test", "123456");
+        userDB.disconnect();
+        
+        CalculusDAO calculusDB = new CalculusDAO();
+        calculusDB.connect();
+        ArrayList<Calculus> calculus = calculusDB.select(userTest);
+        
+        Calculus c = calculus.get(calculus.size()-1);
+        
+        assertEquals(calculusDB.selectById(c.getId()).getId(), c.getId());
+        
+        calculusDB.disconnect();
+    }
 }
