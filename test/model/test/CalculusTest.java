@@ -198,6 +198,7 @@ public class CalculusTest {
         
         assertEquals(calculusAmount, calculus.size()); 
     }
+    
     @Test
     public void shouldSelectACalculusByIdOnDataBase() throws Exception{
         
