@@ -13,6 +13,7 @@ import modelo.Calculus;
 import modelo.CalculusDAO;
 import modelo.Determine;
 import modelo.Invert;
+import modelo.MD5Encrypter;
 import modelo.ProfileDAO;
 import modelo.User;
 import modelo.UserDAO;
@@ -37,18 +38,20 @@ public class CalculusTest {
     
     @BeforeClass
     public static void setUpClass() throws SQLException, Exception {
+        
         ProfileDAO profileDB = new ProfileDAO();
         profileDB.connect();
         User userTest = new User();
         userTest.setName("User Test");
         userTest.setLogin("test");
-        userTest.setPassword("123456");
+        userTest.setPassword("e10adc3949ba59abbe56e057f20f883e");
         userTest.setProfile(profileDB.selectById(1));
         
         profileDB.disconnect();
         UserDAO userDB = new UserDAO();
         userDB.connect();
-        userDB.insert(userTest);
+        userDB.insert(userTest); 
+        userTest = userDB.logon("test", "123456");
         userDB.disconnect();
                 
         Invert invert = new Invert(new double[][]{{4,5},{4,5}},2,2);
@@ -60,11 +63,8 @@ public class CalculusTest {
         calculusDB.connect();
         calculusDB.insert(invert);
         
-        Determine determine = new Determine();
+        Determine determine = new Determine(new double[][]{{4,5},{4,5}},2,2);
         determine.setUser(userTest);
-        determine.setColumnsA(2);
-        determine.setLinesA(2);
-        determine.setInput(new double[][]{{4,5},{4,5}});
         determine.calculate();
         
         calculusDB.insert(determine);
@@ -111,7 +111,7 @@ public class CalculusTest {
         userDB.disconnect();
         Invert invert = new Invert(new double[][]{{4,5},{4,5}},2,2);
         invert.setUser(userTest);
-       
+       invert.calculate();
         
         CalculusDAO calculusDB = new CalculusDAO();
         calculusDB.connect();
