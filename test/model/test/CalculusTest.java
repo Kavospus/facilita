@@ -121,9 +121,82 @@ public class CalculusTest {
         
         assertEquals(calculusAmount+1,calculus.size());
     
-        for(Calculus c:calculus){
-            calculusDB.delete(c);
-        }
+        
+        calculusDB.delete(calculus.get(calculus.size()-1));
+        
         calculusDB.disconnect();
     }
+    @Test
+    public void shouldSelectACalculusOnDataBase() throws Exception{
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        User userTest = userDB.logon("test", "123456");
+        userDB.disconnect();
+        
+        CalculusDAO calculusDB = new CalculusDAO();
+        calculusDB.connect();
+        ArrayList<Calculus> calculusUser =calculusDB.select(userTest);
+        
+        assertEquals(calculusUser.size(), 2);
+        
+        calculusDB.disconnect();   
+    }
+    @Test
+    public void shouldUpdateACalculusOnDataBase() throws Exception{
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        User userTest = userDB.logon("test", "123456");
+        userDB.disconnect();
+        
+        Invert invert = new Invert(new double[][]{{4,5},{4,5}},2,2);
+        invert.setUser(userTest);
+        invert.calculate();
+        
+        
+        CalculusDAO calculusDB = new CalculusDAO();
+        calculusDB.connect();
+        calculusDB.insert(invert);
+        
+            
+        ArrayList<Calculus> calculus = calculusDB.select(userTest);
+        Calculus c = calculus.get(calculus.size()-1); 
+        c.setInputString("{{4,5,2},{4,5,2},{4,5,2}}");
+       
+        calculusDB.update(c);
+        
+        calculus = calculusDB.select(userTest);
+        
+        assertEquals("{{4,5,2},{4,5,2},{4,5,2}}", (calculus.get(calculus.size()-1)).getInputString());
+        
+        calculusDB.delete(calculus.get(calculus.size()-1));
+        calculusDB.disconnect();   
+    }
+    
+    @Test
+    public void shouldDeleteACalculusOnDataBase() throws Exception{
+        
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        User userTest = userDB.logon("test", "123456");
+        userDB.disconnect();
+        
+        Invert invert = new Invert(new double[][] {{2,2},{2,2}},2,2);
+        invert.setUser(userTest);
+        invert.calculate();
+        
+        CalculusDAO calculusDB = new CalculusDAO();
+        calculusDB.connect();
+        int calculusAmount = calculusDB.select(userTest).size();
+        calculusDB.insert(invert);
+        ArrayList<Calculus> calculus =  calculusDB.select(userTest);
+        
+        assertEquals(calculusAmount+1,calculus.size());
+        
+        calculusDB.delete(calculus.get(calculus.size()-1));
+        
+        calculus = calculusDB.select(userTest);
+        
+        assertEquals(calculusAmount, calculus.size()); 
+    }
+   
 }
