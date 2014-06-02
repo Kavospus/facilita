@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +47,22 @@ public class UpdateMenu extends HttpServlet {
             out.println("<title>Servlet AlterarMenu</title>");  
             out.println("</head>");
             out.println("<body>");
-            try {
+        try {
+            updateMenu(request, response, session, out);
+        } catch (Exception ex) {
+            Logger.getLogger(UpdateMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            out.println("</body>");
+            out.println("</html>");
+            }
+        } finally { 
+            out.close();
+        }
+    } 
+    
+    public void updateMenu(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out) throws Exception{
+        try {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String menuName = request.getParameter("menu");
                 String link = request.getParameter("link");
@@ -75,14 +92,8 @@ public class UpdateMenu extends HttpServlet {
             } catch (Exception e) {
                 out.print(e);
             }
-            out.println("</body>");
-            out.println("</html>");
-            }
-        } finally { 
-            out.close();
-        }
-    } 
-
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.

@@ -44,7 +44,17 @@ public class SumMatrices extends HttpServlet {
 	    out.println("</head>");
 	    out.println("<body>");
 	    
-            int i=0;
+            
+	    out.println("</body>");
+	    out.println("</html>");
+	} finally {
+	    out.close();
+	}
+    }
+    
+    public void sumMatrices(HttpServletRequest request,HttpServletResponse response,
+        HttpSession session,PrintWriter out) throws Exception{
+        int i=0;
             int j=0;
             int linesA = 0;
             int columnsA = 0;
@@ -179,11 +189,6 @@ public class SumMatrices extends HttpServlet {
             else{
                 //Nothing to do
             }
-	    out.println("</body>");
-	    out.println("</html>");
-	} finally {
-	    out.close();
-	}
     }
 
     // <editor-fold defaultstate="collapsed"
