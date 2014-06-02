@@ -40,10 +40,10 @@ public class DetermineTest {
         testDetermine(new double[][]{{2014,2000},{2000,2010}}, 2, 2, 48140.0);
     }
     
-    private void testDetermine(double[][] input, int linesA, int columnsA, double valorEsperado) {
+    private void testDetermine(double[][] input, int linesA, int columnsA, double valueExpected) {
         determinar = new Determine(input, linesA, columnsA);
         determinar.calculate();
-        double saida = valorEsperado;
+        double saida = valueExpected;
         assertEquals(saida,determinar.getResult(), 0.000001);
         
     }
