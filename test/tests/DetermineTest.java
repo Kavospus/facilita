@@ -18,7 +18,7 @@ public class DetermineTest {
     
     public DetermineTest() {
     }
-    Determine determinar;
+    Determine determine;
     @Before
     public void setUp() {
     }
@@ -41,10 +41,10 @@ public class DetermineTest {
     }
     
     private void testDetermine(double[][] input, int linesA, int columnsA, double valueExpected) {
-        determinar = new Determine(input, linesA, columnsA);
-        determinar.calculate();
+        determine = new Determine(input, linesA, columnsA);
+        determine.calculate();
         double saida = valueExpected;
-        assertEquals(saida,determinar.getResult(), 0.000001);
+        assertEquals(saida,determine.getResult(), 0.000001);
         
     }
 }

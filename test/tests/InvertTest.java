@@ -18,7 +18,7 @@ public class InvertTest {
     
     public InvertTest() {
     }
-    Invert inverter;
+    Invert invert;
     @Before
     public void setUp() {
     }
@@ -44,10 +44,10 @@ public class InvertTest {
     }
     
     private void testInvert(double[][] input, int linesA, int columnsA, double[][] valueExpected) {
-        inverter = new Invert(input, linesA, columnsA);
-        inverter.calculate();
+        invert = new Invert(input, linesA, columnsA);
+        invert.calculate();
         double[][] saida = valueExpected;
-        assertArrayEquals(saida[0],inverter.getResult()[0], 0.000001);
-        assertArrayEquals(saida[1],inverter.getResult()[1], 0.000001);
+        assertArrayEquals(saida[0],invert.getResult()[0], 0.000001);
+        assertArrayEquals(saida[1],invert.getResult()[1], 0.000001);
     }
 }
