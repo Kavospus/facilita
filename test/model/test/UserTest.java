@@ -103,6 +103,78 @@ public class UserTest {
          assertTrue(users.size()>=1);
          
          assertEquals("test",users.get(users.size()-1).getLogin());
+         userDB.disconnect();
      }
      
+     @Test
+     public void shouldUpdateAUserOnDataBase() throws Exception{  
+        ProfileDAO profileDB = new ProfileDAO();
+        profileDB.connect();
+        User userTest = new User();
+        userTest.setName("User Test");
+        userTest.setLogin("newTestToUpdate");
+        userTest.setPassword("e10adc3949ba59abbe56e057f20f883e");
+        userTest.setProfile(profileDB.selectById(1));
+        profileDB.disconnect();
+      
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        userDB.insert(userTest);
+       
+        userTest = userDB.logon("newTestToUpdate", "123456");
+        assertEquals(userDB.selectById(userTest.getId()).getLogin(),userTest.getLogin());
+        
+        userTest.setLogin("newTestUpdated");
+        userTest.setName("User Test");
+        userTest.setPassword("e10adc3949ba59abbe56e057f20f883e");
+        
+        userDB.update(userTest);
+ 
+        userTest = userDB.logon("newTestUpdated", "123456");
+        assertEquals(userDB.selectById(userTest.getId()).getLogin(),userTest.getLogin());
+        
+        userDB.delete(userTest);
+        userDB.disconnect();
+     }
+     
+     @Test
+     public void shouldDeleteAUserOnDataBase() throws Exception{
+        ProfileDAO profileDB = new ProfileDAO();
+        profileDB.connect();
+        User userTest = new User();
+        userTest.setName("User Test");
+        userTest.setLogin("userTestToDelete");
+        userTest.setPassword("e10adc3949ba59abbe56e057f20f883e");
+        userTest.setProfile(profileDB.selectById(1));
+        profileDB.disconnect();
+      
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        userDB.insert(userTest);
+        
+        int userAmount = userDB.select().size();
+        
+        userTest = userDB.logon("userTestToDelete","123456");
+        userDB.delete(userTest);
+        
+         assertEquals(userDB.select().size(), userAmount-1);
+        
+         userDB.disconnect();
+     }
+     
+     @Test
+     public void shouldSelectAUserById() throws Exception{
+        UserDAO userDB = new UserDAO(); 
+        userDB.connect();
+        
+        ArrayList<User> allUsers = new ArrayList<User>();
+        
+        allUsers = userDB.select();
+        
+        User userTest = allUsers.get(allUsers.size()-1);
+        
+         assertEquals(userDB.selectById(userTest.getId()).getId(), userTest.getId());
+        
+         userDB.disconnect();
+     }
 }
