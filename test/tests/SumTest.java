@@ -40,7 +40,7 @@ public class SumTest {
     
     @Test
     public void testSumThirdValue(){
-        testSum(new double[][]{{1000.0,2000.0},{-3000.0,-4000.0}},new double[][]{{-5000.0,-6000.0},{7000.0,8000.0}}, 2, 2,new double[][]{{-4000,-4000},{-4000,-4000}});
+        testSum(new double[][]{{1000.0,2000.0},{-3000.0,-4000.0}},new double[][]{{-5000.0,-6000.0},{7000.0,8000.0}}, 2, 2,new double[][]{{-4000,-4000},{4000,4000}});
     }
     
     private void testSum(double[][] inputA, double[][] inputB, int linesA,
