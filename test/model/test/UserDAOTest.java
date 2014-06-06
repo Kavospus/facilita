@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import modelo.ProfileDAO;
 import modelo.User;
 import modelo.UserDAO;
+import org.apache.catalina.Context;
+import org.apache.catalina.core.StandardContext;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -176,5 +178,47 @@ public class UserDAOTest {
          assertEquals(userDB.selectById(userTest.getId()).getId(), userTest.getId());
         
          userDB.disconnect();
+     }
+     
+     @Test
+     public void shouldBeloggedOnTheSystem() throws Exception{
+         
+        ProfileDAO profileDB = new ProfileDAO();
+        profileDB.connect();
+        User userTest = new User();
+        userTest.setName("User Test");
+        userTest.setLogin("userToTestLogon");
+        userTest.setPassword("e10adc3949ba59abbe56e057f20f883e");
+        userTest.setProfile(profileDB.selectById(1));
+        profileDB.disconnect();
+        
+        
+        UserDAO userDB = new UserDAO();
+        userDB.connect();
+        
+        userDB.insert(userTest);
+        
+        User userToBeTested = new User();
+        
+        userToBeTested = userDB.logon("userToTestLogon", "123456");
+        
+         assertEquals(userToBeTested.getLogin(), userTest.getLogin());
+         
+         userDB.delete(userTest);
+         userDB.delete(userToBeTested);
+         userDB.disconnect();   
+     }
+     
+     @Test
+     public void shouldVerifyPermissionOfTheUser() throws Exception{
+         
+         UserDAO userDB = new UserDAO();
+         userDB.connect();
+         
+         User userTest = new User();
+         userTest = userDB.logon("guest", "guest");
+         
+         assertFalse(userTest.havePermission("Facilita/list_user.jsp", "Facilita", userTest));
+          
      }
 }
