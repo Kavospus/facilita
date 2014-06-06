@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,11 +54,11 @@ public class DeleteCalculus extends HttpServlet {
 		out.println("<title>Servlet ExcluirCalculo</title>");
 		out.println("</head>");
 		out.println("<body>");
-		try {
+		try{
                     deleteCalculus(request, response, session, out);
-		} catch (Exception e) {
-		    out.print(e);
-		}
+                }catch(Exception ex){
+                     Logger.getLogger(DeleteCalculus.class.getName()).log(Level.SEVERE, null, ex);
+                }
 		out.println("</body>");
 		out.println("</html>");
 	    }

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +53,7 @@ public class DoGuestLogin extends HttpServlet {
                         getString("Error on Login")+"!');");
 		out.print(" window.open('login.jsp','_parent');");
 		out.print("</script>");
+                 Logger.getLogger(DoGuestLogin.class.getName()).log(Level.SEVERE, null, e);
 	    }
 	    out.println("</body>");
 	    out.println("</html>");

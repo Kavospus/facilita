@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,11 +48,12 @@ public class InsertUser extends HttpServlet {
 		// TODO output your page here
 		try {
 		    insertUser(request, response, session, out);
-		} catch (Exception e) {
+		} catch (Exception ex) {
 		    out.print("<script language='JavaScript'>");
 		    out.print(" alert('O usuário já existe!');");
 		    out.print(" window.open('insert_user_form.jsp','_parent');");
 		    out.print("</script>");
+                     Logger.getLogger(InsertUser.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		out.println("</body>");
 		out.println("</html>");

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,9 +49,9 @@ public class InsertProfile extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		try {
-            insertProfile(request,response,session,out);
-		} catch (Exception e) {
-		    out.print(e);
+                     insertProfile(request,response,session,out);
+		} catch (Exception ex) {
+		    Logger.getLogger(InsertProfile.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		out.println("</body>");
 		out.println("</html>");
