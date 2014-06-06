@@ -94,7 +94,7 @@ public class LeastSquares {
 	return resultLeastSquares;
     }
     
-    SimpleMatrix linearAdjust(SimpleMatrix A, SimpleMatrix b, int dimens, 
+    public SimpleMatrix linearAdjust(SimpleMatrix A, SimpleMatrix b, int dimens, 
             int qnt, double vx[], double vy[]) {
         for (int i = 0; i < qnt; i++) {
 		    A.set(0, 0, A.get(0, 0) + Math.pow(vx[i], 2));
@@ -109,7 +109,7 @@ public class LeastSquares {
 		return solveMatrix(A, b, dimens);
     }
     
-    SimpleMatrix gaussianAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
+    public SimpleMatrix gaussianAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
             int qnt, double vx[], double vy[]) {
         for (int i = 0; i < qnt; i++) {
 		    A.set(0, 0, A.get(0, 0) + 1);
@@ -132,7 +132,7 @@ public class LeastSquares {
                 return solveMatrix(A, b, dimens);
     }
     
-    SimpleMatrix parabolicAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
+    public SimpleMatrix parabolicAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
             int qnt, double vx[], double vy[]){
         for (int i = 0; i < qnt; i++) {
 		    A.set(0, 0, A.get(0, 0) + 1);
@@ -154,7 +154,7 @@ public class LeastSquares {
 		return solveMatrix(A, b, dimens);
     }
     
-    SimpleMatrix expAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
+    public SimpleMatrix expAdjust(SimpleMatrix A, SimpleMatrix b, int dimens,
             int qnt, double vx[], double vy[]) {
         for (int i = 0; i < qnt; i++) {
 		    A.set(0, 0, A.get(0, 0) + 1);
