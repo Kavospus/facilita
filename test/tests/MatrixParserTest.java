@@ -31,20 +31,6 @@ public class MatrixParserTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
-    public void testParser() {
-        double[][] matrix;
-        ArrayList<String> strings = new ArrayList<String>();
-        strings.add("olá");
-        strings.add("teste");
-        
-        assertEquals("olá;teste;",MatrixParser.concat(strings));
-        assertEquals("{3.0}",MatrixParser.parseString(3.0));
-        assertEquals(3.0,MatrixParser.parseNumber("{3.0}"),0.000001);
-        double infinito = Double.parseDouble("Infinity");
-        matrix = new double[][]{{infinito,-infinito},{-infinito,infinito}};
-        assertArrayEquals(matrix, MatrixParser.parseMatrix("{{Infinity,-Infinity},{-Infinity,Infinity}}"));
-    }
     
     @Test
     public void testMatrixParserConcatFirstString(){
@@ -145,6 +131,21 @@ public class MatrixParserTest {
         testMatrixParserParseStringWithDoublMatrix(new double[][]{{2014.0,2000.0},{2000.0,2010.0}},"{{2014.0,2000.0},{2000.0,2010.0}}");
     }
     
+    @Test
+    public void testMatrixParserParseMatrixFirstString(){
+        testMatrixParserParseMatrix("{{-0.5,0.75},{0.5,-0.25}}",new double[][]{{-0.5,0.75},{0.5,-0.25}});
+    }
+    
+    @Test
+    public void testMatrixParserParseMatrixSecondString(){
+        testMatrixParserParseMatrix("{{-1.0,-2.0},{-3.0,-4.0}}",new double[][]{{-1.0,-2.0},{-3.0,-4.0}});
+    }
+    
+    @Test
+    public void testMatrixParserParseMatrixThirdString(){
+        testMatrixParserParseMatrix("{{2014.0,2000.0},{2000.0,2010.0}}",new double[][]{{2014.0,2000.0},{2000.0,2010.0}});
+    }
+    
     private void testMatrixParserConcat(ArrayList<String> data, String stringExpected) {
         assertEquals(MatrixParser.concat(data),stringExpected);
     }
@@ -163,6 +164,11 @@ public class MatrixParserTest {
     
     private void testMatrixParserParseStringWithDoublMatrix(double[][] matrix, String stringExpected) {
         assertEquals(MatrixParser.parseString(matrix),stringExpected);
+    }
+    
+    private void testMatrixParserParseMatrix(String matrix, double [][] valueExpected) {
+        assertArrayEquals(valueExpected[0],MatrixParser.parseMatrix(matrix)[0], 0.000001);
+        assertArrayEquals(valueExpected[1],MatrixParser.parseMatrix(matrix)[1], 0.000001);
     }
     
 }
