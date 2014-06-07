@@ -100,6 +100,21 @@ public class MatrixParserTest {
         testMatrixParserUnconcat("ola;teste;3;teste;",strings);
     }
     
+    @Test
+    public void testMatrixParserParseStringWithDoubleFirstValue(){
+        testMatrixParserParseStringWithDouble(5.0,"{5.0}");
+    }
+    
+    @Test
+    public void testMatrixParserParseStringWithDoubleSecondValue(){
+        testMatrixParserParseStringWithDouble(-1.75,"{-1.75}");
+    }
+    
+    @Test
+    public void testMatrixParserParseStringWithDoubleThirdValue(){
+        testMatrixParserParseStringWithDouble(-1111.2222,"{-1111.2222}");
+    }
+    
     private void testMatrixParserConcat(ArrayList<String> data, String stringExpected) {
         assertEquals(MatrixParser.concat(data),stringExpected);
     }
@@ -107,4 +122,9 @@ public class MatrixParserTest {
     private void testMatrixParserUnconcat(String data, ArrayList<String> stringExpected) {
         assertEquals(MatrixParser.unconcat(data),stringExpected);
     }
+    
+    private void testMatrixParserParseStringWithDouble(double num, String stringExpected) {
+        assertEquals(MatrixParser.parseString(num),stringExpected);
+    }
+    
 }
