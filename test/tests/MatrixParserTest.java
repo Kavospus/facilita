@@ -73,7 +73,38 @@ public class MatrixParserTest {
         testMatrixParserConcat(strings,"ola;teste;3;teste;");
     }
     
+    @Test
+    public void testMatrixParserUnconcatFirstString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("olá");
+        strings.add("teste");
+        testMatrixParserUnconcat("olá;teste;",strings);
+    }
+    
+    @Test
+    public void testMatrixParserUnconcatSecondString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("ola");
+        strings.add("teste");
+        strings.add("2");
+        testMatrixParserUnconcat("ola;teste;2;",strings);
+    }
+    
+    @Test
+    public void testMatrixParserUnconcatThirdString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("ola");
+        strings.add("teste");
+        strings.add("3");
+        strings.add("teste");
+        testMatrixParserUnconcat("ola;teste;3;teste;",strings);
+    }
+    
     private void testMatrixParserConcat(ArrayList<String> data, String stringExpected) {
         assertEquals(MatrixParser.concat(data),stringExpected);
+    }
+    
+    private void testMatrixParserUnconcat(String data, ArrayList<String> stringExpected) {
+        assertEquals(MatrixParser.unconcat(data),stringExpected);
     }
 }
