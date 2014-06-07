@@ -115,6 +115,21 @@ public class MatrixParserTest {
         testMatrixParserParseStringWithDouble(-1111.2222,"{-1111.2222}");
     }
     
+    @Test
+    public void testMatrixParserParseNumberFirstString(){
+        testMatrixParserParseNumber("{5.0}",5.0);
+    }
+    
+    @Test
+    public void testMatrixParserParseNumberSecondString(){
+        testMatrixParserParseNumber("{-1.75}",-1.75);
+    }
+    
+    @Test
+    public void testMatrixParserParseNumberThirdString(){
+        testMatrixParserParseNumber("{-1111.2222}",-1111.2222);
+    }
+    
     private void testMatrixParserConcat(ArrayList<String> data, String stringExpected) {
         assertEquals(MatrixParser.concat(data),stringExpected);
     }
@@ -125,6 +140,10 @@ public class MatrixParserTest {
     
     private void testMatrixParserParseStringWithDouble(double num, String stringExpected) {
         assertEquals(MatrixParser.parseString(num),stringExpected);
+    }
+    
+    private void testMatrixParserParseNumber(String num, double valueExpected) {
+        assertEquals(MatrixParser.parseNumber(num),valueExpected,0.00001);
     }
     
 }
