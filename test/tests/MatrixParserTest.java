@@ -44,7 +44,36 @@ public class MatrixParserTest {
         double infinito = Double.parseDouble("Infinity");
         matrix = new double[][]{{infinito,-infinito},{-infinito,infinito}};
         assertArrayEquals(matrix, MatrixParser.parseMatrix("{{Infinity,-Infinity},{-Infinity,Infinity}}"));
-
-       
+    }
+    
+    @Test
+    public void testMatrixParserConcatFirstString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("olá");
+        strings.add("teste");
+        testMatrixParserConcat(strings,"olá;teste;");
+    }
+    
+    @Test
+    public void testMatrixParserConcatSecondString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("ola");
+        strings.add("teste");
+        strings.add("2");
+        testMatrixParserConcat(strings,"ola;teste;2;");
+    }
+    
+    @Test
+    public void testMatrixParserConcatThirdString(){
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("ola");
+        strings.add("teste");
+        strings.add("3");
+        strings.add("teste");
+        testMatrixParserConcat(strings,"ola;teste;3;teste;");
+    }
+    
+    private void testMatrixParserConcat(ArrayList<String> data, String stringExpected) {
+        assertEquals(MatrixParser.concat(data),stringExpected);
     }
 }

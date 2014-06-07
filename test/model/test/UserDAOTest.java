@@ -22,9 +22,9 @@ import static org.junit.Assert.*;
  *
  * @author gabriel
  */
-public class UserTest {
+public class UserDAOTest {
     
-    public UserTest() {
+    public UserDAOTest() {
     }
     
     @BeforeClass
