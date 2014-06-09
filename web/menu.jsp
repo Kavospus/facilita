@@ -10,11 +10,11 @@
 
 boolean logged = false;
 User userLogged = null;
-if(session.getAttribute("user_locale")== null){
-    response.sendRedirect("login.jsp");
-}
+
 ResourceBundle bundle = null;
 try{
+    if(session.getAttribute("user_locale")== null){
+    }
 
     userLogged = (User) session.getAttribute("userLogged");
     Locale userLocale =(Locale) session.getAttribute("user_locale");
@@ -33,12 +33,16 @@ try{
 
     
 }catch(Exception e){
-//response.sendRedirect("login.jsp");
+    response.sendRedirect("login.jsp");
 }
 %>
 <%!
 public String _(String message,ResourceBundle bundle){
-    return bundle.getString(message);
+    if(bundle != null){
+        return bundle.getString(message);
+    }else{
+        return "";
+    }
 }
 %>
     </tr>
