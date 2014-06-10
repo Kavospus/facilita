@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +50,7 @@ public class RegisterUser extends HttpServlet {
                 out.print(" alert('O usuário já existe!');");
                 out.print(" window.open('register_user_form.jsp','_parent');");
                 out.print("</script>");
+                 Logger.getLogger(RegisterUser.class.getName()).log(Level.SEVERE, null, e);
             }
             out.println("</body>");
             out.println("</html>");

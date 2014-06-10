@@ -8,6 +8,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -88,7 +90,7 @@ public class LoadCalculus extends HttpServlet {
                     }
 
 		} catch (Exception x) {
-		    x.printStackTrace();
+		   Logger.getLogger(LoadCalculus.class.getName()).log(Level.SEVERE, null, x);
 		}
 		out.println("</body>");
 		out.println("</html>");

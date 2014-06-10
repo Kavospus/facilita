@@ -9,6 +9,8 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +52,7 @@ public class ManageProfileMenu extends HttpServlet {
 		try {
                     manageProfileMenu(request,response,session,out);
 		} catch (Exception e) {
-		    out.print(e);
+		     Logger.getLogger(ManageProfileMenu.class.getName()).log(Level.SEVERE, null, e);
 		}
 
 		out.println("</body>");
